@@ -1184,9 +1184,7 @@
 
         // CORS 代理列表（用于绕过跨域限制）
         const corsProxies = [
-            'https://api.codetabs.com/v1/proxy?quest=',
-            'https://corsproxy.io/?',
-            'https://api.allorigins.win/raw?url='
+            'https://api.codetabs.com/v1/proxy?quest='
         ];
 
         // 通过 Cloudflare Worker 代理获取视频
@@ -1210,6 +1208,66 @@
                 console.error('Worker 调用失败:', error);
                 return { success: false, error: 'worker_fetch_failed', message: error.message };
             }
+        }
+
+        // 通用 Cobalt 解析（用于 Instagram/Facebook/YouTube 等）
+        async function fetchViaCobalt(url, platform) {
+            const instances = [
+                'https://cobaltapi.squair.xyz',
+                'https://api.qwkuns.me',
+                'https://api.dl.woof.monster'
+            ];
+
+            for (const instance of instances) {
+                try {
+                    const response = await fetch(`${instance}/`, {
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            url: url,
+                            videoQuality: '1080',
+                            filenameStyle: 'basic'
+                        })
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        if (data.status === 'tunnel' || data.status === 'redirect') {
+                            return {
+                                success: true,
+                                platform: platform,
+                                title: data.filename || `${platform} 视频`,
+                                downloads: [{
+                                    type: 'video',
+                                    label: '高清视频',
+                                    quality: 'HD',
+                                    url: data.url,
+                                    badge: '推荐'
+                                }]
+                            };
+                        } else if (data.status === 'picker' && data.picker) {
+                            return {
+                                success: true,
+                                platform: platform,
+                                title: `${platform} 视频`,
+                                downloads: data.picker.map((item, idx) => ({
+                                    type: item.type || 'video',
+                                    label: `媒体 ${idx + 1}`,
+                                    quality: item.type === 'photo' ? '图片' : 'HD',
+                                    url: item.url,
+                                    badge: idx === 0 ? '推荐' : null
+                                }))
+                            };
+                        }
+                    }
+                } catch (err) {
+                    console.log(`Cobalt ${instance} (${platform}) 失败:`, err.message);
+                }
+            }
+            return { success: false };
         }
 
         // 初始化
@@ -1507,17 +1565,18 @@
             };
         }
 
-        // Cobalt API (开源服务)
+        // Cobalt API v10/v11 (开源服务)
         async function fetchXCobalt(url) {
-            // 尝试多个 cobalt 实例
+            // 公共 cobalt 实例（v10/v11 格式，POST / 端点）
             const instances = [
-                'https://api.cobalt.tools',
-                'https://cobalt-api.hyper.lol'
+                'https://cobaltapi.squair.xyz',
+                'https://api.qwkuns.me',
+                'https://api.dl.woof.monster'
             ];
 
             for (const instance of instances) {
                 try {
-                    const response = await fetch(`${instance}/api/json`, {
+                    const response = await fetch(`${instance}/`, {
                         method: 'POST',
                         headers: {
                             'Accept': 'application/json',
@@ -1525,19 +1584,19 @@
                         },
                         body: JSON.stringify({
                             url: url,
-                            vCodec: 'h264',
-                            vQuality: 'max',
-                            aFormat: 'mp3'
+                            videoQuality: '1080',
+                            filenameStyle: 'basic'
                         })
                     });
 
                     if (response.ok) {
                         const data = await response.json();
-                        if (data.status === 'stream' || data.status === 'redirect') {
+                        // v10/v11: status 为 tunnel/redirect/picker
+                        if (data.status === 'tunnel' || data.status === 'redirect') {
                             return {
                                 success: true,
                                 platform: 'x',
-                                title: 'X (Twitter) 视频',
+                                title: data.filename || 'X (Twitter) 视频',
                                 downloads: [{
                                     type: 'video',
                                     label: '高清视频',
@@ -1547,7 +1606,6 @@
                                 }]
                             };
                         } else if (data.status === 'picker' && data.picker) {
-                            // 多个媒体文件
                             return {
                                 success: true,
                                 platform: 'x',
@@ -1573,7 +1631,8 @@
         async function fetchXTwitsave(url) {
             try {
                 // 使用 CORS 代理
-                const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(`https://twitsave.com/info?url=${encodeURIComponent(url)}`)}`;
+                const targetUrl = `https://twitsave.com/info?url=${encodeURIComponent(url)}`;
+                const proxyUrl = `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(targetUrl)}`;
                 const response = await fetch(proxyUrl);
                 const html = await response.text();
 
@@ -1604,7 +1663,8 @@
         // TwitterVid API
         async function fetchXTwitterVid(url, tweetId) {
             try {
-                const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(`https://twittervid.com/api/video/${tweetId}`)}`;
+                const targetUrl = `https://twittervid.com/api/video/${tweetId}`;
+                const proxyUrl = `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(targetUrl)}`;
                 const response = await fetch(proxyUrl);
                 const data = await response.json();
 
@@ -1632,31 +1692,18 @@
             // 尝试使用 Worker
             const workerResult = await fetchViaWorker(url, 'instagram');
             if (workerResult.success) {
-                // Worker 返回外部服务链接（所有 Cobalt 实例都失败时）
                 if (workerResult.isExternal) {
-                    return {
-                        success: true,
-                        platform: 'instagram',
-                        title: 'Instagram 视频',
-                        author: '选择下载服务（推荐 Cobalt）',
-                        isExternal: true,
-                        externalServices: workerResult.externalServices
-                    };
+                    return { success: true, platform: 'instagram', title: 'Instagram 视频', author: '选择下载服务', isExternal: true, externalServices: workerResult.externalServices };
                 }
-                // Worker 返回直接下载链接
-                return {
-                    success: true,
-                    platform: 'instagram',
-                    title: workerResult.filename || 'Instagram 视频',
-                    author: '通过 Worker 代理获取',
-                    downloadUrl: workerResult.downloadUrl,
-                    picker: workerResult.picker,
-                    workerStatus: workerResult.status
-                };
+                return { success: true, platform: 'instagram', title: workerResult.filename || 'Instagram 视频', author: '通过 Worker 代理获取', downloadUrl: workerResult.downloadUrl, picker: workerResult.picker, workerStatus: workerResult.status };
             }
 
-            // Worker 完全不可用，使用本地外部服务列表
-            console.log('Worker 不可用，使用本地外部服务列表:', workerResult.error);
+            // Worker 不可用，尝试 Cobalt 公共实例
+            console.log('Worker 不可用，尝试 Cobalt 实例:', workerResult.error);
+            const cobaltResult = await fetchViaCobalt(url, 'instagram');
+            if (cobaltResult.success) return cobaltResult;
+
+            // Cobalt 也失败，使用外部服务列表
             return {
                 success: true,
                 platform: 'instagram',
@@ -1675,31 +1722,18 @@
             // 尝试使用 Worker
             const workerResult = await fetchViaWorker(url, 'facebook');
             if (workerResult.success) {
-                // Worker 返回外部服务链接（所有 Cobalt 实例都失败时）
                 if (workerResult.isExternal) {
-                    return {
-                        success: true,
-                        platform: 'facebook',
-                        title: 'Facebook 视频',
-                        author: '选择下载服务（推荐 Cobalt）',
-                        isExternal: true,
-                        externalServices: workerResult.externalServices
-                    };
+                    return { success: true, platform: 'facebook', title: 'Facebook 视频', author: '选择下载服务', isExternal: true, externalServices: workerResult.externalServices };
                 }
-                // Worker 返回直接下载链接
-                return {
-                    success: true,
-                    platform: 'facebook',
-                    title: workerResult.filename || 'Facebook 视频',
-                    author: '通过 Worker 代理获取',
-                    downloadUrl: workerResult.downloadUrl,
-                    picker: workerResult.picker,
-                    workerStatus: workerResult.status
-                };
+                return { success: true, platform: 'facebook', title: workerResult.filename || 'Facebook 视频', author: '通过 Worker 代理获取', downloadUrl: workerResult.downloadUrl, picker: workerResult.picker, workerStatus: workerResult.status };
             }
 
-            // Worker 完全不可用，使用本地外部服务列表
-            console.log('Worker 不可用，使用本地外部服务列表:', workerResult.error);
+            // Worker 不可用，尝试 Cobalt 公共实例
+            console.log('Worker 不可用，尝试 Cobalt 实例:', workerResult.error);
+            const cobaltResult = await fetchViaCobalt(url, 'facebook');
+            if (cobaltResult.success) return cobaltResult;
+
+            // Cobalt 也失败，使用外部服务列表
             return {
                 success: true,
                 platform: 'facebook',
@@ -1718,44 +1752,21 @@
             // 尝试使用 Worker
             const workerResult = await fetchViaWorker(url, 'youtube');
             if (workerResult.success) {
-                // Worker 返回外部服务链接（API 失败时的兜底方案）
                 if (workerResult.isExternal) {
-                    return {
-                        success: true,
-                        platform: 'youtube',
-                        title: 'YouTube 视频',
-                        author: '选择下载服务（推荐 Cobalt）',
-                        isExternal: true,
-                        externalServices: workerResult.externalServices
-                    };
+                    return { success: true, platform: 'youtube', title: 'YouTube 视频', author: '选择下载服务', isExternal: true, externalServices: workerResult.externalServices };
                 }
-                // Worker 返回 YouTube API 解析结果（包含 videos/audios 数组）
                 if (workerResult.videos && workerResult.videos.length > 0) {
-                    return {
-                        success: true,
-                        platform: 'youtube',
-                        title: workerResult.title || 'YouTube 视频',
-                        author: workerResult.author || 'YouTube',
-                        thumbnail: workerResult.thumbnail,
-                        duration: workerResult.duration,
-                        videos: workerResult.videos,
-                        audios: workerResult.audios
-                    };
+                    return { success: true, platform: 'youtube', title: workerResult.title || 'YouTube 视频', author: workerResult.author || 'YouTube', thumbnail: workerResult.thumbnail, duration: workerResult.duration, videos: workerResult.videos, audios: workerResult.audios };
                 }
-                // Worker 返回直接下载链接（Cobalt 格式）
-                return {
-                    success: true,
-                    platform: 'youtube',
-                    title: workerResult.filename || 'YouTube 视频',
-                    author: '通过 Worker 代理获取',
-                    downloadUrl: workerResult.downloadUrl,
-                    picker: workerResult.picker,
-                    workerStatus: workerResult.status
-                };
+                return { success: true, platform: 'youtube', title: workerResult.filename || 'YouTube 视频', author: '通过 Worker 代理获取', downloadUrl: workerResult.downloadUrl, picker: workerResult.picker, workerStatus: workerResult.status };
             }
 
-            // Worker 完全不可用，使用本地外部服务列表
-            console.log('Worker 不可用，使用本地外部服务列表:', workerResult.error);
+            // Worker 不可用，尝试 Cobalt 公共实例
+            console.log('Worker 不可用，尝试 Cobalt 实例:', workerResult.error);
+            const cobaltResult = await fetchViaCobalt(url, 'youtube');
+            if (cobaltResult.success) return cobaltResult;
+
+            // Cobalt 也失败，使用外部服务列表
             return {
                 success: true,
                 platform: 'youtube',
