@@ -6,15 +6,15 @@
 
 ## English
 
-> A collection of 55+ pure frontend utility tools. No installation, no ads, no signup required. All processing happens locally in your browser. Your data never leaves your device.
+> A collection of 60+ pure frontend utility tools. No installation, no ads, no signup required. All processing happens locally in your browser. Your data never leaves your device.
 
 ### Live Demo
 
-**https://www.heyuan110.com/web-toolbox/**
+**https://www.usemagictools.com**
 
 ### Tool Categories
 
-#### Image Tools (11)
+#### Image Tools (12)
 
 | Tool | File | Description |
 |------|------|-------------|
@@ -29,6 +29,7 @@
 | OCR Tool | `ocr-tool.html` | Extract text from images using AI |
 | BG Remover | `bg-remover.html` | AI-powered background removal |
 | Watermark Tool | `watermark-tool.html` | Add text watermarks to images |
+| Transparent PNG Maker | `transparent-png.html` | Remove colors to create transparent PNGs |
 
 #### PDF Tools (7)
 
@@ -42,7 +43,7 @@
 | E-Sign | `e-sign.html` | Add electronic signatures to PDFs |
 | PDF Protect | `pdf-protect.html` | Encrypt and password-protect PDFs |
 
-#### Developer Tools (16)
+#### Developer Tools (17)
 
 | Tool | File | Description |
 |------|------|-------------|
@@ -62,6 +63,7 @@
 | Hex Viewer | `hex-viewer.html` | View binary files in hex format |
 | Code Formatter | `code-formatter.html` | Format JSON, SQL, HTML, CSS, JS |
 | YAML Editor | `yaml-editor.html` | YAML/TOML/JSON converter and editor |
+| Keyboard Tester | `keyboard-tester.html` | Test keys, N-key rollover and ghost detection |
 
 #### Text Tools (5)
 
@@ -118,15 +120,15 @@ MIT
 
 ## 中文
 
-> 一套 55+ 纯前端实用工具集，无需安装、无广告、无需注册，浏览器直接打开即可使用。所有处理都在本地完成，数据不会上传。
+> 一套 60+ 纯前端实用工具集，无需安装、无广告、无需注册，浏览器直接打开即可使用。所有处理都在本地完成，数据不会上传。
 
 ### 在线体验
 
-**https://www.heyuan110.com/web-toolbox/**
+**https://www.usemagictools.com**
 
 ### 工具分类
 
-#### 图片工具 (11)
+#### 图片工具 (12)
 
 | 工具 | 文件 | 说明 |
 |------|------|------|
@@ -141,6 +143,7 @@ MIT
 | 文字识别 (OCR) | `ocr-tool.html` | AI 驱动的图片文字提取 |
 | 背景移除 | `bg-remover.html` | AI 智能去除图片背景 |
 | 水印工具 | `watermark-tool.html` | 为图片添加文字水印 |
+| 透明PNG生成器 | `transparent-png.html` | 去除指定颜色生成透明PNG |
 
 #### PDF 工具 (7)
 
@@ -154,7 +157,7 @@ MIT
 | 电子签名 | `e-sign.html` | 为 PDF 添加电子签名 |
 | PDF 加密 | `pdf-protect.html` | 对 PDF 文件加密保护 |
 
-#### 开发者工具 (16)
+#### 开发者工具 (17)
 
 | 工具 | 文件 | 说明 |
 |------|------|------|
@@ -174,6 +177,7 @@ MIT
 | Hex 查看器 | `hex-viewer.html` | 以十六进制查看二进制文件 |
 | 代码格式化 | `code-formatter.html` | 格式化 JSON、SQL、HTML、CSS、JS |
 | YAML 编辑器 | `yaml-editor.html` | YAML/TOML/JSON 转换与编辑 |
+| 键盘检测器 | `keyboard-tester.html` | 按键测试、N键无冲检测、幽灵键检测 |
 
 #### 文本工具 (5)
 
@@ -230,15 +234,15 @@ MIT
 
 ## Français
 
-> Une collection de 55+ outils utilitaires 100% frontend. Aucune installation, aucune publicite, aucune inscription requise. Tout le traitement se fait localement dans votre navigateur. Vos donnees ne quittent jamais votre appareil.
+> Une collection de 60+ outils utilitaires 100% frontend. Aucune installation, aucune publicite, aucune inscription requise. Tout le traitement se fait localement dans votre navigateur. Vos donnees ne quittent jamais votre appareil.
 
 ### Demo en ligne
 
-**https://www.heyuan110.com/web-toolbox/**
+**https://www.usemagictools.com**
 
 ### Categories d'outils
 
-#### Outils Image (11)
+#### Outils Image (12)
 
 | Outil | Fichier | Description |
 |-------|---------|-------------|
@@ -253,6 +257,7 @@ MIT
 | Outil OCR | `ocr-tool.html` | Extraire du texte des images par IA |
 | Suppression d'arriere-plan | `bg-remover.html` | Suppression de fond par IA |
 | Outil de filigrane | `watermark-tool.html` | Ajouter des filigranes texte aux images |
+| Createur PNG transparent | `transparent-png.html` | Supprimer des couleurs pour creer des PNG transparents |
 
 #### Outils PDF (7)
 
@@ -266,7 +271,7 @@ MIT
 | Signature electronique | `e-sign.html` | Ajouter des signatures electroniques aux PDF |
 | Proteger PDF | `pdf-protect.html` | Chiffrer et proteger les PDF par mot de passe |
 
-#### Outils Developpeur (16)
+#### Outils Developpeur (17)
 
 | Outil | Fichier | Description |
 |-------|---------|-------------|
@@ -286,6 +291,7 @@ MIT
 | Visionneuse Hex | `hex-viewer.html` | Voir les fichiers binaires en hexadecimal |
 | Formateur de code | `code-formatter.html` | Formater JSON, SQL, HTML, CSS, JS |
 | Editeur YAML | `yaml-editor.html` | Convertisseur et editeur YAML/TOML/JSON |
+| Testeur de clavier | `keyboard-tester.html` | Tester les touches, N-key rollover et detection de touches fantomes |
 
 #### Outils Texte (5)
 
@@ -342,15 +348,15 @@ MIT
 
 ## Español
 
-> Una coleccion de 55+ herramientas utilitarias 100% frontend. Sin instalacion, sin anuncios, sin registro necesario. Todo el procesamiento ocurre localmente en tu navegador. Tus datos nunca salen de tu dispositivo.
+> Una coleccion de 60+ herramientas utilitarias 100% frontend. Sin instalacion, sin anuncios, sin registro necesario. Todo el procesamiento ocurre localmente en tu navegador. Tus datos nunca salen de tu dispositivo.
 
 ### Demo en vivo
 
-**https://www.heyuan110.com/web-toolbox/**
+**https://www.usemagictools.com**
 
 ### Categorias de herramientas
 
-#### Herramientas de Imagen (11)
+#### Herramientas de Imagen (12)
 
 | Herramienta | Archivo | Descripcion |
 |-------------|---------|-------------|
@@ -365,6 +371,7 @@ MIT
 | Herramienta OCR | `ocr-tool.html` | Extraer texto de imagenes con IA |
 | Eliminador de fondo | `bg-remover.html` | Eliminacion de fondo con IA |
 | Herramienta de marca de agua | `watermark-tool.html` | Anadir marcas de agua de texto a imagenes |
+| Creador de PNG transparente | `transparent-png.html` | Eliminar colores para crear PNG transparentes |
 
 #### Herramientas PDF (7)
 
@@ -378,7 +385,7 @@ MIT
 | Firma electronica | `e-sign.html` | Anadir firmas electronicas a PDF |
 | Proteger PDF | `pdf-protect.html` | Cifrar y proteger PDF con contrasena |
 
-#### Herramientas de Desarrollo (16)
+#### Herramientas de Desarrollo (17)
 
 | Herramienta | Archivo | Descripcion |
 |-------------|---------|-------------|
@@ -398,6 +405,7 @@ MIT
 | Visor Hex | `hex-viewer.html` | Ver archivos binarios en hexadecimal |
 | Formateador de codigo | `code-formatter.html` | Formatear JSON, SQL, HTML, CSS, JS |
 | Editor YAML | `yaml-editor.html` | Convertidor y editor YAML/TOML/JSON |
+| Probador de teclado | `keyboard-tester.html` | Probar teclas, N-key rollover y deteccion de teclas fantasma |
 
 #### Herramientas de Texto (5)
 
