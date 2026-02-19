@@ -419,6 +419,16 @@
 
             var lang = getCurrentLang();
 
+            // 注入 favicon（如果页面没有显式声明）
+            if (!document.querySelector('link[rel="icon"]')) {
+                var prefix = config.pageType === 'category' ? '../' : '';
+                var link = document.createElement('link');
+                link.rel = 'icon';
+                link.type = 'image/x-icon';
+                link.href = prefix + 'favicon.ico';
+                document.head.appendChild(link);
+            }
+
             // 注入 header & footer（带当前语言）
             injectHeader(config, lang);
             injectFooter(config, lang);
