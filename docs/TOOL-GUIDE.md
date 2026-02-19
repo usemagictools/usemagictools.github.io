@@ -411,14 +411,23 @@ A: JSON (JavaScript Object Notation) is a lightweight data format used by modern
     <!-- B2. BreadcrumbList -->
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.usemagictools.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Web Toolbox", "item": "https://www.usemagictools.com/" },
-            { "@type": "ListItem", "position": 3, "name": "{工具英文名}", "item": "https://www.usemagictools.com/{文件名}.html" }
-        ]
-    }
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.usemagictools.com/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "{工具英文名}",
+            "item": "https://www.usemagictools.com/{文件名}.html"
+        }
+    ]
+}
     </script>
 
     <!-- B3. HowTo -->

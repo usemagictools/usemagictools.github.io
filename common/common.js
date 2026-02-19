@@ -180,19 +180,17 @@
 
         var breadcrumb;
         if (config.pageType === 'category') {
-            // 分类页：3 级面包屑 Home > Web Toolbox > 分类名
+            // 分类页：2 级面包屑 Home > 分类名
             breadcrumb =
-                '<a href="/" data-common-i18n="home">' + ct(lang, 'home') + '</a><span class="bc-sep">›</span>' +
-                '<a href="' + indexHref + '" data-common-i18n="toolbox">' + ct(lang, 'toolbox') + '</a><span class="bc-sep">›</span>' +
+                '<a href="' + indexHref + '" data-common-i18n="home">' + ct(lang, 'home') + '</a><span class="bc-sep">›</span>' +
                 '<span class="bc-cur" data-common-i18n="' + catKey + '">' + ct(lang, catKey) + '</span>';
         } else {
-            // 工具页：4 级面包屑 Home > Web Toolbox > 分类 > 工具名
+            // 工具页：3 级面包屑 Home > 分类 > 工具名
             var catPart = catHref
                 ? '<a href="' + catHref + '" data-common-i18n="' + catKey + '">' + ct(lang, catKey) + '</a><span class="bc-sep">›</span>'
                 : '';
             breadcrumb =
-                '<a href="/" data-common-i18n="home">' + ct(lang, 'home') + '</a><span class="bc-sep">›</span>' +
-                '<a href="index.html" data-common-i18n="toolbox">' + ct(lang, 'toolbox') + '</a><span class="bc-sep">›</span>' +
+                '<a href="index.html" data-common-i18n="home">' + ct(lang, 'home') + '</a><span class="bc-sep">›</span>' +
                 catPart +
                 '<span class="bc-cur" data-i18n="tool_name">' + config.toolName + '</span>';
         }
