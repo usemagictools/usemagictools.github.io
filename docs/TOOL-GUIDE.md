@@ -62,7 +62,7 @@
 **Footer（common.js 自动注入，禁止手写）：**
 - 工具页：类目导航栏（`category-nav`）+ 版权行（`site-footer`）
 - 分类页（`data-page-type="category"`）：仅版权行（跳过类目导航）
-- 版权文案：`© 2024-2026 heyuan110.com`，由 `COMMON_I18N` 提供 4 语翻译
+- 版权文案：`© 2024-2026 usemagictools.com`，由 `COMMON_I18N` 提供 4 语翻译
 - 禁止在 HTML 中手写 `<footer>` 或版权信息
 
 **Related Tools（工具自写 HTML，样式 common.css 控制）：**
@@ -351,7 +351,7 @@ A: JSON (JavaScript Object Notation) is a lightweight data format used by modern
     <!-- ========== A. Head Meta 标签 ========== -->
     <meta name="description" content="{英文描述 150-160字符}. ✅ No ads ✅ No signup ✅ No limits. Runs entirely in your browser.">
     <meta name="keywords" content="{英文关键词},{中文关键词},{长尾词},no ads,no signup,no login,no watermark,free unlimited,browser-based,no installation,local processing">
-    <meta name="author" content="heyuan110">
+    <meta name="author" content="UseMagicTools">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="googlebot" content="index, follow">
     <meta name="bingbot" content="index, follow">
@@ -359,19 +359,19 @@ A: JSON (JavaScript Object Notation) is a lightweight data format used by modern
     <meta name="rating" content="general">
     <meta name="distribution" content="global">
     <meta name="language" content="en">
-    <link rel="canonical" href="https://www.heyuan110.com/web-toolbox/{文件名}.html">
-    <link rel="alternate" hreflang="en" href="https://www.heyuan110.com/web-toolbox/{文件名}.html">
-    <link rel="alternate" hreflang="zh-CN" href="https://www.heyuan110.com/web-toolbox/{文件名}.html">
-    <link rel="alternate" hreflang="fr" href="https://www.heyuan110.com/web-toolbox/{文件名}.html">
-    <link rel="alternate" hreflang="es" href="https://www.heyuan110.com/web-toolbox/{文件名}.html">
-    <link rel="alternate" hreflang="x-default" href="https://www.heyuan110.com/web-toolbox/{文件名}.html">
+    <link rel="canonical" href="https://www.usemagictools.com/{文件名}.html">
+    <link rel="alternate" hreflang="en" href="https://www.usemagictools.com/{文件名}.html">
+    <link rel="alternate" hreflang="zh-CN" href="https://www.usemagictools.com/{文件名}.html">
+    <link rel="alternate" hreflang="fr" href="https://www.usemagictools.com/{文件名}.html">
+    <link rel="alternate" hreflang="es" href="https://www.usemagictools.com/{文件名}.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.usemagictools.com/{文件名}.html">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.heyuan110.com/web-toolbox/{文件名}.html">
+    <meta property="og:url" content="https://www.usemagictools.com/{文件名}.html">
     <meta property="og:title" content="{工具英文名} - Free Online {类型} | No Ads, No Signup">
     <meta property="og:description" content="{英文描述}">
-    <meta property="og:image" content="https://www.heyuan110.com/web-toolbox/screenshots/{文件名}.webp">
+    <meta property="og:image" content="https://www.usemagictools.com/screenshots/{文件名}.webp">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_US">
@@ -380,11 +380,11 @@ A: JSON (JavaScript Object Notation) is a lightweight data format used by modern
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@heyuan110">
-    <meta name="twitter:creator" content="@heyuan110">
+    <meta name="twitter:site" content="@usemagictools">
+    <meta name="twitter:creator" content="@usemagictools">
     <meta name="twitter:title" content="{工具英文名} - Free Online {类型} | No Ads, No Signup">
     <meta name="twitter:description" content="{英文描述}">
-    <meta name="twitter:image" content="https://www.heyuan110.com/web-toolbox/screenshots/{文件名}.webp">
+    <meta name="twitter:image" content="https://www.usemagictools.com/screenshots/{文件名}.webp">
 
     <!-- ========== B. JSON-LD 结构化数据（4 种全部包含） ========== -->
 
@@ -395,16 +395,16 @@ A: JSON (JavaScript Object Notation) is a lightweight data format used by modern
         "@type": "WebApplication",
         "name": "{工具英文名}",
         "alternateName": ["{中文名}", "{同义英文名1}", "{同义英文名2}"],
-        "url": "https://www.heyuan110.com/web-toolbox/{文件名}.html",
+        "url": "https://www.usemagictools.com/{文件名}.html",
         "description": "{英文描述}",
         "inLanguage": ["en", "zh-CN", "fr", "es"],
         "applicationCategory": "UtilitiesApplication",
         "operatingSystem": "Web Browser",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-        "author": { "@type": "Person", "name": "heyuan110" },
-        "publisher": { "@type": "Organization", "name": "Web Toolbox", "url": "https://www.heyuan110.com/web-toolbox/" },
+        "author": { "@type": "Person", "name": "UseMagicTools" },
+        "publisher": { "@type": "Organization", "name": "Web Toolbox", "url": "https://www.usemagictools.com/" },
         "featureList": ["{功能1}", "{功能2}", "{功能3}", "{功能4}", "No ads", "No signup required", "No watermark", "100% browser-based", "Unlimited usage"],
-        "screenshot": "https://www.heyuan110.com/web-toolbox/screenshots/{文件名}.webp"
+        "screenshot": "https://www.usemagictools.com/screenshots/{文件名}.webp"
     }
     </script>
 
@@ -414,9 +414,9 @@ A: JSON (JavaScript Object Notation) is a lightweight data format used by modern
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.heyuan110.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Web Toolbox", "item": "https://www.heyuan110.com/web-toolbox/" },
-            { "@type": "ListItem", "position": 3, "name": "{工具英文名}", "item": "https://www.heyuan110.com/web-toolbox/{文件名}.html" }
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.usemagictools.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Web Toolbox", "item": "https://www.usemagictools.com/" },
+            { "@type": "ListItem", "position": 3, "name": "{工具英文名}", "item": "https://www.usemagictools.com/{文件名}.html" }
         ]
     }
     </script>
@@ -757,7 +757,7 @@ A: JSON (JavaScript Object Notation) is a lightweight data format used by modern
 {
     "@type": "WebApplication",
     "name": "{工具英文名}",
-    "url": "https://www.heyuan110.com/web-toolbox/{文件名}.html"
+    "url": "https://www.usemagictools.com/{文件名}.html"
 }
 ```
 
@@ -768,7 +768,7 @@ A: JSON (JavaScript Object Notation) is a lightweight data format used by modern
 **单文件工具：**
 ```xml
 <url>
-    <loc>https://www.heyuan110.com/web-toolbox/{文件名}.html</loc>
+    <loc>https://www.usemagictools.com/{文件名}.html</loc>
     <lastmod>{YYYY-MM-DD}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -778,7 +778,7 @@ A: JSON (JavaScript Object Notation) is a lightweight data format used by modern
 **多文件工具：**
 ```xml
 <url>
-    <loc>https://www.heyuan110.com/web-toolbox/{目录名}/</loc>
+    <loc>https://www.usemagictools.com/{目录名}/</loc>
     <lastmod>{YYYY-MM-DD}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

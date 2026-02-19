@@ -7,7 +7,7 @@
 
 ## 背景
 
-Web Toolbox（58 个工具）是 Hugo 博客 `heyuan110.com` 的子目录（`/web-toolbox/`）。SEO 基础扎实（JSON-LD 四件套、4 语言、痛点埋词），主站 robots.txt 已引用双 sitemap，GA4 已部署在博客。
+Web Toolbox（58 个工具）是 Hugo 博客 `usemagictools.com` 的子目录（`/web-toolbox/`）。SEO 基础扎实（JSON-LD 四件套、4 语言、痛点埋词），主站 robots.txt 已引用双 sitemap，GA4 已部署在博客。
 
 **核心问题**：
 - 工具站 58 个页面完全没有 GA4 追踪
@@ -27,7 +27,7 @@ Web Toolbox（58 个工具）是 Hugo 博客 `heyuan110.com` 的子目录（`/we
 
 ### 1.2 Google Search Console 验证
 - **状态**：⏳ 待用户操作
-- **做法**：在 GSC 中验证 `heyuan110.com`，下载验证 HTML 放入 `static/` 目录
+- **做法**：在 GSC 中验证 `usemagictools.com`，下载验证 HTML 放入 `static/` 目录
 - **后续**：提交 sitemap，监控索引覆盖率
 
 ---

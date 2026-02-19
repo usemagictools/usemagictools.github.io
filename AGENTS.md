@@ -20,7 +20,7 @@ Web Toolbox 规范性规则文档，适用于 Claude Code 和 Codex。
 
 ## 项目范围
 
-- 站点：`https://www.heyuan110.com/web-toolbox/`
+- 站点：`https://www.usemagictools.com/`
 - 纯前端 HTML/CSS/JS，无后端
 - 工具页：`xxx.html`（简单）或 `xxx/index.html` + `style.css` + `app.js`（复杂）
 - 分类页：`category/xxx-tools.html`（6 个分类）
