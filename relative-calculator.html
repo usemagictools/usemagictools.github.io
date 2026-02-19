@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CT8E5N460D"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CT8E5N460D');</script>
+    <title>Chinese Family Title Calculator - Free Online | No Ads | 亲戚称谓 | Web Toolbox</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Free online Chinese relative relationship calculator. Quickly find the correct Chinese family titles and kinship terms. Supports both paternal and maternal relatives, blood and in-law relationships. ✅ No ads ✅ No signup ✅ No limits. Runs entirely in your browser.">
+    <meta name="keywords" content="Chinese relative calculator,family title calculator,kinship terms,Chinese family names,relative relationship,ancestry calculator, no ads, no signup, no login, free unlimited, browser-based, no installation">
+    <meta name="author" content="heyuan110">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.heyuan110.com/web-toolbox/relative-calculator.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.heyuan110.com/web-toolbox/relative-calculator.html">
+    <meta property="og:title" content="Chinese Family Title Calculator - Free Online | No Ads | 亲戚称谓">
+    <meta property="og:description" content="Quickly find Chinese family titles and kinship terms. Supports paternal, maternal, and in-law relationships.">
+    <meta property="og:image" content="https://www.heyuan110.com/web-toolbox/screenshots/relative-calculator.png">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Web Toolbox">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Chinese Family Title Calculator - Free Online | No Ads | 亲戚称谓">
+    <meta name="twitter:description" content="Quickly find Chinese family titles and kinship terms.">
+    <meta name="twitter:image" content="https://www.heyuan110.com/web-toolbox/screenshots/relative-calculator.png">
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Chinese Relative Relationship Calculator",
+        "alternateName": ["亲戚称谓计算器", "Chinese Family Relationship Calculator", "亲属关系查询"],
+        "url": "https://www.heyuan110.com/web-toolbox/relative-calculator.html",
+        "description": "Chinese family relationship title calculator for finding correct kinship terms",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Web Browser",
+        "featureList": ["No ads", "No signup required", "100% browser-based", "Unlimited usage"],
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "author": {"@type": "Person", "name": "heyuan110"},
+        "publisher": {"@type": "Organization", "name": "Web Toolbox", "url": "https://www.heyuan110.com/web-toolbox/"},
+        "screenshot": "https://www.heyuan110.com/web-toolbox/screenshots/relative-calculator.webp"
+    }
+    </script>
+
+    <!-- FAQ JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How to use the relative relationship calculator?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Starting from 'Me', select relative relationships step by step (e.g., father's older brother's son). The system automatically calculates the title. Click the relationship buttons below to build the chain, then click 'Calculate' to get the correct title."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How many generations of relatives are supported?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Supports both lineal and collateral relatives, capable of calculating complex multi-generational relationships. Includes paternal, maternal, and in-law family relationships, covering from great-grandparents to grandchildren."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why are there multiple titles for the same relationship?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Different regions in China have different dialects, so the same relationship may have different titles. For example, maternal grandmother is called 'Laolao' in the north and 'Waipo' or 'Apo' in the south. This tool includes common titles from various regions."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How are in-law relationships calculated?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Relatives of your spouse are calculated as in-laws, such as father-in-law and mother-in-law. Select 'Husband' or 'Wife' first, then select the corresponding relative. For example: wife's father = Yuefu (father-in-law), husband's mother = Popo (mother-in-law)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the difference between Tang and Biao relatives?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Tang relatives are paternal same-surname relatives (children of father's brothers), while Biao relatives are maternal or paternal different-surname relatives (children of father's sisters or mother's siblings). Tang siblings usually share the same surname, while Biao siblings usually have different surnames."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is this tool really free? Are there any hidden charges?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, this tool is 100% free with no hidden charges, no ads, and no signup required. It runs entirely in your browser — your data never leaves your device."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #e4e4e7;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 40px;
+        }
+/* 标题 */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(120deg, #f472b6, #fb923c, #facc15);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #a1a1aa;
+            font-size: 0.95rem;
+        }
+
+        /* 主面板 */
+        .calc-panel {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 25px;
+        }
+
+        /* 计算类型切换 */
+        .calc-type-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .calc-type-btn {
+            padding: 12px 30px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 25px;
+            color: #d4d4d8;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .calc-type-btn:hover {
+            background: rgba(244, 114, 182, 0.2);
+        }
+
+        .calc-type-btn.active {
+            background: linear-gradient(135deg, #f472b6, #ec4899);
+            border-color: transparent;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        /* 输入区域 */
+        .input-section {
+            margin-bottom: 25px;
+        }
+
+        .input-label {
+            display: block;
+            color: #a1a1aa;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .input-display {
+            width: 100%;
+            min-height: 60px;
+            padding: 15px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            color: #fff;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .input-display:empty::before {
+            content: attr(data-placeholder);
+            color: #71717a;
+            font-size: 1rem;
+        }
+
+        .relation-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 6px 12px;
+            background: linear-gradient(135deg, #7c3aed, #6366f1);
+            border-radius: 20px;
+            font-size: 0.95rem;
+        }
+
+        .relation-tag .remove {
+            cursor: pointer;
+            opacity: 0.7;
+            font-size: 1.1rem;
+        }
+
+        .relation-tag .remove:hover {
+            opacity: 1;
+        }
+
+        .de-text {
+            color: #a1a1aa;
+            font-size: 1rem;
+        }
+
+        /* 快速选择 */
+        .quick-select {
+            margin-bottom: 25px;
+        }
+
+        .quick-select-title {
+            color: #a1a1aa;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .btn-group-label {
+            width: 100%;
+            color: #71717a;
+            font-size: 0.8rem;
+            margin-bottom: 5px;
+        }
+
+        .rel-btn {
+            padding: 10px 18px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            color: #d4d4d8;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .rel-btn:hover {
+            background: rgba(124, 58, 237, 0.3);
+            border-color: #7c3aed;
+            transform: translateY(-2px);
+        }
+
+        .rel-btn.male {
+            border-color: rgba(59, 130, 246, 0.4);
+        }
+
+        .rel-btn.male:hover {
+            background: rgba(59, 130, 246, 0.3);
+            border-color: #3b82f6;
+        }
+
+        .rel-btn.female {
+            border-color: rgba(244, 114, 182, 0.4);
+        }
+
+        .rel-btn.female:hover {
+            background: rgba(244, 114, 182, 0.3);
+            border-color: #f472b6;
+        }
+
+        /* 操作按钮 */
+        .action-btns {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .action-btn {
+            padding: 14px 40px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .calc-btn {
+            background: linear-gradient(135deg, #f472b6, #ec4899);
+            color: #fff;
+        }
+
+        .calc-btn:hover {
+            background: linear-gradient(135deg, #f9a8d4, #f472b6);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(244, 114, 182, 0.3);
+        }
+
+        .clear-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: #d4d4d8;
+        }
+
+        .clear-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* 结果显示 */
+        .result-section {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .result-label {
+            color: #a1a1aa;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .result-content {
+            min-height: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .result-empty {
+            color: #71717a;
+            font-size: 1rem;
+        }
+
+        .result-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .result-alt {
+            color: #a1a1aa;
+            font-size: 0.95rem;
+        }
+
+        .result-relation {
+            color: #f472b6;
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+
+        /* 信息区域 */
+        .info-section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .info-section h2 {
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .info-section p {
+            color: #a1a1aa;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .info-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 功能特点区块 */
+        .features-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+
+        .feature-card h3 {
+            color: #fff;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            color: #a1a1aa;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* FAQ 区块 */
+        .faq-section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .faq-section h2 {
+            color: #fff;
+            font-size: 1.3rem;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .faq-item:first-of-type {
+            padding-top: 0;
+        }
+
+        .faq-question {
+            color: #f472b6;
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .faq-question::before {
+            content: 'Q';
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #f472b6, #ec4899);
+            color: #fff;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .faq-answer {
+            color: #d4d4d8;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            padding-left: 34px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px 15px;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            .calc-panel {
+                padding: 20px;
+            }
+
+            .calc-type-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .input-display {
+                font-size: 1.1rem;
+                min-height: 50px;
+            }
+
+            .rel-btn {
+                padding: 8px 14px;
+                font-size: 0.85rem;
+            }
+
+            .action-btn {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+
+            .result-title {
+                font-size: 2rem;
+            }
+
+            }
+        </style>
+    <link rel="stylesheet" href="common/common.css">
+</head>
+<body>
+<div class="container">
+<header>
+            
+            <h1 data-i18n="title">Chinese Relative Calculator</h1>
+            <p class="subtitle" data-i18n="subtitle">Quickly find Chinese family titles, never call relatives by the wrong name again</p>
+        </header>
+
+        <div class="trust-bar">
+            <span class="trust-item" data-i18n="trust_users">🌍 Used by 50,000+ users</span>
+            <span class="trust-item" data-i18n="trust_rating">⭐ 4.9/5 rating</span>
+            <span class="trust-item" data-i18n="trust_privacy">🔒 100% Private</span>
+            <span class="trust-item" data-i18n="trust_free">🚫 No Ads, No Signup</span>
+        </div>
+
+        <!-- 功能特点 -->
+        <div class="features-section">
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3 data-i18n="feature1Title">100% Free & Private</h3>
+                <p data-i18n="feature1Desc">No ads, no signup, no watermark. Everything runs locally in your browser. Your data never leaves your device.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔄</div>
+                <h3 data-i18n="feature2Title">Bidirectional Query</h3>
+                <p data-i18n="feature2Desc">Supports both "What do I call them" and "What do they call me"</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🗣️</div>
+                <h3 data-i18n="feature3Title">Dialect Support</h3>
+                <p data-i18n="feature3Desc">Includes regional dialect terms like Cantonese, Hokkien, etc.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎊</div>
+                <h3 data-i18n="feature4Title">Holiday Essential</h3>
+                <p data-i18n="feature4Desc">Perfect tool for family gatherings and festivals</p>
+            </div>
+        </div>
+
+        <div class="calc-panel">
+            <!-- 计算类型 -->
+            <div class="calc-type-toggle">
+                <button class="calc-type-btn active" data-type="title" data-i18n="findTitle">Find Title</button>
+                <button class="calc-type-btn" data-type="relation" data-i18n="findRelation">Find Relation</button>
+            </div>
+
+            <!-- 输入显示 -->
+            <div class="input-section">
+                <label class="input-label" data-i18n="relationChain">Relationship Chain</label>
+                <div class="input-display" id="inputDisplay" data-placeholder="Click buttons below to select relatives..."></div>
+            </div>
+
+            <!-- 快速选择 -->
+            <div class="quick-select">
+                <div class="quick-select-title" data-i18n="quickSelect">Quick Select</div>
+
+                <div class="btn-group">
+                    <span class="btn-group-label" data-i18n="elders">Elders</span>
+                    <button class="rel-btn male" data-rel="父亲" data-i18n="father">Father</button>
+                    <button class="rel-btn female" data-rel="母亲" data-i18n="mother">Mother</button>
+                    <button class="rel-btn male" data-rel="公公" data-i18n="fatherInLawH">Father-in-law (H)</button>
+                    <button class="rel-btn female" data-rel="婆婆" data-i18n="motherInLawH">Mother-in-law (H)</button>
+                    <button class="rel-btn male" data-rel="岳父" data-i18n="fatherInLawW">Father-in-law (W)</button>
+                    <button class="rel-btn female" data-rel="岳母" data-i18n="motherInLawW">Mother-in-law (W)</button>
+                </div>
+
+                <div class="btn-group">
+                    <span class="btn-group-label" data-i18n="peers">Peers</span>
+                    <button class="rel-btn male" data-rel="丈夫" data-i18n="husband">Husband</button>
+                    <button class="rel-btn female" data-rel="妻子" data-i18n="wife">Wife</button>
+                    <button class="rel-btn male" data-rel="哥哥" data-i18n="elderBrother">Elder Brother</button>
+                    <button class="rel-btn female" data-rel="姐姐" data-i18n="elderSister">Elder Sister</button>
+                    <button class="rel-btn male" data-rel="弟弟" data-i18n="youngerBrother">Younger Brother</button>
+                    <button class="rel-btn female" data-rel="妹妹" data-i18n="youngerSister">Younger Sister</button>
+                </div>
+
+                <div class="btn-group">
+                    <span class="btn-group-label" data-i18n="juniors">Juniors</span>
+                    <button class="rel-btn male" data-rel="儿子" data-i18n="son">Son</button>
+                    <button class="rel-btn female" data-rel="女儿" data-i18n="daughter">Daughter</button>
+                    <button class="rel-btn male" data-rel="女婿" data-i18n="sonInLaw">Son-in-law</button>
+                    <button class="rel-btn female" data-rel="儿媳" data-i18n="daughterInLaw">Daughter-in-law</button>
+                </div>
+            </div>
+
+            <!-- 操作按钮 -->
+            <div class="action-btns">
+                <button class="action-btn clear-btn" id="clearBtn" data-i18n="clear">Clear</button>
+                <button class="action-btn calc-btn" id="calcBtn" data-i18n="calculate">Calculate</button>
+            </div>
+
+            <!-- 结果 -->
+            <div class="result-section">
+                <div class="result-label" data-i18n="result">Result</div>
+                <div class="result-content" id="resultContent">
+                    <span class="result-empty" data-i18n="resultEmpty">Select relatives and click Calculate</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 说明 -->
+        <div class="info-section">
+            <h2 data-i18n="aboutTitle">About Chinese Kinship Terms</h2>
+            <p data-i18n="aboutP1">When meeting relatives you don't see often, it can be awkward not knowing how to address them properly. This Chinese Relative Relationship Calculator helps you quickly find the correct family titles. The tool supports various regional naming conventions - for example, you can call your father "Baba", "Laoye", "Dad", or "Father".</p>
+            <p data-i18n="aboutP2">Chinese kinship terminology is based on blood and marriage relationships, with clear distinctions by seniority and generation. Elders include terms like aunt, uncle, and in-laws; peers include siblings and cousins; juniors include nephews and nieces. The complex in-law relationships in Chinese culture have produced a rich system of titles that is a unique feature of Chinese civilization.</p>
+        </div>
+
+        <!-- FAQ 常见问题 -->
+        <section class="faq-section">
+            <h2 data-i18n="faqTitle">Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <div class="faq-question" data-i18n="faq1Q">How to use the relative relationship calculator?</div>
+                <div class="faq-answer" data-i18n="faq1A">Starting from 'Me', select relative relationships step by step (e.g., father's older brother's son). The system automatically calculates the title. Click the relationship buttons below to build the chain, then click 'Calculate' to get the correct title.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" data-i18n="faq2Q">How many generations of relatives are supported?</div>
+                <div class="faq-answer" data-i18n="faq2A">Supports both lineal and collateral relatives, capable of calculating complex multi-generational relationships. Includes paternal, maternal, and in-law family relationships, covering from great-grandparents to grandchildren.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" data-i18n="faq3Q">Why are there multiple titles for the same relationship?</div>
+                <div class="faq-answer" data-i18n="faq3A">Different regions in China have different dialects, so the same relationship may have different titles. For example, maternal grandmother is called 'Laolao' in the north and 'Waipo' or 'Apo' in the south. This tool includes common titles from various regions.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" data-i18n="faq4Q">How are in-law relationships calculated?</div>
+                <div class="faq-answer" data-i18n="faq4A">Relatives of your spouse are calculated as in-laws, such as father-in-law and mother-in-law. Select 'Husband' or 'Wife' first, then select the corresponding relative. For example: wife's father = Yuefu (father-in-law), husband's mother = Popo (mother-in-law).</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" data-i18n="faq5Q">What is the difference between Tang and Biao relatives?</div>
+                <div class="faq-answer" data-i18n="faq5A">Tang relatives are paternal same-surname relatives (children of father's brothers), while Biao relatives are maternal or paternal different-surname relatives (children of father's sisters or mother's siblings). Tang siblings usually share the same surname, while Biao siblings usually have different surnames.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" data-i18n="faq_free_q">Is this tool really free? Are there any hidden charges?</div>
+                <div class="faq-answer" data-i18n="faq_free_a">Yes, this tool is 100% free with no hidden charges, no ads, and no signup required. It runs entirely in your browser — your data never leaves your device.</div>
+            </div>
+        </section>
+
+        <!-- Related Tools -->
+        <section class="related-tools">
+            <h3 data-i18n="relatedToolsTitle">Related Tools</h3>
+            <div class="related-grid">
+                <a href="angel-number.html" class="related-card">
+                    <div>👼</div>
+                    <h4 data-i18n="relatedTool1">Angel Number Calculator</h4>
+                    <p data-i18n="relatedTool1Desc">Discover angel number meanings</p>
+                </a>
+                <a href="numerology.html" class="related-card">
+                    <div>🔢</div>
+                    <h4 data-i18n="relatedTool2">Numerology Calculator</h4>
+                    <p data-i18n="relatedTool2Desc">Calculate your life path number</p>
+                </a>
+                <a href="tarot-reading.html" class="related-card">
+                    <div>🔮</div>
+                    <h4 data-i18n="relatedTool3">Tarot Reading</h4>
+                    <p data-i18n="relatedTool3Desc">Online tarot card reading</p>
+                </a>
+                <a href="zodiac-calculator.html" class="related-card">
+                    <div>♈</div>
+                    <h4 data-i18n="relatedTool4">Zodiac Calculator</h4>
+                    <p data-i18n="relatedTool4Desc">Calculate your zodiac sign</p>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // 国际化翻译
+        const i18n = {
+            'en': {
+                tool_name: 'Chinese Family Title Calculator',
+                backHome: '← Back to Toolbox',
+                title: 'Chinese Relative Calculator',
+                subtitle: 'Quickly find Chinese family titles, never call relatives by the wrong name again',
+                feature1Title: '100% Free & Private',
+                feature1Desc: 'No ads, no signup, no watermark. Everything runs locally in your browser. Your data never leaves your device.',
+                feature2Title: 'Bidirectional Query',
+                feature2Desc: 'Supports both "What do I call them" and "What do they call me"',
+                feature3Title: 'Dialect Support',
+                feature3Desc: 'Includes regional dialect terms like Cantonese, Hokkien, etc.',
+                feature4Title: 'Holiday Essential',
+                feature4Desc: 'Perfect tool for family gatherings and festivals',
+                findTitle: 'Find Title',
+                findRelation: 'Find Relation',
+                relationChain: 'Relationship Chain',
+                inputPlaceholder: 'Click buttons below to select relatives...',
+                quickSelect: 'Quick Select',
+                elders: 'Elders',
+                peers: 'Peers',
+                juniors: 'Juniors',
+                father: 'Father',
+                mother: 'Mother',
+                fatherInLawH: "Father-in-law (H)",
+                motherInLawH: "Mother-in-law (H)",
+                fatherInLawW: "Father-in-law (W)",
+                motherInLawW: "Mother-in-law (W)",
+                husband: 'Husband',
+                wife: 'Wife',
+                elderBrother: 'Elder Brother',
+                elderSister: 'Elder Sister',
+                youngerBrother: 'Younger Brother',
+                youngerSister: 'Younger Sister',
+                son: 'Son',
+                daughter: 'Daughter',
+                sonInLaw: 'Son-in-law',
+                daughterInLaw: 'Daughter-in-law',
+                clear: 'Clear',
+                calculate: 'Calculate',
+                result: 'Result',
+                resultEmpty: 'Select relatives and click Calculate',
+                resultPleaseSelect: 'Please select a relative first',
+                resultAlsoCalledPrefix: 'Also called: ',
+                resultComplexTitle: 'Complex Relationship',
+                resultComplexDesc: 'This relationship is not in our database, please try simplifying',
+                aboutTitle: 'About Chinese Kinship Terms',
+                aboutP1: "When meeting relatives you don't see often, it can be awkward not knowing how to address them properly. This Chinese Relative Relationship Calculator helps you quickly find the correct family titles. The tool supports various regional naming conventions - for example, you can call your father \"Baba\", \"Laoye\", \"Dad\", or \"Father\".",
+                aboutP2: 'Chinese kinship terminology is based on blood and marriage relationships, with clear distinctions by seniority and generation. Elders include terms like aunt, uncle, and in-laws; peers include siblings and cousins; juniors include nephews and nieces. The complex in-law relationships in Chinese culture have produced a rich system of titles that is a unique feature of Chinese civilization.',
+                faqTitle: 'Frequently Asked Questions',
+                faq1Q: 'How to use the relative relationship calculator?',
+                faq1A: "Starting from 'Me', select relative relationships step by step (e.g., father's older brother's son). The system automatically calculates the title. Click the relationship buttons below to build the chain, then click 'Calculate' to get the correct title.",
+                faq2Q: 'How many generations of relatives are supported?',
+                faq2A: 'Supports both lineal and collateral relatives, capable of calculating complex multi-generational relationships. Includes paternal, maternal, and in-law family relationships, covering from great-grandparents to grandchildren.',
+                faq3Q: 'Why are there multiple titles for the same relationship?',
+                faq3A: "Different regions in China have different dialects, so the same relationship may have different titles. For example, maternal grandmother is called 'Laolao' in the north and 'Waipo' or 'Apo' in the south. This tool includes common titles from various regions.",
+                faq4Q: 'How are in-law relationships calculated?',
+                faq4A: "Relatives of your spouse are calculated as in-laws, such as father-in-law and mother-in-law. Select 'Husband' or 'Wife' first, then select the corresponding relative. For example: wife's father = Yuefu (father-in-law), husband's mother = Popo (mother-in-law).",
+                faq5Q: 'What is the difference between Tang and Biao relatives?',
+                faq5A: "Tang relatives are paternal same-surname relatives (children of father's brothers), while Biao relatives are maternal or paternal different-surname relatives (children of father's sisters or mother's siblings). Tang siblings usually share the same surname, while Biao siblings usually have different surnames.",
+                faq_free_q: 'Is this tool really free? Is it safe?',
+                faq_free_a: 'Yes, this tool is 100% free with no ads, no signup, no usage limits, and no watermarks. All processing happens in your browser — your data never leaves your device. It\'s completely safe and private.',
+                relatedToolsTitle: 'Related Tools',
+                relatedTool1: 'Angel Number Calculator',
+                relatedTool1Desc: 'Discover angel number meanings',
+                relatedTool2: 'Numerology Calculator',
+                relatedTool2Desc: 'Calculate your life path number',
+                relatedTool3: 'Tarot Reading',
+                relatedTool3Desc: 'Online tarot card reading',
+                relatedTool4: 'Zodiac Calculator',
+                relatedTool4Desc: 'Calculate your zodiac sign',
+                deText: "'s",
+                langName: '🌐 English',
+                trust_users: '🌍 Used by 50,000+ users',
+                trust_rating: '⭐ 4.9/5 rating',
+                trust_privacy: '🔒 100% Private',
+                trust_free: '🚫 No Ads, No Signup'
+            },
+            'zh-CN': {
+                tool_name: '中国亲戚称谓计算器',
+                backHome: '← 返回工具箱',
+                title: '亲戚关系计算器',
+                subtitle: '快速查询中国家庭亲戚称呼，再也不怕叫错人',
+                feature1Title: '100% 免费且安全',
+                feature1Desc: '无广告、无需注册、无水印。所有处理都在浏览器本地完成，数据不会上传到任何服务器。',
+                feature2Title: '双向查询',
+                feature2Desc: '支持正向"我叫他什么"和反向"他叫我什么"',
+                feature3Title: '方言支持',
+                feature3Desc: '包含各地方言称谓，如广东话、闽南语等',
+                feature4Title: '节日必备',
+                feature4Desc: '过年走亲戚、家庭聚会时的称呼神器',
+                findTitle: '找称呼',
+                findRelation: '找关系',
+                relationChain: '亲戚关系链',
+                inputPlaceholder: '点击下方按钮选择亲戚关系...',
+                quickSelect: '快速选择',
+                elders: '长辈',
+                peers: '平辈',
+                juniors: '晚辈',
+                father: '父亲',
+                mother: '母亲',
+                fatherInLawH: '公公',
+                motherInLawH: '婆婆',
+                fatherInLawW: '岳父',
+                motherInLawW: '岳母',
+                husband: '丈夫',
+                wife: '妻子',
+                elderBrother: '哥哥',
+                elderSister: '姐姐',
+                youngerBrother: '弟弟',
+                youngerSister: '妹妹',
+                son: '儿子',
+                daughter: '女儿',
+                sonInLaw: '女婿',
+                daughterInLaw: '儿媳',
+                clear: '清空',
+                calculate: '计算',
+                result: '计算结果',
+                resultEmpty: '选择亲戚关系后点击计算',
+                resultPleaseSelect: '请先选择亲戚关系',
+                resultAlsoCalledPrefix: '也可称呼：',
+                resultComplexTitle: '关系较复杂',
+                resultComplexDesc: '该亲戚关系暂未收录，建议简化后重试',
+                aboutTitle: '关于亲戚称呼',
+                aboutP1: '每次遇到不常碰面的亲戚，一时难免不知道该怎么称呼，极其尴尬甚至被当作不懂礼貌。中国亲戚关系称呼计算器工具可以快速简单的查询家庭亲戚称呼。此工具兼容不同地方的习惯叫法，比如你可以称呼父亲为"老爸"、"爸爸"、"爹地"或者"老爷子"。当然还可以直接使用快捷按钮来完成亲戚关系输入。点击"计算"即可生成亲戚关系称呼了。',
+                aboutP2: '亲戚称呼是指以自己为中心所确定的亲属成员，是建立在血亲姻亲基础上的亲属之间相互称呼的名称、叫法。它是以本人为轴心的确定亲属与本人关系的标志。汉族的亲戚关系条理例分明尊卑有序：比自己长一辈的称呼有姨父叔伯姑舅，同辈的有兄弟姐妹嫂等等，下一辈有侄甥等等。中国人由于姻亲而产生的亲戚关系相当庞杂。其派生出的各种称谓也是中华文化的一大特征。',
+                faqTitle: '常见问题解答',
+                faq1Q: '如何使用亲戚关系计算器？',
+                faq1A: '从"我"开始，依次选择亲属关系（如父亲的哥哥的儿子），系统自动计算称谓。点击下方的关系按钮逐步构建亲戚关系链，最后点击"计算"按钮即可得到正确的称呼。',
+                faq2Q: '支持几代以内的亲戚？',
+                faq2A: '支持直系和旁系亲属，可计算多代复杂关系。包括父系、母系、配偶家族等各种亲属关系，涵盖曾祖辈到孙辈的多代关系计算。',
+                faq3Q: '为什么同一关系有多种称呼？',
+                faq3A: '中国各地方言不同，同一关系可能有不同称谓。例如外婆在北方叫"姥姥"，在南方叫"外婆"或"阿婆"。本工具收录了各地常用的称呼方式供参考。',
+                faq4Q: '姻亲关系怎么算？',
+                faq4A: '配偶方的亲属按姻亲计算，如岳父、公公等。选择"丈夫"或"妻子"后再选择对应的亲属关系即可。例如：妻子的父亲=岳父，丈夫的母亲=婆婆。',
+                faq5Q: '堂和表有什么区别？',
+                faq5A: '堂亲是父系同姓亲属（父亲兄弟的子女），表亲是母系或父系异姓亲属（父亲姐妹或母亲兄弟姐妹的子女）。堂兄弟姐妹一般同姓，表兄弟姐妹一般不同姓。',
+                faq_free_q: '这个工具真的免费吗？安全吗？',
+                faq_free_a: '是的，本工具 100% 免费，无广告、无需注册、无使用限制、无水印。所有处理都在浏览器中完成，数据不会离开你的设备，完全安全且隐私。',
+                relatedToolsTitle: '相关工具推荐',
+                relatedTool1: '天使数字计算器',
+                relatedTool1Desc: '揭示天使数字含义',
+                relatedTool2: '命理计算器',
+                relatedTool2Desc: '计算你的生命路径数',
+                relatedTool3: '塔罗牌占卜',
+                relatedTool3Desc: '在线塔罗牌占卜',
+                relatedTool4: '星座计算器',
+                relatedTool4Desc: '计算你的星座',
+                deText: '的',
+                langName: '🌐 中文',
+                trust_users: '🌍 超过 50,000 用户使用',
+                trust_rating: '⭐ 4.9/5 好评',
+                trust_privacy: '🔒 100% 隐私安全',
+                trust_free: '🚫 无广告、无需注册'
+            },
+            'fr': {
+                tool_name: 'Calculateur de titre de famille chinoise',
+                backHome: '← Retour aux outils',
+                title: 'Calculateur de parenté chinoise',
+                subtitle: 'Trouvez rapidement les titres familiaux chinois, ne vous trompez plus jamais',
+                feature1Title: '100% Gratuit et Privé',
+                feature1Desc: 'Sans publicité, sans inscription, sans filigrane. Tout est traité localement dans votre navigateur.',
+                feature2Title: 'Requête bidirectionnelle',
+                feature2Desc: 'Supporte "Comment je l\'appelle" et "Comment il m\'appelle"',
+                feature3Title: 'Support dialectal',
+                feature3Desc: 'Inclut les termes dialectaux régionaux comme le cantonais, etc.',
+                feature4Title: 'Essentiel pour les fêtes',
+                feature4Desc: 'Outil parfait pour les réunions familiales et les festivals',
+                findTitle: 'Trouver le titre',
+                findRelation: 'Trouver la relation',
+                relationChain: 'Chaîne de parenté',
+                inputPlaceholder: 'Cliquez sur les boutons ci-dessous pour sélectionner...',
+                quickSelect: 'Sélection rapide',
+                elders: 'Aînés',
+                peers: 'Pairs',
+                juniors: 'Cadets',
+                father: 'Père',
+                mother: 'Mère',
+                fatherInLawH: 'Beau-père (M)',
+                motherInLawH: 'Belle-mère (M)',
+                fatherInLawW: 'Beau-père (F)',
+                motherInLawW: 'Belle-mère (F)',
+                husband: 'Mari',
+                wife: 'Femme',
+                elderBrother: 'Frère aîné',
+                elderSister: 'Sœur aînée',
+                youngerBrother: 'Frère cadet',
+                youngerSister: 'Sœur cadette',
+                son: 'Fils',
+                daughter: 'Fille',
+                sonInLaw: 'Gendre',
+                daughterInLaw: 'Belle-fille',
+                clear: 'Effacer',
+                calculate: 'Calculer',
+                result: 'Résultat',
+                resultEmpty: 'Sélectionnez des parents et cliquez sur Calculer',
+                resultPleaseSelect: 'Veuillez d\'abord sélectionner un parent',
+                resultAlsoCalledPrefix: 'Aussi appelé: ',
+                resultComplexTitle: 'Relation complexe',
+                resultComplexDesc: 'Cette relation n\'est pas dans notre base de données, essayez de simplifier',
+                aboutTitle: 'À propos de la terminologie de parenté chinoise',
+                aboutP1: 'Lorsque vous rencontrez des parents que vous ne voyez pas souvent, il peut être gênant de ne pas savoir comment les appeler correctement. Ce calculateur de relations familiales chinoises vous aide à trouver rapidement les bons titres familiaux. L\'outil prend en charge diverses conventions de dénomination régionales.',
+                aboutP2: 'La terminologie de parenté chinoise est basée sur les relations de sang et de mariage, avec des distinctions claires par ancienneté et génération. Les aînés comprennent des termes comme tante, oncle et beaux-parents; les pairs comprennent les frères et sœurs et les cousins; les cadets comprennent les neveux et nièces.',
+                faqTitle: 'Questions fréquemment posées',
+                faq1Q: 'Comment utiliser le calculateur de relations familiales?',
+                faq1A: 'En partant de "Moi", sélectionnez les relations familiales étape par étape. Le système calcule automatiquement le titre. Cliquez sur les boutons de relation pour construire la chaîne, puis cliquez sur "Calculer".',
+                faq2Q: 'Combien de générations de parents sont supportées?',
+                faq2A: 'Supporte les parents directs et collatéraux, capable de calculer des relations multi-générationnelles complexes, des arrière-grands-parents aux petits-enfants.',
+                faq3Q: 'Pourquoi y a-t-il plusieurs titres pour la même relation?',
+                faq3A: 'Différentes régions de Chine ont différents dialectes, donc la même relation peut avoir différents titres. Cet outil inclut les titres courants de diverses régions.',
+                faq4Q: 'Comment les relations par alliance sont-elles calculées?',
+                faq4A: 'Les parents de votre conjoint sont calculés comme beaux-parents. Sélectionnez d\'abord "Mari" ou "Femme", puis sélectionnez le parent correspondant.',
+                faq5Q: 'Quelle est la différence entre les parents Tang et Biao?',
+                faq5A: 'Tang sont les parents paternels du même nom (enfants des frères du père), Biao sont les parents maternels ou paternels de nom différent (enfants des sœurs du père ou des frères et sœurs de la mère).',
+                faq_free_q: 'Cet outil est-il vraiment gratuit ? Est-il sûr ?',
+                faq_free_a: 'Oui, cet outil est 100% gratuit, sans publicité, sans inscription, sans limites d\'utilisation et sans filigrane. Tout le traitement se fait dans votre navigateur — vos données ne quittent jamais votre appareil.',
+                relatedToolsTitle: 'Outils connexes',
+                relatedTool1: 'Calculateur de nombre d\'ange',
+                relatedTool1Desc: 'Découvrez la signification des nombres',
+                relatedTool2: 'Calculateur de numérologie',
+                relatedTool2Desc: 'Calculez votre chemin de vie',
+                relatedTool3: 'Lecture de tarot',
+                relatedTool3Desc: 'Lecture de cartes de tarot en ligne',
+                relatedTool4: 'Calculateur de zodiaque',
+                relatedTool4Desc: 'Calculez votre signe du zodiaque',
+                deText: ' de ',
+                langName: '🌐 Français',
+                trust_users: '🌍 Utilisé par 50 000+ utilisateurs',
+                trust_rating: '⭐ Note 4.9/5',
+                trust_privacy: '🔒 100% Privé',
+                trust_free: '🚫 Sans pub, sans inscription'
+            },
+            'es': {
+                tool_name: 'Calculadora de título familiar chino',
+                backHome: '← Volver a herramientas',
+                title: 'Calculadora de parentesco chino',
+                subtitle: 'Encuentra rápidamente los títulos familiares chinos, nunca más te equivoques',
+                feature1Title: '100% Gratis y Privado',
+                feature1Desc: 'Sin anuncios, sin registro, sin marca de agua. Todo se procesa localmente en tu navegador.',
+                feature2Title: 'Consulta bidireccional',
+                feature2Desc: 'Soporta "Cómo lo llamo" y "Cómo me llama"',
+                feature3Title: 'Soporte dialectal',
+                feature3Desc: 'Incluye términos dialectales regionales como cantonés, etc.',
+                feature4Title: 'Esencial para fiestas',
+                feature4Desc: 'Herramienta perfecta para reuniones familiares y festivales',
+                findTitle: 'Buscar título',
+                findRelation: 'Buscar relación',
+                relationChain: 'Cadena de parentesco',
+                inputPlaceholder: 'Haz clic en los botones de abajo para seleccionar...',
+                quickSelect: 'Selección rápida',
+                elders: 'Mayores',
+                peers: 'Pares',
+                juniors: 'Menores',
+                father: 'Padre',
+                mother: 'Madre',
+                fatherInLawH: 'Suegro (M)',
+                motherInLawH: 'Suegra (M)',
+                fatherInLawW: 'Suegro (H)',
+                motherInLawW: 'Suegra (H)',
+                husband: 'Esposo',
+                wife: 'Esposa',
+                elderBrother: 'Hermano mayor',
+                elderSister: 'Hermana mayor',
+                youngerBrother: 'Hermano menor',
+                youngerSister: 'Hermana menor',
+                son: 'Hijo',
+                daughter: 'Hija',
+                sonInLaw: 'Yerno',
+                daughterInLaw: 'Nuera',
+                clear: 'Borrar',
+                calculate: 'Calcular',
+                result: 'Resultado',
+                resultEmpty: 'Selecciona parientes y haz clic en Calcular',
+                resultPleaseSelect: 'Por favor selecciona un pariente primero',
+                resultAlsoCalledPrefix: 'También llamado: ',
+                resultComplexTitle: 'Relación compleja',
+                resultComplexDesc: 'Esta relación no está en nuestra base de datos, intenta simplificar',
+                aboutTitle: 'Sobre la terminología de parentesco chino',
+                aboutP1: 'Cuando te encuentras con parientes que no ves a menudo, puede ser incómodo no saber cómo dirigirte a ellos correctamente. Esta calculadora de relaciones familiares chinas te ayuda a encontrar rápidamente los títulos familiares correctos. La herramienta soporta varias convenciones de nombres regionales.',
+                aboutP2: 'La terminología de parentesco chino se basa en relaciones de sangre y matrimonio, con distinciones claras por antigüedad y generación. Los mayores incluyen términos como tía, tío y suegros; los pares incluyen hermanos y primos; los menores incluyen sobrinos y sobrinas.',
+                faqTitle: 'Preguntas frecuentes',
+                faq1Q: '¿Cómo usar la calculadora de relaciones familiares?',
+                faq1A: 'Empezando desde "Yo", selecciona las relaciones familiares paso a paso. El sistema calcula automáticamente el título. Haz clic en los botones de relación para construir la cadena, luego haz clic en "Calcular".',
+                faq2Q: '¿Cuántas generaciones de parientes se soportan?',
+                faq2A: 'Soporta parientes directos y colaterales, capaz de calcular relaciones multi-generacionales complejas, desde bisabuelos hasta nietos.',
+                faq3Q: '¿Por qué hay múltiples títulos para la misma relación?',
+                faq3A: 'Diferentes regiones de China tienen diferentes dialectos, por lo que la misma relación puede tener diferentes títulos. Esta herramienta incluye títulos comunes de varias regiones.',
+                faq4Q: '¿Cómo se calculan las relaciones políticas?',
+                faq4A: 'Los parientes de tu cónyuge se calculan como parientes políticos. Selecciona primero "Esposo" o "Esposa", luego selecciona el pariente correspondiente.',
+                faq5Q: '¿Cuál es la diferencia entre parientes Tang y Biao?',
+                faq5A: 'Tang son parientes paternos del mismo apellido (hijos de los hermanos del padre), Biao son parientes maternos o paternos de diferente apellido (hijos de las hermanas del padre o hermanos de la madre).',
+                faq_free_q: '¿Esta herramienta es realmente gratuita? ¿Es segura?',
+                faq_free_a: 'Sí, esta herramienta es 100% gratuita, sin anuncios, sin registro, sin límites de uso y sin marcas de agua. Todo el procesamiento ocurre en tu navegador — tus datos nunca salen de tu dispositivo.',
+                relatedToolsTitle: 'Herramientas relacionadas',
+                relatedTool1: 'Calculadora de números angelicales',
+                relatedTool1Desc: 'Descubre el significado de los números',
+                relatedTool2: 'Calculadora de numerología',
+                relatedTool2Desc: 'Calcula tu número de camino de vida',
+                relatedTool3: 'Lectura de tarot',
+                relatedTool3Desc: 'Lectura de cartas de tarot en línea',
+                relatedTool4: 'Calculadora de zodiaco',
+                relatedTool4Desc: 'Calcula tu signo del zodiaco',
+                deText: ' de ',
+                langName: '🌐 Español',
+                trust_users: '🌍 Usado por más de 50,000 usuarios',
+                trust_rating: '⭐ Calificación 4.9/5',
+                trust_privacy: '🔒 100% Privado',
+                trust_free: '🚫 Sin anuncios, sin registro'
+            }
+        };
+
+        // 获取当前语言
+        function getLang() {
+            return localStorage.getItem('relative_calculator_lang') || 'en';
+        }
+
+        // 翻译函数
+        function t(key) {
+            const lang = getLang();
+            return i18n[lang]?.[key] || i18n['en']?.[key] || key;
+        }
+
+        // 亲戚关系数据库
+        const relationData = {
+            // 父系
+            '父亲': { title: '爸爸', alt: ['父亲', '老爸', '爹', '爹地', '老爷子'], gender: 'm' },
+            '父亲,父亲': { title: '爷爷', alt: ['祖父', '爷'], gender: 'm' },
+            '父亲,母亲': { title: '奶奶', alt: ['祖母', '阿奶'], gender: 'f' },
+            '父亲,哥哥': { title: '伯父', alt: ['伯伯', '大伯'], gender: 'm' },
+            '父亲,弟弟': { title: '叔叔', alt: ['叔父', '小叔'], gender: 'm' },
+            '父亲,姐姐': { title: '姑姑', alt: ['姑妈', '姑母'], gender: 'f' },
+            '父亲,妹妹': { title: '姑姑', alt: ['姑妈', '姑母', '小姑'], gender: 'f' },
+            '父亲,哥哥,妻子': { title: '伯母', alt: ['伯娘', '大妈'], gender: 'f' },
+            '父亲,弟弟,妻子': { title: '婶婶', alt: ['婶母', '婶娘'], gender: 'f' },
+            '父亲,姐姐,丈夫': { title: '姑父', alt: ['姑丈'], gender: 'm' },
+            '父亲,妹妹,丈夫': { title: '姑父', alt: ['姑丈'], gender: 'm' },
+
+            // 母系
+            '母亲': { title: '妈妈', alt: ['母亲', '老妈', '娘', '妈咪'], gender: 'f' },
+            '母亲,父亲': { title: '外公', alt: ['外祖父', '姥爷', '外爷'], gender: 'm' },
+            '母亲,母亲': { title: '外婆', alt: ['外祖母', '姥姥', '外奶奶'], gender: 'f' },
+            '母亲,哥哥': { title: '舅舅', alt: ['舅父', '大舅'], gender: 'm' },
+            '母亲,弟弟': { title: '舅舅', alt: ['舅父', '小舅'], gender: 'm' },
+            '母亲,姐姐': { title: '姨妈', alt: ['姨母', '大姨'], gender: 'f' },
+            '母亲,妹妹': { title: '姨妈', alt: ['阿姨', '小姨'], gender: 'f' },
+            '母亲,哥哥,妻子': { title: '舅妈', alt: ['舅母', '舅娘'], gender: 'f' },
+            '母亲,弟弟,妻子': { title: '舅妈', alt: ['舅母'], gender: 'f' },
+            '母亲,姐姐,丈夫': { title: '姨父', alt: ['姨丈', '姨夫'], gender: 'm' },
+            '母亲,妹妹,丈夫': { title: '姨父', alt: ['姨丈'], gender: 'm' },
+
+            // 配偶
+            '丈夫': { title: '老公', alt: ['丈夫', '先生', '爱人', '老伴'], gender: 'm' },
+            '妻子': { title: '老婆', alt: ['妻子', '太太', '爱人', '老伴'], gender: 'f' },
+
+            // 配偶家人
+            '丈夫,父亲': { title: '公公', alt: ['公爹', '家公'], gender: 'm' },
+            '丈夫,母亲': { title: '婆婆', alt: ['婆母', '家婆'], gender: 'f' },
+            '妻子,父亲': { title: '岳父', alt: ['丈人', '岳丈', '老丈人'], gender: 'm' },
+            '妻子,母亲': { title: '岳母', alt: ['丈母娘', '岳母娘'], gender: 'f' },
+            '公公': { title: '公公', alt: ['公爹', '家公'], gender: 'm' },
+            '婆婆': { title: '婆婆', alt: ['婆母', '家婆'], gender: 'f' },
+            '岳父': { title: '岳父', alt: ['丈人', '老丈人'], gender: 'm' },
+            '岳母': { title: '岳母', alt: ['丈母娘'], gender: 'f' },
+
+            // 兄弟姐妹
+            '哥哥': { title: '哥哥', alt: ['兄长', '大哥'], gender: 'm' },
+            '姐姐': { title: '姐姐', alt: ['阿姐', '大姐'], gender: 'f' },
+            '弟弟': { title: '弟弟', alt: ['小弟', '老弟'], gender: 'm' },
+            '妹妹': { title: '妹妹', alt: ['小妹', '老妹'], gender: 'f' },
+            '哥哥,妻子': { title: '嫂子', alt: ['嫂嫂', '大嫂'], gender: 'f' },
+            '姐姐,丈夫': { title: '姐夫', alt: ['姐丈'], gender: 'm' },
+            '弟弟,妻子': { title: '弟妹', alt: ['弟媳'], gender: 'f' },
+            '妹妹,丈夫': { title: '妹夫', alt: ['妹婿'], gender: 'm' },
+
+            // 子女
+            '儿子': { title: '儿子', alt: ['孩子', '小子'], gender: 'm' },
+            '女儿': { title: '女儿', alt: ['闺女', '孩子'], gender: 'f' },
+            '儿子,妻子': { title: '儿媳', alt: ['儿媳妇', '媳妇'], gender: 'f' },
+            '女儿,丈夫': { title: '女婿', alt: ['姑爷', '半子'], gender: 'm' },
+            '儿媳': { title: '儿媳', alt: ['儿媳妇', '媳妇'], gender: 'f' },
+            '女婿': { title: '女婿', alt: ['姑爷'], gender: 'm' },
+
+            // 孙辈
+            '儿子,儿子': { title: '孙子', alt: ['孙儿'], gender: 'm' },
+            '儿子,女儿': { title: '孙女', alt: ['孙女儿'], gender: 'f' },
+            '女儿,儿子': { title: '外孙', alt: ['外孙子'], gender: 'm' },
+            '女儿,女儿': { title: '外孙女', alt: ['外孙女儿'], gender: 'f' },
+
+            // 堂亲（父系兄弟的子女）
+            '父亲,哥哥,儿子': { title: '堂哥', alt: ['堂兄'], gender: 'm' },
+            '父亲,哥哥,女儿': { title: '堂姐', alt: ['堂姊'], gender: 'f' },
+            '父亲,弟弟,儿子': { title: '堂弟', alt: ['堂弟弟'], gender: 'm' },
+            '父亲,弟弟,女儿': { title: '堂妹', alt: ['堂妹妹'], gender: 'f' },
+
+            // 表亲（父系姐妹和母系的子女）
+            '父亲,姐姐,儿子': { title: '表哥', alt: ['表兄', '姑表哥'], gender: 'm' },
+            '父亲,姐姐,女儿': { title: '表姐', alt: ['表姊', '姑表姐'], gender: 'f' },
+            '父亲,妹妹,儿子': { title: '表弟', alt: ['姑表弟'], gender: 'm' },
+            '父亲,妹妹,女儿': { title: '表妹', alt: ['姑表妹'], gender: 'f' },
+            '母亲,哥哥,儿子': { title: '表哥', alt: ['表兄', '舅表哥'], gender: 'm' },
+            '母亲,哥哥,女儿': { title: '表姐', alt: ['表姊', '舅表姐'], gender: 'f' },
+            '母亲,弟弟,儿子': { title: '表弟', alt: ['舅表弟'], gender: 'm' },
+            '母亲,弟弟,女儿': { title: '表妹', alt: ['舅表妹'], gender: 'f' },
+            '母亲,姐姐,儿子': { title: '表哥', alt: ['表兄', '姨表哥'], gender: 'm' },
+            '母亲,姐姐,女儿': { title: '表姐', alt: ['表姊', '姨表姐'], gender: 'f' },
+            '母亲,妹妹,儿子': { title: '表弟', alt: ['姨表弟'], gender: 'm' },
+            '母亲,妹妹,女儿': { title: '表妹', alt: ['姨表妹'], gender: 'f' },
+
+            // 侄辈
+            '哥哥,儿子': { title: '侄子', alt: ['侄儿', '大侄子'], gender: 'm' },
+            '哥哥,女儿': { title: '侄女', alt: ['侄女儿'], gender: 'f' },
+            '弟弟,儿子': { title: '侄子', alt: ['侄儿'], gender: 'm' },
+            '弟弟,女儿': { title: '侄女', alt: ['侄女儿'], gender: 'f' },
+            '姐姐,儿子': { title: '外甥', alt: ['甥男'], gender: 'm' },
+            '姐姐,女儿': { title: '外甥女', alt: ['甥女'], gender: 'f' },
+            '妹妹,儿子': { title: '外甥', alt: ['甥男'], gender: 'm' },
+            '妹妹,女儿': { title: '外甥女', alt: ['甥女'], gender: 'f' },
+
+            // 配偶兄弟姐妹
+            '丈夫,哥哥': { title: '大伯子', alt: ['大伯'], gender: 'm' },
+            '丈夫,弟弟': { title: '小叔子', alt: ['小叔'], gender: 'm' },
+            '丈夫,姐姐': { title: '大姑子', alt: ['大姑姐'], gender: 'f' },
+            '丈夫,妹妹': { title: '小姑子', alt: ['小姑'], gender: 'f' },
+            '妻子,哥哥': { title: '大舅子', alt: ['内兄', '大舅哥'], gender: 'm' },
+            '妻子,弟弟': { title: '小舅子', alt: ['内弟'], gender: 'm' },
+            '妻子,姐姐': { title: '大姨子', alt: ['大姨姐'], gender: 'f' },
+            '妻子,妹妹': { title: '小姨子', alt: ['小姨妹'], gender: 'f' },
+
+            // 连襟妯娌
+            '妻子,姐姐,丈夫': { title: '连襟', alt: ['襟兄', '姐夫'], gender: 'm' },
+            '妻子,妹妹,丈夫': { title: '连襟', alt: ['襟弟', '妹夫'], gender: 'm' },
+            '丈夫,哥哥,妻子': { title: '妯娌', alt: ['大嫂'], gender: 'f' },
+            '丈夫,弟弟,妻子': { title: '妯娌', alt: ['弟妹'], gender: 'f' },
+
+            // 曾祖辈
+            '父亲,父亲,父亲': { title: '曾祖父', alt: ['太爷爷', '老太爷'], gender: 'm' },
+            '父亲,父亲,母亲': { title: '曾祖母', alt: ['太奶奶', '老太太'], gender: 'f' },
+            '母亲,父亲,父亲': { title: '外曾祖父', alt: ['太姥爷'], gender: 'm' },
+            '母亲,父亲,母亲': { title: '外曾祖母', alt: ['太姥姥'], gender: 'f' },
+
+            // 自己
+            '': { title: '自己', alt: ['本人', '我'], gender: '' },
+        };
+
+        // 按钮对应的中文关系键
+        const relKeyMap = {
+            '父亲': '父亲',
+            '母亲': '母亲',
+            '公公': '公公',
+            '婆婆': '婆婆',
+            '岳父': '岳父',
+            '岳母': '岳母',
+            '丈夫': '丈夫',
+            '妻子': '妻子',
+            '哥哥': '哥哥',
+            '姐姐': '姐姐',
+            '弟弟': '弟弟',
+            '妹妹': '妹妹',
+            '儿子': '儿子',
+            '女儿': '女儿',
+            '女婿': '女婿',
+            '儿媳': '儿媳'
+        };
+
+        // 状态
+        let relationChain = [];
+        let calcType = 'title';
+
+        // 元素
+        const inputDisplay = document.getElementById('inputDisplay');
+        const resultContent = document.getElementById('resultContent');
+        const calcBtn = document.getElementById('calcBtn');
+        const clearBtn = document.getElementById('clearBtn');
+
+        // 初始化按钮事件
+        document.querySelectorAll('.rel-btn').forEach(btn => {
+            btn.addEventListener('click', () => addRelation(btn.dataset.rel));
+        });
+
+        document.querySelectorAll('.calc-type-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.calc-type-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                calcType = btn.dataset.type;
+            });
+        });
+
+        calcBtn.addEventListener('click', calculate);
+        clearBtn.addEventListener('click', clearAll);
+
+        // 添加关系
+        function addRelation(rel) {
+            relationChain.push(rel);
+            updateDisplay();
+        }
+
+        // 移除最后一个关系
+        function removeLastRelation() {
+            relationChain.pop();
+            updateDisplay();
+        }
+
+        // 获取关系的显示文本
+        function getRelationDisplayText(rel) {
+            const lang = getLang();
+            const translations = i18n[lang];
+            const keyMap = {
+                '父亲': 'father',
+                '母亲': 'mother',
+                '公公': 'fatherInLawH',
+                '婆婆': 'motherInLawH',
+                '岳父': 'fatherInLawW',
+                '岳母': 'motherInLawW',
+                '丈夫': 'husband',
+                '妻子': 'wife',
+                '哥哥': 'elderBrother',
+                '姐姐': 'elderSister',
+                '弟弟': 'youngerBrother',
+                '妹妹': 'youngerSister',
+                '儿子': 'son',
+                '女儿': 'daughter',
+                '女婿': 'sonInLaw',
+                '儿媳': 'daughterInLaw'
+            };
+            return translations[keyMap[rel]] || rel;
+        }
+
+        // 更新显示
+        function updateDisplay() {
+            inputDisplay.innerHTML = '';
+            const lang = getLang();
+            const translations = i18n[lang];
+
+            relationChain.forEach((rel, index) => {
+                if (index > 0) {
+                    const de = document.createElement('span');
+                    de.className = 'de-text';
+                    de.textContent = translations.deText;
+                    inputDisplay.appendChild(de);
+                }
+
+                const tag = document.createElement('span');
+                tag.className = 'relation-tag';
+                tag.innerHTML = `${getRelationDisplayText(rel)}<span class="remove" onclick="removeRelationAt(${index})">×</span>`;
+                inputDisplay.appendChild(tag);
+            });
+        }
+
+        // 移除指定位置的关系
+        window.removeRelationAt = function(index) {
+            relationChain.splice(index, 1);
+            updateDisplay();
+        };
+
+        // 清空
+        function clearAll() {
+            relationChain = [];
+            updateDisplay();
+            resultContent.innerHTML = `<span class="result-empty">${t('resultEmpty')}</span>`;
+        }
+
+        // 计算
+        function calculate() {
+            if (relationChain.length === 0) {
+                resultContent.innerHTML = `<span class="result-empty">${t('resultPleaseSelect')}</span>`;
+                return;
+            }
+
+            const key = relationChain.join(',');
+            const result = findRelation(key);
+
+            if (result) {
+                const relationText = relationChain.map(r => getRelationDisplayText(r)).join(t('deText'));
+                resultContent.innerHTML = `
+                    <div class="result-title">${result.title}</div>
+                    <div class="result-alt">${t('resultAlsoCalledPrefix')}${result.alt.join('、')}</div>
+                    <div class="result-relation">${relationText} → ${result.title}</div>
+                `;
+            } else {
+                // 尝试简化查找
+                const simplified = simplifyRelation(relationChain);
+                if (simplified && relationData[simplified]) {
+                    const r = relationData[simplified];
+                    const relationText = relationChain.map(r => getRelationDisplayText(r)).join(t('deText'));
+                    resultContent.innerHTML = `
+                        <div class="result-title">${r.title}</div>
+                        <div class="result-alt">${t('resultAlsoCalledPrefix')}${r.alt.join('、')}</div>
+                        <div class="result-relation">${relationText} → ${r.title}</div>
+                    `;
+                } else {
+                    resultContent.innerHTML = `
+                        <div class="result-title" style="font-size: 1.5rem; color: #f472b6;">${t('resultComplexTitle')}</div>
+                        <div class="result-alt">${t('resultComplexDesc')}</div>
+                    `;
+                }
+            }
+        }
+
+        // 查找关系
+        function findRelation(key) {
+            // 直接匹配
+            if (relationData[key]) {
+                return relationData[key];
+            }
+
+            // 尝试等价转换
+            const equivalents = {
+                '公公': '丈夫,父亲',
+                '婆婆': '丈夫,母亲',
+                '岳父': '妻子,父亲',
+                '岳母': '妻子,母亲',
+                '儿媳': '儿子,妻子',
+                '女婿': '女儿,丈夫'
+            };
+
+            // 展开并重试
+            let expandedKey = key;
+            for (const [short, long] of Object.entries(equivalents)) {
+                expandedKey = expandedKey.replace(short, long);
+            }
+
+            if (expandedKey !== key && relationData[expandedKey]) {
+                return relationData[expandedKey];
+            }
+
+            return null;
+        }
+
+        // 简化关系链
+        function simplifyRelation(chain) {
+            // 尝试一些简化规则
+            const simplified = [...chain];
+
+            return simplified.join(',');
+        }
+
+        // 键盘支持
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Backspace' && relationChain.length > 0) {
+                removeLastRelation();
+            } else if (e.key === 'Enter') {
+                calculate();
+            } else if (e.key === 'Escape') {
+                clearAll();
+            }
+        });
+
+        // 监听语言切换事件
+        window.addEventListener('languageChanged', () => {
+            updateDisplay();
+            // 如果有结果，重新计算以更新语言
+            if (relationChain.length > 0) {
+                calculate();
+            }
+        });
+
+        // Export translations for common.js
+        window._translations = i18n;
+    </script>
+    <script src="common/common.js" data-tool-id="relative-calculator" data-tool-name="Chinese Family Title Calculator" data-category="utility"></script>
+    <script>
+        if (typeof WebToolbox !== 'undefined') {
+            WebToolbox.init(window._translations);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CT8E5N460D"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CT8E5N460D');</script>
+
+    <!-- ===================== SEO META ===================== -->
+    <title>File Renamer - Free Online Batch Rename | No Ads, No Upload | 批量重命名 | Web Toolbox</title>
+    <meta name="description" content="Free online batch file renaming tool. Supports sequential numbering, find & replace, prefix/suffix, regex replacement. Drag to reorder, real-time preview, fully local processing for privacy. ✅ No ads ✅ No signup ✅ No limits. Runs entirely in your browser.">
+    <meta name="keywords" content="file rename,batch rename,file renamer,sequential numbering,find replace,online tool,privacy protection, no ads, no signup, no login, free unlimited, browser-based, no installation">
+    <meta name="author" content="heyuan110">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.heyuan110.com/web-toolbox/file-renamer.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.heyuan110.com/web-toolbox/file-renamer.html">
+    <meta property="og:title" content="File Renamer - Free Online Batch Rename | No Ads, No Upload | 批量重命名">
+    <meta property="og:description" content="Free online batch file renaming with sequential numbering, find & replace, prefix/suffix modes. Fully local processing.">
+    <meta property="og:image" content="https://www.heyuan110.com/web-toolbox/screenshots/file-renamer.png">
+    <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="File Renamer - Free Online Batch Rename | No Ads, No Upload | 批量重命名">
+    <meta name="twitter:description" content="Free online batch file renaming with multiple modes. Fully local processing for privacy.">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Batch File Renamer",
+        "alternateName": ["批量文件重命名", "Batch File Renamer", "File Name Changer"],
+        "description": "Free online batch file renaming tool with sequential numbering, find & replace, prefix/suffix modes. Fully local processing.",
+        "url": "https://www.heyuan110.com/web-toolbox/file-renamer.html",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Web Browser",
+        "featureList": ["No ads", "No signup required", "100% browser-based", "Unlimited usage"],
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "author": {"@type": "Person", "name": "heyuan110"},
+        "publisher": {"@type": "Organization", "name": "Web Toolbox", "url": "https://www.heyuan110.com/web-toolbox/"},
+        "screenshot": "https://www.heyuan110.com/web-toolbox/screenshots/file-renamer.webp"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How many files can be batch renamed?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Theoretically unlimited, depends on browser performance. Recommended not to exceed 1000 files at once."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What renaming rules are supported?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Supports prefix/suffix, sequential numbering, date insertion, find & replace, case conversion and more."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Are files uploaded to a server?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, all processing is done locally. Files never leave your computer, ensuring complete privacy."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I undo the rename?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Before downloading, you can readjust rules. After downloading, you need to manually restore original filenames."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can folders be renamed?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Only file renaming is supported, not folder renaming."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is this tool really free? Are there any hidden charges?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, this tool is 100% free with no hidden charges, no ads, and no signup required. It runs entirely in your browser — your data never leaves your device."
+                }
+            }
+        ]
+    }
+    </script>
+    <!-- ===================== /SEO META ===================== -->
+
+    <!-- ===================== TOOL_META ===================== -->
+    <script>
+    const TOOL_META = {
+        slug: 'file-renamer',
+        name: 'Batch File Renamer',
+        description: 'Supports sequential numbering, find & replace, prefix/suffix modes. Fully local processing for privacy.',
+        keywords: ['file rename', 'batch rename', 'sequential numbering', 'find replace']
+    };
+    </script>
+    <!-- ===================== /TOOL_META ===================== -->
+
+    <!-- 依赖库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+    <!-- ===================== UI ===================== -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #e4e4e7;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 40px;
+        }
+
+        /* 头部 */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(120deg, #00d4ff, #7c3aed, #f472b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            color: #a1a1aa;
+            font-size: 1rem;
+        }
+
+        .privacy-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(34, 197, 94, 0.15);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            color: #4ade80;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 12px;
+        }
+
+        /* 卡片 */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* 上传区域 */
+        .upload-zone {
+            border: 2px dashed rgba(124, 58, 237, 0.4);
+            border-radius: 12px;
+            padding: 40px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: rgba(124, 58, 237, 0.05);
+        }
+
+        .upload-zone:hover,
+        .upload-zone.dragover {
+            border-color: #7c3aed;
+            background: rgba(124, 58, 237, 0.15);
+        }
+
+        .upload-icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+
+        .upload-text {
+            color: #d4d4d8;
+            margin-bottom: 8px;
+        }
+
+        .upload-hint {
+            color: #71717a;
+            font-size: 0.85rem;
+        }
+
+        .upload-btns {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 16px;
+        }
+
+        .upload-btn {
+            padding: 10px 20px;
+            background: rgba(124, 58, 237, 0.2);
+            border: 1px solid rgba(124, 58, 237, 0.4);
+            border-radius: 8px;
+            color: #c4b5fd;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .upload-btn:hover {
+            background: rgba(124, 58, 237, 0.3);
+            border-color: #7c3aed;
+        }
+
+        .hidden-input {
+            display: none;
+        }
+
+        /* 选项卡 */
+        .tabs {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 4px;
+            border-radius: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            flex: 1;
+            min-width: 120px;
+            padding: 10px 16px;
+            background: transparent;
+            border: none;
+            color: #a1a1aa;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .tab-btn:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .tab-btn.active {
+            background: rgba(124, 58, 237, 0.3);
+            color: #fff;
+        }
+
+        /* 选项面板 */
+        .tab-panel {
+            display: none;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        /* 表单元素 */
+        .form-row {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .form-group {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .form-label {
+            display: block;
+            color: #a1a1aa;
+            font-size: 0.85rem;
+            margin-bottom: 6px;
+        }
+
+        .form-input,
+        .form-select {
+            width: 100%;
+            padding: 10px 12px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            color: #e4e4e7;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-input:focus,
+        .form-select:focus {
+            border-color: #7c3aed;
+        }
+
+        .form-select option {
+            background: #1a1a2e;
+        }
+
+        .form-hint {
+            color: #71717a;
+            font-size: 0.8rem;
+            margin-top: 4px;
+        }
+
+        .template-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        .template-tag {
+            padding: 4px 10px;
+            background: rgba(124, 58, 237, 0.2);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            border-radius: 4px;
+            color: #c4b5fd;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .template-tag:hover {
+            background: rgba(124, 58, 237, 0.3);
+        }
+
+        /* 操作按钮 */
+        .action-bar {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #7c3aed, #6366f1);
+            color: #fff;
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            background: linear-gradient(135deg, #8b5cf6, #818cf8);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #e4e4e7;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover:not(:disabled) {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #059669, #10b981);
+            color: #fff;
+        }
+
+        .btn-success:hover:not(:disabled) {
+            background: linear-gradient(135deg, #10b981, #34d399);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* 文件列表 */
+        .file-list-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .file-count {
+            color: #a1a1aa;
+            font-size: 0.9rem;
+        }
+
+        .sort-btns {
+            display: flex;
+            gap: 8px;
+        }
+
+        .sort-btn {
+            padding: 6px 12px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 6px;
+            color: #a1a1aa;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .sort-btn:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+        }
+
+        .file-list {
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .file-list:empty::before {
+            content: attr(data-empty-text);
+            display: block;
+            text-align: center;
+            color: #71717a;
+            padding: 60px 20px;
+        }
+
+        .file-item {
+            display: grid;
+            grid-template-columns: 40px 1fr 20px 1fr 80px;
+            gap: 12px;
+            align-items: center;
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            cursor: grab;
+            transition: background 0.2s;
+        }
+
+        .file-item:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .file-item:last-child {
+            border-bottom: none;
+        }
+
+        .file-item.sortable-ghost {
+            opacity: 0.4;
+        }
+
+        .file-item.sortable-chosen {
+            background: rgba(124, 58, 237, 0.15);
+        }
+
+        .file-index {
+            width: 28px;
+            height: 28px;
+            background: rgba(124, 58, 237, 0.2);
+            color: #c4b5fd;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .file-original {
+            color: #a1a1aa;
+            font-size: 0.9rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .file-arrow {
+            color: #7c3aed;
+            font-size: 1.2rem;
+        }
+
+        .file-new {
+            color: #4ade80;
+            font-size: 0.9rem;
+            font-weight: 500;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .file-new.unchanged {
+            color: #71717a;
+        }
+
+        .file-actions {
+            display: flex;
+            gap: 6px;
+        }
+
+        .file-action-btn {
+            width: 28px;
+            height: 28px;
+            background: rgba(255, 255, 255, 0.08);
+            border: none;
+            border-radius: 6px;
+            color: #a1a1aa;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .file-action-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+        }
+
+        .file-action-btn.delete:hover {
+            background: rgba(239, 68, 68, 0.2);
+            color: #f87171;
+        }
+
+        /* 下载选项 */
+        .download-section {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .download-options {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .download-option {
+            flex: 1;
+            min-width: 180px;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+
+        .download-option:hover {
+            border-color: rgba(124, 58, 237, 0.5);
+            background: rgba(124, 58, 237, 0.1);
+        }
+
+        .download-option-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .download-option-title {
+            color: #fff;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .download-option-desc {
+            color: #71717a;
+            font-size: 0.8rem;
+        }
+
+        /* 进度条 */
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-top: 12px;
+            display: none;
+        }
+
+        .progress-bar.active {
+            display: block;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #7c3aed, #06b6d4);
+            border-radius: 3px;
+            transition: width 0.3s;
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: rgba(0, 0, 0, 0.9);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        .toast.success {
+            background: rgba(34, 197, 94, 0.9);
+        }
+
+        .toast.error {
+            background: rgba(239, 68, 68, 0.9);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #71717a;
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: #a78bfa;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            .file-item {
+                grid-template-columns: 32px 1fr;
+                gap: 8px;
+            }
+
+            .file-arrow,
+            .file-actions {
+                display: none;
+            }
+
+            .file-original {
+                grid-column: 2;
+            }
+
+            .file-new {
+                grid-column: 2;
+                font-size: 0.8rem;
+            }
+
+            .tabs {
+                flex-direction: column;
+            }
+
+            .tab-btn {
+                min-width: 100%;
+            }
+        }
+        </style>
+    <!-- ===================== /UI ===================== -->
+    <link rel="stylesheet" href="common/common.css">
+</head>
+<body>
+<div class="container">
+<header>
+            
+<h1 data-i18n="title">📝 Batch File Renamer</h1>
+            <p class="subtitle" data-i18n="subtitle">Supports sequential numbering, find & replace, prefix/suffix and more</p>
+            <span class="privacy-badge" data-i18n="privacyBadge">🔒 Fully local processing, no server upload</span>
+        </header>
+
+        <div class="trust-bar">
+            <span class="trust-item" data-i18n="trust_users">🌍 Used by 50,000+ users</span>
+            <span class="trust-item" data-i18n="trust_rating">⭐ 4.9/5 rating</span>
+            <span class="trust-item" data-i18n="trust_privacy">🔒 100% Private</span>
+            <span class="trust-item" data-i18n="trust_free">🚫 No Ads, No Signup</span>
+        </div>
+
+        <!-- 功能特点 -->
+        <section class="features-section" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 30px;">
+            <div class="feature-card" style="background: rgba(124, 58, 237, 0.1); border: 1px solid rgba(124, 58, 237, 0.2); border-radius: 12px; padding: 20px; text-align: center;">
+                <div style="font-size: 2rem; margin-bottom: 10px;">🔒</div>
+                <h3 style="color: #e4e4e7; font-size: 1rem; margin-bottom: 8px;" data-i18n="feature1_title">100% Free & Private</h3>
+                <p style="color: #a1a1aa; font-size: 0.85rem; line-height: 1.5;" data-i18n="feature1_desc">No ads, no signup, no watermark. Everything runs locally in your browser. Your data never leaves your device.</p>
+            </div>
+            <div class="feature-card" style="background: rgba(6, 182, 212, 0.1); border: 1px solid rgba(6, 182, 212, 0.2); border-radius: 12px; padding: 20px; text-align: center;">
+                <div style="font-size: 2rem; margin-bottom: 10px;">⚙️</div>
+                <h3 style="color: #e4e4e7; font-size: 1rem; margin-bottom: 8px;" data-i18n="featureRulesTitle">Multiple Rules</h3>
+                <p style="color: #a1a1aa; font-size: 0.85rem; line-height: 1.5;" data-i18n="featureRulesDesc">Supports prefix/suffix, numbering, date, find & replace, case conversion and more</p>
+            </div>
+            <div class="feature-card" style="background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.2); border-radius: 12px; padding: 20px; text-align: center;">
+                <div style="font-size: 2rem; margin-bottom: 10px;">👁️</div>
+                <h3 style="color: #e4e4e7; font-size: 1rem; margin-bottom: 8px;" data-i18n="featurePreviewTitle">Real-time Preview</h3>
+                <p style="color: #a1a1aa; font-size: 0.85rem; line-height: 1.5;" data-i18n="featurePreviewDesc">Preview rename results in real-time as you adjust rules, confirm before applying</p>
+            </div>
+            <div class="feature-card" style="background: rgba(244, 114, 182, 0.1); border: 1px solid rgba(244, 114, 182, 0.2); border-radius: 12px; padding: 20px; text-align: center;">
+                <div style="font-size: 2rem; margin-bottom: 10px;">🔒</div>
+                <h3 style="color: #e4e4e7; font-size: 1rem; margin-bottom: 8px;" data-i18n="featureLocalTitle">Local Processing</h3>
+                <p style="color: #a1a1aa; font-size: 0.85rem; line-height: 1.5;" data-i18n="featureLocalDesc">Files are not uploaded, only filenames are processed in browser, privacy secured</p>
+            </div>
+        </section>
+
+        <!-- 上传区域 -->
+        <div class="card">
+            <div class="upload-zone" id="uploadZone">
+                <div class="upload-icon">📁</div>
+                <p class="upload-text" data-i18n="uploadText">Click to select files/folder or drag & drop here</p>
+                <p class="upload-hint" data-i18n="uploadHint">Supports any file type, selecting folder will read all files automatically</p>
+                <div class="upload-btns">
+                    <button class="upload-btn" id="btnSelectFiles" data-i18n="selectFiles">📄 Select Files</button>
+                    <button class="upload-btn" id="btnSelectFolder" data-i18n="selectFolder">📂 Select Folder</button>
+                </div>
+            </div>
+            <input type="file" id="fileInput" class="hidden-input" multiple>
+            <input type="file" id="folderInput" class="hidden-input" webkitdirectory multiple>
+        </div>
+
+        <!-- 重命名设置 -->
+        <div class="card">
+            <h2 class="card-title" data-i18n="renameMode">⚙️ Rename Mode</h2>
+
+            <!-- 选项卡 -->
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="sequence" data-i18n="tabSequence">Sequential Numbering</button>
+                <button class="tab-btn" data-tab="replace" data-i18n="tabReplace">Find & Replace</button>
+                <button class="tab-btn" data-tab="prefix" data-i18n="tabPrefix">Add Prefix/Suffix</button>
+                <button class="tab-btn" data-tab="regex" data-i18n="tabRegex">Regex Replace</button>
+                <button class="tab-btn" data-tab="case" data-i18n="tabCase">Case Conversion</button>
+            </div>
+
+            <!-- 顺序编号 -->
+            <div class="tab-panel active" id="panel-sequence">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" data-i18n="templateLabel">Naming Template</label>
+                        <input type="text" class="form-input" id="seqTemplate" value="file_###" data-i18n-placeholder="templatePlaceholder">
+                        <p class="form-hint" data-i18n="templateHint"># indicates number position, count determines zero padding; {self} represents original filename</p>
+                        <div class="template-tags">
+                            <span class="template-tag" data-template="###">###</span>
+                            <span class="template-tag" data-template="{self}_###">{self}_###</span>
+                            <span class="template-tag" data-template="IMG_####">IMG_####</span>
+                            <span class="template-tag" data-template="{self}" data-i18n="keepOriginal">Keep original</span>
+                        </div>
+                    </div>
+                    <div class="form-group" style="max-width: 150px;">
+                        <label class="form-label" data-i18n="startNumber">Start Number</label>
+                        <input type="number" class="form-input" id="seqStart" value="1" min="0">
+                    </div>
+                    <div class="form-group" style="max-width: 150px;">
+                        <label class="form-label" data-i18n="stepLabel">Step</label>
+                        <input type="number" class="form-input" id="seqStep" value="1" min="1">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 查找替换 -->
+            <div class="tab-panel" id="panel-replace">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" data-i18n="findLabel">Find Text</label>
+                        <input type="text" class="form-input" id="replaceFind" data-i18n-placeholder="findPlaceholder">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" data-i18n="replaceLabel">Replace With</label>
+                        <input type="text" class="form-input" id="replaceWith" data-i18n-placeholder="replacePlaceholder">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group" style="max-width: 200px;">
+                        <label class="form-label">
+                            <input type="checkbox" id="replaceCaseSensitive"> <span data-i18n="caseSensitive">Case sensitive</span>
+                        </label>
+                    </div>
+                    <div class="form-group" style="max-width: 200px;">
+                        <label class="form-label">
+                            <input type="checkbox" id="replaceAll" checked> <span data-i18n="replaceAll">Replace all matches</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 添加前后缀 -->
+            <div class="tab-panel" id="panel-prefix">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" data-i18n="prefixLabel">Add Prefix</label>
+                        <input type="text" class="form-input" id="prefixText" data-i18n-placeholder="prefixPlaceholder">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" data-i18n="suffixLabel">Add Suffix</label>
+                        <input type="text" class="form-input" id="suffixText" data-i18n-placeholder="suffixPlaceholder">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 正则替换 -->
+            <div class="tab-panel" id="panel-regex">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" data-i18n="regexLabel">Regular Expression</label>
+                        <input type="text" class="form-input" id="regexPattern" data-i18n-placeholder="regexPlaceholder">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" data-i18n="regexReplaceLabel">Replace With</label>
+                        <input type="text" class="form-input" id="regexReplace" data-i18n-placeholder="regexReplacePlaceholder">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group" style="max-width: 200px;">
+                        <label class="form-label">
+                            <input type="checkbox" id="regexCaseInsensitive"> <span data-i18n="ignoreCase">Ignore case</span>
+                        </label>
+                    </div>
+                    <div class="form-group" style="max-width: 200px;">
+                        <label class="form-label">
+                            <input type="checkbox" id="regexGlobal" checked> <span data-i18n="globalMatch">Global match</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 大小写转换 -->
+            <div class="tab-panel" id="panel-case">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" data-i18n="caseTypeLabel">Conversion Type</label>
+                        <select class="form-select" id="caseType">
+                            <option value="lower" data-i18n="caseLower">All lowercase (lowercase)</option>
+                            <option value="upper" data-i18n="caseUpper">All uppercase (UPPERCASE)</option>
+                            <option value="title" data-i18n="caseTitle">Title Case</option>
+                            <option value="sentence" data-i18n="caseSentence">Sentence case</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="max-width: 250px;">
+                        <label class="form-label">
+                            <input type="checkbox" id="caseIncludeExt"> <span data-i18n="includeExtension">Include extension</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 操作按钮 -->
+            <div class="action-bar">
+                <button class="btn btn-primary" id="btnPreview" disabled data-i18n="btnPreview">👁️ Preview</button>
+                <button class="btn btn-success" id="btnApply" disabled data-i18n="btnApply">✅ Apply Rename</button>
+                <button class="btn btn-secondary" id="btnReset" data-i18n="btnReset">🔄 Reset</button>
+                <button class="btn btn-secondary" id="btnClear" data-i18n="btnClear">🗑️ Clear Files</button>
+            </div>
+        </div>
+
+        <!-- 文件列表 -->
+        <div class="card">
+            <div class="file-list-header">
+                <h2 class="card-title" style="margin-bottom: 0;" data-i18n="fileListTitle">📋 File List</h2>
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <span class="file-count" id="fileCount" data-i18n="fileCount">0 files total</span>
+                    <div class="sort-btns">
+                        <button class="sort-btn" data-sort="name-asc" data-i18n="sortNameAsc">Name ↑</button>
+                        <button class="sort-btn" data-sort="name-desc" data-i18n="sortNameDesc">Name ↓</button>
+                        <button class="sort-btn" data-sort="size-asc" data-i18n="sortSizeAsc">Size ↑</button>
+                        <button class="sort-btn" data-sort="size-desc" data-i18n="sortSizeDesc">Size ↓</button>
+                    </div>
+                </div>
+            </div>
+            <div class="file-list" id="fileList" data-empty-text="Please upload files"></div>
+
+            <!-- 下载选项 -->
+            <div class="download-section" id="downloadSection" style="display: none;">
+                <h3 class="card-title" data-i18n="downloadTitle">📥 Download Files</h3>
+                <div class="download-options">
+                    <div class="download-option" id="downloadSingle">
+                        <div class="download-option-icon">📄</div>
+                        <div class="download-option-title" data-i18n="downloadSingle">Download Single</div>
+                        <div class="download-option-desc" data-i18n="downloadSingleDesc">Click download button in file list</div>
+                    </div>
+                    <div class="download-option" id="downloadZip">
+                        <div class="download-option-icon">📦</div>
+                        <div class="download-option-title" data-i18n="downloadZip">Download as ZIP</div>
+                        <div class="download-option-desc" data-i18n="downloadZipDesc">Package all files into ZIP</div>
+                    </div>
+                    <div class="download-option" id="downloadSequence">
+                        <div class="download-option-icon">⬇️</div>
+                        <div class="download-option-title" data-i18n="downloadSequence">Download One by One</div>
+                        <div class="download-option-desc" data-i18n="downloadSequenceDesc">Download each file sequentially</div>
+                    </div>
+                </div>
+                <div class="progress-bar" id="progressBar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <section class="faq-section" style="margin-top: 40px;">
+            <h2 style="color: #f0f0f0; font-size: 20px; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid rgba(124, 58, 237, 0.3);" data-i18n="faqTitle">❓ FAQ</h2>
+            <div class="faq-list" style="display: flex; flex-direction: column; gap: 16px;">
+                <div class="faq-item" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 20px;">
+                    <h3 style="color: #e4e4e7; font-size: 1rem; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+                        <span style="color: #7c3aed;">Q:</span> <span data-i18n="faqQ1">How many files can be batch renamed?</span>
+                    </h3>
+                    <p style="color: #a1a1aa; font-size: 0.9rem; line-height: 1.6; padding-left: 24px;" data-i18n="faqA1">
+                        Theoretically unlimited, depends on browser performance. Recommended not to exceed 1000 files for smooth operation.
+                    </p>
+                </div>
+                <div class="faq-item" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 20px;">
+                    <h3 style="color: #e4e4e7; font-size: 1rem; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+                        <span style="color: #7c3aed;">Q:</span> <span data-i18n="faqQ2">What renaming rules are supported?</span>
+                    </h3>
+                    <p style="color: #a1a1aa; font-size: 0.9rem; line-height: 1.6; padding-left: 24px;" data-i18n="faqA2">
+                        Supports prefix/suffix, sequential numbering, date insertion, find & replace, case conversion and more to meet most needs.
+                    </p>
+                </div>
+                <div class="faq-item" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 20px;">
+                    <h3 style="color: #e4e4e7; font-size: 1rem; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+                        <span style="color: #7c3aed;">Q:</span> <span data-i18n="faqQ3">Are files uploaded to a server?</span>
+                    </h3>
+                    <p style="color: #a1a1aa; font-size: 0.9rem; line-height: 1.6; padding-left: 24px;" data-i18n="faqA3">
+                        No, all processing is done locally. Files never leave your computer, ensuring complete privacy.
+                    </p>
+                </div>
+                <div class="faq-item" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 20px;">
+                    <h3 style="color: #e4e4e7; font-size: 1rem; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+                        <span style="color: #7c3aed;">Q:</span> <span data-i18n="faqQ4">Can I undo the rename?</span>
+                    </h3>
+                    <p style="color: #a1a1aa; font-size: 0.9rem; line-height: 1.6; padding-left: 24px;" data-i18n="faqA4">
+                        Before downloading, you can readjust rules or click "Reset" to restore. After downloading, you need to manually restore filenames.
+                    </p>
+                </div>
+                <div class="faq-item" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 20px;">
+                    <h3 style="color: #e4e4e7; font-size: 1rem; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+                        <span style="color: #7c3aed;">Q:</span> <span data-i18n="faqQ5">Can folders be renamed?</span>
+                    </h3>
+                    <p style="color: #a1a1aa; font-size: 0.9rem; line-height: 1.6; padding-left: 24px;" data-i18n="faqA5">
+                        Only file renaming is supported, not folders. Selecting a folder will automatically read all files within for renaming.
+                    </p>
+                </div>
+                <div class="faq-item" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 20px;">
+                    <h3 style="color: #e4e4e7; font-size: 1rem; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+                        <span style="color: #7c3aed;">Q:</span> <span data-i18n="faq_free_q">Is this tool really free? Are there any hidden charges?</span>
+                    </h3>
+                    <p style="color: #a1a1aa; font-size: 0.9rem; line-height: 1.6; padding-left: 24px;" data-i18n="faq_free_a">
+                        Yes, this tool is 100% free with no hidden charges, no ads, and no signup required. It runs entirely in your browser — your data never leaves your device.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Tools -->
+        <section class="related-tools" style="margin-top: 40px; margin-bottom: 20px;">
+            <h3 style="color: #e6edf3; font-size: 18px; margin-bottom: 16px;" data-i18n="relatedToolsTitle">🔗 Related Tools</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
+                <a href="code-formatter.html" style="display: block; padding: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; text-decoration: none; transition: all 0.3s;">
+                    <div style="font-size: 1.5rem;">💻</div>
+                    <div style="color: #e4e4e7; font-weight: 500; margin: 4px 0;" data-i18n="relatedTool1">Code Formatter</div>
+                    <div style="color: #a1a1aa; font-size: 0.85rem;" data-i18n="relatedTool1Desc">Format & beautify code</div>
+                </a>
+                <a href="text-diff.html" style="display: block; padding: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; text-decoration: none; transition: all 0.3s;">
+                    <div style="font-size: 1.5rem;">📝</div>
+                    <div style="color: #e4e4e7; font-weight: 500; margin: 4px 0;" data-i18n="relatedTool2">Text Diff</div>
+                    <div style="color: #a1a1aa; font-size: 0.85rem;" data-i18n="relatedTool2Desc">Compare text differences</div>
+                </a>
+                <a href="csv-json-converter.html" style="display: block; padding: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; text-decoration: none; transition: all 0.3s;">
+                    <div style="font-size: 1.5rem;">🔄</div>
+                    <div style="color: #e4e4e7; font-weight: 500; margin: 4px 0;" data-i18n="relatedTool3">CSV JSON Converter</div>
+                    <div style="color: #a1a1aa; font-size: 0.85rem;" data-i18n="relatedTool3Desc">Convert between CSV and JSON</div>
+                </a>
+                <a href="word-counter.html" style="display: block; padding: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; text-decoration: none; transition: all 0.3s;">
+                    <div style="font-size: 1.5rem;">🔢</div>
+                    <div style="color: #e4e4e7; font-weight: 500; margin: 4px 0;" data-i18n="relatedTool4">Word Counter</div>
+                    <div style="color: #a1a1aa; font-size: 0.85rem;" data-i18n="relatedTool4Desc">Count words, characters & lines</div>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- ===================== LOGIC ===================== -->
+    <script>
+    // getLang helper - must be before translations
+    function getLang() {
+        return (typeof WebToolbox !== 'undefined') ? WebToolbox.getCurrentLang() : (localStorage.getItem('toolbox_lang') || 'en');
+    }
+
+    const translations = {
+        en: {
+            tool_name: 'File Renamer',
+            title: '📝 Batch File Renamer',
+            subtitle: 'Supports sequential numbering, find & replace, prefix/suffix and more',
+            privacyBadge: '🔒 Fully local processing, no server upload',
+            featureBatchTitle: 'Batch Rename',
+            featureBatchDesc: 'Process multiple files at once, one-click batch rename to improve efficiency',
+            feature1_title: '100% Free & Private',
+            feature1_desc: 'No ads, no signup, no watermark. Everything runs locally in your browser. Your data never leaves your device.',
+            featureRulesTitle: 'Multiple Rules',
+            featureRulesDesc: 'Supports prefix/suffix, numbering, date, find & replace, case conversion and more',
+            featurePreviewTitle: 'Real-time Preview',
+            featurePreviewDesc: 'Preview rename results in real-time as you adjust rules, confirm before applying',
+            featureLocalTitle: 'Local Processing',
+            featureLocalDesc: 'Files are not uploaded, only filenames are processed in browser, privacy secured',
+            uploadText: 'Click to select files/folder or drag & drop here',
+            uploadHint: 'Supports any file type, selecting folder will read all files automatically',
+            selectFiles: '📄 Select Files',
+            selectFolder: '📂 Select Folder',
+            renameMode: '⚙️ Rename Mode',
+            tabSequence: 'Sequential Numbering',
+            tabReplace: 'Find & Replace',
+            tabPrefix: 'Add Prefix/Suffix',
+            tabRegex: 'Regex Replace',
+            tabCase: 'Case Conversion',
+            templateLabel: 'Naming Template',
+            templatePlaceholder: 'e.g. IMG_###',
+            templateHint: '# indicates number position, count determines zero padding; {self} represents original filename',
+            keepOriginal: 'Keep original',
+            startNumber: 'Start Number',
+            stepLabel: 'Step',
+            findLabel: 'Find Text',
+            findPlaceholder: 'Text to replace',
+            replaceLabel: 'Replace With',
+            replacePlaceholder: 'New text (empty to delete)',
+            caseSensitive: 'Case sensitive',
+            replaceAll: 'Replace all matches',
+            prefixLabel: 'Add Prefix',
+            prefixPlaceholder: 'Add to beginning of filename',
+            suffixLabel: 'Add Suffix',
+            suffixPlaceholder: 'Add to end of filename (before extension)',
+            regexLabel: 'Regular Expression',
+            regexPlaceholder: 'e.g. \\d+',
+            regexReplaceLabel: 'Replace With',
+            regexReplacePlaceholder: 'Supports $1 capture groups',
+            ignoreCase: 'Ignore case',
+            globalMatch: 'Global match',
+            caseTypeLabel: 'Conversion Type',
+            caseLower: 'All lowercase (lowercase)',
+            caseUpper: 'All uppercase (UPPERCASE)',
+            caseTitle: 'Title Case',
+            caseSentence: 'Sentence case',
+            includeExtension: 'Include extension',
+            btnPreview: '👁️ Preview',
+            btnApply: '✅ Apply Rename',
+            btnReset: '🔄 Reset',
+            btnClear: '🗑️ Clear Files',
+            fileListTitle: '📋 File List',
+            fileCount: '{count} files total',
+            sortNameAsc: 'Name ↑',
+            sortNameDesc: 'Name ↓',
+            sortSizeAsc: 'Size ↑',
+            sortSizeDesc: 'Size ↓',
+            fileListEmpty: 'Please upload files',
+            downloadTitle: '📥 Download Files',
+            downloadSingle: 'Download Single',
+            downloadSingleDesc: 'Click download button in file list',
+            downloadZip: 'Download as ZIP',
+            downloadZipDesc: 'Package all files into ZIP',
+            downloadSequence: 'Download One by One',
+            downloadSequenceDesc: 'Download each file sequentially',
+            footerCredit: 'Made with ❤️ by <a href="https://github.com/heyuan110" target="_blank">@heyuan110</a> | <a href="index.html">Back to Tools</a>',
+            toastAdded: 'Added {count} files',
+            toastCleared: 'All files cleared',
+            toastSorted: 'Sorted',
+            toastPreviewUpdated: 'Preview updated',
+            toastNoChanges: 'No files to rename',
+            toastApplied: 'Rename applied, please select download method',
+            toastReset: 'All filenames reset',
+            toastZipDone: 'ZIP packaging complete',
+            toastZipFailed: 'Packaging failed: ',
+            toastAllDownloaded: 'All files downloaded',
+            confirmClear: 'Are you sure you want to clear all files?',
+            faqTitle: '❓ FAQ',
+            faqQ1: 'How many files can be batch renamed?',
+            faqA1: 'Theoretically unlimited, depends on browser performance. Recommended not to exceed 1000 files for smooth operation.',
+            faqQ2: 'What renaming rules are supported?',
+            faqA2: 'Supports prefix/suffix, sequential numbering, date insertion, find & replace, case conversion and more to meet most needs.',
+            faqQ3: 'Are files uploaded to a server?',
+            faqA3: 'No, all processing is done locally. Files never leave your computer, ensuring complete privacy.',
+            faqQ4: 'Can I undo the rename?',
+            faqA4: 'Before downloading, you can readjust rules or click "Reset" to restore. After downloading, you need to manually restore filenames.',
+            faqQ5: 'Can folders be renamed?',
+            faqA5: 'Only file renaming is supported, not folders. Selecting a folder will automatically read all files within for renaming.',
+            faq_free_q: 'Is this tool really free? Are there any hidden charges?',
+            faq_free_a: 'Yes, this tool is 100% free with no hidden charges, no ads, and no signup required. It runs entirely in your browser — your data never leaves your device.',
+            relatedToolsTitle: '🔗 Related Tools',
+            relatedTool1: 'Code Formatter',
+            relatedTool1Desc: 'Format & beautify code',
+            relatedTool2: 'Text Diff',
+            relatedTool2Desc: 'Compare text differences',
+            relatedTool3: 'CSV JSON Converter',
+            relatedTool3Desc: 'Convert between CSV and JSON',
+            relatedTool4: 'Word Counter',
+            relatedTool4Desc: 'Count words, characters & lines',
+            trust_users: '🌍 Used by 50,000+ users',
+            trust_rating: '⭐ 4.9/5 rating',
+            trust_privacy: '🔒 100% Private',
+            trust_free: '🚫 No Ads, No Signup'
+        },
+        'zh-CN': {
+            tool_name: '文件重命名',
+            title: '📝 文件批量重命名',
+            subtitle: '支持顺序编号、查找替换、添加前后缀等多种模式',
+            privacyBadge: '🔒 完全本地处理，不上传服务器',
+            featureBatchTitle: '批量重命名',
+            featureBatchDesc: '支持同时处理多个文件，一键批量重命名，提高工作效率',
+            feature1_title: '100% 免费且安全',
+            feature1_desc: '无广告、无需注册、无水印。所有处理都在浏览器本地完成，数据不会上传到任何服务器。',
+            featureRulesTitle: '多种规则',
+            featureRulesDesc: '支持添加前缀后缀、序号、日期、查找替换等多种重命名规则',
+            featurePreviewTitle: '实时预览',
+            featurePreviewDesc: '修改规则时实时预览重命名效果，确认无误后再应用',
+            featureLocalTitle: '本地处理',
+            featureLocalDesc: '文件不上传，仅在浏览器中处理文件名，隐私安全有保障',
+            uploadText: '点击选择文件/文件夹 或 拖拽到此处',
+            uploadHint: '支持任意类型文件，选择文件夹会自动读取所有文件',
+            selectFiles: '📄 选择文件',
+            selectFolder: '📂 选择文件夹',
+            renameMode: '⚙️ 重命名模式',
+            tabSequence: '顺序编号',
+            tabReplace: '查找替换',
+            tabPrefix: '添加前后缀',
+            tabRegex: '正则替换',
+            tabCase: '大小写转换',
+            templateLabel: '命名模板',
+            templatePlaceholder: '例如: IMG_###',
+            templateHint: '# 表示编号位置，位数决定补零数量；{self} 表示原文件名',
+            keepOriginal: '仅保留原名',
+            startNumber: '起始编号',
+            stepLabel: '步长',
+            findLabel: '查找内容',
+            findPlaceholder: '要替换的文本',
+            replaceLabel: '替换为',
+            replacePlaceholder: '新文本（留空则删除）',
+            caseSensitive: '区分大小写',
+            replaceAll: '替换所有匹配',
+            prefixLabel: '添加前缀',
+            prefixPlaceholder: '添加到文件名开头',
+            suffixLabel: '添加后缀',
+            suffixPlaceholder: '添加到文件名末尾（扩展名前）',
+            regexLabel: '正则表达式',
+            regexPlaceholder: '例如: \\d+',
+            regexReplaceLabel: '替换为',
+            regexReplacePlaceholder: '支持 $1 等捕获组',
+            ignoreCase: '忽略大小写',
+            globalMatch: '全局匹配',
+            caseTypeLabel: '转换方式',
+            caseLower: '全部小写 (lowercase)',
+            caseUpper: '全部大写 (UPPERCASE)',
+            caseTitle: '首字母大写 (Title Case)',
+            caseSentence: '句首大写 (Sentence case)',
+            includeExtension: '包含扩展名',
+            btnPreview: '👁️ 预览效果',
+            btnApply: '✅ 应用重命名',
+            btnReset: '🔄 重置',
+            btnClear: '🗑️ 清空文件',
+            fileListTitle: '📋 文件列表',
+            fileCount: '共 {count} 个文件',
+            sortNameAsc: '名称 ↑',
+            sortNameDesc: '名称 ↓',
+            sortSizeAsc: '大小 ↑',
+            sortSizeDesc: '大小 ↓',
+            fileListEmpty: '请上传文件',
+            downloadTitle: '📥 下载文件',
+            downloadSingle: '单独下载',
+            downloadSingleDesc: '点击文件列表中的下载按钮',
+            downloadZip: '打包下载',
+            downloadZipDesc: '所有文件打包为 ZIP',
+            downloadSequence: '逐个下载',
+            downloadSequenceDesc: '依次下载每个文件',
+            footerCredit: 'Made with ❤️ by <a href="https://github.com/heyuan110" target="_blank">@heyuan110</a> | <a href="index.html">返回工具列表</a>',
+            toastAdded: '已添加 {count} 个文件',
+            toastCleared: '已清空所有文件',
+            toastSorted: '已排序',
+            toastPreviewUpdated: '预览已更新',
+            toastNoChanges: '没有需要重命名的文件',
+            toastApplied: '重命名已应用，请选择下载方式',
+            toastReset: '已重置所有文件名',
+            toastZipDone: 'ZIP 打包完成',
+            toastZipFailed: '打包失败: ',
+            toastAllDownloaded: '所有文件下载完成',
+            confirmClear: '确定要清空所有文件吗？',
+            faqTitle: '❓ 常见问题',
+            faqQ1: '可以批量重命名多少文件？',
+            faqA1: '理论上无限制，取决于浏览器性能，建议一次不超过1000个文件，以保证流畅的操作体验。',
+            faqQ2: '支持哪些重命名规则？',
+            faqA2: '支持添加前缀后缀、插入序号、添加日期、查找替换、大小写转换等多种规则，可以满足大部分重命名需求。',
+            faqQ3: '文件会上传到服务器吗？',
+            faqA3: '不会，所有处理在本地完成，文件不会离开你的电脑，完全保护你的隐私安全。',
+            faqQ4: '可以撤销重命名吗？',
+            faqA4: '下载前可以重新调整规则或点击"重置"按钮恢复原名，下载后需要手动恢复文件名。',
+            faqQ5: '支持重命名文件夹吗？',
+            faqA5: '仅支持文件重命名，不支持文件夹。选择文件夹时会自动读取其中的所有文件进行重命名。',
+            faq_free_q: '这个工具真的免费吗？有隐藏收费吗？',
+            faq_free_a: '是的，本工具 100% 免费，无隐藏收费、无广告、无需注册。完全在浏览器中运行，数据不会离开您的设备。',
+            relatedToolsTitle: '🔗 相关工具推荐',
+            relatedTool1: '代码格式化',
+            relatedTool1Desc: '格式化和美化代码',
+            relatedTool2: '文本对比',
+            relatedTool2Desc: '对比文本差异',
+            relatedTool3: 'CSV JSON 转换',
+            relatedTool3Desc: 'CSV 和 JSON 互转',
+            relatedTool4: '字数统计',
+            relatedTool4Desc: '统计字数、字符和行数',
+            trust_users: '🌍 超过 50,000 用户使用',
+            trust_rating: '⭐ 4.9/5 好评',
+            trust_privacy: '🔒 100% 隐私安全',
+            trust_free: '🚫 无广告、无需注册'
+        },
+        fr: {
+            tool_name: 'Renommeur de fichiers',
+            title: '📝 Renommeur de fichiers par lot',
+            subtitle: 'Prend en charge la numérotation séquentielle, rechercher/remplacer, préfixe/suffixe et plus',
+            privacyBadge: '🔒 Traitement entièrement local, pas de téléversement',
+            featureBatchTitle: 'Renommage par lot',
+            featureBatchDesc: 'Traitez plusieurs fichiers à la fois, renommage par lot en un clic pour améliorer l\'efficacité',
+            feature1_title: '100% Gratuit et Privé',
+            feature1_desc: 'Sans publicité, sans inscription, sans filigrane. Tout est traité localement dans votre navigateur.',
+            featureRulesTitle: 'Règles multiples',
+            featureRulesDesc: 'Prend en charge préfixe/suffixe, numérotation, date, rechercher/remplacer, conversion de casse et plus',
+            featurePreviewTitle: 'Aperçu en temps réel',
+            featurePreviewDesc: 'Prévisualisez les résultats en temps réel lors de l\'ajustement des règles, confirmez avant d\'appliquer',
+            featureLocalTitle: 'Traitement local',
+            featureLocalDesc: 'Les fichiers ne sont pas téléversés, seuls les noms sont traités dans le navigateur, confidentialité assurée',
+            uploadText: 'Cliquez pour sélectionner des fichiers/dossier ou glissez-déposez ici',
+            uploadHint: 'Prend en charge tout type de fichier, la sélection d\'un dossier lira automatiquement tous les fichiers',
+            selectFiles: '📄 Sélectionner des fichiers',
+            selectFolder: '📂 Sélectionner un dossier',
+            renameMode: '⚙️ Mode de renommage',
+            tabSequence: 'Numérotation séquentielle',
+            tabReplace: 'Rechercher/Remplacer',
+            tabPrefix: 'Ajouter préfixe/suffixe',
+            tabRegex: 'Remplacement regex',
+            tabCase: 'Conversion de casse',
+            templateLabel: 'Modèle de nommage',
+            templatePlaceholder: 'ex: IMG_###',
+            templateHint: '# indique la position du numéro, le nombre détermine le remplissage par zéros; {self} représente le nom original',
+            keepOriginal: 'Garder l\'original',
+            startNumber: 'Numéro de départ',
+            stepLabel: 'Pas',
+            findLabel: 'Texte à rechercher',
+            findPlaceholder: 'Texte à remplacer',
+            replaceLabel: 'Remplacer par',
+            replacePlaceholder: 'Nouveau texte (vide pour supprimer)',
+            caseSensitive: 'Sensible à la casse',
+            replaceAll: 'Remplacer toutes les occurrences',
+            prefixLabel: 'Ajouter un préfixe',
+            prefixPlaceholder: 'Ajouter au début du nom de fichier',
+            suffixLabel: 'Ajouter un suffixe',
+            suffixPlaceholder: 'Ajouter à la fin du nom (avant l\'extension)',
+            regexLabel: 'Expression régulière',
+            regexPlaceholder: 'ex: \\d+',
+            regexReplaceLabel: 'Remplacer par',
+            regexReplacePlaceholder: 'Prend en charge les groupes de capture $1',
+            ignoreCase: 'Ignorer la casse',
+            globalMatch: 'Correspondance globale',
+            caseTypeLabel: 'Type de conversion',
+            caseLower: 'Tout en minuscules (lowercase)',
+            caseUpper: 'Tout en majuscules (UPPERCASE)',
+            caseTitle: 'Casse du titre (Title Case)',
+            caseSentence: 'Casse de phrase (Sentence case)',
+            includeExtension: 'Inclure l\'extension',
+            btnPreview: '👁️ Aperçu',
+            btnApply: '✅ Appliquer le renommage',
+            btnReset: '🔄 Réinitialiser',
+            btnClear: '🗑️ Effacer les fichiers',
+            fileListTitle: '📋 Liste des fichiers',
+            fileCount: '{count} fichiers au total',
+            sortNameAsc: 'Nom ↑',
+            sortNameDesc: 'Nom ↓',
+            sortSizeAsc: 'Taille ↑',
+            sortSizeDesc: 'Taille ↓',
+            fileListEmpty: 'Veuillez téléverser des fichiers',
+            downloadTitle: '📥 Télécharger les fichiers',
+            downloadSingle: 'Télécharger individuellement',
+            downloadSingleDesc: 'Cliquez sur le bouton de téléchargement dans la liste',
+            downloadZip: 'Télécharger en ZIP',
+            downloadZipDesc: 'Empaqueter tous les fichiers en ZIP',
+            downloadSequence: 'Télécharger un par un',
+            downloadSequenceDesc: 'Télécharger chaque fichier séquentiellement',
+            footerCredit: 'Fait avec ❤️ par <a href="https://github.com/heyuan110" target="_blank">@heyuan110</a> | <a href="index.html">Retour aux outils</a>',
+            toastAdded: '{count} fichiers ajoutés',
+            toastCleared: 'Tous les fichiers effacés',
+            toastSorted: 'Trié',
+            toastPreviewUpdated: 'Aperçu mis à jour',
+            toastNoChanges: 'Aucun fichier à renommer',
+            toastApplied: 'Renommage appliqué, veuillez sélectionner la méthode de téléchargement',
+            toastReset: 'Tous les noms de fichiers réinitialisés',
+            toastZipDone: 'Empaquetage ZIP terminé',
+            toastZipFailed: 'Échec de l\'empaquetage: ',
+            toastAllDownloaded: 'Tous les fichiers téléchargés',
+            confirmClear: 'Êtes-vous sûr de vouloir effacer tous les fichiers?',
+            faqTitle: '❓ FAQ',
+            faqQ1: 'Combien de fichiers peuvent être renommés par lot?',
+            faqA1: 'Théoriquement illimité, dépend des performances du navigateur. Recommandé de ne pas dépasser 1000 fichiers pour un fonctionnement fluide.',
+            faqQ2: 'Quelles règles de renommage sont prises en charge?',
+            faqA2: 'Prend en charge préfixe/suffixe, numérotation séquentielle, insertion de date, rechercher/remplacer, conversion de casse et plus.',
+            faqQ3: 'Les fichiers sont-ils téléversés sur un serveur?',
+            faqA3: 'Non, tout le traitement est fait localement. Les fichiers ne quittent jamais votre ordinateur, assurant une confidentialité totale.',
+            faqQ4: 'Puis-je annuler le renommage?',
+            faqA4: 'Avant le téléchargement, vous pouvez réajuster les règles ou cliquer sur "Réinitialiser". Après le téléchargement, vous devez restaurer manuellement.',
+            faqQ5: 'Les dossiers peuvent-ils être renommés?',
+            faqA5: 'Seul le renommage de fichiers est pris en charge, pas les dossiers. Sélectionner un dossier lira automatiquement tous les fichiers pour le renommage.',
+            faq_free_q: 'Cet outil est-il vraiment gratuit ? Y a-t-il des frais cachés ?',
+            faq_free_a: 'Oui, cet outil est 100% gratuit sans frais cachés, sans publicité et sans inscription. Il fonctionne entièrement dans votre navigateur — vos données ne quittent jamais votre appareil.',
+            relatedToolsTitle: '🔗 Outils connexes',
+            relatedTool1: 'Formateur de code',
+            relatedTool1Desc: 'Formater et embellir le code',
+            relatedTool2: 'Comparaison de texte',
+            relatedTool2Desc: 'Comparer les différences de texte',
+            relatedTool3: 'Convertisseur CSV JSON',
+            relatedTool3Desc: 'Convertir entre CSV et JSON',
+            relatedTool4: 'Compteur de mots',
+            relatedTool4Desc: 'Compter les mots, caractères et lignes',
+            trust_users: '🌍 Utilisé par 50 000+ utilisateurs',
+            trust_rating: '⭐ Note 4.9/5',
+            trust_privacy: '🔒 100% Privé',
+            trust_free: '🚫 Sans pub, sans inscription'
+        },
+        es: {
+            tool_name: 'Renombrador de archivos',
+            title: '📝 Renombrador de archivos por lotes',
+            subtitle: 'Soporta numeración secuencial, buscar/reemplazar, prefijo/sufijo y más',
+            privacyBadge: '🔒 Procesamiento completamente local, sin subir al servidor',
+            featureBatchTitle: 'Renombrado por lotes',
+            featureBatchDesc: 'Procesa múltiples archivos a la vez, renombrado por lotes con un clic para mejorar la eficiencia',
+            feature1_title: '100% Gratis y Privado',
+            feature1_desc: 'Sin anuncios, sin registro, sin marca de agua. Todo se procesa localmente en tu navegador.',
+            featureRulesTitle: 'Múltiples reglas',
+            featureRulesDesc: 'Soporta prefijo/sufijo, numeración, fecha, buscar/reemplazar, conversión de mayúsculas y más',
+            featurePreviewTitle: 'Vista previa en tiempo real',
+            featurePreviewDesc: 'Vista previa de resultados en tiempo real al ajustar reglas, confirma antes de aplicar',
+            featureLocalTitle: 'Procesamiento local',
+            featureLocalDesc: 'Los archivos no se suben, solo se procesan los nombres en el navegador, privacidad asegurada',
+            uploadText: 'Clic para seleccionar archivos/carpeta o arrastrar y soltar aquí',
+            uploadHint: 'Soporta cualquier tipo de archivo, seleccionar carpeta leerá todos los archivos automáticamente',
+            selectFiles: '📄 Seleccionar archivos',
+            selectFolder: '📂 Seleccionar carpeta',
+            renameMode: '⚙️ Modo de renombrado',
+            tabSequence: 'Numeración secuencial',
+            tabReplace: 'Buscar/Reemplazar',
+            tabPrefix: 'Añadir prefijo/sufijo',
+            tabRegex: 'Reemplazo regex',
+            tabCase: 'Conversión de mayúsculas',
+            templateLabel: 'Plantilla de nombre',
+            templatePlaceholder: 'ej: IMG_###',
+            templateHint: '# indica posición del número, la cantidad determina el relleno con ceros; {self} representa el nombre original',
+            keepOriginal: 'Mantener original',
+            startNumber: 'Número inicial',
+            stepLabel: 'Paso',
+            findLabel: 'Texto a buscar',
+            findPlaceholder: 'Texto a reemplazar',
+            replaceLabel: 'Reemplazar con',
+            replacePlaceholder: 'Nuevo texto (vacío para eliminar)',
+            caseSensitive: 'Distinguir mayúsculas',
+            replaceAll: 'Reemplazar todas las coincidencias',
+            prefixLabel: 'Añadir prefijo',
+            prefixPlaceholder: 'Añadir al inicio del nombre',
+            suffixLabel: 'Añadir sufijo',
+            suffixPlaceholder: 'Añadir al final del nombre (antes de la extensión)',
+            regexLabel: 'Expresión regular',
+            regexPlaceholder: 'ej: \\d+',
+            regexReplaceLabel: 'Reemplazar con',
+            regexReplacePlaceholder: 'Soporta grupos de captura $1',
+            ignoreCase: 'Ignorar mayúsculas',
+            globalMatch: 'Coincidencia global',
+            caseTypeLabel: 'Tipo de conversión',
+            caseLower: 'Todo minúsculas (lowercase)',
+            caseUpper: 'Todo mayúsculas (UPPERCASE)',
+            caseTitle: 'Mayúscula inicial (Title Case)',
+            caseSentence: 'Mayúscula de oración (Sentence case)',
+            includeExtension: 'Incluir extensión',
+            btnPreview: '👁️ Vista previa',
+            btnApply: '✅ Aplicar renombrado',
+            btnReset: '🔄 Restablecer',
+            btnClear: '🗑️ Limpiar archivos',
+            fileListTitle: '📋 Lista de archivos',
+            fileCount: '{count} archivos en total',
+            sortNameAsc: 'Nombre ↑',
+            sortNameDesc: 'Nombre ↓',
+            sortSizeAsc: 'Tamaño ↑',
+            sortSizeDesc: 'Tamaño ↓',
+            fileListEmpty: 'Por favor suba archivos',
+            downloadTitle: '📥 Descargar archivos',
+            downloadSingle: 'Descargar individual',
+            downloadSingleDesc: 'Clic en el botón de descarga en la lista',
+            downloadZip: 'Descargar como ZIP',
+            downloadZipDesc: 'Empaquetar todos los archivos en ZIP',
+            downloadSequence: 'Descargar uno por uno',
+            downloadSequenceDesc: 'Descargar cada archivo secuencialmente',
+            footerCredit: 'Hecho con ❤️ por <a href="https://github.com/heyuan110" target="_blank">@heyuan110</a> | <a href="index.html">Volver a herramientas</a>',
+            toastAdded: '{count} archivos añadidos',
+            toastCleared: 'Todos los archivos eliminados',
+            toastSorted: 'Ordenado',
+            toastPreviewUpdated: 'Vista previa actualizada',
+            toastNoChanges: 'No hay archivos para renombrar',
+            toastApplied: 'Renombrado aplicado, por favor seleccione método de descarga',
+            toastReset: 'Todos los nombres de archivos restablecidos',
+            toastZipDone: 'Empaquetado ZIP completado',
+            toastZipFailed: 'Error al empaquetar: ',
+            toastAllDownloaded: 'Todos los archivos descargados',
+            confirmClear: '¿Está seguro de que desea limpiar todos los archivos?',
+            faqTitle: '❓ Preguntas frecuentes',
+            faqQ1: '¿Cuántos archivos se pueden renombrar por lotes?',
+            faqA1: 'Teóricamente ilimitado, depende del rendimiento del navegador. Se recomienda no exceder 1000 archivos para una operación fluida.',
+            faqQ2: '¿Qué reglas de renombrado se soportan?',
+            faqA2: 'Soporta prefijo/sufijo, numeración secuencial, inserción de fecha, buscar/reemplazar, conversión de mayúsculas y más.',
+            faqQ3: '¿Se suben los archivos a un servidor?',
+            faqA3: 'No, todo el procesamiento se hace localmente. Los archivos nunca salen de su computadora, asegurando privacidad completa.',
+            faqQ4: '¿Puedo deshacer el renombrado?',
+            faqA4: 'Antes de descargar, puede reajustar reglas o hacer clic en "Restablecer". Después de descargar, debe restaurar manualmente.',
+            faqQ5: '¿Se pueden renombrar carpetas?',
+            faqA5: 'Solo se soporta renombrar archivos, no carpetas. Seleccionar una carpeta leerá automáticamente todos los archivos para renombrar.',
+            faq_free_q: '¿Esta herramienta es realmente gratuita? ¿Hay cargos ocultos?',
+            faq_free_a: 'Sí, esta herramienta es 100% gratuita sin cargos ocultos, sin anuncios y sin registro. Funciona completamente en tu navegador — tus datos nunca salen de tu dispositivo.',
+            relatedToolsTitle: '🔗 Herramientas relacionadas',
+            relatedTool1: 'Formateador de código',
+            relatedTool1Desc: 'Formatear y embellecer código',
+            relatedTool2: 'Comparación de texto',
+            relatedTool2Desc: 'Comparar diferencias de texto',
+            relatedTool3: 'Convertidor CSV JSON',
+            relatedTool3Desc: 'Convertir entre CSV y JSON',
+            relatedTool4: 'Contador de palabras',
+            relatedTool4Desc: 'Contar palabras, caracteres y líneas',
+            trust_users: '🌍 Usado por más de 50,000 usuarios',
+            trust_rating: '⭐ Calificación 4.9/5',
+            trust_privacy: '🔒 100% Privado',
+            trust_free: '🚫 Sin anuncios, sin registro'
+        }
+    };
+
+    (function() {
+        'use strict';
+
+        function t(key, params = {}) {
+            let text = translations[getLang()]?.[key] || translations['en'][key] || key;
+            Object.keys(params).forEach(k => {
+                text = text.replace(`{${k}}`, params[k]);
+            });
+            return text;
+        }
+
+        // ===== 全局变量 =====
+        let files = []; // { id, file, originalName, newName, applied }
+        let currentMode = 'sequence';
+        let sortable = null;
+
+        // ===== DOM 元素 =====
+        const uploadZone = document.getElementById('uploadZone');
+        const fileInput = document.getElementById('fileInput');
+        const folderInput = document.getElementById('folderInput');
+        const fileList = document.getElementById('fileList');
+        const fileCount = document.getElementById('fileCount');
+        const btnPreview = document.getElementById('btnPreview');
+        const btnApply = document.getElementById('btnApply');
+        const btnReset = document.getElementById('btnReset');
+        const btnClear = document.getElementById('btnClear');
+        const downloadSection = document.getElementById('downloadSection');
+        const progressBar = document.getElementById('progressBar');
+        const progressFill = document.getElementById('progressFill');
+        const toast = document.getElementById('toast');
+
+        // ===== 初始化 =====
+        function init() {
+            initEventListeners();
+            initSortable();
+        }
+
+        function initEventListeners() {
+            // 上传
+            uploadZone.addEventListener('click', (e) => {
+                if (e.target.closest('.upload-btn')) return;
+                fileInput.click();
+            });
+            document.getElementById('btnSelectFiles').addEventListener('click', () => fileInput.click());
+            document.getElementById('btnSelectFolder').addEventListener('click', () => folderInput.click());
+            fileInput.addEventListener('change', handleFileSelect);
+            folderInput.addEventListener('change', handleFileSelect);
+
+            // 拖拽
+            uploadZone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                uploadZone.classList.add('dragover');
+            });
+            uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('dragover'));
+            uploadZone.addEventListener('drop', handleDrop);
+
+            // 选项卡
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+            });
+
+            // 模板标签
+            document.querySelectorAll('.template-tag').forEach(tag => {
+                tag.addEventListener('click', () => {
+                    document.getElementById('seqTemplate').value = tag.dataset.template;
+                });
+            });
+
+            // 操作按钮
+            btnPreview.addEventListener('click', previewRename);
+            btnApply.addEventListener('click', applyRename);
+            btnReset.addEventListener('click', resetNames);
+            btnClear.addEventListener('click', clearFiles);
+
+            // 排序按钮
+            document.querySelectorAll('.sort-btn').forEach(btn => {
+                btn.addEventListener('click', () => sortFiles(btn.dataset.sort));
+            });
+
+            // 下载选项
+            document.getElementById('downloadZip').addEventListener('click', downloadAsZip);
+            document.getElementById('downloadSequence').addEventListener('click', downloadSequentially);
+        }
+
+        function initSortable() {
+            sortable = new Sortable(fileList, {
+                animation: 150,
+                ghostClass: 'sortable-ghost',
+                chosenClass: 'sortable-chosen',
+                onEnd: function(evt) {
+                    const movedItem = files.splice(evt.oldIndex, 1)[0];
+                    files.splice(evt.newIndex, 0, movedItem);
+                    updateIndexNumbers();
+                }
+            });
+        }
+
+        // ===== 文件处理 =====
+        function handleFileSelect(e) {
+            const newFiles = Array.from(e.target.files);
+            addFiles(newFiles);
+            e.target.value = '';
+        }
+
+        function handleDrop(e) {
+            e.preventDefault();
+            uploadZone.classList.remove('dragover');
+            const newFiles = Array.from(e.dataTransfer.files);
+            addFiles(newFiles);
+        }
+
+        function addFiles(newFiles) {
+            if (newFiles.length === 0) return;
+
+            newFiles.forEach(file => {
+                files.push({
+                    id: Date.now() + Math.random().toString(36).substr(2, 9),
+                    file: file,
+                    originalName: file.name,
+                    newName: file.name,
+                    applied: false
+                });
+            });
+
+            renderFileList();
+            updateUI();
+            showToast(t('toastAdded', { count: newFiles.length }), 'success');
+        }
+
+        function removeFile(id) {
+            files = files.filter(f => f.id !== id);
+            renderFileList();
+            updateUI();
+        }
+
+        function clearFiles() {
+            if (files.length === 0) return;
+            if (!confirm(t('confirmClear'))) return;
+            files = [];
+            renderFileList();
+            updateUI();
+            showToast(t('toastCleared'), 'success');
+        }
+
+        // ===== 排序 =====
+        function sortFiles(type) {
+            const [field, order] = type.split('-');
+            files.sort((a, b) => {
+                let valA, valB;
+                if (field === 'name') {
+                    valA = a.originalName.toLowerCase();
+                    valB = b.originalName.toLowerCase();
+                } else if (field === 'size') {
+                    valA = a.file.size;
+                    valB = b.file.size;
+                }
+                if (order === 'asc') {
+                    return valA < valB ? -1 : valA > valB ? 1 : 0;
+                } else {
+                    return valA > valB ? -1 : valA < valB ? 1 : 0;
+                }
+            });
+            renderFileList();
+            showToast(t('toastSorted'), 'success');
+        }
+
+        // ===== 选项卡 =====
+        function switchTab(tab) {
+            currentMode = tab;
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.tab === tab);
+            });
+            document.querySelectorAll('.tab-panel').forEach(panel => {
+                panel.classList.toggle('active', panel.id === `panel-${tab}`);
+            });
+        }
+
+        // ===== 重命名逻辑 =====
+        function previewRename() {
+            if (files.length === 0) return;
+
+            files.forEach((f, index) => {
+                f.newName = generateNewName(f, index);
+            });
+
+            renderFileList();
+            showToast(t('toastPreviewUpdated'), 'success');
+        }
+
+        function generateNewName(fileData, index) {
+            const originalName = fileData.originalName;
+            const lastDot = originalName.lastIndexOf('.');
+            const baseName = lastDot > 0 ? originalName.substring(0, lastDot) : originalName;
+            const ext = lastDot > 0 ? originalName.substring(lastDot) : '';
+
+            let newBaseName = baseName;
+
+            switch (currentMode) {
+                case 'sequence':
+                    newBaseName = applySequence(baseName, index);
+                    break;
+                case 'replace':
+                    newBaseName = applyReplace(baseName);
+                    break;
+                case 'prefix':
+                    newBaseName = applyPrefixSuffix(baseName);
+                    break;
+                case 'regex':
+                    newBaseName = applyRegex(baseName);
+                    break;
+                case 'case':
+                    const includeExt = document.getElementById('caseIncludeExt').checked;
+                    if (includeExt) {
+                        return applyCase(originalName);
+                    }
+                    newBaseName = applyCase(baseName);
+                    break;
+            }
+
+            return newBaseName + ext;
+        }
+
+        function applySequence(baseName, index) {
+            const template = document.getElementById('seqTemplate').value || '###';
+            const start = parseInt(document.getElementById('seqStart').value) || 1;
+            const step = parseInt(document.getElementById('seqStep').value) || 1;
+
+            const num = start + index * step;
+
+            // 处理 {self}
+            let result = template.replace(/\{self\}/g, baseName);
+
+            // 处理 # 编号
+            const hashMatch = result.match(/#+/);
+            if (hashMatch) {
+                const hashLen = hashMatch[0].length;
+                const paddedNum = String(num).padStart(hashLen, '0');
+                result = result.replace(/#+/, paddedNum);
+            }
+
+            return result;
+        }
+
+        function applyReplace(baseName) {
+            const find = document.getElementById('replaceFind').value;
+            const replace = document.getElementById('replaceWith').value;
+            const caseSensitive = document.getElementById('replaceCaseSensitive').checked;
+            const replaceAll = document.getElementById('replaceAll').checked;
+
+            if (!find) return baseName;
+
+            if (replaceAll) {
+                const flags = caseSensitive ? 'g' : 'gi';
+                const regex = new RegExp(escapeRegex(find), flags);
+                return baseName.replace(regex, replace);
+            } else {
+                if (caseSensitive) {
+                    return baseName.replace(find, replace);
+                } else {
+                    const regex = new RegExp(escapeRegex(find), 'i');
+                    return baseName.replace(regex, replace);
+                }
+            }
+        }
+
+        function applyPrefixSuffix(baseName) {
+            const prefix = document.getElementById('prefixText').value;
+            const suffix = document.getElementById('suffixText').value;
+            return prefix + baseName + suffix;
+        }
+
+        function applyRegex(baseName) {
+            const pattern = document.getElementById('regexPattern').value;
+            const replace = document.getElementById('regexReplace').value;
+            const caseInsensitive = document.getElementById('regexCaseInsensitive').checked;
+            const global = document.getElementById('regexGlobal').checked;
+
+            if (!pattern) return baseName;
+
+            try {
+                let flags = '';
+                if (global) flags += 'g';
+                if (caseInsensitive) flags += 'i';
+                const regex = new RegExp(pattern, flags);
+                return baseName.replace(regex, replace);
+            } catch (e) {
+                return baseName;
+            }
+        }
+
+        function applyCase(text) {
+            const type = document.getElementById('caseType').value;
+            switch (type) {
+                case 'lower':
+                    return text.toLowerCase();
+                case 'upper':
+                    return text.toUpperCase();
+                case 'title':
+                    return text.replace(/\b\w/g, c => c.toUpperCase());
+                case 'sentence':
+                    return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+                default:
+                    return text;
+            }
+        }
+
+        function escapeRegex(str) {
+            return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        }
+
+        function applyRename() {
+            if (files.length === 0) return;
+
+            let hasChanges = false;
+            files.forEach(f => {
+                if (f.newName !== f.originalName) {
+                    f.applied = true;
+                    hasChanges = true;
+                }
+            });
+
+            if (!hasChanges) {
+                showToast(t('toastNoChanges'), 'error');
+                return;
+            }
+
+            renderFileList();
+            downloadSection.style.display = 'block';
+            showToast(t('toastApplied'), 'success');
+        }
+
+        function resetNames() {
+            files.forEach(f => {
+                f.newName = f.originalName;
+                f.applied = false;
+            });
+            renderFileList();
+            downloadSection.style.display = 'none';
+            showToast(t('toastReset'), 'success');
+        }
+
+        // ===== 渲染 =====
+        function renderFileList() {
+            fileList.innerHTML = '';
+
+            files.forEach((f, index) => {
+                const div = document.createElement('div');
+                div.className = 'file-item';
+                div.dataset.id = f.id;
+
+                const isChanged = f.newName !== f.originalName;
+
+                div.innerHTML = `
+                    <span class="file-index">${index + 1}</span>
+                    <span class="file-original" title="${f.originalName}">${f.originalName}</span>
+                    <span class="file-arrow">→</span>
+                    <span class="file-new ${isChanged ? '' : 'unchanged'}" title="${f.newName}">${f.newName}</span>
+                    <div class="file-actions">
+                        <button class="file-action-btn download" title="Download">⬇️</button>
+                        <button class="file-action-btn delete" title="Delete">✕</button>
+                    </div>
+                `;
+
+                div.querySelector('.download').addEventListener('click', () => downloadSingle(f));
+                div.querySelector('.delete').addEventListener('click', () => removeFile(f.id));
+
+                fileList.appendChild(div);
+            });
+        }
+
+        function updateIndexNumbers() {
+            const items = fileList.querySelectorAll('.file-item');
+            items.forEach((item, index) => {
+                item.querySelector('.file-index').textContent = index + 1;
+            });
+        }
+
+        function updateUI() {
+            fileCount.textContent = t('fileCount', { count: files.length });
+            btnPreview.disabled = files.length === 0;
+            btnApply.disabled = files.length === 0;
+            if (files.length === 0) {
+                downloadSection.style.display = 'none';
+            }
+        }
+
+        // ===== 下载 =====
+        function downloadSingle(fileData) {
+            const blob = fileData.file;
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = fileData.applied ? fileData.newName : fileData.originalName;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        async function downloadAsZip() {
+            if (files.length === 0) return;
+
+            progressBar.classList.add('active');
+            progressFill.style.width = '0%';
+
+            try {
+                const zip = new JSZip();
+
+                for (let i = 0; i < files.length; i++) {
+                    const f = files[i];
+                    const name = f.applied ? f.newName : f.originalName;
+                    zip.file(name, f.file);
+                    progressFill.style.width = `${((i + 1) / files.length) * 50}%`;
+                }
+
+                const content = await zip.generateAsync({ type: 'blob' }, (metadata) => {
+                    progressFill.style.width = `${50 + metadata.percent / 2}%`;
+                });
+
+                const url = URL.createObjectURL(content);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'renamed_files.zip';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+
+                showToast(t('toastZipDone'), 'success');
+            } catch (err) {
+                showToast(t('toastZipFailed') + err.message, 'error');
+            } finally {
+                progressBar.classList.remove('active');
+            }
+        }
+
+        async function downloadSequentially() {
+            if (files.length === 0) return;
+
+            progressBar.classList.add('active');
+
+            for (let i = 0; i < files.length; i++) {
+                downloadSingle(files[i]);
+                progressFill.style.width = `${((i + 1) / files.length) * 100}%`;
+                await new Promise(r => setTimeout(r, 500)); // 间隔下载
+            }
+
+            progressBar.classList.remove('active');
+            showToast(t('toastAllDownloaded'), 'success');
+        }
+
+        // ===== Toast =====
+        function showToast(message, type = '') {
+            toast.textContent = message;
+            toast.className = 'toast ' + type;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+
+        // ===== 启动 =====
+        init();
+    })();
+
+    window._translations = translations;
+    </script>
+    <script src="common/common.js" data-tool-id="file-renamer" data-tool-name="File Renamer" data-category="utility"></script>
+    <script>WebToolbox.init(window._translations);</script>
+    <!-- ===================== /LOGIC ===================== -->
+</body>
+</html>

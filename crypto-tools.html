@@ -1,0 +1,3686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CT8E5N460D"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CT8E5N460D');</script>
+    <title>Crypto & Encoding Toolbox - Free Online | No Ads, No Signup | 加密编码 | Web Toolbox</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Free online crypto and encoding toolbox with 20+ tools: MD5/SHA/AES/DES encryption, Base64/URL/Unicode encoding, Morse code, QR code & barcode generator, password generator, UUID generator. Runs entirely in browser, secure and reliable. ✅ No ads ✅ No signup ✅ No limits. Runs entirely in your browser.">
+    <meta name="keywords" content="MD5 encryption,SHA encryption,AES encryption,Base64 encoding,URL encoding,Unicode converter,Morse code,QR code generator,barcode generator,password generator,UUID generator,online encryption, no ads, no signup, no login, free unlimited, browser-based, no installation">
+    <meta name="author" content="heyuan110">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.heyuan110.com/web-toolbox/crypto-tools.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.heyuan110.com/web-toolbox/crypto-tools.html">
+    <meta property="og:title" content="Crypto & Encoding Toolbox - Free Online | No Ads, No Signup | 加密编码">
+    <meta property="og:description" content="Integrated MD5/SHA/AES encryption, Base64/URL encoding, QR code generator, password generator and 20+ more tools. Runs entirely in browser.">
+    <meta property="og:image" content="https://www.heyuan110.com/web-toolbox/screenshots/crypto-tools.png">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Web Toolbox">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Crypto & Encoding Toolbox - Free Online | No Ads, No Signup | 加密编码">
+    <meta name="twitter:description" content="Integrated MD5/SHA/AES encryption, Base64 encoding, QR code generator and 20+ more tools.">
+    <meta name="twitter:image" content="https://www.heyuan110.com/web-toolbox/screenshots/crypto-tools.png">
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Crypto & Encoding Toolbox",
+        "url": "https://www.heyuan110.com/web-toolbox/crypto-tools.html",
+        "description": "Comprehensive toolbox with 20+ encryption, decryption and encoding conversion tools",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web Browser",
+        "featureList": ["No ads", "No signup required", "100% browser-based", "Unlimited usage", "No watermark"],
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "author": {"@type": "Person", "name": "heyuan110"},
+        "alternateName": ["加密编码工具箱", "Encryption Toolkit", "Hash Generator"],
+        "publisher": {"@type": "Organization", "name": "Web Toolbox", "url": "https://www.heyuan110.com/web-toolbox/"},
+        "screenshot": "https://www.heyuan110.com/web-toolbox/screenshots/crypto-tools.webp"
+    }
+    </script>
+
+    <!-- FAQPage JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is Base64 encoding encryption?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Base64 is an encoding method, not encryption. It can be decoded directly and provides no security protection. Base64 is mainly used to convert binary data to text format for transmission in text-based protocols."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can MD5 be decrypted?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "MD5 is a one-way hash function that is irreversible. The original data cannot be restored from the hash value. MD5 compresses data of any length into a fixed-length digest and is designed to be irreversible."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is AES encryption secure?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "AES is one of the most secure symmetric encryption algorithms, widely used by governments and financial institutions. AES-256 is used by the US government to encrypt top-secret documents and has never been cracked."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Which is more secure, SHA-256 or MD5?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "SHA-256 is more secure. MD5 has known collision vulnerabilities and is not recommended for security purposes. SHA-256 has longer output and more complex algorithms, and is still considered a secure hash algorithm."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is data uploaded to the server?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, all encryption and decryption operations are performed locally in your browser. This tool uses pure front-end technology, and sensitive data never leaves your device."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is this tool really free with no ads?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, 100% free with no ads, no registration, no watermark, and no usage limits. All processing happens locally in your browser — your data is never uploaded to any server."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- CryptoJS 加密库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+    <!-- JsBarcode 条形码库 -->
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
+    <!-- QRCode Styling 二维码库 -->
+    <script src="https://cdn.jsdelivr.net/npm/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #e4e4e7;
+            display: flex;
+        }
+
+        /* 侧边栏样式 */
+        .sidebar {
+            width: 260px;
+            background: rgba(0, 0, 0, 0.3);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            height: 100vh;
+            overflow-y: auto;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+
+        .sidebar-header {
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        .sidebar-header h1 {
+            font-size: 1.4rem;
+            background: linear-gradient(120deg, #00d4ff, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .sidebar-header p {
+            font-size: 0.8rem;
+            color: #a1a1aa;
+            margin-top: 5px;
+        }
+
+        .nav-category {
+            padding: 15px 20px 8px;
+            font-size: 0.75rem;
+            color: #71717a;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .nav-item {
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-item:hover {
+            background: rgba(124, 58, 237, 0.2);
+            border-left-color: #7c3aed;
+        }
+
+        .nav-item.active {
+            background: rgba(124, 58, 237, 0.3);
+            border-left-color: #7c3aed;
+            color: #a78bfa;
+        }
+
+        .nav-item .icon {
+            font-size: 1rem;
+        }
+
+        /* 主内容区 */
+        .main-content {
+            flex: 1;
+            margin-left: 260px;
+            padding: 30px;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .tool-panel {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tool-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .tool-header {
+            margin-bottom: 25px;
+        }
+
+        .tool-header h2 {
+            font-size: 1.8rem;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .tool-header p {
+            color: #a1a1aa;
+            font-size: 0.95rem;
+        }
+
+        /* 工具卡片 */
+        .tool-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        .tool-card h3 {
+            font-size: 1.1rem;
+            color: #e4e4e7;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* 输入输出区域 */
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #a1a1aa;
+            font-size: 0.85rem;
+        }
+
+        textarea, input[type="text"], input[type="password"], input[type="number"], select {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            color: #e4e4e7;
+            font-size: 0.95rem;
+            font-family: 'Monaco', 'Menlo', monospace;
+            transition: all 0.2s ease;
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        textarea:focus, input:focus, select:focus {
+            outline: none;
+            border-color: #7c3aed;
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2);
+        }
+
+        select {
+            cursor: pointer;
+        }
+
+        /* 按钮样式 */
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #7c3aed, #6366f1);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #8b5cf6, #818cf8);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #e4e4e7;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #059669, #10b981);
+            color: #fff;
+        }
+
+        .btn-success:hover {
+            background: linear-gradient(135deg, #10b981, #34d399);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #dc2626, #ef4444);
+            color: #fff;
+        }
+
+        .btn-danger:hover {
+            background: linear-gradient(135deg, #ef4444, #f87171);
+        }
+
+        /* 选项卡 */
+        .tabs {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            color: #a1a1aa;
+            transition: all 0.2s ease;
+        }
+
+        .tab:hover {
+            background: rgba(124, 58, 237, 0.2);
+        }
+
+        .tab.active {
+            background: rgba(124, 58, 237, 0.3);
+            border-color: #7c3aed;
+            color: #a78bfa;
+        }
+
+        /* 选项行 */
+        .options-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            align-items: flex-end;
+        }
+
+        .options-row .input-group {
+            margin-bottom: 0;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        /* 结果展示 */
+        .result-box {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            position: relative;
+        }
+
+        .result-box pre {
+            color: #22c55e;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.9rem;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 12px;
+            font-size: 0.8rem;
+        }
+
+        /* 分割线 */
+        .divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 20px 0;
+        }
+
+        /* 复选框样式 */
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .checkbox-group label {
+            color: #a1a1aa;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        /* 滑块样式 */
+        input[type="range"] {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            background: #7c3aed;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        /* 文件上传 */
+        .file-upload {
+            border: 2px dashed rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .file-upload:hover {
+            border-color: #7c3aed;
+            background: rgba(124, 58, 237, 0.1);
+        }
+
+        .file-upload input[type="file"] {
+            display: none;
+        }
+
+        .file-upload .icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .file-upload p {
+            color: #a1a1aa;
+            font-size: 0.9rem;
+        }
+
+        /* 条形码画布 */
+        #barcode-canvas {
+            background: #fff;
+            border-radius: 8px;
+            max-width: 100%;
+        }
+
+        /* 图片预览 */
+        .image-preview {
+            max-width: 300px;
+            max-height: 200px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+
+            body {
+                flex-direction: column;
+            }
+
+            .options-row {
+                flex-direction: column;
+            }
+
+            .options-row .input-group {
+                width: 100%;
+            }
+        }
+/* 密码强度指示器 */
+        .strength-bar {
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+
+        .strength-bar .fill {
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .strength-weak { width: 25%; background: #ef4444; }
+        .strength-fair { width: 50%; background: #f59e0b; }
+        .strength-good { width: 75%; background: #3b82f6; }
+        .strength-strong { width: 100%; background: #22c55e; }
+
+        /* Toast 提示 */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 12px 24px;
+            background: rgba(34, 197, 94, 0.9);
+            color: #fff;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            z-index: 1000;
+            animation: slideIn 0.3s ease;
+        }
+
+        .toast.error {
+            background: rgba(239, 68, 68, 0.9);
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* 网格布局 */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 功能特点区块 */
+        .features-section {
+            margin-bottom: 30px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .feature-title {
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .feature-desc {
+            color: #a1a1aa;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        /* FAQ 区块 */
+        .faq-section {
+            margin: 40px 0;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+        }
+
+        .faq-title {
+            color: #fff;
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 16px 20px;
+            background: none;
+            border: none;
+            color: #e4e4e7;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .faq-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+            color: #7c3aed;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+        }
+
+        .faq-answer-content {
+            padding: 0 20px 16px;
+            color: #a1a1aa;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        /* 响应式 - 功能特点和 FAQ */
+        @media (max-width: 900px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        </style>
+    <link rel="stylesheet" href="common/common.css">
+</head>
+<body>
+    <!-- 侧边栏导航 -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h1 data-i18n="siteTitle">🔐 Crypto Toolbox</h1>
+            <p data-i18n="siteSubtitle">Online Encryption & Encoding Tools</p>
+        </div>
+
+        <div class="nav-category" data-i18n="navHash">Hash/Digest</div>
+        <div class="nav-item active" data-panel="md5"><span class="icon">🔒</span><span data-i18n="navMd5">MD5 Encryption</span></div>
+        <div class="nav-item" data-panel="sha"><span class="icon">🛡️</span><span data-i18n="navSha">SHA Series</span></div>
+        <div class="nav-item" data-panel="hash-all"><span class="icon">📊</span><span data-i18n="navHashAll">All Hash Algorithms</span></div>
+
+        <div class="nav-category" data-i18n="navSymmetric">Symmetric Encryption</div>
+        <div class="nav-item" data-panel="aes"><span class="icon">🔑</span><span data-i18n="navAes">AES Encrypt/Decrypt</span></div>
+        <div class="nav-item" data-panel="des"><span class="icon">🗝️</span><span data-i18n="navDes">DES Encrypt/Decrypt</span></div>
+        <div class="nav-item" data-panel="tripledes"><span class="icon">🔐</span><span data-i18n="navTripleDes">TripleDES Encrypt/Decrypt</span></div>
+        <div class="nav-item" data-panel="rc4"><span class="icon">🔏</span><span data-i18n="navRc4">RC4 Encrypt/Decrypt</span></div>
+        <div class="nav-item" data-panel="rabbit"><span class="icon">🐰</span><span data-i18n="navRabbit">Rabbit Encrypt/Decrypt</span></div>
+
+        <div class="nav-category" data-i18n="navEncoding">Encoding Conversion</div>
+        <div class="nav-item" data-panel="base64"><span class="icon">📝</span><span data-i18n="navBase64">Base64 Encode/Decode</span></div>
+        <div class="nav-item" data-panel="url"><span class="icon">🔗</span><span data-i18n="navUrl">URL Encode/Decode</span></div>
+        <div class="nav-item" data-panel="url-hex"><span class="icon">🌐</span><span data-i18n="navUrlHex">URL Hex Encoding</span></div>
+        <div class="nav-item" data-panel="escape"><span class="icon">⚡</span><span data-i18n="navEscape">Escape Encode/Decode</span></div>
+        <div class="nav-item" data-panel="unicode"><span class="icon">🌍</span><span data-i18n="navUnicode">Unicode/ASCII Convert</span></div>
+        <div class="nav-item" data-panel="native-unicode"><span class="icon">📜</span><span data-i18n="navNativeUnicode">Native/Unicode Convert</span></div>
+        <div class="nav-item" data-panel="utf8-gbk"><span class="icon">🔄</span><span data-i18n="navUtf8Gbk">UTF-8/GBK Convert</span></div>
+
+        <div class="nav-category" data-i18n="navOther">Other Tools</div>
+        <div class="nav-item" data-panel="morse"><span class="icon">📡</span><span data-i18n="navMorse">Morse Code</span></div>
+        <div class="nav-item" data-panel="password"><span class="icon">🎲</span><span data-i18n="navPassword">Password Generator</span></div>
+        <div class="nav-item" data-panel="uuid"><span class="icon">🆔</span><span data-i18n="navUuid">UUID/GUID Generator</span></div>
+        <div class="nav-item" data-panel="htpasswd"><span class="icon">🔒</span><span data-i18n="navHtpasswd">htpasswd Generator</span></div>
+        <div class="nav-item" data-panel="barcode"><span class="icon">📊</span><span data-i18n="navBarcode">Barcode Generator</span></div>
+        <div class="nav-item" data-panel="qrcode"><span class="icon">📱</span><span data-i18n="navQrcode">QR Code Generator</span></div>
+        <div class="nav-item" data-panel="ip-convert"><span class="icon">🖥️</span><span data-i18n="navIpConvert">IP/Number Convert</span></div>
+        <div class="nav-item" data-panel="image-base64"><span class="icon">🖼️</span><span data-i18n="navImageBase64">Image to Base64</span></div>
+    </nav>
+
+    <!-- 主内容区 -->
+    <main class="main-content container">
+<div class="trust-bar">
+            <span class="trust-item" data-i18n="trust_users">🌍 Used by 50,000+ users</span>
+            <span class="trust-item" data-i18n="trust_rating">⭐ 4.9/5 rating</span>
+            <span class="trust-item" data-i18n="trust_privacy">🔒 100% Private</span>
+            <span class="trust-item" data-i18n="trust_free">🚫 No Ads, No Signup</span>
+        </div>
+
+        <!-- 功能特点 -->
+        <section class="features-section">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3 class="feature-title" data-i18n="featureEncodingTitle">100% Free & Private</h3>
+                    <p class="feature-desc" data-i18n="featureEncodingDesc">No ads, no signup, no watermark. Everything runs locally in your browser. Your data never leaves your device.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">#️⃣</div>
+                    <h3 class="feature-title" data-i18n="featureHashTitle">Hash Calculation</h3>
+                    <p class="feature-desc" data-i18n="featureHashDesc">MD5, SHA-1, SHA-256, SHA-512 and more hash algorithms</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔐</div>
+                    <h3 class="feature-title" data-i18n="featureEncryptTitle">Symmetric Encryption</h3>
+                    <p class="feature-desc" data-i18n="featureEncryptDesc">AES, DES, 3DES encryption/decryption with multiple modes</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3 class="feature-title" data-i18n="featureSecureTitle">Secure & Reliable</h3>
+                    <p class="feature-desc" data-i18n="featureSecureDesc">Pure frontend processing, sensitive data never uploaded to server</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MD5 加密 -->
+        <div class="tool-panel active" id="panel-md5">
+            <div class="tool-header">
+                <h2 data-i18n="md5Title">🔒 MD5 Encryption</h2>
+                <p data-i18n="md5Desc">Convert text to MD5 hash, commonly used for password storage and data integrity verification</p>
+            </div>
+            <div class="tool-card">
+                <div class="input-group">
+                    <label data-i18n="inputText">Input Text</label>
+                    <textarea id="md5-input" data-i18n-placeholder="placeholderEncrypt" placeholder="Enter text to encrypt..."></textarea>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="md5Encrypt()" data-i18n="btnMd5Encrypt">🔒 MD5 Encrypt</button>
+                    <button class="btn btn-secondary" onclick="clearInput('md5-input', 'md5-output')" data-i18n="btnClear">🗑️ Clear</button>
+                </div>
+                <div class="input-group">
+                    <label data-i18n="encryptResult">Encryption Result</label>
+                    <div class="result-box">
+                        <pre id="md5-output" data-i18n="resultPlaceholder">Result will be displayed here...</pre>
+                        <button class="btn btn-secondary copy-btn" onclick="copyResult('md5-output')" data-i18n="btnCopy">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SHA 系列加密 -->
+        <div class="tool-panel" id="panel-sha">
+            <div class="tool-header">
+                <h2 data-i18n="shaTitle">🛡️ SHA Series Encryption</h2>
+                <p data-i18n="shaDesc">Secure Hash Algorithm, providing SHA-1, SHA-256, SHA-384, SHA-512 and more</p>
+            </div>
+            <div class="tool-card">
+                <div class="tabs">
+                    <div class="tab active" data-sha="1">SHA-1</div>
+                    <div class="tab" data-sha="256">SHA-256</div>
+                    <div class="tab" data-sha="384">SHA-384</div>
+                    <div class="tab" data-sha="512">SHA-512</div>
+                    <div class="tab" data-sha="3">SHA-3</div>
+                </div>
+                <div class="input-group">
+                    <label data-i18n="inputText">Input Text</label>
+                    <textarea id="sha-input" data-i18n-placeholder="placeholderEncrypt" placeholder="Enter text to encrypt..."></textarea>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="shaEncrypt()" data-i18n="btnShaEncrypt">🛡️ SHA Encrypt</button>
+                    <button class="btn btn-secondary" onclick="clearInput('sha-input', 'sha-output')" data-i18n="btnClear">🗑️ Clear</button>
+                </div>
+                <div class="input-group">
+                    <label data-i18n="encryptResult">Encryption Result</label>
+                    <div class="result-box">
+                        <pre id="sha-output" data-i18n="resultPlaceholder">Result will be displayed here...</pre>
+                        <button class="btn btn-secondary copy-btn" onclick="copyResult('sha-output')" data-i18n="btnCopy">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 哈希大全 -->
+        <div class="tool-panel" id="panel-hash-all">
+            <div class="tool-header">
+                <h2 data-i18n="hashAllTitle">📊 All Hash Algorithms</h2>
+                <p data-i18n="hashAllDesc">Generate all common hash algorithm results with one click</p>
+            </div>
+            <div class="tool-card">
+                <div class="input-group">
+                    <label data-i18n="inputText">Input Text</label>
+                    <textarea id="hash-all-input" data-i18n-placeholder="placeholderEncrypt" placeholder="Enter text to encrypt..."></textarea>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="hashAll()" data-i18n="btnGenerateAllHash">📊 Generate All Hashes</button>
+                    <button class="btn btn-secondary" onclick="clearInput('hash-all-input', 'hash-all-output')" data-i18n="btnClear">🗑️ Clear</button>
+                </div>
+                <div class="input-group">
+                    <label data-i18n="allHashResult">All Hash Results</label>
+                    <div class="result-box">
+                        <pre id="hash-all-output" data-i18n="resultPlaceholder">Result will be displayed here...</pre>
+                        <button class="btn btn-secondary copy-btn" onclick="copyResult('hash-all-output')" data-i18n="btnCopy">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AES 加密/解密 -->
+        <div class="tool-panel" id="panel-aes">
+            <div class="tool-header">
+                <h2 data-i18n="aesTitle">🔑 AES Encrypt/Decrypt</h2>
+                <p data-i18n="aesDesc">Advanced Encryption Standard, the most popular symmetric encryption algorithm</p>
+            </div>
+            <div class="tool-card">
+                <div class="input-group">
+                    <label data-i18n="inputText">Input Text</label>
+                    <textarea id="aes-input" data-i18n-placeholder="placeholderEncryptDecrypt" placeholder="Enter text to encrypt/decrypt..."></textarea>
+                </div>
+                <div class="options-row">
+                    <div class="input-group">
+                        <label data-i18n="labelKey">Key</label>
+                        <input type="text" id="aes-key" data-i18n-placeholder="placeholderKey" placeholder="Enter key">
+                    </div>
+                    <div class="input-group">
+                        <label data-i18n="labelMode">Mode</label>
+                        <select id="aes-mode">
+                            <option value="CBC">CBC</option>
+                            <option value="ECB">ECB</option>
+                            <option value="CFB">CFB</option>
+                            <option value="OFB">OFB</option>
+                            <option value="CTR">CTR</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label data-i18n="labelPadding">Padding</label>
+                        <select id="aes-padding">
+                            <option value="Pkcs7">PKCS7</option>
+                            <option value="ZeroPadding">ZeroPadding</option>
+                            <option value="NoPadding">NoPadding</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="aesEncrypt()" data-i18n="btnEncrypt">🔒 Encrypt</button>
+                    <button class="btn btn-success" onclick="aesDecrypt()" data-i18n="btnDecrypt">🔓 Decrypt</button>
+                    <button class="btn btn-secondary" onclick="clearInput('aes-input', 'aes-output')" data-i18n="btnClear">🗑️ Clear</button>
+                </div>
+                <div class="input-group">
+                    <label data-i18n="labelResult">Result</label>
+                    <div class="result-box">
+                        <pre id="aes-output" data-i18n="resultPlaceholder">Result will be displayed here...</pre>
+                        <button class="btn btn-secondary copy-btn" onclick="copyResult('aes-output')" data-i18n="btnCopy">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DES 加密/解密 -->
+        <div class="tool-panel" id="panel-des">
+            <div class="tool-header">
+                <h2 data-i18n="desTitle">🗝️ DES Encrypt/Decrypt</h2>
+                <p data-i18n="desDesc">Data Encryption Standard, classic symmetric encryption algorithm</p>
+            </div>
+            <div class="tool-card">
+                <div class="input-group">
+                    <label data-i18n="inputText">Input Text</label>
+                    <textarea id="des-input" data-i18n-placeholder="placeholderEncryptDecrypt" placeholder="Enter text to encrypt/decrypt..."></textarea>
+                </div>
+                <div class="options-row">
+                    <div class="input-group">
+                        <label data-i18n="labelKey">Key</label>
+                        <input type="text" id="des-key" data-i18n-placeholder="placeholderKey" placeholder="Enter key">
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="desEncrypt()" data-i18n="btnEncrypt">🔒 Encrypt</button>
+                    <button class="btn btn-success" onclick="desDecrypt()" data-i18n="btnDecrypt">🔓 Decrypt</button>
+                    <button class="btn btn-secondary" onclick="clearInput('des-input', 'des-output')" data-i18n="btnClear">🗑️ Clear</button>
+                </div>
+                <div class="input-group">
+                    <label data-i18n="labelResult">Result</label>
+                    <div class="result-box">
+                        <pre id="des-output" data-i18n="resultPlaceholder">Result will be displayed here...</pre>
+                        <button class="btn btn-secondary copy-btn" onclick="copyResult('des-output')" data-i18n="btnCopy">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TripleDES 加密/解密 -->
+        <div class="tool-panel" id="panel-tripledes">
+            <div class="tool-header">
+                <h2 data-i18n="tripleDesTitle">🔐 TripleDES Encrypt/Decrypt</h2>
+                <p data-i18n="tripleDesDesc">Triple Data Encryption Algorithm, more secure than DES</p>
+            </div>
+            <div class="tool-card">
+                <div class="input-group">
+                    <label data-i18n="inputText">Input Text</label>
+                    <textarea id="tripledes-input" data-i18n-placeholder="placeholderEncryptDecrypt" placeholder="Enter text to encrypt/decrypt..."></textarea>
+                </div>
+                <div class="options-row">
+                    <div class="input-group">
+                        <label data-i18n="labelKey">Key</label>
+                        <input type="text" id="tripledes-key" data-i18n-placeholder="placeholderKey" placeholder="Enter key">
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="tripledesEncrypt()" data-i18n="btnEncrypt">🔒 Encrypt</button>
+                    <button class="btn btn-success" onclick="tripledesDecrypt()" data-i18n="btnDecrypt">🔓 Decrypt</button>
+                    <button class="btn btn-secondary" onclick="clearInput('tripledes-input', 'tripledes-output')" data-i18n="btnClear">🗑️ Clear</button>
+                </div>
+                <div class="input-group">
+                    <label data-i18n="labelResult">Result</label>
+                    <div class="result-box">
+                        <pre id="tripledes-output" data-i18n="resultPlaceholder">Result will be displayed here...</pre>
+                        <button class="btn btn-secondary copy-btn" onclick="copyResult('tripledes-output')" data-i18n="btnCopy">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RC4 加密/解密 -->
+        <div class="tool-panel" id="panel-rc4">
+            <div class="tool-header">
+                <h2 data-i18n="rc4Title">🔏 RC4 Encrypt/Decrypt</h2>
+                <p data-i18n="rc4Desc">Stream cipher algorithm, fast but lower security</p>
+            </div>
+            <div class="tool-card">
+                <div class="input-group">
+                    <label data-i18n="inputText">Input Text</label>
+                    <textarea id="rc4-input" data-i18n-placeholder="placeholderEncryptDecrypt" placeholder="Enter text to encrypt/decrypt..."></textarea>
+                </div>
+                <div class="options-row">
+                    <div class="input-group">
+                        <label data-i18n="labelKey">Key</label>
+                        <input type="text" id="rc4-key" data-i18n-placeholder="placeholderKey" placeholder="Enter key">
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="rc4Encrypt()" data-i18n="btnEncrypt">🔒 Encrypt</button>
+                    <button class="btn btn-success" onclick="rc4Decrypt()" data-i18n="btnDecrypt">🔓 Decrypt</button>
+                    <button class="btn btn-secondary" onclick="clearInput('rc4-input', 'rc4-output')" data-i18n="btnClear">🗑️ Clear</button>
+                </div>
+                <div class="input-group">
+                    <label data-i18n="labelResult">Result</label>
+                    <div class="result-box">
+                        <pre id="rc4-output" data-i18n="resultPlaceholder">Result will be displayed here...</pre>
+                        <button class="btn btn-secondary copy-btn" onclick="copyResult('rc4-output')" data-i18n="btnCopy">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rabbit 加密/解密 -->
+        <div class="tool-panel" id="panel-rabbit">
+            <div class="tool-header">
+                <h2 data-i18n="rabbitTitle">🐰 Rabbit Encrypt/Decrypt</h2>
+                <p data-i18n="rabbitDesc">High-performance stream cipher algorithm</p>
+            </div>
+            <div class="tool-card">
+                <div class="input-group">
+                    <label data-i18n="inputText">Input Text</label>
+                    <textarea id="rabbit-input" data-i18n-placeholder="placeholderEncryptDecrypt" placeholder="Enter text to encrypt/decrypt..."></textarea>
+                </div>
+                <div class="options-row">
+                    <div class="input-group">
+                        <label data-i18n="labelKey">Key</label>
+                        <input type="text" id="rabbit-key" data-i18n-placeholder="placeholderKey" placeholder="Enter key">
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="rabbitEncrypt()" data-i18n="btnEncrypt">🔒 Encrypt</button>
+                    <button class="btn btn-success" onclick="rabbitDecrypt()" data-i18n="btnDecrypt">🔓 Decrypt</button>
+                    <button class="btn btn-secondary" onclick="clearInput('rabbit-input', 'rabbit-output')" data-i18n="btnClear">🗑️ Clear</button>
+                </div>
+                <div class="input-group">
+                    <label data-i18n="labelResult">Result</label>
+                    <div class="result-box">
+                        <pre id="rabbit-output" data-i18n="resultPlaceholder">Result will be displayed here...</pre>
+                        <button class="btn btn-secondary copy-btn" onclick="copyResult('rabbit-output')" data-i18n="btnCopy">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Base64 编码/解码 -->
+        <div class="tool-panel" id="panel-base64">
+            <div class="tool-header">
+                <h2 data-i18n="base64Title">📝 Base64 Encode/Decode</h2>
+                <p data-i18n="base64Desc">Convert binary data to ASCII string, commonly used for data transmission</p>
+            </div>
+            <div class="tool-card">
+                <div class="input-group">
+                    <label data-i18n="inputText">Input Text</label>
+                    <textarea id="base64-input" data-i18n-placeholder="placeholderEncodeDecode" placeholder="Enter text to encode/decode..."></textarea>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="base64Encode()" data-i18n="btnEncode">📤 Encode</button>
+                    <button class="btn btn-success" onclick="base64Decode()" data-i18n="btnDecode">📥 Decode</button>
+                    <button class="btn btn-secondary" onclick="clearInput('base64-input', 'base64-output')" data-i18n="btnClear">🗑️ Clear</button>
+                </div>
+                <div class="input-group">
+                    <label data-i18n="labelResult">Result</label>
+                    <div class="result-box">
+                        <pre id="base64-output" data-i18n="resultPlaceholder">Result will be displayed here...</pre>
+                        <button class="btn btn-secondary copy-btn" onclick="copyResult('base64-output')" data-i18n="btnCopy">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- URL 编码/解码 -->
+        <div class="tool-panel" id="panel-url">
+            <div class="tool-header">
+                <h2 data-i18n="urlTitle">🔗 URL Encode/Decode</h2>
+                <p data-i18n="urlDesc">Encode and decode special characters in URLs</p>
+            </div>
+            <div class="tool-card">
+                <div class="input-group">
+                    <label data-i18n="inputText">Input Text</label>
+                    <textarea id="url-input" data-i18n-placeholder="placeholderUrlEncodeDecode" placeholder="Enter URL or text to encode/decode..."></textarea>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="urlEncode()" data-i18n="btnEncode">📤 Encode</button>
+                    <button class="btn btn-success" onclick="urlDecode()" data-i18n="btnDecode">📥 Decode</button>
+                    <button class="btn btn-secondary" onclick="urlEncodeComponent()" data-i18n="btnComponentEncode">📤 Component Encode</button>
+                    <button class="btn btn-secondary" onclick="urlDecodeComponent()" data-i18n="btnComponentDecode">📥 Component Decode</button>
+                    <button class="btn btn-secondary" onclick="clearInput('url-input', 'url-output')" data-i18n="btnClear">🗑️ Clear</button>
+                </div>
+                <div class="input-group">
+                    <label data-i18n="labelResult">Result</label>
+                    <div class="result-box">
+                        <pre id="url-output" data-i18n="resultPlaceholder">Result will be displayed here...</pre>
+                        <button class="btn btn-secondary copy-btn" onclick="copyResult('url-output')" data-i18n="btnCopy">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- URL 十六进制编码 -->
+        <div class="tool-panel" id="panel-url-hex">
+            <div class="tool-header">
+                <h2 data-i18n="urlHexTitle">🌐 URL Hex Encoding</h2>
+                <p data-i18n="urlHexDesc">Convert URL to hexadecimal encoding format</p>
+            </div>
+            <div class="tool-card">
+                <div class="input-group">
+                    <label data-i18n="inputUrl">Input URL</label>
+                    <textarea id="url-hex-input" data-i18n-placeholder="placeholderUrl" placeholder="Enter URL..."></textarea>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="urlHexEncode()" data-i18n="btnHexEncode">📤 Hex Encode</button>
+                    <button class="btn btn-success" onclick="urlHexDecode()" data-i18n="btnHexDecode">📥 Hex Decode</button>
+                    <button class="btn btn-secondary" onclick="clearInput('url-hex-input', 'url-hex-output')" data-i18n="btnClear">🗑️ Clear</button>
+                </div>
+                <div class="input-group">
+                    <label data-i18n="labelResult">Result</label>
+                    <div class="result-box">
+                        <pre id="url-hex-output" data-i18n="resultPlaceholder">Result will be displayed here...</pre>
+                        <button class="btn btn-secondary copy-btn" onclick="copyResult('url-hex-output')" data-i18n="btnCopy">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Escape 编码/解码 -->
+        <div class="tool-panel" id="panel-escape">
+            <div class="tool-header">
+                <h2 data-i18n="escapeTitle">⚡ Escape Encode/Decode</h2>
+                <p data-i18n="escapeDesc">JavaScript escape/unescape function encoding and decoding</p>
+            </div>
+            <div class="tool-card">
+                <div class="input-group">
+                    <label data-i18n="inputText">Input Text</label>
+                    <textarea id="escape-input" data-i18n-placeholder="placeholderEncodeDecode" placeholder="Enter text to encode/decode..."></textarea>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="escapeEncode()" data-i18n="btnEscapeEncode">📤 Escape Encode</button>
+                    <button class="btn btn-success" onclick="escapeDecode()" data-i18n="btnUnescapeDecode">📥 Unescape Decode</button>
+                    <button class="btn btn-secondary" onclick="clearInput('escape-input', 'escape-output')" data-i18n="btnClear">🗑️ Clear</button>
+                </div>
+                <div class="input-group">
+                    <label data-i18n="labelResult">Result</label>
+                    <div class="result-box">
+                        <pre id="escape-output" data-i18n="resultPlaceholder">Result will be displayed here...</pre>
+                        <button class="btn btn-secondary copy-btn" onclick="copyResult('escape-output')" data-i18n="btnCopy">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Unicode/ASCII 转换 -->
+        <div class="tool-panel" id="panel-unicode">
+            <div class="tool-header">
+                <h2 data-i18n="unicodeTitle">🌍 Unicode/ASCII Convert</h2>
+                <p data-i18n="unicodeDesc">Convert between Unicode encoding and plain text</p>
+            </div>
+            <div class="tool-card">
+                <div class="input-group">
+                    <label data-i18n="inputText">Input Text</label>
+                    <textarea id="unicode-input" data-i18n-placeholder="placeholderUnicode" placeholder="Enter text or Unicode code (e.g., \u4e2d\u6587)..."></textarea>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="toUnicode()" data-i18n="btnToUnicode">📤 To Unicode</button>
+                    <button class="btn btn-success" onclick="fromUnicode()" data-i18n="btnFromUnicode">📥 Unicode to Text</button>
+                    <button class="btn btn-secondary" onclick="toAsciiCode()" data-i18n="btnToAscii">🔢 To ASCII Code</button>
+                    <button class="btn btn-secondary" onclick="fromAsciiCode()" data-i18n="btnFromAscii">🔤 ASCII to Text</button>
+                    <button class="btn btn-secondary" onclick="clearInput('unicode-input', 'unicode-output')" data-i18n="btnClear">🗑️ Clear</button>
+                </div>
+                <div class="input-group">
+                    <label data-i18n="labelResult">Result</label>
+                    <div class="result-box">
+                        <pre id="unicode-output" data-i18n="resultPlaceholder">Result will be displayed here...</pre>
+                        <button class="btn btn-secondary copy-btn" onclick="copyResult('unicode-output')" data-i18n="btnCopy">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Native/Unicode 编码转换 -->
+        <div class="tool-panel" id="panel-native-unicode">
+            <div class="tool-header">
+                <h2 data-i18n="nativeUnicodeTitle">📜 Native/Unicode Convert</h2>
+                <p data-i18n="nativeUnicodeDesc">Convert between Native encoding and Unicode encoding</p>
+            </div>
+            <div class="tool-card">
+                <div class="input-group">
+                    <label data-i18n="inputText">Input Text</label>
+                    <textarea id="native-unicode-input" data-i18n-placeholder="placeholderText" placeholder="Enter text..."></textarea>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="nativeToUnicode()" data-i18n="btnNativeToUnicode">📤 Native → Unicode</button>
+                    <button class="btn btn-success" onclick="unicodeToNative()" data-i18n="btnUnicodeToNative">📥 Unicode → Native</button>
+                    <button class="btn btn-secondary" onclick="clearInput('native-unicode-input', 'native-unicode-output')" data-i18n="btnClear">🗑️ Clear</button>
+                </div>
+                <div class="input-group">
+                    <label data-i18n="labelResult">Result</label>
+                    <div class="result-box">
+                        <pre id="native-unicode-output" data-i18n="resultPlaceholder">Result will be displayed here...</pre>
+                        <button class="btn btn-secondary copy-btn" onclick="copyResult('native-unicode-output')" data-i18n="btnCopy">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- UTF-8/GBK 转换 -->
+        <div class="tool-panel" id="panel-utf8-gbk">
+            <div class="tool-header">
+                <h2 data-i18n="utf8GbkTitle">🔄 UTF-8/GBK Convert</h2>
+                <p data-i18n="utf8GbkDesc">View UTF-8 and GBK encoding representation of text</p>
+            </div>
+            <div class="tool-card">
+                <div class="input-group">
+                    <label data-i18n="inputText">Input Text</label>
+                    <textarea id="utf8-gbk-input" data-i18n-placeholder="placeholderText" placeholder="Enter text..."></textarea>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="showUtf8()" data-i18n="btnShowUtf8">📤 Show UTF-8 Encoding</button>
+                    <button class="btn btn-success" onclick="utf8ToText()" data-i18n="btnUtf8ToText">📥 UTF-8 to Text</button>
+                    <button class="btn btn-secondary" onclick="clearInput('utf8-gbk-input', 'utf8-gbk-output')" data-i18n="btnClear">🗑️ Clear</button>
+                </div>
+                <div class="input-group">
+                    <label data-i18n="labelResult">Result</label>
+                    <div class="result-box">
+                        <pre id="utf8-gbk-output" data-i18n="resultPlaceholder">Result will be displayed here...</pre>
+                        <button class="btn btn-secondary copy-btn" onclick="copyResult('utf8-gbk-output')" data-i18n="btnCopy">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 摩尔斯电码 -->
+        <div class="tool-panel" id="panel-morse">
+            <div class="tool-header">
+                <h2 data-i18n="morseTitle">📡 Morse Code</h2>
+                <p data-i18n="morseDesc">Convert text to Morse code or Morse code to text</p>
+            </div>
+            <div class="tool-card">
+                <div class="input-group">
+                    <label data-i18n="inputTextMorse">Input Text/Morse Code</label>
+                    <textarea id="morse-input" data-i18n-placeholder="placeholderMorse" placeholder="Enter text or Morse code (space between letters, / between words)..."></textarea>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="textToMorse()" data-i18n="btnTextToMorse">📤 Text → Morse</button>
+                    <button class="btn btn-success" onclick="morseToText()" data-i18n="btnMorseToText">📥 Morse → Text</button>
+                    <button class="btn btn-secondary" onclick="clearInput('morse-input', 'morse-output')" data-i18n="btnClear">🗑️ Clear</button>
+                </div>
+                <div class="input-group">
+                    <label data-i18n="labelResult">Result</label>
+                    <div class="result-box">
+                        <pre id="morse-output" data-i18n="resultPlaceholder">Result will be displayed here...</pre>
+                        <button class="btn btn-secondary copy-btn" onclick="copyResult('morse-output')" data-i18n="btnCopy">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 密码生成器 -->
+        <div class="tool-panel" id="panel-password">
+            <div class="tool-header">
+                <h2 data-i18n="passwordTitle">🎲 Password Generator</h2>
+                <p data-i18n="passwordDesc">Generate secure random passwords</p>
+            </div>
+            <div class="tool-card">
+                <div class="options-row">
+                    <div class="input-group">
+                        <label><span data-i18n="labelPasswordLength">Password Length</span>: <span id="pwd-length-value">16</span></label>
+                        <input type="range" id="pwd-length" min="4" max="64" value="16" oninput="document.getElementById('pwd-length-value').textContent = this.value">
+                    </div>
+                    <div class="input-group">
+                        <label data-i18n="labelCount">Count</label>
+                        <input type="number" id="pwd-count" value="5" min="1" max="20">
+                    </div>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="pwd-upper" checked>
+                    <label for="pwd-upper" data-i18n="optUppercase">Uppercase (A-Z)</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="pwd-lower" checked>
+                    <label for="pwd-lower" data-i18n="optLowercase">Lowercase (a-z)</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="pwd-number" checked>
+                    <label for="pwd-number" data-i18n="optNumbers">Numbers (0-9)</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="pwd-symbol" checked>
+                    <label for="pwd-symbol" data-i18n="optSymbols">Symbols (!@#$%^&*)</label>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="generatePassword()" data-i18n="btnGeneratePassword">🎲 Generate Password</button>
+                </div>
+                <div class="input-group">
+                    <label data-i18n="generatedPasswords">Generated Passwords</label>
+                    <div class="result-box">
+                        <pre id="password-output" data-i18n="passwordPlaceholder">Passwords will be displayed here...</pre>
+                        <button class="btn btn-secondary copy-btn" onclick="copyResult('password-output')" data-i18n="btnCopy">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- UUID/GUID 生成 -->
+        <div class="tool-panel" id="panel-uuid">
+            <div class="tool-header">
+                <h2 data-i18n="uuidTitle">🆔 UUID/GUID Generator</h2>
+                <p data-i18n="uuidDesc">Generate universally unique identifiers</p>
+            </div>
+            <div class="tool-card">
+                <div class="options-row">
+                    <div class="input-group">
+                        <label data-i18n="labelCount">Count</label>
+                        <input type="number" id="uuid-count" value="5" min="1" max="100">
+                    </div>
+                    <div class="input-group">
+                        <label data-i18n="labelFormat">Format</label>
+                        <select id="uuid-format">
+                            <option value="standard" data-i18n="optStandard">Standard (with hyphens)</option>
+                            <option value="compact" data-i18n="optCompact">Compact (no hyphens)</option>
+                            <option value="upper" data-i18n="optUppercaseFormat">Uppercase</option>
+                            <option value="braces" data-i18n="optBraces">Braces {UUID}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="generateUUID()" data-i18n="btnGenerateUuid">🆔 Generate UUID</button>
+                    <button class="btn btn-success" onclick="generateGUID()" data-i18n="btnGenerateGuid">🔖 Generate GUID</button>
+                </div>
+                <div class="input-group">
+                    <label data-i18n="generatedResult">Generated Result</label>
+                    <div class="result-box">
+                        <pre id="uuid-output" data-i18n="resultPlaceholder">Result will be displayed here...</pre>
+                        <button class="btn btn-secondary copy-btn" onclick="copyResult('uuid-output')" data-i18n="btnCopy">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- htpasswd 生成 -->
+        <div class="tool-panel" id="panel-htpasswd">
+            <div class="tool-header">
+                <h2 data-i18n="htpasswdTitle">🔒 htpasswd Generator</h2>
+                <p data-i18n="htpasswdDesc">Generate Apache htpasswd format passwords</p>
+            </div>
+            <div class="tool-card">
+                <div class="options-row">
+                    <div class="input-group">
+                        <label data-i18n="labelUsername">Username</label>
+                        <input type="text" id="htpasswd-user" data-i18n-placeholder="placeholderUsername" placeholder="Enter username">
+                    </div>
+                    <div class="input-group">
+                        <label data-i18n="labelPassword">Password</label>
+                        <input type="password" id="htpasswd-pass" data-i18n-placeholder="placeholderPassword" placeholder="Enter password">
+                    </div>
+                </div>
+                <div class="options-row">
+                    <div class="input-group">
+                        <label data-i18n="labelEncryptMethod">Encryption Method</label>
+                        <select id="htpasswd-method">
+                            <option value="md5">MD5 (APR1)</option>
+                            <option value="sha1">SHA-1</option>
+                            <option value="plain" data-i18n="optPlaintext">Plain text (not recommended)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="generateHtpasswd()" data-i18n="btnGenerateHtpasswd">🔒 Generate htpasswd</button>
+                </div>
+                <div class="input-group">
+                    <label data-i18n="generatedResult">Generated Result</label>
+                    <div class="result-box">
+                        <pre id="htpasswd-output" data-i18n="resultPlaceholder">Result will be displayed here...</pre>
+                        <button class="btn btn-secondary copy-btn" onclick="copyResult('htpasswd-output')" data-i18n="btnCopy">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 条形码生成器 -->
+        <div class="tool-panel" id="panel-barcode">
+            <div class="tool-header">
+                <h2 data-i18n="barcodeTitle">📊 Barcode Generator</h2>
+                <p data-i18n="barcodeDesc">Generate various formats of barcodes</p>
+            </div>
+            <div class="tool-card">
+                <div class="options-row">
+                    <div class="input-group">
+                        <label data-i18n="labelBarcodeContent">Barcode Content</label>
+                        <input type="text" id="barcode-text" data-i18n-placeholder="placeholderBarcodeContent" placeholder="Enter barcode content">
+                    </div>
+                    <div class="input-group">
+                        <label data-i18n="labelBarcodeFormat">Barcode Format</label>
+                        <select id="barcode-format">
+                            <option value="CODE128" data-i18n="optCode128">CODE128 (Universal)</option>
+                            <option value="CODE39">CODE39</option>
+                            <option value="EAN13">EAN-13</option>
+                            <option value="EAN8">EAN-8</option>
+                            <option value="UPC">UPC</option>
+                            <option value="ITF14">ITF-14</option>
+                            <option value="pharmacode">Pharmacode</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="generateBarcode()" data-i18n="btnGenerateBarcode">📊 Generate Barcode</button>
+                    <button class="btn btn-success" onclick="downloadBarcode()" data-i18n="btnDownloadImage">💾 Download Image</button>
+                </div>
+                <div class="input-group">
+                    <label data-i18n="labelBarcodePreview">Barcode Preview</label>
+                    <div style="background: #fff; padding: 20px; border-radius: 8px; text-align: center;">
+                        <svg id="barcode-canvas"></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 二维码生成器 -->
+        <div class="tool-panel" id="panel-qrcode">
+            <div class="tool-header">
+                <h2 data-i18n="qrcodeTitle">📱 QR Code Generator</h2>
+                <p data-i18n="qrcodeDesc">Generate custom styled QR codes with various shapes and colors</p>
+            </div>
+            <div class="tool-card">
+                <div class="input-group">
+                    <label data-i18n="qrcodeContent">QR Code Content</label>
+                    <textarea id="qrcode-text" data-i18n-placeholder="qrcodeContentPlaceholder" placeholder="Enter text, URL or other content..." style="min-height: 80px;">https://github.com</textarea>
+                </div>
+
+                <div class="options-row">
+                    <div class="input-group">
+                        <label><span data-i18n="qrcodeSize">Size</span>: <span id="qr-size-value">300</span>px</label>
+                        <input type="range" id="qr-size" min="100" max="500" value="300" oninput="document.getElementById('qr-size-value').textContent = this.value">
+                    </div>
+                    <div class="input-group">
+                        <label data-i18n="qrcodeErrorLevel">Error Correction</label>
+                        <select id="qr-error-level">
+                            <option value="L" data-i18n="qrcodeErrorL">L - 7% Recovery</option>
+                            <option value="M" selected data-i18n="qrcodeErrorM">M - 15% Recovery</option>
+                            <option value="Q" data-i18n="qrcodeErrorQ">Q - 25% Recovery</option>
+                            <option value="H" data-i18n="qrcodeErrorH">H - 30% Recovery</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+                <h3 style="margin-bottom: 15px; font-size: 1rem;" data-i18n="qrcodeStyleSettings">🎨 Style Settings</h3>
+
+                <div class="options-row">
+                    <div class="input-group">
+                        <label data-i18n="qrcodeDotsStyle">Dots Style</label>
+                        <select id="qr-dots-type">
+                            <option value="square" data-i18n="qrcodeStyleSquare">Square</option>
+                            <option value="dots" data-i18n="qrcodeStyleDots">Dots</option>
+                            <option value="rounded" selected data-i18n="qrcodeStyleRounded">Rounded</option>
+                            <option value="extra-rounded" data-i18n="qrcodeStyleExtraRounded">Extra Rounded</option>
+                            <option value="classy" data-i18n="qrcodeStyleClassy">Classy</option>
+                            <option value="classy-rounded" data-i18n="qrcodeStyleClassyRounded">Classy Rounded</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label data-i18n="qrcodeDotsColor">Dots Color</label>
+                        <input type="color" id="qr-dots-color" value="#000000" style="width: 100%; height: 38px; cursor: pointer;">
+                    </div>
+                </div>
+
+                <div class="options-row">
+                    <div class="input-group">
+                        <label data-i18n="qrcodeCornersStyle">Corners Style</label>
+                        <select id="qr-corners-type">
+                            <option value="square" data-i18n="qrcodeStyleSquare">Square</option>
+                            <option value="dot" data-i18n="qrcodeStyleCircle">Circle</option>
+                            <option value="extra-rounded" selected data-i18n="qrcodeStyleRounded">Rounded</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label data-i18n="qrcodeCornersColor">Corners Color</label>
+                        <input type="color" id="qr-corners-color" value="#000000" style="width: 100%; height: 38px; cursor: pointer;">
+                    </div>
+                </div>
+
+                <div class="options-row">
+                    <div class="input-group">
+                        <label data-i18n="qrcodeBgColor">Background Color</label>
+                        <input type="color" id="qr-bg-color" value="#ffffff" style="width: 100%; height: 38px; cursor: pointer;">
+                    </div>
+                    <div class="input-group">
+                        <label data-i18n="qrcodeTransparentBg">Transparent Background</label>
+                        <select id="qr-bg-transparent">
+                            <option value="no" selected data-i18n="optionNo">No</option>
+                            <option value="yes" data-i18n="optionYes">Yes</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+                <h3 style="margin-bottom: 15px; font-size: 1rem;" data-i18n="qrcodeLogoSettings">🖼️ Logo Settings (Optional)</h3>
+
+                <div class="options-row">
+                    <div class="input-group">
+                        <label data-i18n="qrcodeUploadLogo">Upload Logo</label>
+                        <input type="file" id="qr-logo" accept="image/*" style="padding: 8px;">
+                    </div>
+                    <div class="input-group">
+                        <label><span data-i18n="qrcodeLogoSize">Logo Size</span>: <span id="qr-logo-size-value">0.4</span></label>
+                        <input type="range" id="qr-logo-size" min="0.1" max="0.5" step="0.05" value="0.4" oninput="document.getElementById('qr-logo-size-value').textContent = this.value">
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+                <h3 style="margin-bottom: 15px; font-size: 1rem;" data-i18n="qrcodePresetThemes">🌈 Preset Themes</h3>
+                <div class="btn-group" style="margin-bottom: 15px;">
+                    <button class="btn btn-secondary" onclick="applyQRTheme('classic')" data-i18n="qrcodeThemeClassic">Classic B&W</button>
+                    <button class="btn btn-secondary" onclick="applyQRTheme('blue')" data-i18n="qrcodeThemeBlue">Tech Blue</button>
+                    <button class="btn btn-secondary" onclick="applyQRTheme('gradient')" data-i18n="qrcodeThemeGradient">Gradient Purple</button>
+                    <button class="btn btn-secondary" onclick="applyQRTheme('green')" data-i18n="qrcodeThemeGreen">Fresh Green</button>
+                    <button class="btn btn-secondary" onclick="applyQRTheme('sunset')" data-i18n="qrcodeThemeSunset">Sunset Orange</button>
+                    <button class="btn btn-secondary" onclick="applyQRTheme('pink')" data-i18n="qrcodeThemePink">Sweet Pink</button>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="generateQRCode()" data-i18n="qrcodeGenerate">📱 Generate QR Code</button>
+                    <button class="btn btn-success" onclick="downloadQRCode('png')" data-i18n="qrcodeDownloadPng">💾 Download PNG</button>
+                    <button class="btn btn-success" onclick="downloadQRCode('svg')" data-i18n="qrcodeDownloadSvg">💾 Download SVG</button>
+                </div>
+
+                <div class="input-group" style="margin-top: 20px;">
+                    <label data-i18n="qrcodePreview">QR Code Preview</label>
+                    <div id="qrcode-preview" style="background: #fff; padding: 20px; border-radius: 8px; text-align: center; min-height: 200px; display: flex; align-items: center; justify-content: center;">
+                        <span style="color: #999;" data-i18n="qrcodePreviewHint">Click "Generate QR Code" to preview</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- IP/数字地址转换 -->
+        <div class="tool-panel" id="panel-ip-convert">
+            <div class="tool-header">
+                <h2 data-i18n="ipConvertTitle">🖥️ IP/Number Converter</h2>
+                <p data-i18n="ipConvertDesc">Convert between IP address and numeric format</p>
+            </div>
+            <div class="tool-card">
+                <div class="grid-2">
+                    <div class="input-group">
+                        <label data-i18n="ipAddress">IP Address</label>
+                        <input type="text" id="ip-input" data-i18n-placeholder="ipAddressPlaceholder" placeholder="e.g. 192.168.1.1">
+                    </div>
+                    <div class="input-group">
+                        <label data-i18n="ipNumber">Numeric Address</label>
+                        <input type="text" id="ip-number-input" data-i18n-placeholder="ipNumberPlaceholder" placeholder="e.g. 3232235777">
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="ipToNumber()" data-i18n="ipToNumber">📤 IP → Number</button>
+                    <button class="btn btn-success" onclick="numberToIp()" data-i18n="numberToIp">📥 Number → IP</button>
+                    <button class="btn btn-secondary" onclick="ipToBinary()" data-i18n="ipToBinary">🔢 IP → Binary</button>
+                    <button class="btn btn-secondary" onclick="ipToHex()" data-i18n="ipToHex">🔣 IP → Hex</button>
+                </div>
+                <div class="input-group">
+                    <label data-i18n="conversionResult">Conversion Result</label>
+                    <div class="result-box">
+                        <pre id="ip-output" data-i18n="resultPlaceholder">Result will appear here...</pre>
+                        <button class="btn btn-secondary copy-btn" onclick="copyResult('ip-output')" data-i18n="btnCopy">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 图片转 Base64 -->
+        <div class="tool-panel" id="panel-image-base64">
+            <div class="tool-header">
+                <h2 data-i18n="imageBase64Title">🖼️ Image to Base64</h2>
+                <p data-i18n="imageBase64Desc">Convert image files to Base64 encoding</p>
+            </div>
+            <div class="tool-card">
+                <div class="file-upload" onclick="document.getElementById('image-file').click()">
+                    <input type="file" id="image-file" accept="image/*" onchange="imageToBase64(this)">
+                    <div class="icon">🖼️</div>
+                    <p data-i18n="imageUploadHint">Click or drag image here to upload</p>
+                    <p style="font-size: 0.8rem; margin-top: 5px;" data-i18n="imageFormatsHint">Supports JPG, PNG, GIF, WebP formats</p>
+                </div>
+                <img id="image-preview" class="image-preview" style="display: none;">
+                <div class="input-group" style="margin-top: 20px;">
+                    <label data-i18n="base64Result">Base64 Encoding Result</label>
+                    <div class="result-box">
+                        <pre id="image-base64-output" style="max-height: 200px; overflow: auto;" data-i18n="resultPlaceholder">Result will appear here...</pre>
+                        <button class="btn btn-secondary copy-btn" onclick="copyResult('image-base64-output')" data-i18n="btnCopy">Copy</button>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <h3 style="margin-bottom: 15px;" data-i18n="base64ToImage">Base64 to Image</h3>
+                <div class="input-group">
+                    <label data-i18n="inputBase64">Input Base64 Encoding</label>
+                    <textarea id="base64-to-image-input" data-i18n-placeholder="inputBase64Placeholder" placeholder="Enter image Base64 encoding..."></textarea>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="base64ToImage()" data-i18n="convertToImage">🖼️ Convert to Image</button>
+                </div>
+                <img id="base64-image-preview" class="image-preview" style="display: none; margin-top: 15px;">
+            </div>
+        </div>
+
+        <!-- FAQ 常见问题 -->
+        <section class="faq-section">
+            <h2 class="faq-title" data-i18n="faqTitle">Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="faqQ1">Is Base64 encoding encryption?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-content" data-i18n="faqA1">Base64 is an encoding method, not encryption. It can be directly decoded and provides no security protection. Base64 is mainly used to convert binary data into text format for transmission in text protocols. Anyone can easily decode it.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="faqQ2">Can MD5 be decrypted?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-content" data-i18n="faqA2">MD5 is a one-way hash function and cannot be reversed. It's impossible to recover original data from the hash. MD5 compresses data of any length into a fixed 128-bit digest, designed to be irreversible. Only rainbow tables or brute force can attempt collision attacks.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="faqQ3">Is AES encryption secure?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-content" data-i18n="faqA3">AES is one of the most secure symmetric encryption algorithms, widely used by governments and financial institutions. AES-256 is used by the US government to encrypt top secret documents and has never been broken. It's the preferred algorithm for protecting sensitive data.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="faqQ4">Which is more secure: SHA-256 or MD5?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-content" data-i18n="faqA4">SHA-256 is more secure. MD5 has known collision vulnerabilities and is not recommended for security-critical scenarios. SHA-256 outputs 256 bits with a more complex algorithm, still considered secure, and widely used in digital signatures and blockchain.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="faqQ5">Will my data be uploaded to servers?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-content" data-i18n="faqA5">No, all encryption and decryption operations are performed locally in your browser. This tool uses pure frontend technology with the CryptoJS library to process data on your device. Sensitive information never leaves your browser.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="faqFreeQ">Is this tool really free with no ads?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-content" data-i18n="faqFreeA">Yes, 100% free with no ads, no registration, no watermark, and no usage limits. All processing happens locally in your browser — your data is never uploaded to any server.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Tools -->
+        <section class="related-tools">
+            <h3 data-i18n="relatedTools">Related Tools</h3>
+            <div class="related-grid">
+                <a class="related-card" href="json-viewer.html">
+                    <div>{ }</div>
+                    <h4 data-i18n="relatedJsonViewer">JSON Viewer</h4>
+                    <p data-i18n="relatedJsonViewerDesc">JSON formatting and visualization</p>
+                </a>
+                <a class="related-card" href="regex-tester.html">
+                    <div>🔍</div>
+                    <h4 data-i18n="relatedRegexTester">Regex Tester</h4>
+                    <p data-i18n="relatedRegexTesterDesc">Online regex matching and debugging</p>
+                </a>
+                <a class="related-card" href="timestamp-converter.html">
+                    <div>⏱️</div>
+                    <h4 data-i18n="relatedTimestamp">Timestamp Converter</h4>
+                    <p data-i18n="relatedTimestampDesc">Convert Unix timestamp and date</p>
+                </a>
+                <a class="related-card" href="websocket-tester.html">
+                    <div>🔌</div>
+                    <h4 data-i18n="relatedWebSocket">WebSocket Tester</h4>
+                    <p data-i18n="relatedWebSocketDesc">WebSocket connection debugging</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // ==================== 导航切换 ====================
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // 移除所有 active 状态
+                document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+                document.querySelectorAll('.tool-panel').forEach(p => p.classList.remove('active'));
+
+                // 添加当前 active 状态
+                this.classList.add('active');
+                const panelId = 'panel-' + this.dataset.panel;
+                document.getElementById(panelId).classList.add('active');
+            });
+        });
+
+        // SHA 选项卡切换
+        let currentSha = '1';
+        document.querySelectorAll('[data-sha]').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('[data-sha]').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                currentSha = this.dataset.sha;
+            });
+        });
+
+        // ==================== 通用工具函数 ====================
+        function showToast(message, isError = false) {
+            const toast = document.createElement('div');
+            toast.className = 'toast' + (isError ? ' error' : '');
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 2000);
+        }
+
+        function copyResult(elementId) {
+            const text = document.getElementById(elementId).textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                showToast('已复制到剪贴板！');
+            }).catch(() => {
+                showToast('复制失败', true);
+            });
+        }
+
+        function clearInput(inputId, outputId) {
+            document.getElementById(inputId).value = '';
+            document.getElementById(outputId).textContent = '结果将显示在这里...';
+        }
+
+        // ==================== MD5 加密 ====================
+        function md5Encrypt() {
+            const input = document.getElementById('md5-input').value;
+            if (!input) { showToast('请输入要加密的文本', true); return; }
+            const result = CryptoJS.MD5(input).toString();
+            document.getElementById('md5-output').textContent =
+                `32位小写: ${result}\n32位大写: ${result.toUpperCase()}\n16位小写: ${result.substring(8, 24)}\n16位大写: ${result.substring(8, 24).toUpperCase()}`;
+        }
+
+        // ==================== SHA 系列加密 ====================
+        function shaEncrypt() {
+            const input = document.getElementById('sha-input').value;
+            if (!input) { showToast('请输入要加密的文本', true); return; }
+            let result;
+            switch(currentSha) {
+                case '1': result = CryptoJS.SHA1(input).toString(); break;
+                case '256': result = CryptoJS.SHA256(input).toString(); break;
+                case '384': result = CryptoJS.SHA384(input).toString(); break;
+                case '512': result = CryptoJS.SHA512(input).toString(); break;
+                case '3': result = CryptoJS.SHA3(input).toString(); break;
+            }
+            document.getElementById('sha-output').textContent = result;
+        }
+
+        // ==================== 哈希大全 ====================
+        function hashAll() {
+            const input = document.getElementById('hash-all-input').value;
+            if (!input) { showToast('请输入要加密的文本', true); return; }
+            const results = [
+                `MD5:      ${CryptoJS.MD5(input).toString()}`,
+                `SHA-1:    ${CryptoJS.SHA1(input).toString()}`,
+                `SHA-256:  ${CryptoJS.SHA256(input).toString()}`,
+                `SHA-384:  ${CryptoJS.SHA384(input).toString()}`,
+                `SHA-512:  ${CryptoJS.SHA512(input).toString()}`,
+                `SHA-3:    ${CryptoJS.SHA3(input).toString()}`,
+                `RIPEMD160: ${CryptoJS.RIPEMD160(input).toString()}`
+            ];
+            document.getElementById('hash-all-output').textContent = results.join('\n');
+        }
+
+        // ==================== AES 加密/解密 ====================
+        function aesEncrypt() {
+            const input = document.getElementById('aes-input').value;
+            const key = document.getElementById('aes-key').value;
+            if (!input || !key) { showToast('请输入文本和密钥', true); return; }
+            try {
+                const mode = document.getElementById('aes-mode').value;
+                const padding = document.getElementById('aes-padding').value;
+                const encrypted = CryptoJS.AES.encrypt(input, key, {
+                    mode: CryptoJS.mode[mode],
+                    padding: CryptoJS.pad[padding]
+                });
+                document.getElementById('aes-output').textContent = encrypted.toString();
+            } catch(e) {
+                showToast('加密失败: ' + e.message, true);
+            }
+        }
+
+        function aesDecrypt() {
+            const input = document.getElementById('aes-input').value;
+            const key = document.getElementById('aes-key').value;
+            if (!input || !key) { showToast('请输入文本和密钥', true); return; }
+            try {
+                const mode = document.getElementById('aes-mode').value;
+                const padding = document.getElementById('aes-padding').value;
+                const decrypted = CryptoJS.AES.decrypt(input, key, {
+                    mode: CryptoJS.mode[mode],
+                    padding: CryptoJS.pad[padding]
+                });
+                document.getElementById('aes-output').textContent = decrypted.toString(CryptoJS.enc.Utf8);
+            } catch(e) {
+                showToast('解密失败: ' + e.message, true);
+            }
+        }
+
+        // ==================== DES 加密/解密 ====================
+        function desEncrypt() {
+            const input = document.getElementById('des-input').value;
+            const key = document.getElementById('des-key').value;
+            if (!input || !key) { showToast('请输入文本和密钥', true); return; }
+            try {
+                const encrypted = CryptoJS.DES.encrypt(input, key);
+                document.getElementById('des-output').textContent = encrypted.toString();
+            } catch(e) {
+                showToast('加密失败: ' + e.message, true);
+            }
+        }
+
+        function desDecrypt() {
+            const input = document.getElementById('des-input').value;
+            const key = document.getElementById('des-key').value;
+            if (!input || !key) { showToast('请输入文本和密钥', true); return; }
+            try {
+                const decrypted = CryptoJS.DES.decrypt(input, key);
+                document.getElementById('des-output').textContent = decrypted.toString(CryptoJS.enc.Utf8);
+            } catch(e) {
+                showToast('解密失败: ' + e.message, true);
+            }
+        }
+
+        // ==================== TripleDES 加密/解密 ====================
+        function tripledesEncrypt() {
+            const input = document.getElementById('tripledes-input').value;
+            const key = document.getElementById('tripledes-key').value;
+            if (!input || !key) { showToast('请输入文本和密钥', true); return; }
+            try {
+                const encrypted = CryptoJS.TripleDES.encrypt(input, key);
+                document.getElementById('tripledes-output').textContent = encrypted.toString();
+            } catch(e) {
+                showToast('加密失败: ' + e.message, true);
+            }
+        }
+
+        function tripledesDecrypt() {
+            const input = document.getElementById('tripledes-input').value;
+            const key = document.getElementById('tripledes-key').value;
+            if (!input || !key) { showToast('请输入文本和密钥', true); return; }
+            try {
+                const decrypted = CryptoJS.TripleDES.decrypt(input, key);
+                document.getElementById('tripledes-output').textContent = decrypted.toString(CryptoJS.enc.Utf8);
+            } catch(e) {
+                showToast('解密失败: ' + e.message, true);
+            }
+        }
+
+        // ==================== RC4 加密/解密 ====================
+        function rc4Encrypt() {
+            const input = document.getElementById('rc4-input').value;
+            const key = document.getElementById('rc4-key').value;
+            if (!input || !key) { showToast('请输入文本和密钥', true); return; }
+            try {
+                const encrypted = CryptoJS.RC4.encrypt(input, key);
+                document.getElementById('rc4-output').textContent = encrypted.toString();
+            } catch(e) {
+                showToast('加密失败: ' + e.message, true);
+            }
+        }
+
+        function rc4Decrypt() {
+            const input = document.getElementById('rc4-input').value;
+            const key = document.getElementById('rc4-key').value;
+            if (!input || !key) { showToast('请输入文本和密钥', true); return; }
+            try {
+                const decrypted = CryptoJS.RC4.decrypt(input, key);
+                document.getElementById('rc4-output').textContent = decrypted.toString(CryptoJS.enc.Utf8);
+            } catch(e) {
+                showToast('解密失败: ' + e.message, true);
+            }
+        }
+
+        // ==================== Rabbit 加密/解密 ====================
+        function rabbitEncrypt() {
+            const input = document.getElementById('rabbit-input').value;
+            const key = document.getElementById('rabbit-key').value;
+            if (!input || !key) { showToast('请输入文本和密钥', true); return; }
+            try {
+                const encrypted = CryptoJS.Rabbit.encrypt(input, key);
+                document.getElementById('rabbit-output').textContent = encrypted.toString();
+            } catch(e) {
+                showToast('加密失败: ' + e.message, true);
+            }
+        }
+
+        function rabbitDecrypt() {
+            const input = document.getElementById('rabbit-input').value;
+            const key = document.getElementById('rabbit-key').value;
+            if (!input || !key) { showToast('请输入文本和密钥', true); return; }
+            try {
+                const decrypted = CryptoJS.Rabbit.decrypt(input, key);
+                document.getElementById('rabbit-output').textContent = decrypted.toString(CryptoJS.enc.Utf8);
+            } catch(e) {
+                showToast('解密失败: ' + e.message, true);
+            }
+        }
+
+        // ==================== Base64 编码/解码 ====================
+        function base64Encode() {
+            const input = document.getElementById('base64-input').value;
+            if (!input) { showToast('请输入要编码的文本', true); return; }
+            try {
+                const result = btoa(unescape(encodeURIComponent(input)));
+                document.getElementById('base64-output').textContent = result;
+            } catch(e) {
+                showToast('编码失败: ' + e.message, true);
+            }
+        }
+
+        function base64Decode() {
+            const input = document.getElementById('base64-input').value;
+            if (!input) { showToast('请输入要解码的文本', true); return; }
+            try {
+                const result = decodeURIComponent(escape(atob(input)));
+                document.getElementById('base64-output').textContent = result;
+            } catch(e) {
+                showToast('解码失败，请检查输入格式', true);
+            }
+        }
+
+        // ==================== URL 编码/解码 ====================
+        function urlEncode() {
+            const input = document.getElementById('url-input').value;
+            if (!input) { showToast('请输入要编码的文本', true); return; }
+            document.getElementById('url-output').textContent = encodeURI(input);
+        }
+
+        function urlDecode() {
+            const input = document.getElementById('url-input').value;
+            if (!input) { showToast('请输入要解码的文本', true); return; }
+            try {
+                document.getElementById('url-output').textContent = decodeURI(input);
+            } catch(e) {
+                showToast('解码失败，请检查输入格式', true);
+            }
+        }
+
+        function urlEncodeComponent() {
+            const input = document.getElementById('url-input').value;
+            if (!input) { showToast('请输入要编码的文本', true); return; }
+            document.getElementById('url-output').textContent = encodeURIComponent(input);
+        }
+
+        function urlDecodeComponent() {
+            const input = document.getElementById('url-input').value;
+            if (!input) { showToast('请输入要解码的文本', true); return; }
+            try {
+                document.getElementById('url-output').textContent = decodeURIComponent(input);
+            } catch(e) {
+                showToast('解码失败，请检查输入格式', true);
+            }
+        }
+
+        // ==================== URL 十六进制编码 ====================
+        function urlHexEncode() {
+            const input = document.getElementById('url-hex-input').value;
+            if (!input) { showToast('请输入 URL', true); return; }
+            let result = '';
+            for (let i = 0; i < input.length; i++) {
+                result += '%' + input.charCodeAt(i).toString(16).padStart(2, '0').toUpperCase();
+            }
+            document.getElementById('url-hex-output').textContent = result;
+        }
+
+        function urlHexDecode() {
+            const input = document.getElementById('url-hex-input').value;
+            if (!input) { showToast('请输入十六进制编码', true); return; }
+            try {
+                const result = decodeURIComponent(input);
+                document.getElementById('url-hex-output').textContent = result;
+            } catch(e) {
+                showToast('解码失败，请检查输入格式', true);
+            }
+        }
+
+        // ==================== Escape 编码/解码 ====================
+        function escapeEncode() {
+            const input = document.getElementById('escape-input').value;
+            if (!input) { showToast('请输入要编码的文本', true); return; }
+            document.getElementById('escape-output').textContent = escape(input);
+        }
+
+        function escapeDecode() {
+            const input = document.getElementById('escape-input').value;
+            if (!input) { showToast('请输入要解码的文本', true); return; }
+            try {
+                document.getElementById('escape-output').textContent = unescape(input);
+            } catch(e) {
+                showToast('解码失败，请检查输入格式', true);
+            }
+        }
+
+        // ==================== Unicode/ASCII 转换 ====================
+        function toUnicode() {
+            const input = document.getElementById('unicode-input').value;
+            if (!input) { showToast('请输入文本', true); return; }
+            let result = '';
+            for (let i = 0; i < input.length; i++) {
+                result += '\\u' + input.charCodeAt(i).toString(16).padStart(4, '0');
+            }
+            document.getElementById('unicode-output').textContent = result;
+        }
+
+        function fromUnicode() {
+            const input = document.getElementById('unicode-input').value;
+            if (!input) { showToast('请输入 Unicode 编码', true); return; }
+            try {
+                const result = input.replace(/\\u([0-9a-fA-F]{4})/g, (match, p1) => {
+                    return String.fromCharCode(parseInt(p1, 16));
+                });
+                document.getElementById('unicode-output').textContent = result;
+            } catch(e) {
+                showToast('转换失败，请检查输入格式', true);
+            }
+        }
+
+        function toAsciiCode() {
+            const input = document.getElementById('unicode-input').value;
+            if (!input) { showToast('请输入文本', true); return; }
+            let result = [];
+            for (let i = 0; i < input.length; i++) {
+                result.push(input.charCodeAt(i));
+            }
+            document.getElementById('unicode-output').textContent = result.join(' ');
+        }
+
+        function fromAsciiCode() {
+            const input = document.getElementById('unicode-input').value;
+            if (!input) { showToast('请输入 ASCII 码', true); return; }
+            try {
+                const codes = input.trim().split(/[\s,]+/);
+                const result = codes.map(code => String.fromCharCode(parseInt(code))).join('');
+                document.getElementById('unicode-output').textContent = result;
+            } catch(e) {
+                showToast('转换失败，请检查输入格式', true);
+            }
+        }
+
+        // ==================== Native/Unicode 编码转换 ====================
+        function nativeToUnicode() {
+            const input = document.getElementById('native-unicode-input').value;
+            if (!input) { showToast('请输入文本', true); return; }
+            let result = '';
+            for (let i = 0; i < input.length; i++) {
+                const code = input.charCodeAt(i);
+                if (code > 127) {
+                    result += '\\u' + code.toString(16).padStart(4, '0');
+                } else {
+                    result += input[i];
+                }
+            }
+            document.getElementById('native-unicode-output').textContent = result;
+        }
+
+        function unicodeToNative() {
+            const input = document.getElementById('native-unicode-input').value;
+            if (!input) { showToast('请输入文本', true); return; }
+            try {
+                const result = input.replace(/\\u([0-9a-fA-F]{4})/g, (match, p1) => {
+                    return String.fromCharCode(parseInt(p1, 16));
+                });
+                document.getElementById('native-unicode-output').textContent = result;
+            } catch(e) {
+                showToast('转换失败，请检查输入格式', true);
+            }
+        }
+
+        // ==================== UTF-8/GBK 转换 ====================
+        function showUtf8() {
+            const input = document.getElementById('utf8-gbk-input').value;
+            if (!input) { showToast('请输入文本', true); return; }
+            const encoder = new TextEncoder();
+            const bytes = encoder.encode(input);
+            let hexResult = '';
+            let decResult = [];
+            for (let i = 0; i < bytes.length; i++) {
+                hexResult += '\\x' + bytes[i].toString(16).padStart(2, '0').toUpperCase();
+                decResult.push(bytes[i]);
+            }
+            document.getElementById('utf8-gbk-output').textContent =
+                `UTF-8 十六进制: ${hexResult}\nUTF-8 十进制: ${decResult.join(' ')}\n字节长度: ${bytes.length}`;
+        }
+
+        function utf8ToText() {
+            const input = document.getElementById('utf8-gbk-input').value;
+            if (!input) { showToast('请输入 UTF-8 编码', true); return; }
+            try {
+                // 支持 \xNN 和空格分隔的十进制格式
+                let bytes;
+                if (input.includes('\\x')) {
+                    const hexStr = input.replace(/\\x/g, '');
+                    bytes = new Uint8Array(hexStr.match(/.{1,2}/g).map(byte => parseInt(byte, 16)));
+                } else {
+                    bytes = new Uint8Array(input.trim().split(/[\s,]+/).map(n => parseInt(n)));
+                }
+                const decoder = new TextDecoder('utf-8');
+                const result = decoder.decode(bytes);
+                document.getElementById('utf8-gbk-output').textContent = result;
+            } catch(e) {
+                showToast('转换失败，请检查输入格式', true);
+            }
+        }
+
+        // ==================== 摩尔斯电码 ====================
+        const morseCode = {
+            'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.',
+            'G': '--.', 'H': '....', 'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..',
+            'M': '--', 'N': '-.', 'O': '---', 'P': '.--.', 'Q': '--.-', 'R': '.-.',
+            'S': '...', 'T': '-', 'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-',
+            'Y': '-.--', 'Z': '--..', '0': '-----', '1': '.----', '2': '..---',
+            '3': '...--', '4': '....-', '5': '.....', '6': '-....', '7': '--...',
+            '8': '---..', '9': '----.', '.': '.-.-.-', ',': '--..--', '?': '..--..',
+            "'": '.----.', '!': '-.-.--', '/': '-..-.', '(': '-.--.', ')': '-.--.-',
+            '&': '.-...', ':': '---...', ';': '-.-.-.', '=': '-...-', '+': '.-.-.',
+            '-': '-....-', '_': '..--.-', '"': '.-..-.', '$': '...-..-', '@': '.--.-.'
+        };
+
+        const reverseMorse = Object.fromEntries(Object.entries(morseCode).map(([k, v]) => [v, k]));
+
+        function textToMorse() {
+            const input = document.getElementById('morse-input').value.toUpperCase();
+            if (!input) { showToast('请输入文本', true); return; }
+            let result = '';
+            for (let char of input) {
+                if (char === ' ') {
+                    result += ' / ';
+                } else if (morseCode[char]) {
+                    result += morseCode[char] + ' ';
+                }
+            }
+            document.getElementById('morse-output').textContent = result.trim();
+        }
+
+        function morseToText() {
+            const input = document.getElementById('morse-input').value;
+            if (!input) { showToast('请输入摩尔斯电码', true); return; }
+            const words = input.split(' / ');
+            let result = '';
+            for (let word of words) {
+                const letters = word.trim().split(' ');
+                for (let letter of letters) {
+                    if (reverseMorse[letter]) {
+                        result += reverseMorse[letter];
+                    }
+                }
+                result += ' ';
+            }
+            document.getElementById('morse-output').textContent = result.trim();
+        }
+
+        // ==================== 密码生成器 ====================
+        function generatePassword() {
+            const length = parseInt(document.getElementById('pwd-length').value);
+            const count = parseInt(document.getElementById('pwd-count').value);
+            const useUpper = document.getElementById('pwd-upper').checked;
+            const useLower = document.getElementById('pwd-lower').checked;
+            const useNumber = document.getElementById('pwd-number').checked;
+            const useSymbol = document.getElementById('pwd-symbol').checked;
+
+            if (!useUpper && !useLower && !useNumber && !useSymbol) {
+                showToast('请至少选择一种字符类型', true);
+                return;
+            }
+
+            let charset = '';
+            if (useUpper) charset += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            if (useLower) charset += 'abcdefghijklmnopqrstuvwxyz';
+            if (useNumber) charset += '0123456789';
+            if (useSymbol) charset += '!@#$%^&*()_+-=[]{}|;:,.<>?';
+
+            const passwords = [];
+            for (let i = 0; i < count; i++) {
+                let password = '';
+                const array = new Uint32Array(length);
+                crypto.getRandomValues(array);
+                for (let j = 0; j < length; j++) {
+                    password += charset[array[j] % charset.length];
+                }
+                passwords.push(password);
+            }
+            document.getElementById('password-output').textContent = passwords.join('\n');
+        }
+
+        // ==================== UUID/GUID 生成 ====================
+        function generateUUIDv4() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                const r = crypto.getRandomValues(new Uint8Array(1))[0] % 16;
+                const v = c === 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        }
+
+        function formatUUID(uuid, format) {
+            switch(format) {
+                case 'compact': return uuid.replace(/-/g, '');
+                case 'upper': return uuid.toUpperCase();
+                case 'braces': return '{' + uuid + '}';
+                default: return uuid;
+            }
+        }
+
+        function generateUUID() {
+            const count = parseInt(document.getElementById('uuid-count').value);
+            const format = document.getElementById('uuid-format').value;
+            const uuids = [];
+            for (let i = 0; i < count; i++) {
+                uuids.push(formatUUID(generateUUIDv4(), format));
+            }
+            document.getElementById('uuid-output').textContent = uuids.join('\n');
+        }
+
+        function generateGUID() {
+            generateUUID(); // GUID 和 UUID 在实现上是相同的
+        }
+
+        // ==================== htpasswd 生成 ====================
+        function generateHtpasswd() {
+            const user = document.getElementById('htpasswd-user').value;
+            const pass = document.getElementById('htpasswd-pass').value;
+            const method = document.getElementById('htpasswd-method').value;
+
+            if (!user || !pass) {
+                showToast('请输入用户名和密码', true);
+                return;
+            }
+
+            let hash;
+            switch(method) {
+                case 'md5':
+                    // 简化的 APR1 MD5 实现
+                    const salt = generateSalt(8);
+                    hash = '$apr1$' + salt + '$' + CryptoJS.MD5(pass + salt).toString().substring(0, 22);
+                    break;
+                case 'sha1':
+                    hash = '{SHA}' + CryptoJS.SHA1(pass).toString(CryptoJS.enc.Base64);
+                    break;
+                case 'plain':
+                    hash = pass;
+                    break;
+            }
+            document.getElementById('htpasswd-output').textContent = `${user}:${hash}`;
+        }
+
+        function generateSalt(length) {
+            const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789./';
+            let salt = '';
+            const array = new Uint32Array(length);
+            crypto.getRandomValues(array);
+            for (let i = 0; i < length; i++) {
+                salt += charset[array[i] % charset.length];
+            }
+            return salt;
+        }
+
+        // ==================== 条形码生成器 ====================
+        function generateBarcode() {
+            const text = document.getElementById('barcode-text').value;
+            const format = document.getElementById('barcode-format').value;
+
+            if (!text) {
+                showToast('请输入条形码内容', true);
+                return;
+            }
+
+            try {
+                JsBarcode("#barcode-canvas", text, {
+                    format: format,
+                    width: 2,
+                    height: 100,
+                    displayValue: true,
+                    fontSize: 16,
+                    margin: 10
+                });
+            } catch(e) {
+                showToast('生成失败: ' + e.message, true);
+            }
+        }
+
+        function downloadBarcode() {
+            const svg = document.getElementById('barcode-canvas');
+            const svgData = new XMLSerializer().serializeToString(svg);
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            const img = new Image();
+
+            img.onload = function() {
+                canvas.width = img.width;
+                canvas.height = img.height;
+                ctx.fillStyle = '#ffffff';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.drawImage(img, 0, 0);
+                const link = document.createElement('a');
+                link.download = 'barcode.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            };
+            img.src = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgData)));
+        }
+
+        // ==================== IP/数字地址转换 ====================
+        function ipToNumber() {
+            const ip = document.getElementById('ip-input').value;
+            if (!ip) { showToast('请输入 IP 地址', true); return; }
+            const parts = ip.split('.');
+            if (parts.length !== 4) { showToast('IP 格式不正确', true); return; }
+            const num = ((parseInt(parts[0]) << 24) + (parseInt(parts[1]) << 16) + (parseInt(parts[2]) << 8) + parseInt(parts[3])) >>> 0;
+            document.getElementById('ip-output').textContent = num.toString();
+            document.getElementById('ip-number-input').value = num;
+        }
+
+        function numberToIp() {
+            const num = parseInt(document.getElementById('ip-number-input').value);
+            if (isNaN(num)) { showToast('请输入数字地址', true); return; }
+            const ip = [(num >>> 24) & 255, (num >>> 16) & 255, (num >>> 8) & 255, num & 255].join('.');
+            document.getElementById('ip-output').textContent = ip;
+            document.getElementById('ip-input').value = ip;
+        }
+
+        function ipToBinary() {
+            const ip = document.getElementById('ip-input').value;
+            if (!ip) { showToast('请输入 IP 地址', true); return; }
+            const parts = ip.split('.');
+            if (parts.length !== 4) { showToast('IP 格式不正确', true); return; }
+            const binary = parts.map(p => parseInt(p).toString(2).padStart(8, '0')).join('.');
+            document.getElementById('ip-output').textContent = binary;
+        }
+
+        function ipToHex() {
+            const ip = document.getElementById('ip-input').value;
+            if (!ip) { showToast('请输入 IP 地址', true); return; }
+            const parts = ip.split('.');
+            if (parts.length !== 4) { showToast('IP 格式不正确', true); return; }
+            const hex = parts.map(p => parseInt(p).toString(16).padStart(2, '0').toUpperCase()).join('.');
+            document.getElementById('ip-output').textContent = '0x' + parts.map(p => parseInt(p).toString(16).padStart(2, '0').toUpperCase()).join('');
+        }
+
+        // ==================== 图片转 Base64 ====================
+        function imageToBase64(input) {
+            const file = input.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const base64 = e.target.result;
+                document.getElementById('image-base64-output').textContent = base64;
+                document.getElementById('image-preview').src = base64;
+                document.getElementById('image-preview').style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function base64ToImage() {
+            let input = document.getElementById('base64-to-image-input').value.trim();
+            if (!input) { showToast('请输入 Base64 编码', true); return; }
+
+            // 如果没有 data:image 前缀，自动添加
+            if (!input.startsWith('data:image')) {
+                input = 'data:image/png;base64,' + input;
+            }
+
+            const img = document.getElementById('base64-image-preview');
+            img.src = input;
+            img.style.display = 'block';
+            img.onerror = function() {
+                showToast('无效的 Base64 图片编码', true);
+                img.style.display = 'none';
+            };
+        }
+
+        // 拖拽上传支持
+        const fileUpload = document.querySelector('.file-upload');
+        if (fileUpload) {
+            fileUpload.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                fileUpload.style.borderColor = '#7c3aed';
+                fileUpload.style.background = 'rgba(124, 58, 237, 0.1)';
+            });
+
+            fileUpload.addEventListener('dragleave', () => {
+                fileUpload.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                fileUpload.style.background = 'transparent';
+            });
+
+            fileUpload.addEventListener('drop', (e) => {
+                e.preventDefault();
+                fileUpload.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                fileUpload.style.background = 'transparent';
+                const file = e.dataTransfer.files[0];
+                if (file && file.type.startsWith('image/')) {
+                    const input = document.getElementById('image-file');
+                    const dataTransfer = new DataTransfer();
+                    dataTransfer.items.add(file);
+                    input.files = dataTransfer.files;
+                    imageToBase64(input);
+                }
+            });
+        }
+
+        // ==================== 二维码生成器 ====================
+        let qrCode = null;
+        let qrLogoUrl = null;
+
+        // 生成二维码
+        function generateQRCode() {
+            const text = document.getElementById('qrcode-text').value;
+            if (!text) {
+                showToast('请输入二维码内容', true);
+                return;
+            }
+
+            const size = parseInt(document.getElementById('qr-size').value);
+            const errorLevel = document.getElementById('qr-error-level').value;
+            const dotsType = document.getElementById('qr-dots-type').value;
+            const dotsColor = document.getElementById('qr-dots-color').value;
+            const cornersType = document.getElementById('qr-corners-type').value;
+            const cornersColor = document.getElementById('qr-corners-color').value;
+            const bgColor = document.getElementById('qr-bg-color').value;
+            const bgTransparent = document.getElementById('qr-bg-transparent').value === 'yes';
+            const logoSize = parseFloat(document.getElementById('qr-logo-size').value);
+
+            const options = {
+                width: size,
+                height: size,
+                type: 'svg',
+                data: text,
+                dotsOptions: {
+                    color: dotsColor,
+                    type: dotsType
+                },
+                cornersSquareOptions: {
+                    color: cornersColor,
+                    type: cornersType
+                },
+                cornersDotOptions: {
+                    color: cornersColor,
+                    type: cornersType === 'dot' ? 'dot' : 'square'
+                },
+                backgroundOptions: {
+                    color: bgTransparent ? 'transparent' : bgColor
+                },
+                qrOptions: {
+                    errorCorrectionLevel: errorLevel
+                }
+            };
+
+            // 添加 Logo
+            if (qrLogoUrl) {
+                options.image = qrLogoUrl;
+                options.imageOptions = {
+                    crossOrigin: 'anonymous',
+                    margin: 5,
+                    imageSize: logoSize
+                };
+            }
+
+            // 清空预览区域
+            const preview = document.getElementById('qrcode-preview');
+            preview.innerHTML = '';
+
+            // 创建新的二维码
+            qrCode = new QRCodeStyling(options);
+            qrCode.append(preview);
+
+            showToast('二维码生成成功！');
+        }
+
+        // 下载二维码
+        function downloadQRCode(format) {
+            if (!qrCode) {
+                showToast('请先生成二维码', true);
+                return;
+            }
+            qrCode.download({
+                name: 'qrcode',
+                extension: format
+            });
+        }
+
+        // 应用预设主题
+        function applyQRTheme(theme) {
+            const themes = {
+                classic: {
+                    dotsType: 'square',
+                    dotsColor: '#000000',
+                    cornersType: 'square',
+                    cornersColor: '#000000',
+                    bgColor: '#ffffff'
+                },
+                blue: {
+                    dotsType: 'rounded',
+                    dotsColor: '#1e40af',
+                    cornersType: 'extra-rounded',
+                    cornersColor: '#1e3a8a',
+                    bgColor: '#f0f9ff'
+                },
+                gradient: {
+                    dotsType: 'classy-rounded',
+                    dotsColor: '#7c3aed',
+                    cornersType: 'extra-rounded',
+                    cornersColor: '#5b21b6',
+                    bgColor: '#faf5ff'
+                },
+                green: {
+                    dotsType: 'dots',
+                    dotsColor: '#059669',
+                    cornersType: 'dot',
+                    cornersColor: '#047857',
+                    bgColor: '#ecfdf5'
+                },
+                sunset: {
+                    dotsType: 'extra-rounded',
+                    dotsColor: '#ea580c',
+                    cornersType: 'extra-rounded',
+                    cornersColor: '#c2410c',
+                    bgColor: '#fff7ed'
+                },
+                pink: {
+                    dotsType: 'rounded',
+                    dotsColor: '#db2777',
+                    cornersType: 'extra-rounded',
+                    cornersColor: '#be185d',
+                    bgColor: '#fdf2f8'
+                }
+            };
+
+            const t = themes[theme];
+            if (t) {
+                document.getElementById('qr-dots-type').value = t.dotsType;
+                document.getElementById('qr-dots-color').value = t.dotsColor;
+                document.getElementById('qr-corners-type').value = t.cornersType;
+                document.getElementById('qr-corners-color').value = t.cornersColor;
+                document.getElementById('qr-bg-color').value = t.bgColor;
+                document.getElementById('qr-bg-transparent').value = 'no';
+                showToast(`已应用「${getThemeName(theme)}」主题`);
+            }
+        }
+
+        function getThemeName(theme) {
+            const names = {
+                classic: '经典黑白',
+                blue: '科技蓝',
+                gradient: '渐变紫',
+                green: '清新绿',
+                sunset: '日落橙',
+                pink: '甜美粉'
+            };
+            return names[theme] || theme;
+        }
+
+        // Logo 上传处理
+        document.addEventListener('DOMContentLoaded', function() {
+            const logoInput = document.getElementById('qr-logo');
+            if (logoInput) {
+                logoInput.addEventListener('change', function(e) {
+                    const file = e.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function(event) {
+                            qrLogoUrl = event.target.result;
+                            showToast('Logo 已加载');
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+            }
+        });
+
+        // 初始化条形码
+        window.onload = function() {
+            try {
+                JsBarcode("#barcode-canvas", "Hello World", {
+                    format: "CODE128",
+                    width: 2,
+                    height: 100,
+                    displayValue: true
+                });
+            } catch(e) {}
+        };
+
+        // ==================== 国际化 (i18n) ====================
+        const i18n = {
+            en: {
+                tool_name: 'Crypto Tools',
+                // Site header
+                siteTitle: '🔐 Crypto Toolbox',
+                siteSubtitle: 'Online Encryption & Encoding Tools',
+                backToHome: '← Back to Home',
+                // Navigation
+                navEncryption: '🔒 Encryption',
+                navMd5: 'MD5',
+                navSha: 'SHA',
+                navHashAll: 'Hash All',
+                navAes: 'AES',
+                navDes: 'DES',
+                navTripleDes: '3DES',
+                navRc4: 'RC4',
+                navRabbit: 'Rabbit',
+                navEncoding: '📝 Encoding',
+                navBase64: 'Base64',
+                navUrl: 'URL',
+                navUrlHex: 'URL Hex',
+                navEscape: 'Escape',
+                navUnicode: 'Unicode',
+                navNativeUnicode: 'Native/Unicode',
+                navUtf8Gbk: 'UTF-8/GBK',
+                navOther: '🛠️ Other Tools',
+                navMorse: 'Morse',
+                navPassword: 'Password',
+                navUuid: 'UUID',
+                navHtpasswd: 'htpasswd',
+                navBarcode: 'Barcode',
+                navQrcode: 'QR Code',
+                navIpConvert: 'IP Convert',
+                navImageBase64: 'Image Base64',
+                // Features section
+                featuresTitle: '✨ Features',
+                featureEncodingTitle: '100% Free & Private',
+                featureEncodingDesc: 'No ads, no signup, no watermark. Everything runs locally in your browser. Your data never leaves your device.',
+                feature1Title: 'Secure & Private',
+                feature1Desc: 'All operations performed locally in your browser',
+                feature2Title: 'Multiple Algorithms',
+                feature2Desc: 'Supports 20+ encryption and encoding methods',
+                feature3Title: 'Easy to Use',
+                feature3Desc: 'One-click operations with instant results',
+                // MD5
+                md5Title: '🔐 MD5 Encryption',
+                md5Desc: 'Generate 32-bit MD5 hash value',
+                inputText: 'Input Text',
+                inputPlaceholder: 'Enter text to encrypt...',
+                btnEncrypt: '🔒 Encrypt',
+                btnClear: '🗑️ Clear',
+                encryptionResult: 'Encryption Result',
+                resultPlaceholder: 'Result will appear here...',
+                btnCopy: 'Copy',
+                // SHA
+                shaTitle: '🔑 SHA Encryption',
+                shaDesc: 'Supports SHA-1, SHA-256, SHA-384, SHA-512, SHA-3 algorithms',
+                selectAlgorithm: 'Select Algorithm',
+                // Hash All
+                hashAllTitle: '🎯 Hash All Algorithms',
+                hashAllDesc: 'Encrypt text with all hash algorithms at once',
+                btnHashAll: '🎯 Hash All',
+                // AES
+                aesTitle: '🔐 AES Encryption/Decryption',
+                aesDesc: 'Advanced Encryption Standard symmetric encryption',
+                encryptionKey: 'Encryption Key',
+                keyPlaceholder: 'Enter encryption key...',
+                encryptionMode: 'Mode',
+                paddingMode: 'Padding',
+                btnDecrypt: '🔓 Decrypt',
+                // DES
+                desTitle: '🔒 DES Encryption/Decryption',
+                desDesc: 'Data Encryption Standard symmetric encryption',
+                // TripleDES
+                tripleDesTitle: '🔒 TripleDES (3DES) Encryption/Decryption',
+                tripleDesDesc: 'Triple DES symmetric encryption',
+                // RC4
+                rc4Title: '🔑 RC4 Encryption/Decryption',
+                rc4Desc: 'RC4 stream cipher encryption',
+                // Rabbit
+                rabbitTitle: '🐰 Rabbit Encryption/Decryption',
+                rabbitDesc: 'Rabbit stream cipher encryption',
+                // Base64
+                base64Title: '📄 Base64 Encoding/Decoding',
+                base64Desc: 'Base64 text encoding and decoding',
+                btnEncode: '📤 Encode',
+                btnDecode: '📥 Decode',
+                // URL
+                urlTitle: '🔗 URL Encoding/Decoding',
+                urlDesc: 'Standard URL encoding and decoding',
+                urlInputPlaceholder: 'Enter URL or encoded text...',
+                btnUrlEncode: 'encodeURI',
+                btnUrlDecode: 'decodeURI',
+                btnUrlEncodeComponent: 'Component Encode',
+                btnUrlDecodeComponent: 'Component Decode',
+                // URL Hex
+                urlHexTitle: '🔢 URL Hex Encoding',
+                urlHexDesc: 'Convert URL to hex encoding',
+                urlHexInputPlaceholder: 'Enter URL or hex code...',
+                btnHexEncode: '📤 Hex Encode',
+                btnHexDecode: '📥 Hex Decode',
+                // Escape
+                escapeTitle: '⚡ Escape Encoding/Decoding',
+                escapeDesc: 'JavaScript Escape encoding and decoding',
+                escapeInputPlaceholder: 'Enter text to encode/decode...',
+                // Unicode
+                unicodeTitle: '🌐 Unicode/ASCII Converter',
+                unicodeDesc: 'Convert between text, Unicode and ASCII',
+                unicodeInputPlaceholder: 'Enter text, Unicode (\\u0000) or ASCII codes...',
+                btnToUnicode: '→ Unicode',
+                btnFromUnicode: 'Unicode →',
+                btnToAscii: '→ ASCII',
+                btnFromAscii: 'ASCII →',
+                // Native Unicode
+                nativeUnicodeTitle: '📝 Native/Unicode Encoding',
+                nativeUnicodeDesc: 'Convert between native characters and Unicode',
+                nativeUnicodeInputPlaceholder: 'Enter native text or Unicode encoding...',
+                btnNativeToUnicode: '📤 Native → Unicode',
+                btnUnicodeToNative: '📥 Unicode → Native',
+                // UTF-8/GBK
+                utf8GbkTitle: '🔤 UTF-8/GBK Encoding',
+                utf8GbkDesc: 'View and convert text encoding',
+                utf8GbkInputPlaceholder: 'Enter text or encoding...',
+                btnShowUtf8: '📊 Show UTF-8',
+                btnUtf8ToText: '📥 UTF-8 → Text',
+                // Morse
+                morseTitle: '📡 Morse Code Converter',
+                morseDesc: 'Convert between text and Morse code',
+                morseInputPlaceholder: 'Enter text or Morse code (use / to separate words)...',
+                btnTextToMorse: '📤 Text → Morse',
+                btnMorseToText: '📥 Morse → Text',
+                // Password
+                passwordTitle: '🔑 Password Generator',
+                passwordDesc: 'Generate secure random passwords',
+                passwordLength: 'Password Length',
+                passwordCount: 'Number of Passwords',
+                includeUppercase: 'Uppercase (A-Z)',
+                includeLowercase: 'Lowercase (a-z)',
+                includeNumbers: 'Numbers (0-9)',
+                includeSymbols: 'Symbols (!@#$...)',
+                btnGenerate: '🎲 Generate Password',
+                // UUID
+                uuidTitle: '🆔 UUID/GUID Generator',
+                uuidDesc: 'Generate unique identifiers',
+                uuidCount: 'Number to Generate',
+                uuidFormat: 'Format',
+                uuidFormatStandard: 'Standard (with dashes)',
+                uuidFormatCompact: 'Compact (no dashes)',
+                uuidFormatUpper: 'Uppercase',
+                uuidFormatBraces: 'With Braces',
+                btnGenerateUuid: '🆔 Generate UUID',
+                btnGenerateGuid: '🆔 Generate GUID',
+                // htpasswd
+                htpasswdTitle: '🔐 htpasswd Generator',
+                htpasswdDesc: 'Generate Apache htpasswd entries',
+                username: 'Username',
+                usernamePlaceholder: 'Enter username...',
+                password: 'Password',
+                passwordPlaceholder: 'Enter password...',
+                hashMethod: 'Hash Method',
+                btnGenerateHtpasswd: '🔐 Generate htpasswd',
+                // Barcode
+                barcodeTitle: '📊 Barcode Generator',
+                barcodeDesc: 'Generate various formats of barcodes',
+                barcodeContent: 'Barcode Content',
+                barcodeContentPlaceholder: 'Enter barcode content...',
+                barcodeFormat: 'Barcode Format',
+                btnGenerateBarcode: '📊 Generate Barcode',
+                btnDownloadBarcode: '💾 Download',
+                barcodePreview: 'Barcode Preview',
+                // QR Code
+                qrcodeTitle: '📱 QR Code Generator',
+                qrcodeDesc: 'Generate custom styled QR codes with various shapes and colors',
+                qrcodeContent: 'QR Code Content',
+                qrcodeContentPlaceholder: 'Enter text, URL or other content...',
+                qrcodeSize: 'Size',
+                qrcodeErrorLevel: 'Error Correction',
+                qrcodeErrorL: 'L - 7% Recovery',
+                qrcodeErrorM: 'M - 15% Recovery',
+                qrcodeErrorQ: 'Q - 25% Recovery',
+                qrcodeErrorH: 'H - 30% Recovery',
+                qrcodeStyleSettings: '🎨 Style Settings',
+                qrcodeDotsStyle: 'Dots Style',
+                qrcodeStyleSquare: 'Square',
+                qrcodeStyleDots: 'Dots',
+                qrcodeStyleRounded: 'Rounded',
+                qrcodeStyleExtraRounded: 'Extra Rounded',
+                qrcodeStyleClassy: 'Classy',
+                qrcodeStyleClassyRounded: 'Classy Rounded',
+                qrcodeStyleCircle: 'Circle',
+                qrcodeDotsColor: 'Dots Color',
+                qrcodeCornersStyle: 'Corners Style',
+                qrcodeCornersColor: 'Corners Color',
+                qrcodeBgColor: 'Background Color',
+                qrcodeTransparentBg: 'Transparent Background',
+                optionYes: 'Yes',
+                optionNo: 'No',
+                qrcodeLogoSettings: '🖼️ Logo Settings (Optional)',
+                qrcodeUploadLogo: 'Upload Logo',
+                qrcodeLogoSize: 'Logo Size',
+                qrcodePresetThemes: '🌈 Preset Themes',
+                qrcodeThemeClassic: 'Classic B&W',
+                qrcodeThemeBlue: 'Tech Blue',
+                qrcodeThemeGradient: 'Gradient Purple',
+                qrcodeThemeGreen: 'Fresh Green',
+                qrcodeThemeSunset: 'Sunset Orange',
+                qrcodeThemePink: 'Sweet Pink',
+                qrcodeGenerate: '📱 Generate QR Code',
+                qrcodeDownloadPng: '💾 Download PNG',
+                qrcodeDownloadSvg: '💾 Download SVG',
+                qrcodePreview: 'QR Code Preview',
+                qrcodePreviewHint: 'Click "Generate QR Code" to preview',
+                // IP Convert
+                ipConvertTitle: '🖥️ IP/Number Converter',
+                ipConvertDesc: 'Convert between IP address and numeric format',
+                ipAddress: 'IP Address',
+                ipAddressPlaceholder: 'e.g. 192.168.1.1',
+                ipNumber: 'Numeric Address',
+                ipNumberPlaceholder: 'e.g. 3232235777',
+                ipToNumber: '📤 IP → Number',
+                numberToIp: '📥 Number → IP',
+                ipToBinary: '🔢 IP → Binary',
+                ipToHex: '🔣 IP → Hex',
+                conversionResult: 'Conversion Result',
+                // Image Base64
+                imageBase64Title: '🖼️ Image to Base64',
+                imageBase64Desc: 'Convert image files to Base64 encoding',
+                imageUploadHint: 'Click or drag image here to upload',
+                imageFormatsHint: 'Supports JPG, PNG, GIF, WebP formats',
+                base64Result: 'Base64 Encoding Result',
+                base64ToImage: 'Base64 to Image',
+                inputBase64: 'Input Base64 Encoding',
+                inputBase64Placeholder: 'Enter image Base64 encoding...',
+                convertToImage: '🖼️ Convert to Image',
+                // FAQ
+                faqTitle: 'Frequently Asked Questions',
+                faqQ1: 'Is Base64 encoding encryption?',
+                faqA1: 'Base64 is an encoding method, not encryption. It can be directly decoded and provides no security protection. Base64 is mainly used to convert binary data into text format for transmission in text protocols. Anyone can easily decode it.',
+                faqQ2: 'Can MD5 be decrypted?',
+                faqA2: 'MD5 is a one-way hash function and cannot be reversed. It\'s impossible to recover original data from the hash. MD5 compresses data of any length into a fixed 128-bit digest, designed to be irreversible. Only rainbow tables or brute force can attempt collision attacks.',
+                faqQ3: 'Is AES encryption secure?',
+                faqA3: 'AES is one of the most secure symmetric encryption algorithms, widely used by governments and financial institutions. AES-256 is used by the US government to encrypt top secret documents and has never been broken. It\'s the preferred algorithm for protecting sensitive data.',
+                faqQ4: 'Which is more secure: SHA-256 or MD5?',
+                faqA4: 'SHA-256 is more secure. MD5 has known collision vulnerabilities and is not recommended for security-critical scenarios. SHA-256 outputs 256 bits with a more complex algorithm, still considered secure, and widely used in digital signatures and blockchain.',
+                faqQ5: 'Will my data be uploaded to servers?',
+                faqA5: 'No, all encryption and decryption operations are performed locally in your browser. This tool uses pure frontend technology with the CryptoJS library to process data on your device. Sensitive information never leaves your browser.',
+                faqFreeQ: 'Is this tool really free with no ads?',
+                faqFreeA: 'Yes, 100% free with no ads, no registration, no watermark, and no usage limits. All processing happens locally in your browser — your data is never uploaded to any server.',
+                // Related Tools
+                relatedTools: '🔗 Related Tools',
+                relatedJsonViewer: 'JSON Viewer',
+                relatedJsonViewerDesc: 'JSON formatting and visualization',
+                relatedRegexTester: 'Regex Tester',
+                relatedRegexTesterDesc: 'Online regex matching and debugging',
+                relatedTimestamp: 'Timestamp Converter',
+                relatedTimestampDesc: 'Convert Unix timestamp and date',
+                relatedWebSocket: 'WebSocket Tester',
+                relatedWebSocketDesc: 'WebSocket connection debugging',
+                // Footer
+                footerPrivacy: 'Pure frontend processing, data is not uploaded to servers',
+                footerBackHome: '← Back to Web Toolbox Home',
+                trust_users: '🌍 Used by 50,000+ users',
+                trust_rating: '⭐ 4.9/5 rating',
+                trust_privacy: '🔒 100% Private',
+                trust_free: '🚫 No Ads, No Signup'
+            },
+            'zh-CN': {
+                tool_name: '加密工具',
+                // Site header
+                siteTitle: '🔐 加密工具箱',
+                siteSubtitle: '在线加密解密编码工具',
+                backToHome: '← 返回首页',
+                // Navigation
+                navEncryption: '🔒 加密算法',
+                navMd5: 'MD5',
+                navSha: 'SHA',
+                navHashAll: '哈希大全',
+                navAes: 'AES',
+                navDes: 'DES',
+                navTripleDes: '3DES',
+                navRc4: 'RC4',
+                navRabbit: 'Rabbit',
+                navEncoding: '📝 编码转换',
+                navBase64: 'Base64',
+                navUrl: 'URL',
+                navUrlHex: 'URL十六进制',
+                navEscape: 'Escape',
+                navUnicode: 'Unicode',
+                navNativeUnicode: 'Native/Unicode',
+                navUtf8Gbk: 'UTF-8/GBK',
+                navOther: '🛠️ 其他工具',
+                navMorse: '摩尔斯电码',
+                navPassword: '密码生成',
+                navUuid: 'UUID',
+                navHtpasswd: 'htpasswd',
+                navBarcode: '条形码',
+                navQrcode: '二维码',
+                navIpConvert: 'IP转换',
+                navImageBase64: '图片Base64',
+                // Features section
+                featuresTitle: '✨ 功能特点',
+                featureEncodingTitle: '100% 免费且安全',
+                featureEncodingDesc: '无广告、无需注册、无水印。所有处理都在浏览器本地完成，数据不会上传到任何服务器。',
+                feature1Title: '安全私密',
+                feature1Desc: '所有操作在浏览器本地完成',
+                feature2Title: '多种算法',
+                feature2Desc: '支持 20+ 种加密编码方式',
+                feature3Title: '简单易用',
+                feature3Desc: '一键操作，即时获取结果',
+                // MD5
+                md5Title: '🔐 MD5 加密',
+                md5Desc: '生成 32 位 MD5 哈希值',
+                inputText: '输入文本',
+                inputPlaceholder: '请输入要加密的文本...',
+                btnEncrypt: '🔒 加密',
+                btnClear: '🗑️ 清空',
+                encryptionResult: '加密结果',
+                resultPlaceholder: '结果将显示在这里...',
+                btnCopy: '复制',
+                // SHA
+                shaTitle: '🔑 SHA 加密',
+                shaDesc: '支持 SHA-1、SHA-256、SHA-384、SHA-512、SHA-3 算法',
+                selectAlgorithm: '选择算法',
+                // Hash All
+                hashAllTitle: '🎯 哈希大全',
+                hashAllDesc: '一键使用所有哈希算法加密',
+                btnHashAll: '🎯 全部加密',
+                // AES
+                aesTitle: '🔐 AES 加密/解密',
+                aesDesc: '高级加密标准对称加密算法',
+                encryptionKey: '加密密钥',
+                keyPlaceholder: '请输入加密密钥...',
+                encryptionMode: '加密模式',
+                paddingMode: '填充方式',
+                btnDecrypt: '🔓 解密',
+                // DES
+                desTitle: '🔒 DES 加密/解密',
+                desDesc: '数据加密标准对称加密算法',
+                // TripleDES
+                tripleDesTitle: '🔒 TripleDES (3DES) 加密/解密',
+                tripleDesDesc: '三重 DES 对称加密算法',
+                // RC4
+                rc4Title: '🔑 RC4 加密/解密',
+                rc4Desc: 'RC4 流密码加密算法',
+                // Rabbit
+                rabbitTitle: '🐰 Rabbit 加密/解密',
+                rabbitDesc: 'Rabbit 流密码加密算法',
+                // Base64
+                base64Title: '📄 Base64 编码/解码',
+                base64Desc: 'Base64 文本编码与解码',
+                btnEncode: '📤 编码',
+                btnDecode: '📥 解码',
+                // URL
+                urlTitle: '🔗 URL 编码/解码',
+                urlDesc: '标准 URL 编码与解码',
+                urlInputPlaceholder: '请输入 URL 或编码文本...',
+                btnUrlEncode: 'encodeURI',
+                btnUrlDecode: 'decodeURI',
+                btnUrlEncodeComponent: '组件编码',
+                btnUrlDecodeComponent: '组件解码',
+                // URL Hex
+                urlHexTitle: '🔢 URL 十六进制编码',
+                urlHexDesc: '将 URL 转换为十六进制编码',
+                urlHexInputPlaceholder: '请输入 URL 或十六进制编码...',
+                btnHexEncode: '📤 十六进制编码',
+                btnHexDecode: '📥 十六进制解码',
+                // Escape
+                escapeTitle: '⚡ Escape 编码/解码',
+                escapeDesc: 'JavaScript Escape 编码与解码',
+                escapeInputPlaceholder: '请输入要编码/解码的文本...',
+                // Unicode
+                unicodeTitle: '🌐 Unicode/ASCII 转换',
+                unicodeDesc: '文本与 Unicode、ASCII 码互转',
+                unicodeInputPlaceholder: '输入文本、Unicode (\\u0000) 或 ASCII 码...',
+                btnToUnicode: '→ Unicode',
+                btnFromUnicode: 'Unicode →',
+                btnToAscii: '→ ASCII',
+                btnFromAscii: 'ASCII →',
+                // Native Unicode
+                nativeUnicodeTitle: '📝 Native/Unicode 编码',
+                nativeUnicodeDesc: '原生字符与 Unicode 编码转换',
+                nativeUnicodeInputPlaceholder: '请输入原生文本或 Unicode 编码...',
+                btnNativeToUnicode: '📤 Native → Unicode',
+                btnUnicodeToNative: '📥 Unicode → Native',
+                // UTF-8/GBK
+                utf8GbkTitle: '🔤 UTF-8/GBK 编码',
+                utf8GbkDesc: '查看和转换文本编码',
+                utf8GbkInputPlaceholder: '请输入文本或编码...',
+                btnShowUtf8: '📊 显示 UTF-8',
+                btnUtf8ToText: '📥 UTF-8 → 文本',
+                // Morse
+                morseTitle: '📡 摩尔斯电码转换',
+                morseDesc: '文本与摩尔斯电码互转',
+                morseInputPlaceholder: '输入文本或摩尔斯电码（用 / 分隔单词）...',
+                btnTextToMorse: '📤 文本 → 摩尔斯',
+                btnMorseToText: '📥 摩尔斯 → 文本',
+                // Password
+                passwordTitle: '🔑 密码生成器',
+                passwordDesc: '生成安全的随机密码',
+                passwordLength: '密码长度',
+                passwordCount: '生成数量',
+                includeUppercase: '大写字母 (A-Z)',
+                includeLowercase: '小写字母 (a-z)',
+                includeNumbers: '数字 (0-9)',
+                includeSymbols: '符号 (!@#$...)',
+                btnGenerate: '🎲 生成密码',
+                // UUID
+                uuidTitle: '🆔 UUID/GUID 生成器',
+                uuidDesc: '生成唯一标识符',
+                uuidCount: '生成数量',
+                uuidFormat: '格式',
+                uuidFormatStandard: '标准（带连字符）',
+                uuidFormatCompact: '紧凑（无连字符）',
+                uuidFormatUpper: '大写',
+                uuidFormatBraces: '带大括号',
+                btnGenerateUuid: '🆔 生成 UUID',
+                btnGenerateGuid: '🆔 生成 GUID',
+                // htpasswd
+                htpasswdTitle: '🔐 htpasswd 生成器',
+                htpasswdDesc: '生成 Apache htpasswd 条目',
+                username: '用户名',
+                usernamePlaceholder: '请输入用户名...',
+                password: '密码',
+                passwordPlaceholder: '请输入密码...',
+                hashMethod: '哈希方法',
+                btnGenerateHtpasswd: '🔐 生成 htpasswd',
+                // Barcode
+                barcodeTitle: '📊 条形码生成器',
+                barcodeDesc: '生成多种格式的条形码',
+                barcodeContent: '条形码内容',
+                barcodeContentPlaceholder: '请输入条形码内容...',
+                barcodeFormat: '条形码格式',
+                btnGenerateBarcode: '📊 生成条形码',
+                btnDownloadBarcode: '💾 下载',
+                barcodePreview: '条形码预览',
+                // QR Code
+                qrcodeTitle: '📱 二维码生成器',
+                qrcodeDesc: '生成自定义样式的二维码，支持多种形状和颜色',
+                qrcodeContent: '二维码内容',
+                qrcodeContentPlaceholder: '请输入文本、网址或其他内容...',
+                qrcodeSize: '尺寸',
+                qrcodeErrorLevel: '容错级别',
+                qrcodeErrorL: 'L - 7% 容错',
+                qrcodeErrorM: 'M - 15% 容错',
+                qrcodeErrorQ: 'Q - 25% 容错',
+                qrcodeErrorH: 'H - 30% 容错',
+                qrcodeStyleSettings: '🎨 样式设置',
+                qrcodeDotsStyle: '码点样式',
+                qrcodeStyleSquare: '方形',
+                qrcodeStyleDots: '圆点',
+                qrcodeStyleRounded: '圆角方形',
+                qrcodeStyleExtraRounded: '超圆角',
+                qrcodeStyleClassy: '经典',
+                qrcodeStyleClassyRounded: '圆角经典',
+                qrcodeStyleCircle: '圆形',
+                qrcodeDotsColor: '码点颜色',
+                qrcodeCornersStyle: '定位角样式',
+                qrcodeCornersColor: '定位角颜色',
+                qrcodeBgColor: '背景颜色',
+                qrcodeTransparentBg: '透明背景',
+                optionYes: '是',
+                optionNo: '否',
+                qrcodeLogoSettings: '🖼️ Logo 设置 (可选)',
+                qrcodeUploadLogo: '上传 Logo',
+                qrcodeLogoSize: 'Logo 大小',
+                qrcodePresetThemes: '🌈 预设主题',
+                qrcodeThemeClassic: '经典黑白',
+                qrcodeThemeBlue: '科技蓝',
+                qrcodeThemeGradient: '渐变紫',
+                qrcodeThemeGreen: '清新绿',
+                qrcodeThemeSunset: '日落橙',
+                qrcodeThemePink: '甜美粉',
+                qrcodeGenerate: '📱 生成二维码',
+                qrcodeDownloadPng: '💾 下载 PNG',
+                qrcodeDownloadSvg: '💾 下载 SVG',
+                qrcodePreview: '二维码预览',
+                qrcodePreviewHint: '点击"生成二维码"按钮预览',
+                // IP Convert
+                ipConvertTitle: '🖥️ IP/数字地址转换',
+                ipConvertDesc: 'IP 地址与数字格式相互转换',
+                ipAddress: 'IP 地址',
+                ipAddressPlaceholder: '如: 192.168.1.1',
+                ipNumber: '数字地址',
+                ipNumberPlaceholder: '如: 3232235777',
+                ipToNumber: '📤 IP → 数字',
+                numberToIp: '📥 数字 → IP',
+                ipToBinary: '🔢 IP → 二进制',
+                ipToHex: '🔣 IP → 十六进制',
+                conversionResult: '转换结果',
+                // Image Base64
+                imageBase64Title: '🖼️ 图片转 Base64',
+                imageBase64Desc: '将图片文件转换为 Base64 编码',
+                imageUploadHint: '点击或拖拽图片到此处上传',
+                imageFormatsHint: '支持 JPG、PNG、GIF、WebP 等格式',
+                base64Result: 'Base64 编码结果',
+                base64ToImage: 'Base64 转图片',
+                inputBase64: '输入 Base64 编码',
+                inputBase64Placeholder: '请输入图片的 Base64 编码...',
+                convertToImage: '🖼️ 转换为图片',
+                // FAQ
+                faqTitle: '常见问题',
+                faqQ1: 'Base64 编码是加密吗？',
+                faqA1: 'Base64 是编码方式，不是加密，可以直接解码还原，不提供安全保护。Base64 主要用于将二进制数据转换为文本格式，便于在文本协议中传输，任何人都可以轻松解码。',
+                faqQ2: 'MD5 可以解密吗？',
+                faqA2: 'MD5 是单向哈希函数，不可逆，无法从哈希值还原原始数据。MD5 将任意长度的数据压缩成固定 128 位的摘要，设计上就是不可逆的，只能通过彩虹表或暴力破解尝试碰撞。',
+                faqQ3: 'AES 加密安全吗？',
+                faqA3: 'AES 是目前最安全的对称加密算法之一，广泛用于政府和金融机构。AES-256 被美国政府用于加密最高机密文件，至今未被破解，是保护敏感数据的首选算法。',
+                faqQ4: 'SHA-256 和 MD5 哪个更安全？',
+                faqA4: 'SHA-256 更安全，MD5 已发现碰撞漏洞，不建议用于安全场景。SHA-256 输出 256 位、算法更复杂，目前仍被认为是安全的哈希算法，广泛用于数字签名和区块链。',
+                faqQ5: '数据会上传到服务器吗？',
+                faqA5: '不会，所有加解密操作在浏览器本地完成。本工具采用纯前端技术，使用 JavaScript 加密库（CryptoJS）在您的设备上处理数据，敏感信息不会离开您的浏览器。',
+                faqFreeQ: '这个工具真的免费且没有广告吗？',
+                faqFreeA: '是的，100% 免费，无广告、无需注册、无水印、无使用限制。所有处理都在浏览器本地完成，您的数据不会上传到任何服务器。',
+                // Related Tools
+                relatedTools: '🔗 相关工具推荐',
+                relatedJsonViewer: 'JSON 查看器',
+                relatedJsonViewerDesc: 'JSON 格式化与可视化',
+                relatedRegexTester: '正则表达式测试',
+                relatedRegexTesterDesc: '在线正则匹配与调试',
+                relatedTimestamp: '时间戳转换',
+                relatedTimestampDesc: 'Unix 时间戳与日期互转',
+                relatedWebSocket: 'WebSocket 测试',
+                relatedWebSocketDesc: 'WebSocket 连接调试',
+                // Footer
+                footerPrivacy: '纯前端处理，数据不会上传到服务器',
+                footerBackHome: '← 返回 Web Toolbox 首页',
+                trust_users: '🌍 超过 50,000 用户使用',
+                trust_rating: '⭐ 4.9/5 好评',
+                trust_privacy: '🔒 100% 隐私安全',
+                trust_free: '🚫 无广告、无需注册'
+            },
+            fr: {
+                tool_name: 'Outils de Chiffrement',
+                // Site header
+                siteTitle: '🔐 Boîte à outils Crypto',
+                siteSubtitle: 'Outils de chiffrement et encodage en ligne',
+                backToHome: '← Retour à l\'accueil',
+                // Navigation
+                navEncryption: '🔒 Chiffrement',
+                navMd5: 'MD5',
+                navSha: 'SHA',
+                navHashAll: 'Tous les Hash',
+                navAes: 'AES',
+                navDes: 'DES',
+                navTripleDes: '3DES',
+                navRc4: 'RC4',
+                navRabbit: 'Rabbit',
+                navEncoding: '📝 Encodage',
+                navBase64: 'Base64',
+                navUrl: 'URL',
+                navUrlHex: 'URL Hex',
+                navEscape: 'Escape',
+                navUnicode: 'Unicode',
+                navNativeUnicode: 'Native/Unicode',
+                navUtf8Gbk: 'UTF-8/GBK',
+                navOther: '🛠️ Autres outils',
+                navMorse: 'Morse',
+                navPassword: 'Mot de passe',
+                navUuid: 'UUID',
+                navHtpasswd: 'htpasswd',
+                navBarcode: 'Code-barres',
+                navQrcode: 'QR Code',
+                navIpConvert: 'Conversion IP',
+                navImageBase64: 'Image Base64',
+                // Features section
+                featuresTitle: '✨ Fonctionnalités',
+                featureEncodingTitle: '100% Gratuit et Privé',
+                featureEncodingDesc: 'Sans publicité, sans inscription, sans filigrane. Tout est traité localement dans votre navigateur.',
+                feature1Title: 'Sécurisé et privé',
+                feature1Desc: 'Toutes les opérations effectuées localement',
+                feature2Title: 'Multiples algorithmes',
+                feature2Desc: 'Supporte 20+ méthodes de chiffrement',
+                feature3Title: 'Facile à utiliser',
+                feature3Desc: 'Opérations en un clic avec résultats instantanés',
+                // MD5
+                md5Title: '🔐 Chiffrement MD5',
+                md5Desc: 'Générer une valeur de hachage MD5 32 bits',
+                inputText: 'Texte d\'entrée',
+                inputPlaceholder: 'Entrez le texte à chiffrer...',
+                btnEncrypt: '🔒 Chiffrer',
+                btnClear: '🗑️ Effacer',
+                encryptionResult: 'Résultat du chiffrement',
+                resultPlaceholder: 'Le résultat apparaîtra ici...',
+                btnCopy: 'Copier',
+                // SHA
+                shaTitle: '🔑 Chiffrement SHA',
+                shaDesc: 'Supporte SHA-1, SHA-256, SHA-384, SHA-512, SHA-3',
+                selectAlgorithm: 'Sélectionner l\'algorithme',
+                // Hash All
+                hashAllTitle: '🎯 Tous les algorithmes de hachage',
+                hashAllDesc: 'Chiffrer le texte avec tous les algorithmes',
+                btnHashAll: '🎯 Hacher tout',
+                // AES
+                aesTitle: '🔐 Chiffrement/Déchiffrement AES',
+                aesDesc: 'Chiffrement symétrique AES',
+                encryptionKey: 'Clé de chiffrement',
+                keyPlaceholder: 'Entrez la clé de chiffrement...',
+                encryptionMode: 'Mode',
+                paddingMode: 'Remplissage',
+                btnDecrypt: '🔓 Déchiffrer',
+                // DES
+                desTitle: '🔒 Chiffrement/Déchiffrement DES',
+                desDesc: 'Chiffrement symétrique DES',
+                // TripleDES
+                tripleDesTitle: '🔒 Chiffrement/Déchiffrement TripleDES',
+                tripleDesDesc: 'Chiffrement symétrique Triple DES',
+                // RC4
+                rc4Title: '🔑 Chiffrement/Déchiffrement RC4',
+                rc4Desc: 'Chiffrement par flux RC4',
+                // Rabbit
+                rabbitTitle: '🐰 Chiffrement/Déchiffrement Rabbit',
+                rabbitDesc: 'Chiffrement par flux Rabbit',
+                // Base64
+                base64Title: '📄 Encodage/Décodage Base64',
+                base64Desc: 'Encodage et décodage de texte Base64',
+                btnEncode: '📤 Encoder',
+                btnDecode: '📥 Décoder',
+                // URL
+                urlTitle: '🔗 Encodage/Décodage URL',
+                urlDesc: 'Encodage et décodage URL standard',
+                urlInputPlaceholder: 'Entrez l\'URL ou le texte encodé...',
+                btnUrlEncode: 'encodeURI',
+                btnUrlDecode: 'decodeURI',
+                btnUrlEncodeComponent: 'Encoder composant',
+                btnUrlDecodeComponent: 'Décoder composant',
+                // URL Hex
+                urlHexTitle: '🔢 Encodage URL hexadécimal',
+                urlHexDesc: 'Convertir l\'URL en encodage hexadécimal',
+                urlHexInputPlaceholder: 'Entrez l\'URL ou le code hexadécimal...',
+                btnHexEncode: '📤 Encoder en Hex',
+                btnHexDecode: '📥 Décoder Hex',
+                // Escape
+                escapeTitle: '⚡ Encodage/Décodage Escape',
+                escapeDesc: 'Encodage JavaScript Escape',
+                escapeInputPlaceholder: 'Entrez le texte à encoder/décoder...',
+                // Unicode
+                unicodeTitle: '🌐 Convertisseur Unicode/ASCII',
+                unicodeDesc: 'Convertir entre texte, Unicode et ASCII',
+                unicodeInputPlaceholder: 'Entrez texte, Unicode (\\u0000) ou codes ASCII...',
+                btnToUnicode: '→ Unicode',
+                btnFromUnicode: 'Unicode →',
+                btnToAscii: '→ ASCII',
+                btnFromAscii: 'ASCII →',
+                // Native Unicode
+                nativeUnicodeTitle: '📝 Encodage Native/Unicode',
+                nativeUnicodeDesc: 'Convertir entre caractères natifs et Unicode',
+                nativeUnicodeInputPlaceholder: 'Entrez texte natif ou encodage Unicode...',
+                btnNativeToUnicode: '📤 Natif → Unicode',
+                btnUnicodeToNative: '📥 Unicode → Natif',
+                // UTF-8/GBK
+                utf8GbkTitle: '🔤 Encodage UTF-8/GBK',
+                utf8GbkDesc: 'Afficher et convertir l\'encodage de texte',
+                utf8GbkInputPlaceholder: 'Entrez texte ou encodage...',
+                btnShowUtf8: '📊 Afficher UTF-8',
+                btnUtf8ToText: '📥 UTF-8 → Texte',
+                // Morse
+                morseTitle: '📡 Convertisseur code Morse',
+                morseDesc: 'Convertir entre texte et code Morse',
+                morseInputPlaceholder: 'Entrez texte ou code Morse (/ pour séparer les mots)...',
+                btnTextToMorse: '📤 Texte → Morse',
+                btnMorseToText: '📥 Morse → Texte',
+                // Password
+                passwordTitle: '🔑 Générateur de mot de passe',
+                passwordDesc: 'Générer des mots de passe aléatoires sécurisés',
+                passwordLength: 'Longueur du mot de passe',
+                passwordCount: 'Nombre de mots de passe',
+                includeUppercase: 'Majuscules (A-Z)',
+                includeLowercase: 'Minuscules (a-z)',
+                includeNumbers: 'Chiffres (0-9)',
+                includeSymbols: 'Symboles (!@#$...)',
+                btnGenerate: '🎲 Générer mot de passe',
+                // UUID
+                uuidTitle: '🆔 Générateur UUID/GUID',
+                uuidDesc: 'Générer des identifiants uniques',
+                uuidCount: 'Nombre à générer',
+                uuidFormat: 'Format',
+                uuidFormatStandard: 'Standard (avec tirets)',
+                uuidFormatCompact: 'Compact (sans tirets)',
+                uuidFormatUpper: 'Majuscules',
+                uuidFormatBraces: 'Avec accolades',
+                btnGenerateUuid: '🆔 Générer UUID',
+                btnGenerateGuid: '🆔 Générer GUID',
+                // htpasswd
+                htpasswdTitle: '🔐 Générateur htpasswd',
+                htpasswdDesc: 'Générer des entrées Apache htpasswd',
+                username: 'Nom d\'utilisateur',
+                usernamePlaceholder: 'Entrez le nom d\'utilisateur...',
+                password: 'Mot de passe',
+                passwordPlaceholder: 'Entrez le mot de passe...',
+                hashMethod: 'Méthode de hachage',
+                btnGenerateHtpasswd: '🔐 Générer htpasswd',
+                // Barcode
+                barcodeTitle: '📊 Générateur de code-barres',
+                barcodeDesc: 'Générer des codes-barres de différents formats',
+                barcodeContent: 'Contenu du code-barres',
+                barcodeContentPlaceholder: 'Entrez le contenu du code-barres...',
+                barcodeFormat: 'Format du code-barres',
+                btnGenerateBarcode: '📊 Générer code-barres',
+                btnDownloadBarcode: '💾 Télécharger',
+                barcodePreview: 'Aperçu du code-barres',
+                // QR Code
+                qrcodeTitle: '📱 Générateur de QR Code',
+                qrcodeDesc: 'Générer des QR codes personnalisés avec diverses formes et couleurs',
+                qrcodeContent: 'Contenu du QR Code',
+                qrcodeContentPlaceholder: 'Entrez texte, URL ou autre contenu...',
+                qrcodeSize: 'Taille',
+                qrcodeErrorLevel: 'Correction d\'erreur',
+                qrcodeErrorL: 'L - 7% récupération',
+                qrcodeErrorM: 'M - 15% récupération',
+                qrcodeErrorQ: 'Q - 25% récupération',
+                qrcodeErrorH: 'H - 30% récupération',
+                qrcodeStyleSettings: '🎨 Paramètres de style',
+                qrcodeDotsStyle: 'Style des points',
+                qrcodeStyleSquare: 'Carré',
+                qrcodeStyleDots: 'Points',
+                qrcodeStyleRounded: 'Arrondi',
+                qrcodeStyleExtraRounded: 'Très arrondi',
+                qrcodeStyleClassy: 'Classique',
+                qrcodeStyleClassyRounded: 'Classique arrondi',
+                qrcodeStyleCircle: 'Cercle',
+                qrcodeDotsColor: 'Couleur des points',
+                qrcodeCornersStyle: 'Style des coins',
+                qrcodeCornersColor: 'Couleur des coins',
+                qrcodeBgColor: 'Couleur de fond',
+                qrcodeTransparentBg: 'Fond transparent',
+                optionYes: 'Oui',
+                optionNo: 'Non',
+                qrcodeLogoSettings: '🖼️ Paramètres du logo (Optionnel)',
+                qrcodeUploadLogo: 'Télécharger le logo',
+                qrcodeLogoSize: 'Taille du logo',
+                qrcodePresetThemes: '🌈 Thèmes prédéfinis',
+                qrcodeThemeClassic: 'Noir et blanc classique',
+                qrcodeThemeBlue: 'Bleu tech',
+                qrcodeThemeGradient: 'Violet dégradé',
+                qrcodeThemeGreen: 'Vert frais',
+                qrcodeThemeSunset: 'Orange coucher de soleil',
+                qrcodeThemePink: 'Rose doux',
+                qrcodeGenerate: '📱 Générer QR Code',
+                qrcodeDownloadPng: '💾 Télécharger PNG',
+                qrcodeDownloadSvg: '💾 Télécharger SVG',
+                qrcodePreview: 'Aperçu du QR Code',
+                qrcodePreviewHint: 'Cliquez sur "Générer QR Code" pour prévisualiser',
+                // IP Convert
+                ipConvertTitle: '🖥️ Convertisseur IP/Nombre',
+                ipConvertDesc: 'Convertir entre adresse IP et format numérique',
+                ipAddress: 'Adresse IP',
+                ipAddressPlaceholder: 'ex: 192.168.1.1',
+                ipNumber: 'Adresse numérique',
+                ipNumberPlaceholder: 'ex: 3232235777',
+                ipToNumber: '📤 IP → Nombre',
+                numberToIp: '📥 Nombre → IP',
+                ipToBinary: '🔢 IP → Binaire',
+                ipToHex: '🔣 IP → Hex',
+                conversionResult: 'Résultat de conversion',
+                // Image Base64
+                imageBase64Title: '🖼️ Image vers Base64',
+                imageBase64Desc: 'Convertir les fichiers image en encodage Base64',
+                imageUploadHint: 'Cliquez ou glissez l\'image ici pour télécharger',
+                imageFormatsHint: 'Supporte les formats JPG, PNG, GIF, WebP',
+                base64Result: 'Résultat de l\'encodage Base64',
+                base64ToImage: 'Base64 vers image',
+                inputBase64: 'Entrer l\'encodage Base64',
+                inputBase64Placeholder: 'Entrez l\'encodage Base64 de l\'image...',
+                convertToImage: '🖼️ Convertir en image',
+                // FAQ
+                faqTitle: 'Questions fréquemment posées',
+                faqQ1: 'L\'encodage Base64 est-il un chiffrement ?',
+                faqA1: 'Base64 est une méthode d\'encodage, pas de chiffrement. Il peut être directement décodé et ne fournit aucune protection de sécurité. Base64 est principalement utilisé pour convertir des données binaires en format texte pour la transmission. N\'importe qui peut facilement le décoder.',
+                faqQ2: 'Peut-on déchiffrer MD5 ?',
+                faqA2: 'MD5 est une fonction de hachage unidirectionnelle et ne peut pas être inversée. Il est impossible de récupérer les données originales à partir du hachage. MD5 compresse des données de n\'importe quelle longueur en un condensé fixe de 128 bits, conçu pour être irréversible.',
+                faqQ3: 'Le chiffrement AES est-il sécurisé ?',
+                faqA3: 'AES est l\'un des algorithmes de chiffrement symétrique les plus sûrs, largement utilisé par les gouvernements et les institutions financières. AES-256 est utilisé par le gouvernement américain pour chiffrer des documents top secret et n\'a jamais été cassé.',
+                faqQ4: 'Lequel est plus sûr : SHA-256 ou MD5 ?',
+                faqA4: 'SHA-256 est plus sûr. MD5 a des vulnérabilités de collision connues et n\'est pas recommandé pour les scénarios critiques de sécurité. SHA-256 produit 256 bits avec un algorithme plus complexe, toujours considéré comme sûr.',
+                faqQ5: 'Mes données seront-elles téléchargées sur des serveurs ?',
+                faqA5: 'Non, toutes les opérations de chiffrement et de déchiffrement sont effectuées localement dans votre navigateur. Cet outil utilise une technologie purement frontend avec la bibliothèque CryptoJS. Les informations sensibles ne quittent jamais votre navigateur.',
+                faqFreeQ: 'Cet outil est-il vraiment gratuit et sans publicité ?',
+                faqFreeA: 'Oui, 100% gratuit, sans publicité, sans inscription, sans filigrane et sans limite d\'utilisation. Tout le traitement se fait localement dans votre navigateur — vos données ne sont jamais envoyées à un serveur.',
+                // Related Tools
+                relatedTools: '🔗 Outils connexes',
+                relatedJsonViewer: 'Visualiseur JSON',
+                relatedJsonViewerDesc: 'Formatage et visualisation JSON',
+                relatedRegexTester: 'Testeur Regex',
+                relatedRegexTesterDesc: 'Correspondance et débogage regex en ligne',
+                relatedTimestamp: 'Convertisseur d\'horodatage',
+                relatedTimestampDesc: 'Convertir horodatage Unix et date',
+                relatedWebSocket: 'Testeur WebSocket',
+                relatedWebSocketDesc: 'Débogage de connexion WebSocket',
+                // Footer
+                footerPrivacy: 'Traitement purement frontend, les données ne sont pas téléchargées',
+                footerBackHome: '← Retour à l\'accueil Web Toolbox',
+                trust_users: '🌍 Utilisé par 50 000+ utilisateurs',
+                trust_rating: '⭐ Note 4.9/5',
+                trust_privacy: '🔒 100% Privé',
+                trust_free: '🚫 Sans pub, sans inscription'
+            },
+            es: {
+                tool_name: 'Herramientas Criptográficas',
+                // Site header
+                siteTitle: '🔐 Caja de herramientas Crypto',
+                siteSubtitle: 'Herramientas de cifrado y codificación en línea',
+                backToHome: '← Volver al inicio',
+                // Navigation
+                navEncryption: '🔒 Cifrado',
+                navMd5: 'MD5',
+                navSha: 'SHA',
+                navHashAll: 'Todos los Hash',
+                navAes: 'AES',
+                navDes: 'DES',
+                navTripleDes: '3DES',
+                navRc4: 'RC4',
+                navRabbit: 'Rabbit',
+                navEncoding: '📝 Codificación',
+                navBase64: 'Base64',
+                navUrl: 'URL',
+                navUrlHex: 'URL Hex',
+                navEscape: 'Escape',
+                navUnicode: 'Unicode',
+                navNativeUnicode: 'Native/Unicode',
+                navUtf8Gbk: 'UTF-8/GBK',
+                navOther: '🛠️ Otras herramientas',
+                navMorse: 'Morse',
+                navPassword: 'Contraseña',
+                navUuid: 'UUID',
+                navHtpasswd: 'htpasswd',
+                navBarcode: 'Código de barras',
+                navQrcode: 'Código QR',
+                navIpConvert: 'Conversión IP',
+                navImageBase64: 'Imagen Base64',
+                // Features section
+                featuresTitle: '✨ Características',
+                featureEncodingTitle: '100% Gratis y Privado',
+                featureEncodingDesc: 'Sin anuncios, sin registro, sin marca de agua. Todo se procesa localmente en tu navegador.',
+                feature1Title: 'Seguro y privado',
+                feature1Desc: 'Todas las operaciones se realizan localmente',
+                feature2Title: 'Múltiples algoritmos',
+                feature2Desc: 'Soporta más de 20 métodos de cifrado',
+                feature3Title: 'Fácil de usar',
+                feature3Desc: 'Operaciones con un clic y resultados instantáneos',
+                // MD5
+                md5Title: '🔐 Cifrado MD5',
+                md5Desc: 'Generar valor hash MD5 de 32 bits',
+                inputText: 'Texto de entrada',
+                inputPlaceholder: 'Ingrese el texto a cifrar...',
+                btnEncrypt: '🔒 Cifrar',
+                btnClear: '🗑️ Limpiar',
+                encryptionResult: 'Resultado del cifrado',
+                resultPlaceholder: 'El resultado aparecerá aquí...',
+                btnCopy: 'Copiar',
+                // SHA
+                shaTitle: '🔑 Cifrado SHA',
+                shaDesc: 'Soporta SHA-1, SHA-256, SHA-384, SHA-512, SHA-3',
+                selectAlgorithm: 'Seleccionar algoritmo',
+                // Hash All
+                hashAllTitle: '🎯 Todos los algoritmos de hash',
+                hashAllDesc: 'Cifrar texto con todos los algoritmos',
+                btnHashAll: '🎯 Hash todo',
+                // AES
+                aesTitle: '🔐 Cifrado/Descifrado AES',
+                aesDesc: 'Cifrado simétrico AES',
+                encryptionKey: 'Clave de cifrado',
+                keyPlaceholder: 'Ingrese la clave de cifrado...',
+                encryptionMode: 'Modo',
+                paddingMode: 'Relleno',
+                btnDecrypt: '🔓 Descifrar',
+                // DES
+                desTitle: '🔒 Cifrado/Descifrado DES',
+                desDesc: 'Cifrado simétrico DES',
+                // TripleDES
+                tripleDesTitle: '🔒 Cifrado/Descifrado TripleDES',
+                tripleDesDesc: 'Cifrado simétrico Triple DES',
+                // RC4
+                rc4Title: '🔑 Cifrado/Descifrado RC4',
+                rc4Desc: 'Cifrado de flujo RC4',
+                // Rabbit
+                rabbitTitle: '🐰 Cifrado/Descifrado Rabbit',
+                rabbitDesc: 'Cifrado de flujo Rabbit',
+                // Base64
+                base64Title: '📄 Codificación/Decodificación Base64',
+                base64Desc: 'Codificación y decodificación de texto Base64',
+                btnEncode: '📤 Codificar',
+                btnDecode: '📥 Decodificar',
+                // URL
+                urlTitle: '🔗 Codificación/Decodificación URL',
+                urlDesc: 'Codificación y decodificación URL estándar',
+                urlInputPlaceholder: 'Ingrese URL o texto codificado...',
+                btnUrlEncode: 'encodeURI',
+                btnUrlDecode: 'decodeURI',
+                btnUrlEncodeComponent: 'Codificar componente',
+                btnUrlDecodeComponent: 'Decodificar componente',
+                // URL Hex
+                urlHexTitle: '🔢 Codificación URL hexadecimal',
+                urlHexDesc: 'Convertir URL a codificación hexadecimal',
+                urlHexInputPlaceholder: 'Ingrese URL o código hexadecimal...',
+                btnHexEncode: '📤 Codificar Hex',
+                btnHexDecode: '📥 Decodificar Hex',
+                // Escape
+                escapeTitle: '⚡ Codificación/Decodificación Escape',
+                escapeDesc: 'Codificación JavaScript Escape',
+                escapeInputPlaceholder: 'Ingrese texto a codificar/decodificar...',
+                // Unicode
+                unicodeTitle: '🌐 Convertidor Unicode/ASCII',
+                unicodeDesc: 'Convertir entre texto, Unicode y ASCII',
+                unicodeInputPlaceholder: 'Ingrese texto, Unicode (\\u0000) o códigos ASCII...',
+                btnToUnicode: '→ Unicode',
+                btnFromUnicode: 'Unicode →',
+                btnToAscii: '→ ASCII',
+                btnFromAscii: 'ASCII →',
+                // Native Unicode
+                nativeUnicodeTitle: '📝 Codificación Native/Unicode',
+                nativeUnicodeDesc: 'Convertir entre caracteres nativos y Unicode',
+                nativeUnicodeInputPlaceholder: 'Ingrese texto nativo o codificación Unicode...',
+                btnNativeToUnicode: '📤 Nativo → Unicode',
+                btnUnicodeToNative: '📥 Unicode → Nativo',
+                // UTF-8/GBK
+                utf8GbkTitle: '🔤 Codificación UTF-8/GBK',
+                utf8GbkDesc: 'Ver y convertir codificación de texto',
+                utf8GbkInputPlaceholder: 'Ingrese texto o codificación...',
+                btnShowUtf8: '📊 Mostrar UTF-8',
+                btnUtf8ToText: '📥 UTF-8 → Texto',
+                // Morse
+                morseTitle: '📡 Convertidor código Morse',
+                morseDesc: 'Convertir entre texto y código Morse',
+                morseInputPlaceholder: 'Ingrese texto o código Morse (use / para separar palabras)...',
+                btnTextToMorse: '📤 Texto → Morse',
+                btnMorseToText: '📥 Morse → Texto',
+                // Password
+                passwordTitle: '🔑 Generador de contraseñas',
+                passwordDesc: 'Generar contraseñas aleatorias seguras',
+                passwordLength: 'Longitud de contraseña',
+                passwordCount: 'Cantidad de contraseñas',
+                includeUppercase: 'Mayúsculas (A-Z)',
+                includeLowercase: 'Minúsculas (a-z)',
+                includeNumbers: 'Números (0-9)',
+                includeSymbols: 'Símbolos (!@#$...)',
+                btnGenerate: '🎲 Generar contraseña',
+                // UUID
+                uuidTitle: '🆔 Generador UUID/GUID',
+                uuidDesc: 'Generar identificadores únicos',
+                uuidCount: 'Cantidad a generar',
+                uuidFormat: 'Formato',
+                uuidFormatStandard: 'Estándar (con guiones)',
+                uuidFormatCompact: 'Compacto (sin guiones)',
+                uuidFormatUpper: 'Mayúsculas',
+                uuidFormatBraces: 'Con llaves',
+                btnGenerateUuid: '🆔 Generar UUID',
+                btnGenerateGuid: '🆔 Generar GUID',
+                // htpasswd
+                htpasswdTitle: '🔐 Generador htpasswd',
+                htpasswdDesc: 'Generar entradas Apache htpasswd',
+                username: 'Nombre de usuario',
+                usernamePlaceholder: 'Ingrese nombre de usuario...',
+                password: 'Contraseña',
+                passwordPlaceholder: 'Ingrese contraseña...',
+                hashMethod: 'Método de hash',
+                btnGenerateHtpasswd: '🔐 Generar htpasswd',
+                // Barcode
+                barcodeTitle: '📊 Generador de código de barras',
+                barcodeDesc: 'Generar códigos de barras de varios formatos',
+                barcodeContent: 'Contenido del código de barras',
+                barcodeContentPlaceholder: 'Ingrese contenido del código de barras...',
+                barcodeFormat: 'Formato de código de barras',
+                btnGenerateBarcode: '📊 Generar código de barras',
+                btnDownloadBarcode: '💾 Descargar',
+                barcodePreview: 'Vista previa del código de barras',
+                // QR Code
+                qrcodeTitle: '📱 Generador de código QR',
+                qrcodeDesc: 'Generar códigos QR personalizados con varias formas y colores',
+                qrcodeContent: 'Contenido del código QR',
+                qrcodeContentPlaceholder: 'Ingrese texto, URL u otro contenido...',
+                qrcodeSize: 'Tamaño',
+                qrcodeErrorLevel: 'Corrección de errores',
+                qrcodeErrorL: 'L - 7% recuperación',
+                qrcodeErrorM: 'M - 15% recuperación',
+                qrcodeErrorQ: 'Q - 25% recuperación',
+                qrcodeErrorH: 'H - 30% recuperación',
+                qrcodeStyleSettings: '🎨 Configuración de estilo',
+                qrcodeDotsStyle: 'Estilo de puntos',
+                qrcodeStyleSquare: 'Cuadrado',
+                qrcodeStyleDots: 'Puntos',
+                qrcodeStyleRounded: 'Redondeado',
+                qrcodeStyleExtraRounded: 'Muy redondeado',
+                qrcodeStyleClassy: 'Clásico',
+                qrcodeStyleClassyRounded: 'Clásico redondeado',
+                qrcodeStyleCircle: 'Círculo',
+                qrcodeDotsColor: 'Color de puntos',
+                qrcodeCornersStyle: 'Estilo de esquinas',
+                qrcodeCornersColor: 'Color de esquinas',
+                qrcodeBgColor: 'Color de fondo',
+                qrcodeTransparentBg: 'Fondo transparente',
+                optionYes: 'Sí',
+                optionNo: 'No',
+                qrcodeLogoSettings: '🖼️ Configuración del logo (Opcional)',
+                qrcodeUploadLogo: 'Subir logo',
+                qrcodeLogoSize: 'Tamaño del logo',
+                qrcodePresetThemes: '🌈 Temas predefinidos',
+                qrcodeThemeClassic: 'Blanco y negro clásico',
+                qrcodeThemeBlue: 'Azul tech',
+                qrcodeThemeGradient: 'Púrpura degradado',
+                qrcodeThemeGreen: 'Verde fresco',
+                qrcodeThemeSunset: 'Naranja atardecer',
+                qrcodeThemePink: 'Rosa dulce',
+                qrcodeGenerate: '📱 Generar código QR',
+                qrcodeDownloadPng: '💾 Descargar PNG',
+                qrcodeDownloadSvg: '💾 Descargar SVG',
+                qrcodePreview: 'Vista previa del código QR',
+                qrcodePreviewHint: 'Haga clic en "Generar código QR" para previsualizar',
+                // IP Convert
+                ipConvertTitle: '🖥️ Convertidor IP/Número',
+                ipConvertDesc: 'Convertir entre dirección IP y formato numérico',
+                ipAddress: 'Dirección IP',
+                ipAddressPlaceholder: 'ej: 192.168.1.1',
+                ipNumber: 'Dirección numérica',
+                ipNumberPlaceholder: 'ej: 3232235777',
+                ipToNumber: '📤 IP → Número',
+                numberToIp: '📥 Número → IP',
+                ipToBinary: '🔢 IP → Binario',
+                ipToHex: '🔣 IP → Hex',
+                conversionResult: 'Resultado de conversión',
+                // Image Base64
+                imageBase64Title: '🖼️ Imagen a Base64',
+                imageBase64Desc: 'Convertir archivos de imagen a codificación Base64',
+                imageUploadHint: 'Haga clic o arrastre la imagen aquí para subir',
+                imageFormatsHint: 'Soporta formatos JPG, PNG, GIF, WebP',
+                base64Result: 'Resultado de codificación Base64',
+                base64ToImage: 'Base64 a imagen',
+                inputBase64: 'Ingresar codificación Base64',
+                inputBase64Placeholder: 'Ingrese la codificación Base64 de la imagen...',
+                convertToImage: '🖼️ Convertir a imagen',
+                // FAQ
+                faqTitle: 'Preguntas frecuentes',
+                faqQ1: '¿La codificación Base64 es cifrado?',
+                faqA1: 'Base64 es un método de codificación, no de cifrado. Se puede decodificar directamente y no proporciona protección de seguridad. Base64 se utiliza principalmente para convertir datos binarios a formato de texto para transmisión. Cualquiera puede decodificarlo fácilmente.',
+                faqQ2: '¿Se puede descifrar MD5?',
+                faqA2: 'MD5 es una función hash unidireccional y no se puede revertir. Es imposible recuperar los datos originales del hash. MD5 comprime datos de cualquier longitud en un resumen fijo de 128 bits, diseñado para ser irreversible.',
+                faqQ3: '¿Es seguro el cifrado AES?',
+                faqA3: 'AES es uno de los algoritmos de cifrado simétrico más seguros, ampliamente utilizado por gobiernos e instituciones financieras. AES-256 es utilizado por el gobierno de EE.UU. para cifrar documentos de alto secreto y nunca ha sido vulnerado.',
+                faqQ4: '¿Cuál es más seguro: SHA-256 o MD5?',
+                faqA4: 'SHA-256 es más seguro. MD5 tiene vulnerabilidades de colisión conocidas y no se recomienda para escenarios críticos de seguridad. SHA-256 produce 256 bits con un algoritmo más complejo, todavía considerado seguro.',
+                faqQ5: '¿Mis datos se subirán a los servidores?',
+                faqA5: 'No, todas las operaciones de cifrado y descifrado se realizan localmente en su navegador. Esta herramienta utiliza tecnología puramente frontend con la biblioteca CryptoJS. La información sensible nunca sale de su navegador.',
+                faqFreeQ: '¿Esta herramienta es realmente gratuita y sin anuncios?',
+                faqFreeA: 'Sí, 100% gratuita, sin anuncios, sin registro, sin marca de agua y sin límites de uso. Todo el procesamiento se realiza localmente en tu navegador — tus datos nunca se envían a ningún servidor.',
+                // Related Tools
+                relatedTools: '🔗 Herramientas relacionadas',
+                relatedJsonViewer: 'Visor JSON',
+                relatedJsonViewerDesc: 'Formateo y visualización JSON',
+                relatedRegexTester: 'Probador Regex',
+                relatedRegexTesterDesc: 'Coincidencia y depuración regex en línea',
+                relatedTimestamp: 'Convertidor de marca de tiempo',
+                relatedTimestampDesc: 'Convertir marca de tiempo Unix y fecha',
+                relatedWebSocket: 'Probador WebSocket',
+                relatedWebSocketDesc: 'Depuración de conexión WebSocket',
+                // Footer
+                footerPrivacy: 'Procesamiento puro frontend, los datos no se suben a servidores',
+                footerBackHome: '← Volver a Web Toolbox Inicio',
+                trust_users: '🌍 Usado por más de 50,000 usuarios',
+                trust_rating: '⭐ Calificación 4.9/5',
+                trust_privacy: '🔒 100% Privado',
+                trust_free: '🚫 Sin anuncios, sin registro'
+            }
+        };
+
+        window._translations = i18n;
+    </script>
+    <script src="common/common.js" data-tool-id="crypto-tools" data-tool-name="Crypto & Encoding Toolbox" data-category="developer"></script>
+    <script>WebToolbox.init(window._translations);</script>
+
+
+</body>
+</html>

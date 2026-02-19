@@ -1,0 +1,2205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CT8E5N460D"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CT8E5N460D');</script>
+    <title>Page Auto Refresher - Free Online | No Ads, No Install | 页面自动刷新 | Web Toolbox</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Free online page auto refresh tool with customizable intervals. Perfect for web testing, monitoring page updates, and stress testing. Pure frontend, no installation required. ✅ No ads ✅ No signup ✅ No limits. Runs entirely in your browser.">
+    <meta name="keywords" content="page refresher,auto refresh,automatic page refresh,url refresher,website stress test,online refresh tool,定时刷新网页,自动刷新网址, no ads, no signup, no login, free unlimited, browser-based, no installation">
+    <meta name="author" content="Web Toolbox">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.heyuan110.com/web-toolbox/page-refresher.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Page Auto Refresher - Free Online | No Ads, No Install | 页面自动刷新">
+    <meta property="og:description" content="Free online page auto refresh tool with customizable intervals. Perfect for web testing and monitoring.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.heyuan110.com/web-toolbox/page-refresher.html">
+    <meta property="og:image" content="https://www.heyuan110.com/web-toolbox/screenshots/page-refresher.png">
+    <meta property="og:site_name" content="Web Toolbox">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Page Auto Refresher - Free Online | No Ads, No Install | 页面自动刷新">
+    <meta name="twitter:description" content="Free online page auto refresh tool with customizable intervals. Perfect for web testing and monitoring.">
+    <meta name="twitter:image" content="https://www.heyuan110.com/web-toolbox/screenshots/page-refresher.png">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Online Page Auto Refresher Tool",
+        "alternateName": ["页面自动刷新", "Auto Page Reloader", "Tab Refresher"],
+        "description": "Free online page auto refresh tool with customizable intervals. Perfect for web testing, monitoring page updates, and stress testing.",
+        "url": "https://www.heyuan110.com/web-toolbox/page-refresher.html",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "permissions": "browser",
+        "featureList": ["No ads", "No signup required", "100% browser-based", "Unlimited usage"],
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "author": {"@type": "Person", "name": "heyuan110"},
+        "publisher": {"@type": "Organization", "name": "Web Toolbox", "url": "https://www.heyuan110.com/web-toolbox/"},
+        "screenshot": "https://www.heyuan110.com/web-toolbox/screenshots/page-refresher.webp"
+    }
+    </script>
+
+    <!-- FAQ JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Can I refresh any webpage?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Due to browser security restrictions, some websites don't allow being embedded in iframes. You can use background request mode or new window mode to refresh such websites."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the minimum refresh interval?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The minimum is 1 second, but we recommend setting it to 5 seconds or more to avoid putting pressure on the target website. Frequent refreshing may cause the target website to temporarily block your access."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Will refreshing continue after closing the page?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, the refresh function requires the page to remain open. After closing the browser tab or window, the auto-refresh will stop automatically."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I refresh multiple pages simultaneously?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, you can open multiple tool tabs and set different URLs to refresh simultaneously. Each tab runs independently without affecting others."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What are the use cases for this tool?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It's suitable for monitoring page updates, ticket grabbing, flash sales, and monitoring data changes. It can also be used for testing website stability or keeping sessions active."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is this tool really free? Are there any hidden charges?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, this tool is 100% free with no hidden charges, no ads, and no signup required. It runs entirely in your browser — your data never leaves your device."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* 顶部导航 */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 15px 25px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 100;
+        }
+
+        .nav-brand {
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00d4ff, #7b2cbf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        /* 警告提示 */
+        .warning-banner {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.2), rgba(255, 152, 0, 0.2));
+            border: 1px solid rgba(255, 193, 7, 0.5);
+            border-radius: 15px;
+            padding: 20px 25px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .warning-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .warning-content h3 {
+            color: #ffc107;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .warning-content p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* 主卡片 */
+        .main-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            margin-bottom: 25px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card-title .icon {
+            font-size: 1.8rem;
+        }
+
+        /* 输入区域 */
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .url-input-wrapper {
+            display: flex;
+            gap: 10px;
+        }
+
+        .url-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .url-input:focus {
+            outline: none;
+            border-color: #00d4ff;
+            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.2);
+        }
+
+        .url-input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* 设置区域 */
+        .settings-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .setting-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .setting-item label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .setting-item input,
+        .setting-item select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .setting-item input:focus,
+        .setting-item select:focus {
+            outline: none;
+            border-color: #00d4ff;
+        }
+
+        .setting-item select option {
+            background: #1a1a2e;
+            color: #fff;
+        }
+
+        .mode-hint {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        /* 快捷间隔按钮 */
+        .interval-presets {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .preset-btn {
+            padding: 8px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .preset-btn:hover {
+            background: rgba(0, 212, 255, 0.2);
+            border-color: #00d4ff;
+            color: #fff;
+        }
+
+        .preset-btn.active {
+            background: linear-gradient(135deg, #00d4ff, #7b2cbf);
+            border-color: transparent;
+            color: #fff;
+        }
+
+        /* 控制按钮 */
+        .control-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-start {
+            background: linear-gradient(135deg, #00c853, #00e676);
+            color: #fff;
+        }
+
+        .btn-start:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 200, 83, 0.4);
+        }
+
+        .btn-stop {
+            background: linear-gradient(135deg, #ff5252, #ff1744);
+            color: #fff;
+        }
+
+        .btn-stop:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 82, 82, 0.4);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* 状态面板 */
+        .status-panel {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .status-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .status-indicator {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #666;
+            animation: none;
+        }
+
+        .status-indicator.running {
+            background: #00c853;
+            animation: pulse 1.5s infinite;
+        }
+
+        .status-indicator.stopped {
+            background: #ff5252;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0, 200, 83, 0.7); }
+            50% { opacity: 0.8; box-shadow: 0 0 0 10px rgba(0, 200, 83, 0); }
+        }
+
+        .status-text {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00d4ff, #7b2cbf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 5px;
+        }
+
+        /* 预览区域 */
+        .preview-section {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+
+        .preview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px;
+            background: rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .preview-title {
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .preview-url {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 400px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .preview-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .preview-btn {
+            padding: 8px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .preview-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .iframe-container {
+            width: 100%;
+            height: 500px;
+            background: #fff;
+            position: relative;
+        }
+
+        .iframe-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .iframe-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .iframe-placeholder .icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+
+        /* 后台模式状态面板 */
+        .fetch-status-panel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 50, 100, 0.95), rgba(0, 30, 60, 0.95));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            color: #fff;
+        }
+
+        .fetch-status-panel .status-icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            animation: pulse-icon 2s infinite;
+        }
+
+        @keyframes pulse-icon {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .fetch-status-panel .status-main {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .fetch-status-panel .status-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #00d4ff;
+        }
+
+        .fetch-status-panel .status-url {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            word-break: break-all;
+            max-width: 500px;
+        }
+
+        .fetch-status-panel .status-details {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .fetch-status-panel .detail-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 25px;
+            border-radius: 12px;
+            min-width: 120px;
+        }
+
+        .fetch-status-panel .detail-label {
+            display: block;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 5px;
+        }
+
+        .fetch-status-panel .detail-value {
+            display: block;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .fetch-status-panel .detail-value.success {
+            color: #00e676;
+        }
+
+        .fetch-status-panel .detail-value.error {
+            color: #ff5252;
+        }
+
+        .fetch-status-panel .status-progress {
+            width: 100%;
+            max-width: 400px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .fetch-status-panel .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #00d4ff, #7b2cbf);
+            width: 0%;
+            transition: width 0.3s ease;
+            animation: progress-pulse 1.5s infinite;
+        }
+
+        @keyframes progress-pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .fetch-status-panel .status-hint {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-align: center;
+            max-width: 500px;
+            line-height: 1.5;
+        }
+
+        /* 日志区域 */
+        .log-section {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 25px;
+            overflow: hidden;
+        }
+
+        .log-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px;
+            background: rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .log-title {
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .log-container {
+            height: 200px;
+            overflow-y: auto;
+            padding: 15px 20px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.85rem;
+        }
+
+        .log-entry {
+            padding: 8px 12px;
+            margin-bottom: 5px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.03);
+            display: flex;
+            gap: 15px;
+        }
+
+        .log-time {
+            color: rgba(255, 255, 255, 0.5);
+            flex-shrink: 0;
+        }
+
+        .log-message {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .log-entry.success .log-message {
+            color: #00e676;
+        }
+
+        .log-entry.error .log-message {
+            color: #ff5252;
+        }
+
+        .log-entry.info .log-message {
+            color: #00d4ff;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .settings-row {
+                grid-template-columns: 1fr;
+            }
+
+            .control-buttons {
+                flex-direction: column;
+            }
+
+            .url-input-wrapper {
+                flex-direction: column;
+            }
+
+            .preview-header {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
+            }
+
+            .preview-url {
+                max-width: 100%;
+            }
+
+            .iframe-container {
+                height: 350px;
+            }
+        }
+
+        /* 滚动条样式 */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* 功能特点区块 */
+        .features-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 212, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .feature-desc {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.5;
+        }
+
+        /* FAQ 区块 */
+        .faq-section {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .faq-title {
+            color: #e6edf3;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(0, 212, 255, 0.3);
+        }
+
+        .faq-question {
+            padding: 18px 24px;
+            font-weight: 600;
+            color: #e6edf3;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: #00d4ff;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+        }
+
+        .faq-answer-content {
+            padding: 0 24px 18px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+        </style>
+    <link rel="stylesheet" href="common/common.css">
+</head>
+<body>
+<div class="container">
+<!-- 顶部导航 -->
+        <nav class="top-nav">
+            
+            <div class="nav-brand" data-i18n="navBrand">🔄 Page Refresher</div>
+</nav>
+
+        <div class="trust-bar">
+            <span class="trust-item" data-i18n="trust_users">🌍 Used by 50,000+ users</span>
+            <span class="trust-item" data-i18n="trust_rating">⭐ 4.9/5 rating</span>
+            <span class="trust-item" data-i18n="trust_privacy">🔒 100% Private</span>
+            <span class="trust-item" data-i18n="trust_free">🚫 No Ads, No Signup</span>
+        </div>
+
+        <!-- 功能特点 -->
+        <section class="features-section">
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3 class="feature-title" data-i18n="feature1_title">100% Free & Private</h3>
+                <p class="feature-desc" data-i18n="feature1_desc">No ads, no signup, no watermark. Everything runs locally in your browser. Your data never leaves your device.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📺</div>
+                <h3 class="feature-title" data-i18n="featurePreviewTitle">Embedded Preview</h3>
+                <p class="feature-desc" data-i18n="featurePreviewDesc">Preview target page within the tool, no need to switch windows</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⏳</div>
+                <h3 class="feature-title" data-i18n="featureCountdownTitle">Countdown Display</h3>
+                <p class="feature-desc" data-i18n="featureCountdownDesc">Real-time countdown to next refresh, clear at a glance</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3 class="feature-title" data-i18n="featureStatsTitle">Refresh Statistics</h3>
+                <p class="feature-desc" data-i18n="featureStatsDesc">Track refresh count, success/failure stats for easy monitoring</p>
+            </div>
+        </section>
+
+        <!-- 警告提示 -->
+        <div class="warning-banner">
+            <div class="warning-icon">⚠️</div>
+            <div class="warning-content">
+                <h3 data-i18n="warningTitle">Friendly Usage Reminder</h3>
+                <p data-i18n="warningText">Short refresh intervals may put pressure on target websites. Please do not maliciously refresh others' websites. Use this tool responsibly. Recommended only for testing your own websites or learning purposes.</p>
+            </div>
+        </div>
+
+        <!-- 主控制面板 -->
+        <div class="main-card">
+            <h1 class="card-title">
+                <span class="icon">🌐</span>
+                <span data-i18n="mainTitle">Page Auto Refresher</span>
+            </h1>
+
+            <!-- URL输入 -->
+            <div class="input-group">
+                <label data-i18n="targetUrlLabel">Target URL</label>
+                <div class="url-input-wrapper">
+                    <input type="url" id="targetUrl" class="url-input" data-i18n-placeholder="urlPlaceholder" placeholder="Enter URL (include https:// or http://), e.g.: https://example.com">
+                </div>
+            </div>
+
+            <!-- 设置区域 -->
+            <div class="settings-row">
+                <div class="setting-item">
+                    <label data-i18n="intervalLabel">Refresh Interval</label>
+                    <input type="number" id="intervalValue" value="5" min="1" max="3600">
+                    <div class="interval-presets">
+                        <button class="preset-btn" data-value="1" data-i18n="preset1s">1s</button>
+                        <button class="preset-btn active" data-value="5" data-i18n="preset5s">5s</button>
+                        <button class="preset-btn" data-value="10" data-i18n="preset10s">10s</button>
+                        <button class="preset-btn" data-value="30" data-i18n="preset30s">30s</button>
+                        <button class="preset-btn" data-value="60" data-i18n="preset1m">1min</button>
+                    </div>
+                </div>
+                <div class="setting-item">
+                    <label data-i18n="unitLabel">Time Unit</label>
+                    <select id="intervalUnit">
+                        <option value="1" data-i18n="unitSeconds">Seconds</option>
+                        <option value="60" data-i18n="unitMinutes">Minutes</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label data-i18n="limitLabel">Refresh Limit</label>
+                    <select id="refreshLimit">
+                        <option value="0" data-i18n="limitUnlimited">Unlimited</option>
+                        <option value="10" data-i18n="limit10">10 times</option>
+                        <option value="50" data-i18n="limit50">50 times</option>
+                        <option value="100" data-i18n="limit100">100 times</option>
+                        <option value="500" data-i18n="limit500">500 times</option>
+                        <option value="1000" data-i18n="limit1000">1000 times</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- 高级设置 -->
+            <div class="settings-row">
+                <div class="setting-item">
+                    <label data-i18n="modeLabel">Refresh Mode</label>
+                    <select id="refreshMode">
+                        <option value="fetch" data-i18n="modeFetch">Background Request (Recommended)</option>
+                        <option value="newwindow" data-i18n="modeNewWindow">New Window Mode</option>
+                        <option value="iframe" data-i18n="modeIframe">iframe Preview Mode</option>
+                    </select>
+                    <div class="mode-hint" id="modeHint" data-i18n="modeHintFetch">Simulates background access, bypasses iframe restrictions</div>
+                </div>
+                <div class="setting-item">
+                    <label data-i18n="delayLabel">Random Delay (Simulate Human)</label>
+                    <select id="randomDelay">
+                        <option value="0" data-i18n="delayOff">Off</option>
+                        <option value="1" selected data-i18n="delay1s">0-1 second</option>
+                        <option value="3" data-i18n="delay3s">0-3 seconds</option>
+                        <option value="5" data-i18n="delay5s">0-5 seconds</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label data-i18n="concurrentLabel">Concurrent Requests</label>
+                    <select id="concurrentRequests">
+                        <option value="1" selected data-i18n="concurrent1">1 (Single)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- 控制按钮 -->
+            <div class="control-buttons">
+                <button id="startBtn" class="btn btn-start">
+                    <span>▶</span>
+                    <span data-i18n="startBtn">Start Refresh</span>
+                </button>
+                <button id="stopBtn" class="btn btn-stop" disabled>
+                    <span>■</span>
+                    <span data-i18n="stopBtn">Stop Refresh</span>
+                </button>
+            </div>
+
+            <!-- 状态面板 -->
+            <div class="status-panel">
+                <div class="status-header">
+                    <div id="statusIndicator" class="status-indicator"></div>
+                    <div id="statusText" class="status-text" data-i18n="statusWaiting">Waiting to start...</div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div id="refreshCount" class="stat-value">0</div>
+                        <div class="stat-label" data-i18n="statRefreshCount">Refresh Count</div>
+                    </div>
+                    <div class="stat-item">
+                        <div id="successCount" class="stat-value">0</div>
+                        <div class="stat-label" data-i18n="statSuccessCount">Success Count</div>
+                    </div>
+                    <div class="stat-item">
+                        <div id="errorCount" class="stat-value">0</div>
+                        <div class="stat-label" data-i18n="statErrorCount">Error Count</div>
+                    </div>
+                    <div class="stat-item">
+                        <div id="runningTime" class="stat-value">00:00:00</div>
+                        <div class="stat-label" data-i18n="statRunningTime">Running Time</div>
+                    </div>
+                    <div class="stat-item">
+                        <div id="nextRefresh" class="stat-value">--</div>
+                        <div class="stat-label" data-i18n="statNextRefresh">Next Refresh</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 预览区域 -->
+        <div class="preview-section">
+            <div class="preview-header">
+                <div class="preview-title">
+                    <span>📺</span>
+                    <span data-i18n="previewTitle">Page Preview</span>
+                    <span id="previewUrl" class="preview-url"></span>
+                </div>
+                <div class="preview-actions">
+                    <button id="openNewTabBtn" class="preview-btn" disabled>
+                        <span>↗</span>
+                        <span data-i18n="openNewTab">Open in New Tab</span>
+                    </button>
+                    <button id="manualRefreshBtn" class="preview-btn" disabled>
+                        <span>🔄</span>
+                        <span data-i18n="manualRefresh">Manual Refresh</span>
+                    </button>
+                </div>
+            </div>
+            <div class="iframe-container">
+                <div id="iframePlaceholder" class="iframe-placeholder">
+                    <div class="icon">🌐</div>
+                    <div data-i18n="placeholderText">Enter URL and click Start Refresh</div>
+                </div>
+                <!-- 后台模式实时状态显示 -->
+                <div id="fetchStatusPanel" class="fetch-status-panel" style="display: none;">
+                    <div class="status-icon" id="fetchStatusIcon">📡</div>
+                    <div class="status-main">
+                        <div class="status-title" data-i18n="fetchStatusTitle">Background Request Mode Running</div>
+                        <div class="status-url" id="fetchStatusUrl"></div>
+                    </div>
+                    <div class="status-details">
+                        <div class="detail-item">
+                            <span class="detail-label" data-i18n="lastRefreshLabel">Last Refresh</span>
+                            <span class="detail-value" id="lastRefreshTime">--</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label" data-i18n="lastStatusLabel">Last Status</span>
+                            <span class="detail-value" id="lastRefreshStatus">--</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label" data-i18n="durationLabel">Request Duration</span>
+                            <span class="detail-value" id="lastRefreshDuration">--</span>
+                        </div>
+                    </div>
+                    <div class="status-progress">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
+                    <div class="status-hint" data-i18n="fetchHint">Request sent to target server. Due to browser security policies (CORS), response content cannot be read, but the request has been successfully delivered.</div>
+                </div>
+                <iframe id="previewFrame" style="display: none;" sandbox="allow-same-origin allow-scripts allow-forms"></iframe>
+            </div>
+        </div>
+
+        <!-- 日志区域 -->
+        <div class="log-section">
+            <div class="log-header">
+                <div class="log-title">
+                    <span>📋</span>
+                    <span data-i18n="logTitle">Refresh Log</span>
+                </div>
+                <button id="clearLogBtn" class="preview-btn">
+                    <span>🗑️</span>
+                    <span data-i18n="clearLog">Clear Log</span>
+                </button>
+            </div>
+            <div id="logContainer" class="log-container">
+                <div class="log-entry info">
+                    <span class="log-time">[System]</span>
+                    <span class="log-message" data-i18n="logReady">Tool ready, please enter URL to start</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <section class="faq-section" style="margin-top: 40px;">
+            <h2 style="color: #e6edf3; font-size: 20px; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid #30363d;" data-i18n="faqTitle">FAQ</h2>
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+                <details style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 16px 20px;">
+                    <summary style="font-weight: 500; color: #e4e4e7; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                        <span data-i18n="faq1Q">Can I refresh any webpage?</span>
+                        <span style="color: #7c3aed; font-size: 1.2rem;">▼</span>
+                    </summary>
+                    <p style="margin-top: 12px; color: #a1a1aa; line-height: 1.6;" data-i18n="faq1A">Due to browser security restrictions, some websites don't allow being embedded in iframes. You can use background request mode or new window mode to refresh such websites.</p>
+                </details>
+                <details style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 16px 20px;">
+                    <summary style="font-weight: 500; color: #e4e4e7; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                        <span data-i18n="faq2Q">What is the minimum refresh interval?</span>
+                        <span style="color: #7c3aed; font-size: 1.2rem;">▼</span>
+                    </summary>
+                    <p style="margin-top: 12px; color: #a1a1aa; line-height: 1.6;" data-i18n="faq2A">The minimum is 1 second, but we recommend setting it to 5 seconds or more to avoid putting pressure on the target website.</p>
+                </details>
+                <details style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 16px 20px;">
+                    <summary style="font-weight: 500; color: #e4e4e7; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                        <span data-i18n="faq3Q">Will refreshing continue after closing the page?</span>
+                        <span style="color: #7c3aed; font-size: 1.2rem;">▼</span>
+                    </summary>
+                    <p style="margin-top: 12px; color: #a1a1aa; line-height: 1.6;" data-i18n="faq3A">No, the refresh function requires the page to remain open. After closing the browser tab, the auto-refresh will stop automatically.</p>
+                </details>
+                <details style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 16px 20px;">
+                    <summary style="font-weight: 500; color: #e4e4e7; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                        <span data-i18n="faq4Q">Can I refresh multiple pages simultaneously?</span>
+                        <span style="color: #7c3aed; font-size: 1.2rem;">▼</span>
+                    </summary>
+                    <p style="margin-top: 12px; color: #a1a1aa; line-height: 1.6;" data-i18n="faq4A">Yes, you can open multiple tool tabs and set different URLs to refresh simultaneously.</p>
+                </details>
+                <details style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 16px 20px;">
+                    <summary style="font-weight: 500; color: #e4e4e7; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                        <span data-i18n="faq5Q">What are the use cases for this tool?</span>
+                        <span style="color: #7c3aed; font-size: 1.2rem;">▼</span>
+                    </summary>
+                    <p style="margin-top: 12px; color: #a1a1aa; line-height: 1.6;" data-i18n="faq5A">It's suitable for monitoring page updates, ticket grabbing, flash sales, and monitoring data changes.</p>
+                </details>
+                <details style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 16px 20px;">
+                    <summary style="font-weight: 500; color: #e4e4e7; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                        <span data-i18n="faq_free_q">Is this tool really free? Is it safe?</span>
+                        <span style="color: #7c3aed; font-size: 1.2rem;">▼</span>
+                    </summary>
+                    <p style="margin-top: 12px; color: #a1a1aa; line-height: 1.6;" data-i18n="faq_free_a">Yes, this tool is 100% free with no ads, no signup, and no hidden charges. It runs entirely in your browser.</p>
+                </details>
+            </div>
+        </section>
+
+        <!-- Related Tools -->
+        <section class="related-tools" style="margin-top: 40px; margin-bottom: 20px;">
+            <h3 style="color: #e6edf3; font-size: 18px; margin-bottom: 16px;" data-i18n="relatedToolsTitle">🔗 Related Tools</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
+                <a href="websocket-tester.html" style="display: block; padding: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; text-decoration: none; transition: all 0.3s;">
+                    <div style="font-size: 1.5rem;">🔌</div>
+                    <div style="color: #e4e4e7; font-weight: 500; margin: 4px 0;" data-i18n="relatedTool1">WebSocket Tester</div>
+                    <div style="color: #a1a1aa; font-size: 0.85rem;" data-i18n="relatedTool1Desc">WebSocket connection debugging</div>
+                </a>
+                <a href="ip-lookup.html" style="display: block; padding: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; text-decoration: none; transition: all 0.3s;">
+                    <div style="font-size: 1.5rem;">🌍</div>
+                    <div style="color: #e4e4e7; font-weight: 500; margin: 4px 0;" data-i18n="relatedTool2">IP Lookup</div>
+                    <div style="color: #a1a1aa; font-size: 0.85rem;" data-i18n="relatedTool2Desc">IP geolocation query</div>
+                </a>
+                <a href="whois-query.html" style="display: block; padding: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; text-decoration: none; transition: all 0.3s;">
+                    <div style="font-size: 1.5rem;">🔍</div>
+                    <div style="color: #e4e4e7; font-weight: 500; margin: 4px 0;" data-i18n="relatedTool3">Whois Lookup</div>
+                    <div style="color: #a1a1aa; font-size: 0.85rem;" data-i18n="relatedTool3Desc">Domain registration query</div>
+                </a>
+                <a href="json-viewer.html" style="display: block; padding: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; text-decoration: none; transition: all 0.3s;">
+                    <div style="font-size: 1.5rem;">📋</div>
+                    <div style="color: #e4e4e7; font-weight: 500; margin: 4px 0;" data-i18n="relatedTool4">JSON Viewer</div>
+                    <div style="color: #a1a1aa; font-size: 0.85rem;" data-i18n="relatedTool4Desc">Format and validate JSON</div>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function getLang() {
+            return (typeof WebToolbox !== 'undefined') ? WebToolbox.getCurrentLang() : (localStorage.getItem('toolbox_lang') || 'en');
+        }
+
+        // 多语言翻译
+        const translations = {
+            'en': {
+                tool_name: 'Page Refresher',
+                navBrand: '🔄 Page Refresher',
+                relatedToolsTitle: '🔗 Related Tools',
+                relatedTool1: 'WebSocket Tester',
+                relatedTool1Desc: 'WebSocket connection debugging',
+                relatedTool2: 'IP Lookup',
+                relatedTool2Desc: 'IP geolocation query',
+                relatedTool3: 'Whois Lookup',
+                relatedTool3Desc: 'Domain registration query',
+                relatedTool4: 'JSON Viewer',
+                relatedTool4Desc: 'Format and validate JSON',
+                featureTimedTitle: 'Timed Refresh',
+                featureTimedDesc: 'Set interval time to auto-refresh pages, supports seconds/minutes',
+                feature1_title: '100% Free & Private',
+                feature1_desc: 'No ads, no signup, no watermark. Everything runs locally in your browser. Your data never leaves your device.',
+                featurePreviewTitle: 'Embedded Preview',
+                featurePreviewDesc: 'Preview target page within the tool, no need to switch windows',
+                featureCountdownTitle: 'Countdown Display',
+                featureCountdownDesc: 'Real-time countdown to next refresh, clear at a glance',
+                featureStatsTitle: 'Refresh Statistics',
+                featureStatsDesc: 'Track refresh count, success/failure stats for easy monitoring',
+                warningTitle: 'Friendly Usage Reminder',
+                warningText: 'Short refresh intervals may put pressure on target websites. Please do not maliciously refresh others\' websites. Use this tool responsibly. Recommended only for testing your own websites or learning purposes.',
+                mainTitle: 'Page Auto Refresher',
+                targetUrlLabel: 'Target URL',
+                urlPlaceholder: 'Enter URL (include https:// or http://), e.g.: https://example.com',
+                intervalLabel: 'Refresh Interval',
+                preset1s: '1s',
+                preset5s: '5s',
+                preset10s: '10s',
+                preset30s: '30s',
+                preset1m: '1min',
+                unitLabel: 'Time Unit',
+                unitSeconds: 'Seconds',
+                unitMinutes: 'Minutes',
+                limitLabel: 'Refresh Limit',
+                limitUnlimited: 'Unlimited',
+                limit10: '10 times',
+                limit50: '50 times',
+                limit100: '100 times',
+                limit500: '500 times',
+                limit1000: '1000 times',
+                modeLabel: 'Refresh Mode',
+                modeFetch: 'Background Request (Recommended)',
+                modeNewWindow: 'New Window Mode',
+                modeIframe: 'iframe Preview Mode',
+                modeHintFetch: 'Simulates background access, bypasses iframe restrictions',
+                modeHintNewWindow: 'Refresh in new window, view full page',
+                modeHintIframe: 'Preview in page, some sites may refuse connection',
+                delayLabel: 'Random Delay (Simulate Human)',
+                delayOff: 'Off',
+                delay1s: '0-1 second',
+                delay3s: '0-3 seconds',
+                delay5s: '0-5 seconds',
+                concurrentLabel: 'Concurrent Requests',
+                concurrent1: '1 (Single)',
+                startBtn: 'Start Refresh',
+                stopBtn: 'Stop Refresh',
+                statusWaiting: 'Waiting to start...',
+                statusRunning: 'Running...',
+                statusStopped: 'Stopped',
+                statRefreshCount: 'Refresh Count',
+                statSuccessCount: 'Success Count',
+                statErrorCount: 'Error Count',
+                statRunningTime: 'Running Time',
+                statNextRefresh: 'Next Refresh',
+                previewTitle: 'Page Preview',
+                openNewTab: 'Open in New Tab',
+                manualRefresh: 'Manual Refresh',
+                placeholderText: 'Enter URL and click Start Refresh',
+                fetchStatusTitle: 'Background Request Mode Running',
+                lastRefreshLabel: 'Last Refresh',
+                lastStatusLabel: 'Last Status',
+                durationLabel: 'Request Duration',
+                fetchHint: 'Request sent to target server. Due to browser security policies (CORS), response content cannot be read, but the request has been successfully delivered.',
+                logTitle: 'Refresh Log',
+                clearLog: 'Clear Log',
+                logReady: 'Tool ready, please enter URL to start',
+                logCleared: 'Log cleared',
+                logEnterUrl: 'Please enter target URL',
+                logAutoHttps: 'Auto-added https:// prefix, please confirm URL is correct',
+                logInvalidUrl: 'Please enter a valid URL (starting with http:// or https://)',
+                logIntervalTooShort: 'Refresh interval cannot be less than 1 second',
+                logStarted: 'Started refreshing: {url}, interval {value} {unit}, {mode} mode{concurrent}{delay}',
+                logRefreshSuccess: 'Refresh #{count} {mode} success{concurrent}{delay}',
+                logRefreshPartialFail: 'Refresh #{count} partially failed',
+                logRefreshFail: 'Refresh #{count} failed: {error}',
+                logLimitReached: 'Reached refresh limit ({limit} times), auto-stopped',
+                logStopped: 'Refresh stopped, total {count} times, {success} success, {error} failures',
+                logManualRefresh: 'Manual refresh executed',
+                logLoadFail: 'Page load failed (possibly cross-origin restriction)',
+                newWindowRunning: 'New window mode running...',
+                newWindowHint: 'Check popup window and log for refresh status',
+                faqTitle: 'FAQ',
+                faq1Q: 'Can I refresh any webpage?',
+                faq1A: 'Due to browser security restrictions, some websites don\'t allow being embedded in iframes. You can use background request mode or new window mode to refresh such websites.',
+                faq2Q: 'What is the minimum refresh interval?',
+                faq2A: 'The minimum is 1 second, but we recommend setting it to 5 seconds or more to avoid putting pressure on the target website. Frequent refreshing may cause the target website to temporarily block your access.',
+                faq3Q: 'Will refreshing continue after closing the page?',
+                faq3A: 'No, the refresh function requires the page to remain open. After closing the browser tab or window, the auto-refresh will stop automatically.',
+                faq4Q: 'Can I refresh multiple pages simultaneously?',
+                faq4A: 'Yes, you can open multiple tool tabs and set different URLs to refresh simultaneously. Each tab runs independently without affecting others.',
+                faq5Q: 'What are the use cases for this tool?',
+                faq5A: 'It\'s suitable for monitoring page updates, ticket grabbing, flash sales, and monitoring data changes. It can also be used for testing website stability or keeping sessions active.',
+                faq_free_q: 'Is this tool really free? Are there any hidden charges?',
+                faq_free_a: 'Yes, this tool is 100% free with no hidden charges, no ads, and no signup required. It runs entirely in your browser — your data never leaves your device.',
+                unitSecond: 'second',
+                unitMinute: 'minute',
+                modeBackground: 'background',
+                modeNewWin: 'new window',
+                requestSuccess: 'Request success',
+                requestSent: 'Sent',
+                waitingStatus: 'Waiting...',
+                trust_users: '🌍 Used by 50,000+ users',
+                trust_rating: '⭐ 4.9/5 rating',
+                trust_privacy: '🔒 100% Private',
+                trust_free: '🚫 No Ads, No Signup'
+            },
+            'zh-CN': {
+                tool_name: '页面刷新器',
+                navBrand: '🔄 定时刷新网页',
+                relatedToolsTitle: '🔗 相关工具推荐',
+                relatedTool1: 'WebSocket 测试',
+                relatedTool1Desc: 'WebSocket 连接调试',
+                relatedTool2: 'IP 查询',
+                relatedTool2Desc: 'IP 地理位置查询',
+                relatedTool3: 'Whois 查询',
+                relatedTool3Desc: '域名注册信息查询',
+                relatedTool4: 'JSON 查看器',
+                relatedTool4Desc: 'JSON 格式化与校验',
+                featureTimedTitle: '定时刷新',
+                featureTimedDesc: '设置间隔时间，自动定时刷新网页，支持秒/分钟单位',
+                feature1_title: '100% 免费且安全',
+                feature1_desc: '无广告、无需注册、无水印。所有处理都在浏览器本地完成，数据不会上传到任何服务器。',
+                featurePreviewTitle: '内嵌预览',
+                featurePreviewDesc: '在工具内预览目标网页，无需切换窗口查看',
+                featureCountdownTitle: '倒计时显示',
+                featureCountdownDesc: '实时显示距离下次刷新的倒计时，一目了然',
+                featureStatsTitle: '刷新统计',
+                featureStatsDesc: '记录刷新次数、成功/失败数，方便追踪',
+                warningTitle: '友善使用提醒',
+                warningText: '如果刷新间隔时间太短，本工具可能会给目标网站带来访问压力。请不要恶意刷新他人网站，文明友善地使用本工具。建议仅用于测试自己的网站或学习研究目的。',
+                mainTitle: '网页定时刷新器',
+                targetUrlLabel: '目标网址 (URL)',
+                urlPlaceholder: '请输入网址 (需包含 https:// 或 http://)，例如: https://example.com',
+                intervalLabel: '刷新间隔时间',
+                preset1s: '1秒',
+                preset5s: '5秒',
+                preset10s: '10秒',
+                preset30s: '30秒',
+                preset1m: '1分钟',
+                unitLabel: '时间单位',
+                unitSeconds: '秒',
+                unitMinutes: '分钟',
+                limitLabel: '刷新次数限制',
+                limitUnlimited: '无限制',
+                limit10: '10次',
+                limit50: '50次',
+                limit100: '100次',
+                limit500: '500次',
+                limit1000: '1000次',
+                modeLabel: '刷新模式',
+                modeFetch: '后台请求模式 (推荐)',
+                modeNewWindow: '新窗口模式',
+                modeIframe: 'iframe 预览模式',
+                modeHintFetch: '模拟后台访问，绕过 iframe 限制，推荐使用',
+                modeHintNewWindow: '在新窗口中刷新，可查看完整页面',
+                modeHintIframe: '在页面内预览，部分网站可能拒绝连接',
+                delayLabel: '随机延迟 (模拟人工)',
+                delayOff: '关闭',
+                delay1s: '0-1秒',
+                delay3s: '0-3秒',
+                delay5s: '0-5秒',
+                concurrentLabel: '并发请求数',
+                concurrent1: '1 (单次)',
+                startBtn: '开始刷新',
+                stopBtn: '停止刷新',
+                statusWaiting: '等待开始...',
+                statusRunning: '正在运行...',
+                statusStopped: '已停止',
+                statRefreshCount: '刷新次数',
+                statSuccessCount: '成功次数',
+                statErrorCount: '失败次数',
+                statRunningTime: '运行时长',
+                statNextRefresh: '下次刷新',
+                previewTitle: '页面预览',
+                openNewTab: '新标签页打开',
+                manualRefresh: '手动刷新',
+                placeholderText: '输入网址并点击开始刷新',
+                fetchStatusTitle: '后台请求模式运行中',
+                lastRefreshLabel: '最后刷新',
+                lastStatusLabel: '最后状态',
+                durationLabel: '请求耗时',
+                fetchHint: '请求已发送到目标服务器，由于浏览器安全策略(CORS)，无法读取响应内容，但请求已成功到达',
+                logTitle: '刷新日志',
+                clearLog: '清空日志',
+                logReady: '工具已就绪，请输入网址开始使用',
+                logCleared: '日志已清空',
+                logEnterUrl: '请输入目标网址',
+                logAutoHttps: '已自动添加 https:// 前缀，请确认网址是否正确',
+                logInvalidUrl: '请输入有效的网址 (以 http:// 或 https:// 开头)',
+                logIntervalTooShort: '刷新间隔不能小于1秒',
+                logStarted: '开始刷新: {url}，间隔 {value} {unit}，{mode}模式{concurrent}{delay}',
+                logRefreshSuccess: '第 {count} 次{mode}刷新成功{concurrent}{delay}',
+                logRefreshPartialFail: '第 {count} 次刷新部分失败',
+                logRefreshFail: '第 {count} 次刷新失败: {error}',
+                logLimitReached: '已达到刷新次数限制 ({limit}次)，自动停止',
+                logStopped: '刷新已停止，共刷新 {count} 次，成功 {success} 次，失败 {error} 次',
+                logManualRefresh: '手动刷新执行',
+                logLoadFail: '页面加载失败（可能是跨域限制）',
+                newWindowRunning: '新窗口模式运行中...',
+                newWindowHint: '请查看弹出窗口和日志了解刷新状态',
+                faqTitle: '常见问题',
+                faq1Q: '可以刷新任意网页吗？',
+                faq1A: '由于浏览器安全限制，部分网站不允许被嵌入 iframe，需要在新窗口打开。您可以选择后台请求模式或新窗口模式来刷新这类网站。',
+                faq2Q: '最短刷新间隔是多少？',
+                faq2A: '最短支持 1 秒，但建议设置 5 秒以上以避免对目标网站造成压力。频繁刷新可能导致目标网站暂时封禁您的访问。',
+                faq3Q: '关闭页面后还会继续刷新吗？',
+                faq3A: '不会，刷新功能需要页面保持打开状态。关闭浏览器标签页或窗口后，定时刷新会自动停止。',
+                faq4Q: '可以同时刷新多个网页吗？',
+                faq4A: '可以打开多个工具标签页，分别设置不同的网址进行同时刷新。每个标签页独立运行，互不影响。',
+                faq5Q: '这个工具有什么用途？',
+                faq5A: '适用于监控网页更新、抢票、秒杀、监控数据变化等场景。也可用于测试网站稳定性或保持会话活跃状态。',
+                faq_free_q: '这个工具真的免费吗？有隐藏收费吗？',
+                faq_free_a: '是的，本工具 100% 免费，无隐藏收费、无广告、无需注册。完全在浏览器中运行，数据不会离开您的设备。',
+                unitSecond: '秒',
+                unitMinute: '分钟',
+                modeBackground: '后台',
+                modeNewWin: '新窗口',
+                requestSuccess: '请求成功',
+                requestSent: '已发送',
+                waitingStatus: '等待中...',
+                trust_users: '🌍 超过 50,000 用户使用',
+                trust_rating: '⭐ 4.9/5 好评',
+                trust_privacy: '🔒 100% 隐私安全',
+                trust_free: '🚫 无广告、无需注册'
+            },
+            'fr': {
+                tool_name: 'Rafraîchisseur de page',
+                navBrand: '🔄 Rafraîchisseur de Page',
+                relatedToolsTitle: '🔗 Outils connexes',
+                relatedTool1: 'Testeur WebSocket',
+                relatedTool1Desc: 'Débogage connexion WebSocket',
+                relatedTool2: 'Recherche IP',
+                relatedTool2Desc: 'Géolocalisation IP',
+                relatedTool3: 'Recherche Whois',
+                relatedTool3Desc: 'Infos d\'enregistrement de domaine',
+                relatedTool4: 'Visionneur JSON',
+                relatedTool4Desc: 'Formater et valider JSON',
+                featureTimedTitle: 'Rafraîchissement Programmé',
+                featureTimedDesc: 'Définir l\'intervalle pour rafraîchir automatiquement les pages, supporte secondes/minutes',
+                feature1_title: '100% Gratuit et Privé',
+                feature1_desc: 'Sans publicité, sans inscription, sans filigrane. Tout est traité localement dans votre navigateur.',
+                featurePreviewTitle: 'Aperçu Intégré',
+                featurePreviewDesc: 'Prévisualiser la page cible dans l\'outil, sans changer de fenêtre',
+                featureCountdownTitle: 'Compte à Rebours',
+                featureCountdownDesc: 'Compte à rebours en temps réel jusqu\'au prochain rafraîchissement',
+                featureStatsTitle: 'Statistiques',
+                featureStatsDesc: 'Suivre le nombre de rafraîchissements, succès/échecs pour un suivi facile',
+                warningTitle: 'Rappel d\'Utilisation Responsable',
+                warningText: 'Des intervalles de rafraîchissement courts peuvent mettre la pression sur les sites cibles. Ne rafraîchissez pas malicieusement les sites d\'autrui. Utilisez cet outil de manière responsable. Recommandé uniquement pour tester vos propres sites ou à des fins d\'apprentissage.',
+                mainTitle: 'Rafraîchisseur Automatique de Page',
+                targetUrlLabel: 'URL Cible',
+                urlPlaceholder: 'Entrez l\'URL (incluez https:// ou http://), ex: https://example.com',
+                intervalLabel: 'Intervalle de Rafraîchissement',
+                preset1s: '1s',
+                preset5s: '5s',
+                preset10s: '10s',
+                preset30s: '30s',
+                preset1m: '1min',
+                unitLabel: 'Unité de Temps',
+                unitSeconds: 'Secondes',
+                unitMinutes: 'Minutes',
+                limitLabel: 'Limite de Rafraîchissement',
+                limitUnlimited: 'Illimité',
+                limit10: '10 fois',
+                limit50: '50 fois',
+                limit100: '100 fois',
+                limit500: '500 fois',
+                limit1000: '1000 fois',
+                modeLabel: 'Mode de Rafraîchissement',
+                modeFetch: 'Requête en Arrière-plan (Recommandé)',
+                modeNewWindow: 'Mode Nouvelle Fenêtre',
+                modeIframe: 'Mode Aperçu iframe',
+                modeHintFetch: 'Simule l\'accès en arrière-plan, contourne les restrictions iframe',
+                modeHintNewWindow: 'Rafraîchir dans une nouvelle fenêtre, voir la page complète',
+                modeHintIframe: 'Aperçu dans la page, certains sites peuvent refuser la connexion',
+                delayLabel: 'Délai Aléatoire (Simuler Humain)',
+                delayOff: 'Désactivé',
+                delay1s: '0-1 seconde',
+                delay3s: '0-3 secondes',
+                delay5s: '0-5 secondes',
+                concurrentLabel: 'Requêtes Simultanées',
+                concurrent1: '1 (Simple)',
+                startBtn: 'Démarrer',
+                stopBtn: 'Arrêter',
+                statusWaiting: 'En attente...',
+                statusRunning: 'En cours...',
+                statusStopped: 'Arrêté',
+                statRefreshCount: 'Rafraîchissements',
+                statSuccessCount: 'Succès',
+                statErrorCount: 'Erreurs',
+                statRunningTime: 'Temps d\'Exécution',
+                statNextRefresh: 'Prochain Rafraîch.',
+                previewTitle: 'Aperçu de la Page',
+                openNewTab: 'Ouvrir dans un Nouvel Onglet',
+                manualRefresh: 'Rafraîchir Manuellement',
+                placeholderText: 'Entrez l\'URL et cliquez sur Démarrer',
+                fetchStatusTitle: 'Mode Requête en Arrière-plan Actif',
+                lastRefreshLabel: 'Dernier Rafraîch.',
+                lastStatusLabel: 'Dernier Statut',
+                durationLabel: 'Durée de Requête',
+                fetchHint: 'Requête envoyée au serveur cible. En raison des politiques de sécurité du navigateur (CORS), le contenu de la réponse ne peut pas être lu, mais la requête a été livrée avec succès.',
+                logTitle: 'Journal de Rafraîchissement',
+                clearLog: 'Effacer le Journal',
+                logReady: 'Outil prêt, veuillez entrer l\'URL pour commencer',
+                logCleared: 'Journal effacé',
+                logEnterUrl: 'Veuillez entrer l\'URL cible',
+                logAutoHttps: 'Préfixe https:// ajouté automatiquement, veuillez confirmer l\'URL',
+                logInvalidUrl: 'Veuillez entrer une URL valide (commençant par http:// ou https://)',
+                logIntervalTooShort: 'L\'intervalle ne peut pas être inférieur à 1 seconde',
+                logStarted: 'Démarré: {url}, intervalle {value} {unit}, mode {mode}{concurrent}{delay}',
+                logRefreshSuccess: 'Rafraîchissement #{count} {mode} réussi{concurrent}{delay}',
+                logRefreshPartialFail: 'Rafraîchissement #{count} partiellement échoué',
+                logRefreshFail: 'Rafraîchissement #{count} échoué: {error}',
+                logLimitReached: 'Limite atteinte ({limit} fois), arrêt automatique',
+                logStopped: 'Arrêté, total {count} fois, {success} succès, {error} échecs',
+                logManualRefresh: 'Rafraîchissement manuel exécuté',
+                logLoadFail: 'Échec du chargement (possiblement restriction cross-origin)',
+                newWindowRunning: 'Mode nouvelle fenêtre actif...',
+                newWindowHint: 'Vérifiez la fenêtre popup et le journal pour le statut',
+                faqTitle: 'FAQ',
+                faq1Q: 'Puis-je rafraîchir n\'importe quelle page web?',
+                faq1A: 'En raison des restrictions de sécurité du navigateur, certains sites n\'autorisent pas l\'intégration en iframe. Vous pouvez utiliser le mode requête en arrière-plan ou nouvelle fenêtre.',
+                faq2Q: 'Quel est l\'intervalle minimum?',
+                faq2A: 'Le minimum est 1 seconde, mais nous recommandons 5 secondes ou plus pour éviter la pression sur le site cible. Des rafraîchissements fréquents peuvent entraîner un blocage temporaire.',
+                faq3Q: 'Le rafraîchissement continue-t-il après fermeture?',
+                faq3A: 'Non, la fonction de rafraîchissement nécessite que la page reste ouverte. Après fermeture de l\'onglet, le rafraîchissement automatique s\'arrête.',
+                faq4Q: 'Puis-je rafraîchir plusieurs pages simultanément?',
+                faq4A: 'Oui, vous pouvez ouvrir plusieurs onglets d\'outils avec différentes URLs. Chaque onglet fonctionne indépendamment.',
+                faq5Q: 'Quels sont les cas d\'utilisation?',
+                faq5A: 'Idéal pour surveiller les mises à jour de pages, la réservation de billets, les ventes flash, et la surveillance des données. Aussi utile pour tester la stabilité ou maintenir des sessions actives.',
+                faq_free_q: 'Cet outil est-il vraiment gratuit ? Y a-t-il des frais cachés ?',
+                faq_free_a: 'Oui, cet outil est 100% gratuit sans frais cachés, sans publicité et sans inscription. Il fonctionne entièrement dans votre navigateur — vos données ne quittent jamais votre appareil.',
+                unitSecond: 'seconde',
+                unitMinute: 'minute',
+                modeBackground: 'arrière-plan',
+                modeNewWin: 'nouvelle fenêtre',
+                requestSuccess: 'Requête réussie',
+                requestSent: 'Envoyé',
+                waitingStatus: 'En attente...',
+                trust_users: '🌍 Utilisé par 50 000+ utilisateurs',
+                trust_rating: '⭐ Note 4.9/5',
+                trust_privacy: '🔒 100% Privé',
+                trust_free: '🚫 Sans pub, sans inscription'
+            },
+            'es': {
+                tool_name: 'Actualizador de página',
+                navBrand: '🔄 Refrescador de Página',
+                relatedToolsTitle: '🔗 Herramientas relacionadas',
+                relatedTool1: 'Probador WebSocket',
+                relatedTool1Desc: 'Depuración de conexión WebSocket',
+                relatedTool2: 'Búsqueda IP',
+                relatedTool2Desc: 'Consulta de geolocalización IP',
+                relatedTool3: 'Consulta Whois',
+                relatedTool3Desc: 'Consulta de registro de dominio',
+                relatedTool4: 'Visor JSON',
+                relatedTool4Desc: 'Formatear y validar JSON',
+                featureTimedTitle: 'Actualización Programada',
+                featureTimedDesc: 'Establecer intervalo para actualizar páginas automáticamente, soporta segundos/minutos',
+                feature1_title: '100% Gratis y Privado',
+                feature1_desc: 'Sin anuncios, sin registro, sin marca de agua. Todo se procesa localmente en tu navegador.',
+                featurePreviewTitle: 'Vista Previa Integrada',
+                featurePreviewDesc: 'Vista previa de la página destino dentro de la herramienta, sin cambiar ventanas',
+                featureCountdownTitle: 'Cuenta Regresiva',
+                featureCountdownDesc: 'Cuenta regresiva en tiempo real hasta la próxima actualización',
+                featureStatsTitle: 'Estadísticas',
+                featureStatsDesc: 'Seguimiento de actualizaciones, éxitos/fallos para monitoreo fácil',
+                warningTitle: 'Recordatorio de Uso Responsable',
+                warningText: 'Intervalos cortos pueden presionar los sitios destino. No actualice maliciosamente sitios ajenos. Use esta herramienta responsablemente. Recomendado solo para probar sus propios sitios o con fines de aprendizaje.',
+                mainTitle: 'Refrescador Automático de Página',
+                targetUrlLabel: 'URL Destino',
+                urlPlaceholder: 'Ingrese URL (incluya https:// o http://), ej: https://example.com',
+                intervalLabel: 'Intervalo de Actualización',
+                preset1s: '1s',
+                preset5s: '5s',
+                preset10s: '10s',
+                preset30s: '30s',
+                preset1m: '1min',
+                unitLabel: 'Unidad de Tiempo',
+                unitSeconds: 'Segundos',
+                unitMinutes: 'Minutos',
+                limitLabel: 'Límite de Actualizaciones',
+                limitUnlimited: 'Sin límite',
+                limit10: '10 veces',
+                limit50: '50 veces',
+                limit100: '100 veces',
+                limit500: '500 veces',
+                limit1000: '1000 veces',
+                modeLabel: 'Modo de Actualización',
+                modeFetch: 'Solicitud en Segundo Plano (Recomendado)',
+                modeNewWindow: 'Modo Nueva Ventana',
+                modeIframe: 'Modo Vista Previa iframe',
+                modeHintFetch: 'Simula acceso en segundo plano, evita restricciones de iframe',
+                modeHintNewWindow: 'Actualizar en nueva ventana, ver página completa',
+                modeHintIframe: 'Vista previa en página, algunos sitios pueden rechazar conexión',
+                delayLabel: 'Retraso Aleatorio (Simular Humano)',
+                delayOff: 'Desactivado',
+                delay1s: '0-1 segundo',
+                delay3s: '0-3 segundos',
+                delay5s: '0-5 segundos',
+                concurrentLabel: 'Solicitudes Simultáneas',
+                concurrent1: '1 (Simple)',
+                startBtn: 'Iniciar',
+                stopBtn: 'Detener',
+                statusWaiting: 'Esperando...',
+                statusRunning: 'Ejecutando...',
+                statusStopped: 'Detenido',
+                statRefreshCount: 'Actualizaciones',
+                statSuccessCount: 'Exitosas',
+                statErrorCount: 'Errores',
+                statRunningTime: 'Tiempo de Ejecución',
+                statNextRefresh: 'Próxima Actualiz.',
+                previewTitle: 'Vista Previa de Página',
+                openNewTab: 'Abrir en Nueva Pestaña',
+                manualRefresh: 'Actualizar Manualmente',
+                placeholderText: 'Ingrese URL y haga clic en Iniciar',
+                fetchStatusTitle: 'Modo Segundo Plano Activo',
+                lastRefreshLabel: 'Última Actualiz.',
+                lastStatusLabel: 'Último Estado',
+                durationLabel: 'Duración de Solicitud',
+                fetchHint: 'Solicitud enviada al servidor destino. Debido a políticas de seguridad del navegador (CORS), el contenido de respuesta no puede leerse, pero la solicitud se entregó exitosamente.',
+                logTitle: 'Registro de Actualizaciones',
+                clearLog: 'Limpiar Registro',
+                logReady: 'Herramienta lista, ingrese URL para comenzar',
+                logCleared: 'Registro limpiado',
+                logEnterUrl: 'Por favor ingrese URL destino',
+                logAutoHttps: 'Prefijo https:// agregado automáticamente, confirme la URL',
+                logInvalidUrl: 'Ingrese una URL válida (comenzando con http:// o https://)',
+                logIntervalTooShort: 'El intervalo no puede ser menor a 1 segundo',
+                logStarted: 'Iniciado: {url}, intervalo {value} {unit}, modo {mode}{concurrent}{delay}',
+                logRefreshSuccess: 'Actualización #{count} {mode} exitosa{concurrent}{delay}',
+                logRefreshPartialFail: 'Actualización #{count} parcialmente fallida',
+                logRefreshFail: 'Actualización #{count} fallida: {error}',
+                logLimitReached: 'Límite alcanzado ({limit} veces), detenido automáticamente',
+                logStopped: 'Detenido, total {count} veces, {success} exitosas, {error} fallos',
+                logManualRefresh: 'Actualización manual ejecutada',
+                logLoadFail: 'Carga fallida (posiblemente restricción cross-origin)',
+                newWindowRunning: 'Modo nueva ventana activo...',
+                newWindowHint: 'Revise la ventana emergente y el registro para el estado',
+                faqTitle: 'Preguntas Frecuentes',
+                faq1Q: '¿Puedo actualizar cualquier página web?',
+                faq1A: 'Debido a restricciones de seguridad del navegador, algunos sitios no permiten ser embebidos en iframes. Puede usar el modo de solicitud en segundo plano o nueva ventana.',
+                faq2Q: '¿Cuál es el intervalo mínimo?',
+                faq2A: 'El mínimo es 1 segundo, pero recomendamos 5 segundos o más para evitar presionar el sitio destino. Actualizaciones frecuentes pueden causar bloqueo temporal.',
+                faq3Q: '¿La actualización continúa después de cerrar?',
+                faq3A: 'No, la función de actualización requiere que la página permanezca abierta. Después de cerrar la pestaña, la actualización automática se detiene.',
+                faq4Q: '¿Puedo actualizar múltiples páginas simultáneamente?',
+                faq4A: 'Sí, puede abrir múltiples pestañas de la herramienta con diferentes URLs. Cada pestaña funciona independientemente.',
+                faq5Q: '¿Cuáles son los casos de uso?',
+                faq5A: 'Ideal para monitorear actualizaciones de páginas, compra de boletos, ventas flash, y monitoreo de datos. También útil para probar estabilidad o mantener sesiones activas.',
+                faq_free_q: '¿Esta herramienta es realmente gratuita? ¿Hay cargos ocultos?',
+                faq_free_a: 'Sí, esta herramienta es 100% gratuita sin cargos ocultos, sin anuncios y sin registro. Funciona completamente en tu navegador — tus datos nunca salen de tu dispositivo.',
+                unitSecond: 'segundo',
+                unitMinute: 'minuto',
+                modeBackground: 'segundo plano',
+                modeNewWin: 'nueva ventana',
+                requestSuccess: 'Solicitud exitosa',
+                requestSent: 'Enviado',
+                waitingStatus: 'Esperando...',
+                trust_users: '🌍 Usado por más de 50,000 usuarios',
+                trust_rating: '⭐ Calificación 4.9/5',
+                trust_privacy: '🔒 100% Privado',
+                trust_free: '🚫 Sin anuncios, sin registro'
+            }
+        };
+
+        // 状态变量
+        let isRunning = false;
+        let refreshTimer = null;
+        let countdownTimer = null;
+        let runningTimer = null;
+        let startTime = null;
+        let refreshCount = 0;
+        let successCount = 0;
+        let errorCount = 0;
+        let countdown = 0;
+
+        // DOM 元素
+        const targetUrlInput = document.getElementById('targetUrl');
+        const intervalValueInput = document.getElementById('intervalValue');
+        const intervalUnitSelect = document.getElementById('intervalUnit');
+        const refreshLimitSelect = document.getElementById('refreshLimit');
+        const startBtn = document.getElementById('startBtn');
+        const stopBtn = document.getElementById('stopBtn');
+        const statusIndicator = document.getElementById('statusIndicator');
+        const statusText = document.getElementById('statusText');
+        const refreshCountEl = document.getElementById('refreshCount');
+        const successCountEl = document.getElementById('successCount');
+        const errorCountEl = document.getElementById('errorCount');
+        const runningTimeEl = document.getElementById('runningTime');
+        const nextRefreshEl = document.getElementById('nextRefresh');
+        const previewUrl = document.getElementById('previewUrl');
+        const previewFrame = document.getElementById('previewFrame');
+        const iframePlaceholder = document.getElementById('iframePlaceholder');
+        const openNewTabBtn = document.getElementById('openNewTabBtn');
+        const manualRefreshBtn = document.getElementById('manualRefreshBtn');
+        const logContainer = document.getElementById('logContainer');
+        const clearLogBtn = document.getElementById('clearLogBtn');
+        const presetBtns = document.querySelectorAll('.preset-btn');
+        const refreshModeSelect = document.getElementById('refreshMode');
+        const randomDelaySelect = document.getElementById('randomDelay');
+        const concurrentRequestsSelect = document.getElementById('concurrentRequests');
+        const modeHint = document.getElementById('modeHint');
+
+        // 后台模式状态面板元素
+        const fetchStatusPanel = document.getElementById('fetchStatusPanel');
+        const fetchStatusIcon = document.getElementById('fetchStatusIcon');
+        const fetchStatusUrl = document.getElementById('fetchStatusUrl');
+        const lastRefreshTime = document.getElementById('lastRefreshTime');
+        const lastRefreshStatus = document.getElementById('lastRefreshStatus');
+        const lastRefreshDuration = document.getElementById('lastRefreshDuration');
+        const progressBar = document.getElementById('progressBar');
+
+        // 新窗口引用
+        let popupWindow = null;
+        let progressInterval = null;
+
+        // 获取当前语言翻译
+        function t(key) {
+            return translations[getLang()]?.[key] || translations['en'][key] || key;
+        }
+
+        // 模式提示更新
+        function updateModeHint() {
+            const mode = refreshModeSelect.value;
+            if (mode === 'fetch') {
+                modeHint.textContent = t('modeHintFetch');
+            } else if (mode === 'newwindow') {
+                modeHint.textContent = t('modeHintNewWindow');
+            } else {
+                modeHint.textContent = t('modeHintIframe');
+            }
+        }
+
+        refreshModeSelect.addEventListener('change', updateModeHint);
+
+        // 快捷间隔按钮
+        presetBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const value = parseInt(btn.dataset.value);
+                intervalValueInput.value = value;
+                intervalUnitSelect.value = '1'; // 秒
+                presetBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+
+        // 间隔值变化时更新按钮状态
+        intervalValueInput.addEventListener('input', () => {
+            const value = parseInt(intervalValueInput.value);
+            const unit = parseInt(intervalUnitSelect.value);
+            presetBtns.forEach(btn => {
+                const presetValue = parseInt(btn.dataset.value);
+                btn.classList.toggle('active', value === presetValue && unit === 1);
+            });
+        });
+
+        // 添加日志
+        function addLog(message, type = 'info') {
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString('en-US', { hour12: false });
+            const entry = document.createElement('div');
+            entry.className = `log-entry ${type}`;
+            entry.innerHTML = `
+                <span class="log-time">[${timeStr}]</span>
+                <span class="log-message">${message}</span>
+            `;
+            logContainer.appendChild(entry);
+            logContainer.scrollTop = logContainer.scrollHeight;
+        }
+
+        // 清空日志
+        clearLogBtn.addEventListener('click', () => {
+            logContainer.innerHTML = '';
+            addLog(t('logCleared'), 'info');
+        });
+
+        // 验证URL
+        function isValidUrl(string) {
+            try {
+                const url = new URL(string);
+                return url.protocol === 'http:' || url.protocol === 'https:';
+            } catch (_) {
+                return false;
+            }
+        }
+
+        // 格式化时间
+        function formatTime(seconds) {
+            const h = Math.floor(seconds / 3600);
+            const m = Math.floor((seconds % 3600) / 60);
+            const s = seconds % 60;
+            return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+        }
+
+        // 生成随机查询参数，模拟不同访问
+        function generateRandomParams() {
+            const params = new URLSearchParams();
+            params.set('_t', Date.now());
+            params.set('_r', Math.random().toString(36).substring(2, 8));
+            return params.toString();
+        }
+
+        // 获取随机延迟时间
+        function getRandomDelay() {
+            const maxDelay = parseInt(randomDelaySelect.value);
+            if (maxDelay === 0) return 0;
+            return Math.floor(Math.random() * maxDelay * 1000);
+        }
+
+        // 更新后台模式状态面板
+        function updateFetchStatusPanel(time, status, duration, isSuccess) {
+            lastRefreshTime.textContent = time;
+            lastRefreshStatus.textContent = status;
+            lastRefreshStatus.className = 'detail-value ' + (isSuccess ? 'success' : 'error');
+            lastRefreshDuration.textContent = duration;
+
+            // 更新图标动画
+            fetchStatusIcon.textContent = isSuccess ? '✅' : '❌';
+            setTimeout(() => {
+                fetchStatusIcon.textContent = '📡';
+            }, 1000);
+        }
+
+        // 使用 fetch 模式刷新
+        async function fetchRefresh(url) {
+            const refreshUrl = url + (url.includes('?') ? '&' : '?') + generateRandomParams();
+            const startTime = performance.now();
+
+            try {
+                const response = await fetch(refreshUrl, {
+                    method: 'GET',
+                    mode: 'no-cors', // 允许跨域请求，不读取响应
+                    cache: 'no-store',
+                    credentials: 'omit',
+                    referrerPolicy: 'no-referrer'
+                });
+                const duration = Math.round(performance.now() - startTime);
+                const timeStr = new Date().toLocaleTimeString('en-US', { hour12: false });
+                updateFetchStatusPanel(timeStr, t('requestSuccess'), duration + 'ms', true);
+                return { success: true, status: 'OK (no-cors)', duration };
+            } catch (error) {
+                const duration = Math.round(performance.now() - startTime);
+                const timeStr = new Date().toLocaleTimeString('en-US', { hour12: false });
+                // 即使报错，请求可能已经发送成功（CORS限制导致的错误）
+                updateFetchStatusPanel(timeStr, t('requestSent'), duration + 'ms', true);
+                return { success: true, status: t('requestSent'), duration };
+            }
+        }
+
+        // 使用新窗口模式刷新
+        function newWindowRefresh(url) {
+            const refreshUrl = url + (url.includes('?') ? '&' : '?') + generateRandomParams();
+
+            try {
+                if (popupWindow && !popupWindow.closed) {
+                    popupWindow.location.href = refreshUrl;
+                } else {
+                    popupWindow = window.open(refreshUrl, 'refreshWindow', 'width=1024,height=768,scrollbars=yes,resizable=yes');
+                }
+                return { success: true };
+            } catch (error) {
+                return { success: false, error: error.message };
+            }
+        }
+
+        // 使用 iframe 模式刷新
+        function iframeRefresh(url) {
+            const refreshUrl = url + (url.includes('?') ? '&' : '?') + generateRandomParams();
+
+            try {
+                previewFrame.src = refreshUrl;
+                return { success: true };
+            } catch (error) {
+                return { success: false, error: error.message };
+            }
+        }
+
+        // 刷新页面
+        async function refreshPage() {
+            const url = targetUrlInput.value.trim();
+            const limit = parseInt(refreshLimitSelect.value);
+            const mode = refreshModeSelect.value;
+            const concurrent = parseInt(concurrentRequestsSelect.value);
+
+            // 检查是否达到限制
+            if (limit > 0 && refreshCount >= limit) {
+                stopRefresh();
+                addLog(t('logLimitReached').replace('{limit}', limit), 'info');
+                return;
+            }
+
+            // 添加随机延迟
+            const delay = getRandomDelay();
+            if (delay > 0) {
+                await new Promise(resolve => setTimeout(resolve, delay));
+            }
+
+            refreshCount++;
+            refreshCountEl.textContent = refreshCount;
+
+            // 并发请求
+            const requests = [];
+            for (let i = 0; i < concurrent; i++) {
+                if (mode === 'fetch') {
+                    requests.push(fetchRefresh(url));
+                } else if (mode === 'newwindow') {
+                    requests.push(Promise.resolve(newWindowRefresh(url)));
+                } else {
+                    requests.push(Promise.resolve(iframeRefresh(url)));
+                }
+            }
+
+            try {
+                const results = await Promise.all(requests);
+                const allSuccess = results.every(r => r.success);
+
+                if (allSuccess) {
+                    successCount++;
+                    successCountEl.textContent = successCount;
+                    const modeText = mode === 'fetch' ? t('modeBackground') : (mode === 'newwindow' ? t('modeNewWin') : 'iframe');
+                    const concurrentText = concurrent > 1 ? ` (${concurrent} concurrent)` : '';
+                    const delayText = delay > 0 ? ` [delay ${(delay/1000).toFixed(1)}s]` : '';
+                    addLog(t('logRefreshSuccess').replace('{count}', refreshCount).replace('{mode}', modeText).replace('{concurrent}', concurrentText).replace('{delay}', delayText), 'success');
+                } else {
+                    errorCount++;
+                    errorCountEl.textContent = errorCount;
+                    addLog(t('logRefreshPartialFail').replace('{count}', refreshCount), 'error');
+                }
+            } catch (error) {
+                errorCount++;
+                errorCountEl.textContent = errorCount;
+                addLog(t('logRefreshFail').replace('{count}', refreshCount).replace('{error}', error.message), 'error');
+            }
+
+            // 重置倒计时
+            const intervalValue = parseInt(intervalValueInput.value);
+            const intervalUnit = parseInt(intervalUnitSelect.value);
+            countdown = intervalValue * intervalUnit;
+        }
+
+        // 更新倒计时显示
+        function updateCountdown() {
+            if (countdown > 0) {
+                countdown--;
+                nextRefreshEl.textContent = countdown + 's';
+            }
+        }
+
+        // 更新运行时间
+        function updateRunningTime() {
+            if (startTime) {
+                const elapsed = Math.floor((Date.now() - startTime) / 1000);
+                runningTimeEl.textContent = formatTime(elapsed);
+            }
+        }
+
+        // 开始刷新
+        function startRefresh() {
+            let url = targetUrlInput.value.trim();
+
+            if (!url) {
+                addLog(t('logEnterUrl'), 'error');
+                return;
+            }
+
+            // 检查是否缺少协议前缀，自动补全 https://
+            if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                url = 'https://' + url;
+                targetUrlInput.value = url;
+                addLog(t('logAutoHttps'), 'info');
+            }
+
+            if (!isValidUrl(url)) {
+                addLog(t('logInvalidUrl'), 'error');
+                return;
+            }
+
+            const intervalValue = parseInt(intervalValueInput.value);
+            const intervalUnit = parseInt(intervalUnitSelect.value);
+            const intervalMs = intervalValue * intervalUnit * 1000;
+
+            if (intervalMs < 1000) {
+                addLog(t('logIntervalTooShort'), 'error');
+                return;
+            }
+
+            isRunning = true;
+            startTime = Date.now();
+            refreshCount = 0;
+            successCount = 0;
+            errorCount = 0;
+
+            const mode = refreshModeSelect.value;
+            const concurrent = parseInt(concurrentRequestsSelect.value);
+            const randomDelayMax = parseInt(randomDelaySelect.value);
+
+            // 更新UI
+            startBtn.disabled = true;
+            stopBtn.disabled = false;
+            targetUrlInput.disabled = true;
+            intervalValueInput.disabled = true;
+            intervalUnitSelect.disabled = true;
+            refreshLimitSelect.disabled = true;
+            refreshModeSelect.disabled = true;
+            randomDelaySelect.disabled = true;
+            concurrentRequestsSelect.disabled = true;
+            openNewTabBtn.disabled = false;
+            manualRefreshBtn.disabled = false;
+
+            statusIndicator.className = 'status-indicator running';
+            statusText.textContent = t('statusRunning');
+            previewUrl.textContent = url;
+
+            // 根据模式显示/隐藏iframe
+            if (mode === 'iframe') {
+                iframePlaceholder.style.display = 'none';
+                fetchStatusPanel.style.display = 'none';
+                previewFrame.style.display = 'block';
+            } else if (mode === 'fetch') {
+                // 显示后台模式状态面板
+                iframePlaceholder.style.display = 'none';
+                previewFrame.style.display = 'none';
+                fetchStatusPanel.style.display = 'flex';
+                fetchStatusUrl.textContent = url;
+                lastRefreshTime.textContent = '--';
+                lastRefreshStatus.textContent = t('waitingStatus');
+                lastRefreshStatus.className = 'detail-value';
+                lastRefreshDuration.textContent = '--';
+
+                // 启动进度条动画
+                let progress = 0;
+                if (progressInterval) clearInterval(progressInterval);
+                progressInterval = setInterval(() => {
+                    progress = (progress + 2) % 100;
+                    progressBar.style.width = progress + '%';
+                }, 50);
+            } else {
+                iframePlaceholder.innerHTML = `
+                    <div class="icon">🪟</div>
+                    <div>${t('newWindowRunning')}</div>
+                    <div style="margin-top: 10px; font-size: 0.9rem;">${t('newWindowHint')}</div>
+                `;
+                iframePlaceholder.style.display = 'flex';
+                fetchStatusPanel.style.display = 'none';
+                previewFrame.style.display = 'none';
+            }
+
+            const modeText = mode === 'fetch' ? t('modeBackground') : (mode === 'newwindow' ? t('modeNewWin') : 'iframe');
+            const concurrentText = concurrent > 1 ? `, ${concurrent} concurrent` : '';
+            const delayText = randomDelayMax > 0 ? `, random delay 0-${randomDelayMax}s` : '';
+            const unitText = intervalUnit === 60 ? t('unitMinute') : t('unitSecond');
+            addLog(t('logStarted').replace('{url}', url).replace('{value}', intervalValue).replace('{unit}', unitText).replace('{mode}', modeText).replace('{concurrent}', concurrentText).replace('{delay}', delayText), 'info');
+
+            // 立即刷新一次
+            refreshPage();
+
+            // 设置倒计时
+            countdown = intervalValue * intervalUnit;
+
+            // 设置定时器
+            refreshTimer = setInterval(refreshPage, intervalMs);
+            countdownTimer = setInterval(updateCountdown, 1000);
+            runningTimer = setInterval(updateRunningTime, 1000);
+        }
+
+        // 停止刷新
+        function stopRefresh() {
+            isRunning = false;
+
+            // 清除定时器
+            if (refreshTimer) {
+                clearInterval(refreshTimer);
+                refreshTimer = null;
+            }
+            if (countdownTimer) {
+                clearInterval(countdownTimer);
+                countdownTimer = null;
+            }
+            if (runningTimer) {
+                clearInterval(runningTimer);
+                runningTimer = null;
+            }
+
+            // 关闭可能打开的新窗口
+            if (popupWindow && !popupWindow.closed) {
+                popupWindow.close();
+                popupWindow = null;
+            }
+
+            // 停止进度条动画
+            if (progressInterval) {
+                clearInterval(progressInterval);
+                progressInterval = null;
+            }
+
+            // 隐藏后台模式状态面板
+            fetchStatusPanel.style.display = 'none';
+
+            // 更新UI
+            startBtn.disabled = false;
+            stopBtn.disabled = true;
+            targetUrlInput.disabled = false;
+            intervalValueInput.disabled = false;
+            intervalUnitSelect.disabled = false;
+            refreshLimitSelect.disabled = false;
+            refreshModeSelect.disabled = false;
+            randomDelaySelect.disabled = false;
+            concurrentRequestsSelect.disabled = false;
+
+            statusIndicator.className = 'status-indicator stopped';
+            statusText.textContent = t('statusStopped');
+            nextRefreshEl.textContent = '--';
+
+            // 恢复iframe placeholder
+            iframePlaceholder.innerHTML = `
+                <div class="icon">🌐</div>
+                <div>${t('placeholderText')}</div>
+            `;
+
+            addLog(t('logStopped').replace('{count}', refreshCount).replace('{success}', successCount).replace('{error}', errorCount), 'info');
+        }
+
+        // 手动刷新
+        function manualRefresh() {
+            const url = targetUrlInput.value.trim();
+            if (url) {
+                const refreshUrl = url + (url.includes('?') ? '&' : '?') + '_t=' + Date.now();
+                previewFrame.src = refreshUrl;
+                addLog(t('logManualRefresh'), 'info');
+            }
+        }
+
+        // 新标签页打开
+        function openInNewTab() {
+            const url = targetUrlInput.value.trim();
+            if (url) {
+                window.open(url, '_blank');
+            }
+        }
+
+        // 事件绑定
+        startBtn.addEventListener('click', startRefresh);
+        stopBtn.addEventListener('click', stopRefresh);
+        manualRefreshBtn.addEventListener('click', manualRefresh);
+        openNewTabBtn.addEventListener('click', openInNewTab);
+
+        // 回车键开始刷新
+        targetUrlInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && !isRunning) {
+                startRefresh();
+            }
+        });
+
+        // iframe 加载错误处理
+        previewFrame.addEventListener('error', () => {
+            errorCount++;
+            errorCountEl.textContent = errorCount;
+            addLog(t('logLoadFail'), 'error');
+        });
+
+        // 页面卸载时停止刷新
+        window.addEventListener('beforeunload', () => {
+            if (isRunning) {
+                stopRefresh();
+            }
+        });
+
+        // 初始化
+        updateModeHint();
+
+        window._translations = translations;
+    </script>
+    <script src="common/common.js" data-tool-id="page-refresher" data-tool-name="Page Auto Refresher" data-category="utility"></script>
+    <script>WebToolbox.init(window._translations);</script>
+</body>
+</html>

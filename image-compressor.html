@@ -1,0 +1,1837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CT8E5N460D"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CT8E5N460D');</script>
+    <title>Image Compressor - Free Online | No Ads, No Upload, No Limit | 图片压缩 | Web Toolbox</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Free online image compression tool. Batch compress JPG, PNG, WebP images. Adjustable quality settings, optional resizing, maintains clarity while significantly reducing file size. Pure frontend, data secure. ✅ No ads ✅ No signup ✅ No watermark. Runs entirely in your browser.">
+    <meta name="keywords" content="image compressor,online compress,JPG compress,PNG compress,WebP convert,batch compress,image optimization,reduce image size,free tool, no ads, no signup, no watermark, no login, free unlimited, browser-based, no installation, local processing">
+    <meta name="author" content="heyuan110">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.heyuan110.com/web-toolbox/image-compressor.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.heyuan110.com/web-toolbox/image-compressor.html">
+    <meta property="og:title" content="Image Compressor - Free Online | No Ads, No Upload, No Limit | 图片压缩">
+    <meta property="og:description" content="Free online image compression. Batch process JPG/PNG/WebP, maintain clarity while reducing size.">
+    <meta property="og:image" content="https://www.heyuan110.com/web-toolbox/screenshots/image-compressor.png">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Web Toolbox">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Image Compressor - Free Online | No Ads, No Upload, No Limit | 图片压缩">
+    <meta name="twitter:description" content="Free online image compression. Batch process JPG/PNG/WebP.">
+    <meta name="twitter:image" content="https://www.heyuan110.com/web-toolbox/screenshots/image-compressor.png">
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Image Compressor",
+        "alternateName": ["图片压缩器", "Image Optimizer", "Photo Compressor"],
+        "url": "https://www.heyuan110.com/web-toolbox/image-compressor.html",
+        "description": "Batch compress JPG/PNG/WebP images online, maintain clarity while reducing size",
+        "applicationCategory": "DesignApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "featureList": ["No ads", "No signup required", "No watermark", "100% browser-based", "Unlimited usage", "Local processing"],
+        "author": {"@type": "Person", "name": "heyuan110"},
+        "publisher": {"@type": "Organization", "name": "Web Toolbox", "url": "https://www.heyuan110.com/web-toolbox/"},
+        "screenshot": "https://www.heyuan110.com/web-toolbox/screenshots/image-compressor.webp"
+        "alternateName": ["图片压缩器", "Image Optimizer", "Photo Compressor"],
+    }
+    </script>
+
+    <!-- FAQ JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What image formats are supported?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Supports JPG, PNG, WebP, GIF and other common image formats."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Will compression reduce image quality?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "There will be slight loss, but you can control it by adjusting compression quality. Above 80% is barely noticeable to the human eye."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How many images can be compressed at once?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Depends on browser memory, recommended not to exceed 50 images at a time."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Will images be uploaded to a server?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No, all compression is done locally in your browser, ensuring data security."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can PNG images be compressed losslessly?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "PNG uses lossless compression algorithm, can reduce size through optimization without losing quality."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is this tool really free with no ads?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, 100% free with no ads, no registration, no watermark, and no usage limits. All processing happens locally in your browser — your data is never uploaded to any server."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #e4e4e7;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 40px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(120deg, #22c55e, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            color: #a1a1aa;
+            font-size: 1.1rem;
+        }
+
+        .main-content {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+        }
+
+        /* 上传区域 */
+        .upload-area {
+            border: 2px dashed rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 50px 40px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+            margin-bottom: 30px;
+        }
+
+        .upload-area:hover,
+        .upload-area.dragover {
+            border-color: #22c55e;
+            background: rgba(34, 197, 94, 0.1);
+        }
+
+        .upload-icon {
+            font-size: 3.5rem;
+            margin-bottom: 16px;
+        }
+
+        .upload-title {
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .upload-hint {
+            color: #71717a;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .upload-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .upload-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .upload-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(34, 197, 94, 0.4);
+        }
+
+        .upload-btn.secondary {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .upload-btn.secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: none;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        /* 设置区域 */
+        .settings-section {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .settings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .setting-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .setting-label {
+            color: #a1a1aa;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .setting-value {
+            color: #22c55e;
+            font-weight: 500;
+        }
+
+        .slider-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        input[type="range"] {
+            flex: 1;
+            height: 6px;
+            -webkit-appearance: none;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            outline: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            display: none;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            padding: 10px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .checkbox-group input:checked + .checkbox-label {
+            background: rgba(34, 197, 94, 0.2);
+            border-color: #22c55e;
+        }
+
+        .checkbox-icon {
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            transition: all 0.2s;
+        }
+
+        .checkbox-group input:checked + .checkbox-label .checkbox-icon {
+            background: #22c55e;
+            border-color: #22c55e;
+        }
+
+        .size-inputs {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .size-inputs input {
+            width: 100px;
+            padding: 10px 12px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
+        .size-inputs input:focus {
+            outline: none;
+            border-color: #22c55e;
+        }
+
+        .size-inputs span {
+            color: #71717a;
+        }
+
+        /* 图片列表 */
+        .images-section {
+            display: none;
+        }
+
+        .images-section.show {
+            display: block;
+        }
+
+        .images-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .images-count {
+            color: #a1a1aa;
+        }
+
+        .images-count span {
+            color: #22c55e;
+            font-weight: 600;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .action-btn.primary {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: #fff;
+        }
+
+        .action-btn.secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #a1a1aa;
+        }
+
+        .action-btn.danger {
+            background: rgba(239, 68, 68, 0.2);
+            color: #fca5a5;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .action-btn.primary:hover {
+            box-shadow: 0 8px 20px rgba(34, 197, 94, 0.4);
+        }
+
+        .action-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* 图片网格 */
+        .images-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .image-card {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .image-card:hover {
+            border-color: rgba(34, 197, 94, 0.5);
+        }
+
+        .image-card.processing {
+            opacity: 0.7;
+        }
+
+        .image-card.done {
+            border-color: rgba(34, 197, 94, 0.5);
+        }
+
+        .image-preview {
+            position: relative;
+            height: 160px;
+            background: repeating-conic-gradient(#2a2a3e 0% 25%, #1a1a2e 0% 50%) 50% / 16px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-preview img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .image-status {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .status-pending {
+            background: rgba(255, 255, 255, 0.2);
+            color: #a1a1aa;
+        }
+
+        .status-processing {
+            background: rgba(59, 130, 246, 0.3);
+            color: #93c5fd;
+        }
+
+        .status-done {
+            background: rgba(34, 197, 94, 0.3);
+            color: #86efac;
+        }
+
+        .status-error {
+            background: rgba(239, 68, 68, 0.3);
+            color: #fca5a5;
+        }
+
+        .image-info {
+            padding: 16px;
+        }
+
+        .image-name {
+            font-size: 0.9rem;
+            color: #fff;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .image-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: #71717a;
+        }
+
+        .size-compare {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .original-size {
+            text-decoration: line-through;
+            color: #ef4444;
+        }
+
+        .compressed-size {
+            color: #22c55e;
+            font-weight: 500;
+        }
+
+        .compression-ratio {
+            background: rgba(34, 197, 94, 0.2);
+            color: #86efac;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .compression-ratio.kept {
+            background: rgba(59, 130, 246, 0.2);
+            color: #93c5fd;
+        }
+
+        .compression-ratio.negative {
+            background: rgba(239, 68, 68, 0.2);
+            color: #fca5a5;
+        }
+
+        .image-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .image-action-btn {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .image-action-btn.download {
+            background: rgba(34, 197, 94, 0.2);
+            color: #86efac;
+        }
+
+        .image-action-btn.download:hover {
+            background: rgba(34, 197, 94, 0.4);
+        }
+
+        .image-action-btn.remove {
+            background: rgba(239, 68, 68, 0.2);
+            color: #fca5a5;
+        }
+
+        .image-action-btn.remove:hover {
+            background: rgba(239, 68, 68, 0.4);
+        }
+
+        /* 进度条 */
+        .progress-bar {
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #22c55e, #3b82f6);
+            border-radius: 2px;
+            transition: width 0.3s;
+        }
+
+        /* 统计区域 */
+        .stats-section {
+            display: none;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 30px;
+        }
+
+        .stats-section.show {
+            display: block;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 16px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #22c55e;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            color: #a1a1aa;
+            font-size: 0.85rem;
+        }
+
+        /* 输出格式选择 */
+        .format-options {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .format-option {
+            position: relative;
+        }
+
+        .format-option input {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .format-label {
+            display: block;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .format-option input:checked + .format-label {
+            background: rgba(34, 197, 94, 0.2);
+            border-color: #22c55e;
+            color: #22c55e;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #71717a;
+        }
+
+        footer a {
+            color: #22c55e;
+            text-decoration: none;
+        }
+
+        /* 功能特点区块 */
+        .features-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: rgba(34, 197, 94, 0.5);
+            transform: translateY(-4px);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .feature-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .feature-desc {
+            font-size: 0.9rem;
+            color: #a1a1aa;
+            line-height: 1.5;
+        }
+
+        /* FAQ 区块 */
+        .faq-section {
+            margin: 40px 0;
+        }
+
+        .faq-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px 24px;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: #22c55e;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer p {
+            padding: 0 24px 20px;
+            color: #a1a1aa;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .main-content {
+                padding: 24px;
+            }
+
+            .upload-area {
+                padding: 30px 20px;
+            }
+
+            .settings-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .images-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .action-buttons {
+                justify-content: center;
+            }
+
+            .images-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="common/common.css">
+</head>
+<body>
+<div class="container">
+<header>
+            
+<h1 data-i18n="title">📦 Image Compressor</h1>
+            <p class="subtitle" data-i18n="subtitle">Batch compress images, significantly reduce file size while maintaining clarity</p>
+        </header>
+
+        <div class="trust-bar">
+            <span class="trust-item" data-i18n="trust_users">🌍 Used by 50,000+ users</span>
+            <span class="trust-item" data-i18n="trust_rating">⭐ 4.9/5 rating</span>
+            <span class="trust-item" data-i18n="trust_privacy">🔒 100% Private</span>
+            <span class="trust-item" data-i18n="trust_free">🚫 No Ads, No Signup</span>
+        </div>
+
+        <!-- 功能特点 -->
+        <section class="features-section">
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <div class="feature-title" data-i18n="feature1Title">100% Free & Private</div>
+                <div class="feature-desc" data-i18n="feature1Desc">No ads, no signup, no watermark. Everything runs locally in your browser. Your data never leaves your device.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📚</div>
+                <div class="feature-title" data-i18n="feature2Title">Batch Processing</div>
+                <div class="feature-desc" data-i18n="feature2Desc">Compress multiple images simultaneously, improving work efficiency</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎚️</div>
+                <div class="feature-title" data-i18n="feature3Title">Adjustable Quality</div>
+                <div class="feature-desc" data-i18n="feature3Desc">Customize compression quality, from extreme compression to lossless</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👁️</div>
+                <div class="feature-title" data-i18n="feature4Title">Real-time Comparison</div>
+                <div class="feature-desc" data-i18n="feature4Desc">Preview before and after compression, visually see the compression effect</div>
+            </div>
+        </section>
+
+        <div class="main-content">
+            <!-- 上传区域 -->
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">🖼️</div>
+                <div class="upload-title" data-i18n="uploadTitle">Drag images here, or click to select</div>
+                <div class="upload-hint" data-i18n="uploadHint">Supports JPG, PNG, GIF, WebP formats, batch upload available</div>
+                <div class="upload-buttons">
+                    <button class="upload-btn" onclick="document.getElementById('fileInput').click()">
+                        <span>📁</span>
+                        <span data-i18n="selectImages">Select Images</span>
+                    </button>
+                    <button class="upload-btn secondary" onclick="document.getElementById('folderInput').click()">
+                        <span>📂</span>
+                        <span data-i18n="selectFolder">Select Folder</span>
+                    </button>
+                </div>
+                <input type="file" id="fileInput" accept="image/*" multiple>
+                <input type="file" id="folderInput" webkitdirectory multiple>
+            </div>
+
+            <!-- 设置区域 -->
+            <div class="settings-section">
+                <div class="section-title">
+                    <span>⚙️</span>
+                    <span data-i18n="settingsTitle">Compression Settings</span>
+                </div>
+                <div class="settings-grid">
+                    <!-- 压缩质量 -->
+                    <div class="setting-group">
+                        <div class="setting-label">
+                            <span data-i18n="qualityLabel">Compression Quality</span> <span class="setting-value" id="qualityValue">80%</span>
+                        </div>
+                        <div class="slider-container">
+                            <span style="font-size: 0.8rem; color: #71717a;" data-i18n="qualityLow">Low</span>
+                            <input type="range" id="qualitySlider" min="10" max="100" value="80" oninput="updateQuality()">
+                            <span style="font-size: 0.8rem; color: #71717a;" data-i18n="qualityHigh">High</span>
+                        </div>
+                        <div style="font-size: 0.8rem; color: #71717a; margin-top: 4px;" data-i18n="qualityTip">
+                            Recommended: 60-80% for good balance between compression ratio and clarity
+                        </div>
+                    </div>
+
+                    <!-- 输出格式 -->
+                    <div class="setting-group">
+                        <div class="setting-label" data-i18n="formatLabel">Output Format</div>
+                        <div class="format-options">
+                            <label class="format-option">
+                                <input type="radio" name="format" value="original" checked>
+                                <span class="format-label" data-i18n="formatOriginal">Keep Original</span>
+                            </label>
+                            <label class="format-option">
+                                <input type="radio" name="format" value="jpeg">
+                                <span class="format-label">JPEG</span>
+                            </label>
+                            <label class="format-option">
+                                <input type="radio" name="format" value="webp">
+                                <span class="format-label">WebP</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 调整尺寸 -->
+                    <div class="setting-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="resizeCheck">
+                            <label class="checkbox-label" for="resizeCheck">
+                                <span class="checkbox-icon">✓</span>
+                                <span data-i18n="resizeLabel">Resize Image</span>
+                            </label>
+                        </div>
+                        <div class="size-inputs" id="sizeInputs" style="display: none;">
+                            <span data-i18n="maxWidth">Max Width</span>
+                            <input type="number" id="maxWidth" value="1920" min="100" max="10000">
+                            <span>×</span>
+                            <input type="number" id="maxHeight" value="1080" min="100" max="10000">
+                            <span>px</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 图片列表 -->
+            <div class="images-section" id="imagesSection">
+                <div class="images-header">
+                    <div class="images-count">
+                        <span data-i18n="selectedCount">Selected</span> <span id="imageCount">0</span> <span data-i18n="imagesText">images</span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="action-btn secondary" onclick="clearAll()">
+                            <span>🗑️</span>
+                            <span data-i18n="clearAll">Clear All</span>
+                        </button>
+                        <button class="action-btn primary" id="compressBtn" onclick="compressAll()">
+                            <span>⚡</span>
+                            <span data-i18n="startCompress">Start Compression</span>
+                        </button>
+                        <button class="action-btn primary" id="downloadAllBtn" onclick="downloadAll()" style="display: none;">
+                            <span>💾</span>
+                            <span data-i18n="downloadAll">Download All</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="images-grid" id="imagesGrid"></div>
+            </div>
+
+            <!-- 统计 -->
+            <div class="stats-section" id="statsSection">
+                <div class="section-title">
+                    <span>📊</span>
+                    <span data-i18n="statsTitle">Compression Statistics</span>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value" id="totalImages">0</div>
+                        <div class="stat-label" data-i18n="statImages">Images</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="originalTotal">0 MB</div>
+                        <div class="stat-label" data-i18n="statOriginal">Original Size</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="compressedTotal">0 MB</div>
+                        <div class="stat-label" data-i18n="statCompressed">Compressed Size</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="savedTotal">0%</div>
+                        <div class="stat-label" data-i18n="statSaved">Space Saved</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <section class="faq-section">
+            <h2 class="faq-title"><span data-i18n="faqTitle">FAQ</span></h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question" data-i18n="faq1Q">How does image compression work?</div>
+                    <div class="faq-answer"><p data-i18n="faq1A">Image compression reduces file size by adjusting quality parameters and optimizing encoding. Our tool uses the browser's built-in Canvas API for lossy compression, removing imperceptible visual details while maintaining overall image clarity.</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" data-i18n="faq2Q">Which image formats are supported?</div>
+                    <div class="faq-answer"><p data-i18n="faq2A">Supports JPEG, PNG, WebP, GIF and other common image formats. You can batch upload multiple images and compress them all at once with customizable quality settings.</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" data-i18n="faq3Q">Will compression reduce image quality?</div>
+                    <div class="faq-answer"><p data-i18n="faq3A">You can control the balance between file size and quality using the quality slider. At 70-80% quality, most images show no visible quality loss while achieving significant size reduction.</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" data-i18n="faq4Q">Is there a file size limit?</div>
+                    <div class="faq-answer"><p data-i18n="faq4A">Since all processing happens in your browser, there's no server-imposed file size limit. However, very large images may take longer to process depending on your device's performance.</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" data-i18n="faq5Q">Can I compress multiple images at once?</div>
+                    <div class="faq-answer"><p data-i18n="faq5A">Yes, you can select or drag multiple images at once. All images will be compressed with the same quality settings, and you can download them individually or as a batch ZIP file.</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" data-i18n="faq_free_q">Is this tool really free? Is it safe?</div>
+                    <div class="faq-answer"><p data-i18n="faq_free_a">Yes, 100% free with no ads, no registration, no watermark, and no usage limits. All processing happens locally in your browser — your data is never uploaded to any server.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 相关工具 -->
+        <section class="related-tools">
+            <h3 data-i18n="relatedToolsTitle">Related Tools</h3>
+            <div class="related-grid">
+                <a href="image-converter.html" class="related-card">
+                    <div class="related-icon">🔄</div>
+                    <h4 data-i18n="relatedTool1">Image Converter</h4>
+                </a>
+                <a href="ico-maker.html" class="related-card">
+                    <div class="related-icon">🎨</div>
+                    <h4 data-i18n="relatedTool2">ICO Maker</h4>
+                </a>
+                <a href="image-to-pdf.html" class="related-card">
+                    <div class="related-icon">📄</div>
+                    <h4 data-i18n="relatedTool3">Image to PDF</h4>
+                </a>
+                <a href="bg-remover.html" class="related-card">
+                    <div class="related-icon">✂️</div>
+                    <h4 data-i18n="relatedTool4">Background Remover</h4>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // ==================== 多语言支持 ====================
+        const i18n = {
+            'en': {
+                tool_name: 'Image Compressor',
+                relatedToolsTitle: 'Related Tools',
+                relatedTool1: 'Image Converter',
+                relatedTool2: 'ICO Maker',
+                relatedTool3: 'Image to PDF',
+                relatedTool4: 'Background Remover',
+                title: '📦 Image Compressor',
+                subtitle: 'Batch compress images, significantly reduce file size while maintaining clarity',
+                feature1Title: '100% Free & Private',
+                feature1Desc: 'No ads, no signup, no watermark. Everything runs locally in your browser. Your data never leaves your device.',
+                feature2Title: 'Batch Processing',
+                feature2Desc: 'Compress multiple images simultaneously, improving work efficiency',
+                feature3Title: 'Adjustable Quality',
+                feature3Desc: 'Customize compression quality, from extreme compression to lossless',
+                feature4Title: 'Real-time Comparison',
+                feature4Desc: 'Preview before and after compression, visually see the compression effect',
+                uploadTitle: 'Drag images here, or click to select',
+                uploadHint: 'Supports JPG, PNG, GIF, WebP formats, batch upload available',
+                selectImages: 'Select Images',
+                selectFolder: 'Select Folder',
+                settingsTitle: 'Compression Settings',
+                qualityLabel: 'Compression Quality',
+                qualityLow: 'Low',
+                qualityHigh: 'High',
+                qualityTip: 'Recommended: 60-80% for good balance between compression ratio and clarity',
+                formatLabel: 'Output Format',
+                formatOriginal: 'Keep Original',
+                resizeLabel: 'Resize Image',
+                maxWidth: 'Max Width',
+                selectedCount: 'Selected',
+                imagesText: 'images',
+                clearAll: 'Clear All',
+                startCompress: 'Start Compression',
+                compressing: 'Compressing...',
+                downloadAll: 'Download All',
+                statsTitle: 'Compression Statistics',
+                statImages: 'Images',
+                statOriginal: 'Original Size',
+                statCompressed: 'Compressed Size',
+                statSaved: 'Space Saved',
+                footerNote: 'Pure frontend processing, images are not uploaded to server',
+                footerBack: '← Back to Web Toolbox',
+                statusPending: 'Pending',
+                statusProcessing: 'Processing',
+                statusDone: 'Done',
+                statusError: 'Error',
+                statusOptimal: 'Optimal',
+                btnDownload: 'Download',
+                btnRemove: 'Remove',
+                confirmClear: 'Are you sure you want to clear all images?',
+                alertSelectImages: 'Please select image files!',
+                faqTitle: 'Frequently Asked Questions',
+                faq1Q: 'What image formats are supported?',
+                faq1A: 'Supports JPG, PNG, WebP, GIF and other common image formats. You can directly drag or select these format images for compression.',
+                faq2Q: 'Will compression reduce image quality?',
+                faq2A: 'There will be slight loss, but you can control it by adjusting compression quality. We recommend setting it above 80%, where the difference is barely noticeable to the human eye while achieving good compression.',
+                faq3Q: 'How many images can be compressed at once?',
+                faq3A: 'Depends on browser memory and device performance, we recommend not exceeding 50 images at a time. For larger images, consider reducing the quantity to ensure smooth processing.',
+                faq4Q: 'Will images be uploaded to a server?',
+                faq4A: 'No. All compression processing is done entirely in your local browser. Image data is never uploaded to any server, ensuring your privacy and data security.',
+                faq5Q: 'Can PNG images be compressed losslessly?',
+                faq5A: 'PNG uses lossless compression algorithm, which can reduce size through optimization without losing quality. This tool intelligently selects the optimal compression scheme, automatically applying lossless optimization when keeping the original format.',
+                relatedTools: 'Related Tools',
+                relatedImageConverter: 'Image Converter',
+                relatedImageConverterDesc: 'WebP/PNG/JPG conversion',
+                relatedImageEditor: 'Image Editor',
+                relatedImageEditorDesc: 'Online image editing and cropping',
+                relatedIcoMaker: 'ICO Maker',
+                relatedIcoMakerDesc: 'Generate multi-size ICO icons',
+                relatedImageToPdf: 'Image to PDF',
+                relatedImageToPdfDesc: 'Merge images into PDF',
+                faq_free_q: 'Is this tool really free with no ads?',
+                faq_free_a: 'Yes, 100% free with no ads, no registration, no watermark, and no usage limits. All processing happens locally in your browser — your data is never uploaded to any server.',
+                trust_users: '🌍 Used by 50,000+ users',
+                trust_rating: '⭐ 4.9/5 rating',
+                trust_privacy: '🔒 100% Private',
+                trust_free: '🚫 No Ads, No Signup'
+            },
+            'zh-CN': {
+                tool_name: '图片压缩',
+                relatedToolsTitle: '相关工具',
+                relatedTool1: '图片格式转换',
+                relatedTool2: 'ICO 图标制作',
+                relatedTool3: '图片转 PDF',
+                relatedTool4: '背景去除',
+                title: '📦 图片压缩工具',
+                subtitle: '批量压缩图片，保持清晰度的同时大幅减小文件体积',
+                feature1Title: '100% 免费且安全',
+                feature1Desc: '无广告、无需注册、无水印。所有处理都在浏览器本地完成，数据不会上传到任何服务器。',
+                feature2Title: '批量处理',
+                feature2Desc: '支持同时压缩多张图片，提高工作效率',
+                feature3Title: '质量可调',
+                feature3Desc: '可自定义压缩质量，从极限压缩到无损压缩',
+                feature4Title: '实时对比',
+                feature4Desc: '压缩前后对比预览，直观查看压缩效果',
+                uploadTitle: '拖拽图片到这里，或点击选择',
+                uploadHint: '支持 JPG、PNG、GIF、WebP 格式，可批量上传',
+                selectImages: '选择图片',
+                selectFolder: '选择文件夹',
+                settingsTitle: '压缩设置',
+                qualityLabel: '压缩质量',
+                qualityLow: '低',
+                qualityHigh: '高',
+                qualityTip: '建议：60-80% 可获得较好的压缩比和清晰度平衡',
+                formatLabel: '输出格式',
+                formatOriginal: '保持原格式',
+                resizeLabel: '调整图片尺寸',
+                maxWidth: '最大宽度',
+                selectedCount: '已选择',
+                imagesText: '张图片',
+                clearAll: '清空全部',
+                startCompress: '开始压缩',
+                compressing: '压缩中...',
+                downloadAll: '下载全部',
+                statsTitle: '压缩统计',
+                statImages: '图片数量',
+                statOriginal: '原始大小',
+                statCompressed: '压缩后大小',
+                statSaved: '节省空间',
+                footerNote: '纯前端处理，图片不会上传到服务器',
+                footerBack: '← 返回 Web Toolbox',
+                statusPending: '待压缩',
+                statusProcessing: '压缩中',
+                statusDone: '已完成',
+                statusError: '错误',
+                statusOptimal: '已是最优',
+                btnDownload: '下载',
+                btnRemove: '移除',
+                confirmClear: '确定要清空所有图片吗？',
+                alertSelectImages: '请选择图片文件！',
+                faqTitle: '常见问题',
+                faq1Q: '支持哪些图片格式？',
+                faq1A: '支持 JPG、PNG、WebP、GIF 等常见图片格式。您可以直接拖拽或选择这些格式的图片进行压缩处理。',
+                faq2Q: '压缩后图片质量会下降吗？',
+                faq2A: '会有轻微损失，但可通过调节压缩质量控制。建议设置在 80% 以上，此时人眼几乎难以察觉画质差异，同时能获得较好的压缩效果。',
+                faq3Q: '最多可以同时压缩多少张图片？',
+                faq3A: '取决于浏览器内存和设备性能，建议单次不超过 50 张。如果图片尺寸较大，建议适当减少数量以保证处理流畅。',
+                faq4Q: '图片会上传到服务器吗？',
+                faq4A: '不会。所有压缩处理完全在您的浏览器本地完成，图片数据不会上传到任何服务器，确保您的隐私和数据安全。',
+                faq5Q: 'PNG 图片可以无损压缩吗？',
+                faq5A: 'PNG 采用无损压缩算法，可通过优化算法减小体积而不损失画质。本工具会智能选择最优压缩方案，在保持原格式时自动应用无损优化。',
+                relatedTools: '相关工具推荐',
+                relatedImageConverter: '图片格式转换',
+                relatedImageConverterDesc: 'WebP/PNG/JPG 互转',
+                relatedImageEditor: '图片编辑器',
+                relatedImageEditorDesc: '在线编辑裁剪图片',
+                relatedIcoMaker: 'ICO 图标制作',
+                relatedIcoMakerDesc: '生成多尺寸 ICO 图标',
+                relatedImageToPdf: '图片合并为PDF',
+                relatedImageToPdfDesc: '多图合并生成PDF',
+                faq_free_q: '这个工具真的完全免费无广告吗？',
+                faq_free_a: '是的，100% 免费，无广告、无需注册、无水印、无使用限制。所有处理都在浏览器本地完成。',
+                trust_users: '🌍 超过 50,000 用户使用',
+                trust_rating: '⭐ 4.9/5 好评',
+                trust_privacy: '🔒 100% 隐私安全',
+                trust_free: '🚫 无广告、无需注册'
+            },
+            'fr': {
+                tool_name: 'Compresseur d\'images',
+                relatedToolsTitle: 'Outils connexes',
+                relatedTool1: 'Convertisseur d\'images',
+                relatedTool2: 'Créateur ICO',
+                relatedTool3: 'Image en PDF',
+                relatedTool4: 'Suppression d\'arrière-plan',
+                title: '📦 Compresseur d\'images',
+                subtitle: 'Compressez des images en lot, réduisez considérablement la taille des fichiers tout en maintenant la clarté',
+                feature1Title: '100% Gratuit et Privé',
+                feature1Desc: 'Sans publicité, sans inscription, sans filigrane. Tout est traité localement dans votre navigateur.',
+                feature2Title: 'Traitement par lots',
+                feature2Desc: 'Compressez plusieurs images simultanément, améliorant l\'efficacité du travail',
+                feature3Title: 'Qualité ajustable',
+                feature3Desc: 'Personnalisez la qualité de compression, de la compression extrême à sans perte',
+                feature4Title: 'Comparaison en temps réel',
+                feature4Desc: 'Prévisualisez avant et après la compression, voyez visuellement l\'effet de compression',
+                uploadTitle: 'Faites glisser les images ici, ou cliquez pour sélectionner',
+                uploadHint: 'Prend en charge les formats JPG, PNG, GIF, WebP, téléchargement par lots disponible',
+                selectImages: 'Sélectionner des images',
+                selectFolder: 'Sélectionner un dossier',
+                settingsTitle: 'Paramètres de compression',
+                qualityLabel: 'Qualité de compression',
+                qualityLow: 'Basse',
+                qualityHigh: 'Haute',
+                qualityTip: 'Recommandé : 60-80% pour un bon équilibre entre taux de compression et clarté',
+                formatLabel: 'Format de sortie',
+                formatOriginal: 'Conserver l\'original',
+                resizeLabel: 'Redimensionner l\'image',
+                maxWidth: 'Largeur max',
+                selectedCount: 'Sélectionné',
+                imagesText: 'images',
+                clearAll: 'Tout effacer',
+                startCompress: 'Démarrer la compression',
+                compressing: 'Compression...',
+                downloadAll: 'Tout télécharger',
+                statsTitle: 'Statistiques de compression',
+                statImages: 'Images',
+                statOriginal: 'Taille originale',
+                statCompressed: 'Taille compressée',
+                statSaved: 'Espace économisé',
+                footerNote: 'Traitement frontend pur, les images ne sont pas téléchargées sur le serveur',
+                footerBack: '← Retour à Web Toolbox',
+                statusPending: 'En attente',
+                statusProcessing: 'Traitement',
+                statusDone: 'Terminé',
+                statusError: 'Erreur',
+                statusOptimal: 'Optimal',
+                btnDownload: 'Télécharger',
+                btnRemove: 'Supprimer',
+                confirmClear: 'Êtes-vous sûr de vouloir effacer toutes les images ?',
+                alertSelectImages: 'Veuillez sélectionner des fichiers image !',
+                faqTitle: 'Questions fréquentes',
+                faq1Q: 'Quels formats d\'image sont pris en charge ?',
+                faq1A: 'Prend en charge JPG, PNG, WebP, GIF et autres formats d\'image courants. Vous pouvez directement glisser ou sélectionner ces formats d\'images pour la compression.',
+                faq2Q: 'La compression réduira-t-elle la qualité de l\'image ?',
+                faq2A: 'Il y aura une légère perte, mais vous pouvez la contrôler en ajustant la qualité de compression. Nous recommandons de la régler au-dessus de 80%, où la différence est à peine perceptible à l\'œil nu tout en obtenant une bonne compression.',
+                faq3Q: 'Combien d\'images peuvent être compressées à la fois ?',
+                faq3A: 'Cela dépend de la mémoire du navigateur et des performances de l\'appareil, nous recommandons de ne pas dépasser 50 images à la fois. Pour les images plus grandes, envisagez de réduire la quantité pour assurer un traitement fluide.',
+                faq4Q: 'Les images seront-elles téléchargées sur un serveur ?',
+                faq4A: 'Non. Tout le traitement de compression est effectué entièrement dans votre navigateur local. Les données d\'image ne sont jamais téléchargées sur aucun serveur, assurant votre confidentialité et la sécurité des données.',
+                faq5Q: 'Les images PNG peuvent-elles être compressées sans perte ?',
+                faq5A: 'PNG utilise un algorithme de compression sans perte, qui peut réduire la taille par optimisation sans perdre en qualité. Cet outil sélectionne intelligemment le schéma de compression optimal, appliquant automatiquement l\'optimisation sans perte lors de la conservation du format original.',
+                relatedTools: 'Outils connexes',
+                relatedImageConverter: 'Convertisseur d\'images',
+                relatedImageConverterDesc: 'Conversion WebP/PNG/JPG',
+                relatedImageEditor: 'Éditeur d\'images',
+                relatedImageEditorDesc: 'Édition et recadrage d\'images en ligne',
+                relatedIcoMaker: 'Créateur ICO',
+                relatedIcoMakerDesc: 'Générer des icônes ICO multi-tailles',
+                relatedImageToPdf: 'Image vers PDF',
+                relatedImageToPdfDesc: 'Fusionner des images en PDF',
+                faq_free_q: 'Cet outil est-il vraiment gratuit sans publicité ?',
+                faq_free_a: 'Oui, 100% gratuit sans publicité, sans inscription, sans filigrane et sans limite d\'utilisation.',
+                trust_users: '🌍 Utilisé par 50 000+ utilisateurs',
+                trust_rating: '⭐ Note 4.9/5',
+                trust_privacy: '🔒 100% Privé',
+                trust_free: '🚫 Sans pub, sans inscription'
+            },
+            'es': {
+                tool_name: 'Compresor de imágenes',
+                relatedToolsTitle: 'Herramientas relacionadas',
+                relatedTool1: 'Convertidor de imágenes',
+                relatedTool2: 'Creador de ICO',
+                relatedTool3: 'Imagen a PDF',
+                relatedTool4: 'Eliminador de fondo',
+                title: '📦 Compresor de imágenes',
+                subtitle: 'Comprima imágenes en lote, reduzca significativamente el tamaño del archivo manteniendo la claridad',
+                feature1Title: '100% Gratis y Privado',
+                feature1Desc: 'Sin anuncios, sin registro, sin marca de agua. Todo se procesa localmente en tu navegador.',
+                feature2Title: 'Procesamiento por lotes',
+                feature2Desc: 'Comprima múltiples imágenes simultáneamente, mejorando la eficiencia del trabajo',
+                feature3Title: 'Calidad ajustable',
+                feature3Desc: 'Personalice la calidad de compresión, desde compresión extrema hasta sin pérdidas',
+                feature4Title: 'Comparación en tiempo real',
+                feature4Desc: 'Vista previa antes y después de la compresión, vea visualmente el efecto de compresión',
+                uploadTitle: 'Arrastre imágenes aquí, o haga clic para seleccionar',
+                uploadHint: 'Soporta formatos JPG, PNG, GIF, WebP, carga por lotes disponible',
+                selectImages: 'Seleccionar imágenes',
+                selectFolder: 'Seleccionar carpeta',
+                settingsTitle: 'Configuración de compresión',
+                qualityLabel: 'Calidad de compresión',
+                qualityLow: 'Baja',
+                qualityHigh: 'Alta',
+                qualityTip: 'Recomendado: 60-80% para un buen equilibrio entre ratio de compresión y claridad',
+                formatLabel: 'Formato de salida',
+                formatOriginal: 'Mantener original',
+                resizeLabel: 'Redimensionar imagen',
+                maxWidth: 'Ancho máx',
+                selectedCount: 'Seleccionado',
+                imagesText: 'imágenes',
+                clearAll: 'Limpiar todo',
+                startCompress: 'Iniciar compresión',
+                compressing: 'Comprimiendo...',
+                downloadAll: 'Descargar todo',
+                statsTitle: 'Estadísticas de compresión',
+                statImages: 'Imágenes',
+                statOriginal: 'Tamaño original',
+                statCompressed: 'Tamaño comprimido',
+                statSaved: 'Espacio ahorrado',
+                footerNote: 'Procesamiento frontend puro, las imágenes no se suben al servidor',
+                footerBack: '← Volver a Web Toolbox',
+                statusPending: 'Pendiente',
+                statusProcessing: 'Procesando',
+                statusDone: 'Completado',
+                statusError: 'Error',
+                statusOptimal: 'Óptimo',
+                btnDownload: 'Descargar',
+                btnRemove: 'Eliminar',
+                confirmClear: '¿Está seguro de que desea eliminar todas las imágenes?',
+                alertSelectImages: '¡Por favor seleccione archivos de imagen!',
+                faqTitle: 'Preguntas frecuentes',
+                faq1Q: '¿Qué formatos de imagen son compatibles?',
+                faq1A: 'Soporta JPG, PNG, WebP, GIF y otros formatos de imagen comunes. Puede arrastrar directamente o seleccionar estas imágenes de formato para compresión.',
+                faq2Q: '¿La compresión reducirá la calidad de la imagen?',
+                faq2A: 'Habrá una ligera pérdida, pero puede controlarla ajustando la calidad de compresión. Recomendamos configurarla por encima del 80%, donde la diferencia es apenas perceptible para el ojo humano mientras se logra una buena compresión.',
+                faq3Q: '¿Cuántas imágenes se pueden comprimir a la vez?',
+                faq3A: 'Depende de la memoria del navegador y el rendimiento del dispositivo, recomendamos no exceder 50 imágenes a la vez. Para imágenes más grandes, considere reducir la cantidad para asegurar un procesamiento fluido.',
+                faq4Q: '¿Las imágenes se subirán a un servidor?',
+                faq4A: 'No. Todo el procesamiento de compresión se realiza completamente en su navegador local. Los datos de imagen nunca se suben a ningún servidor, asegurando su privacidad y seguridad de datos.',
+                faq5Q: '¿Se pueden comprimir imágenes PNG sin pérdidas?',
+                faq5A: 'PNG utiliza algoritmo de compresión sin pérdidas, que puede reducir el tamaño mediante optimización sin perder calidad. Esta herramienta selecciona inteligentemente el esquema de compresión óptimo, aplicando automáticamente optimización sin pérdidas al mantener el formato original.',
+                relatedTools: 'Herramientas relacionadas',
+                relatedImageConverter: 'Convertidor de imágenes',
+                relatedImageConverterDesc: 'Conversión WebP/PNG/JPG',
+                relatedImageEditor: 'Editor de imágenes',
+                relatedImageEditorDesc: 'Edición y recorte de imágenes en línea',
+                relatedIcoMaker: 'Creador de ICO',
+                relatedIcoMakerDesc: 'Generar iconos ICO de múltiples tamaños',
+                relatedImageToPdf: 'Imagen a PDF',
+                relatedImageToPdfDesc: 'Fusionar imágenes en PDF',
+                faq_free_q: '¿Esta herramienta es realmente gratuita sin anuncios?',
+                faq_free_a: 'Sí, 100% gratuita sin anuncios, sin registro, sin marca de agua y sin límites de uso.',
+                trust_users: '🌍 Usado por más de 50,000 usuarios',
+                trust_rating: '⭐ Calificación 4.9/5',
+                trust_privacy: '🔒 100% Privado',
+                trust_free: '🚫 Sin anuncios, sin registro'
+            }
+        };
+
+        // 获取当前语言
+        function getLang() {
+            return (typeof WebToolbox !== 'undefined') ? WebToolbox.getCurrentLang() : (localStorage.getItem('toolbox_lang') || 'en');
+        }
+
+        // ==================== 图片压缩功能 ====================
+        let images = [];
+        let compressedImages = [];
+
+        // 拖拽上传
+        const uploadArea = document.getElementById('uploadArea');
+
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            handleFiles(e.dataTransfer.files);
+        });
+
+        uploadArea.addEventListener('click', (e) => {
+            if (e.target.tagName !== 'BUTTON') {
+                document.getElementById('fileInput').click();
+            }
+        });
+
+        // 文件选择
+        document.getElementById('fileInput').addEventListener('change', (e) => {
+            handleFiles(e.target.files);
+        });
+
+        document.getElementById('folderInput').addEventListener('change', (e) => {
+            handleFiles(e.target.files);
+        });
+
+        // 调整尺寸开关
+        document.getElementById('resizeCheck').addEventListener('change', (e) => {
+            document.getElementById('sizeInputs').style.display = e.target.checked ? 'flex' : 'none';
+        });
+
+        // 更新质量显示
+        function updateQuality() {
+            const value = document.getElementById('qualitySlider').value;
+            document.getElementById('qualityValue').textContent = value + '%';
+        }
+
+        // 处理文件
+        function handleFiles(files) {
+            const imageFiles = Array.from(files).filter(file => file.type.startsWith('image/'));
+
+            if (imageFiles.length === 0) {
+                alert(i18n[getLang()].alertSelectImages);
+                return;
+            }
+
+            imageFiles.forEach(file => {
+                const id = Date.now() + Math.random().toString(36).substr(2, 9);
+                const reader = new FileReader();
+
+                reader.onload = (e) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        images.push({
+                            id,
+                            file,
+                            name: file.name,
+                            originalSize: file.size,
+                            width: img.width,
+                            height: img.height,
+                            dataUrl: e.target.result,
+                            status: 'pending',
+                            compressed: null
+                        });
+                        renderImages();
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        // 渲染图片列表
+        function renderImages() {
+            const grid = document.getElementById('imagesGrid');
+            const section = document.getElementById('imagesSection');
+            const texts = i18n[getLang()];
+
+            if (images.length === 0) {
+                section.classList.remove('show');
+                return;
+            }
+
+            section.classList.add('show');
+            document.getElementById('imageCount').textContent = images.length;
+
+            grid.innerHTML = images.map(img => `
+                <div class="image-card ${img.status}" id="card-${img.id}">
+                    <div class="image-preview">
+                        <img src="${img.compressed ? img.compressed.dataUrl : img.dataUrl}" alt="${img.name}">
+                        <span class="image-status status-${img.status}">
+                            ${img.status === 'pending' ? texts.statusPending : img.status === 'processing' ? texts.statusProcessing : img.status === 'done' ? texts.statusDone : texts.statusError}
+                        </span>
+                    </div>
+                    <div class="image-info">
+                        <div class="image-name" title="${img.name}">${img.name}</div>
+                        <div class="image-details">
+                            <div class="size-compare">
+                                ${img.compressed ? `
+                                    <span class="original-size">${formatSize(img.originalSize)}</span>
+                                    <span>→</span>
+                                    <span class="compressed-size">${formatSize(img.compressed.size)}</span>
+                                ` : `
+                                    <span>${formatSize(img.originalSize)}</span>
+                                `}
+                            </div>
+                            ${img.compressed ? (() => {
+                                const ratio = Math.round((1 - img.compressed.size / img.originalSize) * 100);
+                                if (img.compressed.keptOriginal) {
+                                    return '<span class="compression-ratio kept">' + texts.statusOptimal + '</span>';
+                                } else if (ratio > 0) {
+                                    return '<span class="compression-ratio">-' + ratio + '%</span>';
+                                } else if (ratio < 0) {
+                                    return '<span class="compression-ratio negative">+' + Math.abs(ratio) + '%</span>';
+                                } else {
+                                    return '<span class="compression-ratio">0%</span>';
+                                }
+                            })() : `
+                                <span>${img.width}×${img.height}</span>
+                            `}
+                        </div>
+                        ${img.status === 'processing' ? `
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 50%;"></div>
+                            </div>
+                        ` : ''}
+                        ${img.status === 'done' ? `
+                            <div class="image-actions">
+                                <button class="image-action-btn download" onclick="downloadImage('${img.id}')">${texts.btnDownload}</button>
+                                <button class="image-action-btn remove" onclick="removeImage('${img.id}')">${texts.btnRemove}</button>
+                            </div>
+                        ` : ''}
+                    </div>
+                </div>
+            `).join('');
+
+            updateStats();
+        }
+
+        // 格式化文件大小
+        function formatSize(bytes) {
+            if (bytes < 1024) return bytes + ' B';
+            if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+            return (bytes / (1024 * 1024)).toFixed(2) + ' MB';
+        }
+
+        // 压缩所有图片
+        async function compressAll() {
+            const btn = document.getElementById('compressBtn');
+            const texts = i18n[getLang()];
+            btn.disabled = true;
+            btn.innerHTML = '<span>⏳</span><span>' + texts.compressing + '</span>';
+
+            const quality = document.getElementById('qualitySlider').value / 100;
+            const format = document.querySelector('input[name="format"]:checked').value;
+            const resize = document.getElementById('resizeCheck').checked;
+            const maxWidth = parseInt(document.getElementById('maxWidth').value) || 1920;
+            const maxHeight = parseInt(document.getElementById('maxHeight').value) || 1080;
+
+            for (let i = 0; i < images.length; i++) {
+                if (images[i].status === 'done') continue;
+
+                images[i].status = 'processing';
+                renderImages();
+
+                try {
+                    const result = await compressImage(images[i], quality, format, resize, maxWidth, maxHeight);
+                    images[i].compressed = result;
+                    images[i].status = 'done';
+                } catch (error) {
+                    console.error('Compression failed:', error);
+                    images[i].status = 'error';
+                }
+
+                renderImages();
+            }
+
+            btn.disabled = false;
+            btn.innerHTML = '<span>⚡</span><span>' + texts.startCompress + '</span>';
+
+            // 显示下载全部按钮
+            const completedCount = images.filter(img => img.status === 'done').length;
+            if (completedCount > 0) {
+                document.getElementById('downloadAllBtn').style.display = 'inline-flex';
+                document.getElementById('statsSection').classList.add('show');
+            }
+        }
+
+        // 压缩单张图片
+        function compressImage(imgData, quality, format, resize, maxWidth, maxHeight) {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.onload = () => {
+                    let width = img.width;
+                    let height = img.height;
+                    const originalSize = imgData.originalSize;
+                    const needResize = resize && (width > maxWidth || height > maxHeight);
+
+                    // 调整尺寸
+                    if (needResize) {
+                        const ratio = Math.min(maxWidth / width, maxHeight / height);
+                        width = Math.round(width * ratio);
+                        height = Math.round(height * ratio);
+                    }
+
+                    const canvas = document.createElement('canvas');
+                    canvas.width = width;
+                    canvas.height = height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, width, height);
+
+                    // 确定输出格式
+                    let mimeType = 'image/jpeg';
+                    let ext = 'jpg';
+                    const isPng = imgData.file.type === 'image/png';
+                    const isGif = imgData.file.type === 'image/gif';
+
+                    if (format === 'original') {
+                        if (isPng) {
+                            mimeType = 'image/png';
+                            ext = 'png';
+                        } else if (imgData.file.type === 'image/webp') {
+                            mimeType = 'image/webp';
+                            ext = 'webp';
+                        } else if (isGif) {
+                            // GIF 转换为 PNG 保持透明度
+                            mimeType = 'image/png';
+                            ext = 'png';
+                        }
+                    } else if (format === 'webp') {
+                        mimeType = 'image/webp';
+                        ext = 'webp';
+                    } else {
+                        mimeType = 'image/jpeg';
+                        ext = 'jpg';
+                    }
+
+                    // 尝试压缩
+                    const tryCompress = (targetMime, targetExt, targetQuality) => {
+                        return new Promise((res) => {
+                            canvas.toBlob((blob) => {
+                                if (!blob) {
+                                    res(null);
+                                    return;
+                                }
+                                res({ blob, mimeType: targetMime, ext: targetExt });
+                            }, targetMime, targetQuality);
+                        });
+                    };
+
+                    // 多策略压缩：尝试多种方式，选择最小的
+                    const compressWithBestResult = async () => {
+                        const candidates = [];
+
+                        // 策略1: 用户选择的格式
+                        const primary = await tryCompress(mimeType, ext, quality);
+                        if (primary) candidates.push(primary);
+
+                        // 策略2: 对于PNG/GIF，如果用户选择保持原格式，也尝试WebP和JPEG
+                        if (format === 'original' && (isPng || isGif)) {
+                            // 尝试 WebP（支持透明度）
+                            const webpResult = await tryCompress('image/webp', 'webp', quality);
+                            if (webpResult) candidates.push(webpResult);
+
+                            // 如果质量设置较低，也尝试JPEG（不支持透明，但压缩率高）
+                            if (quality <= 0.85) {
+                                const jpegResult = await tryCompress('image/jpeg', 'jpg', quality);
+                                if (jpegResult) candidates.push(jpegResult);
+                            }
+                        }
+
+                        // 选择最小的结果
+                        if (candidates.length === 0) {
+                            reject(new Error('Compression failed'));
+                            return;
+                        }
+
+                        candidates.sort((a, b) => a.blob.size - b.blob.size);
+                        const best = candidates[0];
+
+                        // 关键：如果压缩后比原文件还大，且没有调整尺寸，则使用原文件
+                        if (best.blob.size >= originalSize && !needResize) {
+                            // 使用原文件
+                            const originalExt = imgData.name.split('.').pop().toLowerCase();
+                            resolve({
+                                blob: imgData.file,
+                                dataUrl: imgData.dataUrl,
+                                size: originalSize,
+                                width: img.width,
+                                height: img.height,
+                                ext: originalExt,
+                                mimeType: imgData.file.type,
+                                keptOriginal: true  // 标记保留了原文件
+                            });
+                            return;
+                        }
+
+                        // 使用压缩结果
+                        const reader = new FileReader();
+                        reader.onload = () => {
+                            resolve({
+                                blob: best.blob,
+                                dataUrl: reader.result,
+                                size: best.blob.size,
+                                width,
+                                height,
+                                ext: best.ext,
+                                mimeType: best.mimeType,
+                                keptOriginal: false
+                            });
+                        };
+                        reader.readAsDataURL(best.blob);
+                    };
+
+                    compressWithBestResult();
+                };
+                img.onerror = reject;
+                img.src = imgData.dataUrl;
+            });
+        }
+
+        // 更新统计
+        function updateStats() {
+            const completed = images.filter(img => img.status === 'done');
+            if (completed.length === 0) return;
+
+            const originalTotal = completed.reduce((sum, img) => sum + img.originalSize, 0);
+            const compressedTotal = completed.reduce((sum, img) => sum + img.compressed.size, 0);
+            const saved = originalTotal > 0 ? ((1 - compressedTotal / originalTotal) * 100) : 0;
+
+            document.getElementById('totalImages').textContent = completed.length;
+            document.getElementById('originalTotal').textContent = formatSize(originalTotal);
+            document.getElementById('compressedTotal').textContent = formatSize(compressedTotal);
+
+            const savedEl = document.getElementById('savedTotal');
+            if (saved > 0) {
+                savedEl.textContent = '-' + saved.toFixed(1) + '%';
+                savedEl.style.color = '#86efac';
+            } else if (saved < 0) {
+                savedEl.textContent = '+' + Math.abs(saved).toFixed(1) + '%';
+                savedEl.style.color = '#fca5a5';
+            } else {
+                savedEl.textContent = '0%';
+                savedEl.style.color = '#93c5fd';
+            }
+        }
+
+        // 下载单张图片
+        function downloadImage(id) {
+            const img = images.find(i => i.id === id);
+            if (!img || !img.compressed) return;
+
+            const link = document.createElement('a');
+            const nameWithoutExt = img.name.replace(/\.[^/.]+$/, '');
+            link.download = `${nameWithoutExt}.${img.compressed.ext}`;
+            link.href = img.compressed.dataUrl;
+            link.click();
+        }
+
+        // 下载全部
+        async function downloadAll() {
+            const completed = images.filter(img => img.status === 'done');
+            if (completed.length === 0) return;
+
+            if (completed.length === 1) {
+                downloadImage(completed[0].id);
+                return;
+            }
+
+            // 使用 JSZip 打包（如果可用），否则逐个下载
+            if (typeof JSZip === 'undefined') {
+                // 逐个下载
+                for (const img of completed) {
+                    await new Promise(resolve => {
+                        downloadImage(img.id);
+                        setTimeout(resolve, 300);
+                    });
+                }
+            } else {
+                const zip = new JSZip();
+                completed.forEach(img => {
+                    const nameWithoutExt = img.name.replace(/\.[^/.]+$/, '');
+                    const base64Data = img.compressed.dataUrl.split(',')[1];
+                    zip.file(`${nameWithoutExt}.${img.compressed.ext}`, base64Data, { base64: true });
+                });
+
+                const content = await zip.generateAsync({ type: 'blob' });
+                const link = document.createElement('a');
+                link.download = 'compressed_images.zip';
+                link.href = URL.createObjectURL(content);
+                link.click();
+            }
+        }
+
+        // 移除图片
+        function removeImage(id) {
+            images = images.filter(img => img.id !== id);
+            renderImages();
+
+            if (images.filter(img => img.status === 'done').length === 0) {
+                document.getElementById('downloadAllBtn').style.display = 'none';
+                document.getElementById('statsSection').classList.remove('show');
+            }
+        }
+
+        // 清空全部
+        function clearAll() {
+            if (images.length > 0 && !confirm(i18n[getLang()].confirmClear)) return;
+            images = [];
+            renderImages();
+            document.getElementById('downloadAllBtn').style.display = 'none';
+            document.getElementById('statsSection').classList.remove('show');
+        }
+
+        // 暴露翻译对象供 common.js 使用
+        window._translations = i18n;
+    </script>
+
+    <!-- 可选：加载 JSZip 用于批量下载 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+    <script src="common/common.js" data-tool-id="image-compressor" data-tool-name="Image Compressor" data-category="image"></script>
+    <script>WebToolbox.init(window._translations);</script>
+</body>
+</html>

@@ -1,0 +1,1901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CT8E5N460D"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CT8E5N460D');</script>
+    <title>ICO Maker - Free Online PNG to ICO | No Ads, No Signup | ICO 图标制作 | Web Toolbox</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Free online ICO icon maker tool. Convert PNG, JPG, GIF images to ICO icon files. Supports cropping, multiple sizes from 16x16 to 512x512, real-time preview, one-click download. ✅ No ads ✅ No signup ✅ No watermark. Runs entirely in your browser.">
+    <meta name="keywords" content="ICO maker,ICO converter,PNG to ICO,JPG to ICO,icon maker,favicon maker,online ICO,icon generator,free tool, no ads, no signup, no watermark, no login, free unlimited, browser-based, no installation, local processing">
+    <meta name="author" content="heyuan110">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.heyuan110.com/web-toolbox/ico-maker.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.heyuan110.com/web-toolbox/ico-maker.html">
+    <meta property="og:title" content="ICO Maker - Free Online PNG to ICO | No Ads, No Signup | ICO 图标制作">
+    <meta property="og:description" content="Free online ICO icon maker. Convert PNG/JPG/GIF to ICO, multiple sizes, real-time preview.">
+    <meta property="og:image" content="https://www.heyuan110.com/web-toolbox/screenshots/ico-maker.png">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Web Toolbox">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ICO Maker - Free Online PNG to ICO | No Ads, No Signup | ICO 图标制作">
+    <meta name="twitter:description" content="Free online ICO icon maker. Convert PNG/JPG/GIF to ICO.">
+    <meta name="twitter:image" content="https://www.heyuan110.com/web-toolbox/screenshots/ico-maker.png">
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "ICO Icon Maker",
+        "alternateName": ["ICO图标制作", "Favicon Generator", "ICO Converter"],
+        "url": "https://www.heyuan110.com/web-toolbox/ico-maker.html",
+        "description": "Online convert PNG/JPG/GIF images to ICO icon files",
+        "applicationCategory": "DesignApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "featureList": ["No ads", "No signup required", "No watermark", "100% browser-based", "Unlimited usage", "Local processing"],
+        "author": {"@type": "Person", "name": "heyuan110"},
+        "publisher": {"@type": "Organization", "name": "Web Toolbox", "url": "https://www.heyuan110.com/web-toolbox/"},
+        "screenshot": "https://www.heyuan110.com/web-toolbox/screenshots/ico-maker.webp"
+        "alternateName": ["ICO图标制作", "Favicon Generator", "ICO Converter"],
+    }
+    </script>
+
+    <!-- FAQ JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is ICO format used for?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "ICO is the Windows icon format, used for desktop shortcuts, website favicons, etc. It can contain multiple icon sizes, and the system will automatically choose the appropriate size to display."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What image size is recommended?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We recommend using 256x256 or larger square images. The tool will automatically scale to generate various required sizes. Using high-resolution source images ensures quality after scaling."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it support transparent backgrounds?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, upload a PNG image with transparency to preserve the transparent areas. The generated ICO file will maintain the original image's alpha channel."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What sizes are included in the generated ICO?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It includes common sizes like 16x16, 32x32, 48x48, 64x64, 128x128, 256x256, etc. You can freely select which sizes to include."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can it be used for website favicon?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, the generated ICO file can be used directly as a website icon. Name the file favicon.ico and place it in the website root directory for browsers to automatically recognize it."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is this tool really free with no ads?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, 100% free with no ads, no registration, no watermark, and no usage limits. All processing happens locally in your browser — your data is never uploaded to any server."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #e4e4e7;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 40px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(120deg, #f093fb, #f5576c, #ffd89b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            color: #a1a1aa;
+            font-size: 1.1rem;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            transition: all 0.3s;
+        }
+
+        .step.active {
+            background: rgba(240, 147, 251, 0.2);
+            border-color: rgba(240, 147, 251, 0.5);
+        }
+
+        .step.completed {
+            background: rgba(34, 197, 94, 0.2);
+            border-color: rgba(34, 197, 94, 0.5);
+        }
+
+        .step-number {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .step.active .step-number {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+        }
+
+        .step.completed .step-number {
+            background: #22c55e;
+        }
+
+        .step-text {
+            font-size: 0.95rem;
+            color: #a1a1aa;
+        }
+
+        .step.active .step-text,
+        .step.completed .step-text {
+            color: #fff;
+        }
+
+        .main-content {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+        }
+
+        .upload-area {
+            border: 2px dashed rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 60px 40px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+            margin-bottom: 30px;
+        }
+
+        .upload-area:hover,
+        .upload-area.dragover {
+            border-color: #f093fb;
+            background: rgba(240, 147, 251, 0.1);
+        }
+
+        .upload-area.has-image {
+            border-style: solid;
+            border-color: rgba(34, 197, 94, 0.5);
+            background: rgba(34, 197, 94, 0.1);
+            padding: 30px;
+        }
+
+        .upload-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .upload-title {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .upload-hint {
+            color: #71717a;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .upload-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .upload-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(240, 147, 251, 0.4);
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        /* 裁剪区域 */
+        .crop-section {
+            display: none;
+            margin-bottom: 30px;
+        }
+
+        .crop-section.show {
+            display: block;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .crop-container {
+            position: relative;
+            display: inline-block;
+            max-width: 100%;
+            background: repeating-conic-gradient(#2a2a3e 0% 25%, #1a1a2e 0% 50%) 50% / 20px 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 16px;
+        }
+
+        .crop-image {
+            display: block;
+            max-width: 100%;
+            max-height: 400px;
+        }
+
+        .crop-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            pointer-events: none;
+        }
+
+        .crop-box {
+            position: absolute;
+            border: 2px solid #f093fb;
+            background: transparent;
+            cursor: move;
+            box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.6);
+        }
+
+        .crop-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 1px dashed rgba(255, 255, 255, 0.5);
+        }
+
+        /* 裁剪框网格线 */
+        .crop-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+        }
+
+        .crop-grid::before,
+        .crop-grid::after {
+            content: '';
+            position: absolute;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .crop-grid::before {
+            top: 33.33%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            box-shadow: 0 calc(33.33% * 2 - 33.33%) 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .crop-grid::after {
+            left: 33.33%;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            box-shadow: calc(33.33% * 2 - 33.33%) 0 0 rgba(255, 255, 255, 0.3);
+        }
+
+        /* 调整大小手柄 */
+        .crop-handle {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #fff;
+            border: 2px solid #f093fb;
+            border-radius: 50%;
+        }
+
+        .crop-handle.nw { top: -6px; left: -6px; cursor: nw-resize; }
+        .crop-handle.ne { top: -6px; right: -6px; cursor: ne-resize; }
+        .crop-handle.sw { bottom: -6px; left: -6px; cursor: sw-resize; }
+        .crop-handle.se { bottom: -6px; right: -6px; cursor: se-resize; }
+
+        .crop-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .crop-size-info {
+            color: #a1a1aa;
+            font-size: 0.9rem;
+        }
+
+        .crop-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .crop-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .crop-btn.primary {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            color: #fff;
+        }
+
+        .crop-btn.secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #a1a1aa;
+        }
+
+        .crop-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .crop-btn.primary:hover {
+            box-shadow: 0 8px 20px rgba(240, 147, 251, 0.4);
+        }
+
+        /* 预览区域 */
+        .preview-section {
+            display: none;
+            margin-bottom: 30px;
+        }
+
+        .preview-section.show {
+            display: block;
+        }
+
+        .preview-box {
+            background: repeating-conic-gradient(#2a2a3e 0% 25%, #1a1a2e 0% 50%) 50% / 20px 20px;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 150px;
+        }
+
+        .preview-box img {
+            max-width: 200px;
+            max-height: 200px;
+            border-radius: 8px;
+        }
+
+        .image-info {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: #71717a;
+            text-align: center;
+        }
+
+        /* 尺寸选择 */
+        .size-section {
+            margin-bottom: 30px;
+        }
+
+        .size-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+            gap: 12px;
+        }
+
+        .size-option {
+            position: relative;
+        }
+
+        .size-option input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .size-label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            padding: 14px 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .size-label:hover {
+            border-color: rgba(240, 147, 251, 0.5);
+        }
+
+        .size-option input:checked + .size-label {
+            background: rgba(240, 147, 251, 0.2);
+            border-color: #f093fb;
+        }
+
+        .size-icon {
+            font-size: 1.2rem;
+        }
+
+        .size-text {
+            font-size: 0.85rem;
+            color: #a1a1aa;
+        }
+
+        .size-option input:checked + .size-label .size-text {
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .multi-size-tip {
+            margin-top: 16px;
+            padding: 12px 16px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 10px;
+            font-size: 0.9rem;
+            color: #93c5fd;
+        }
+
+        .generate-section {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .generate-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .generate-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(34, 197, 94, 0.4);
+        }
+
+        .generate-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .result-section {
+            display: none;
+            margin-top: 30px;
+            padding: 30px;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .result-section.show {
+            display: block;
+        }
+
+        .result-icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+
+        .result-title {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .result-info {
+            color: #a1a1aa;
+            margin-bottom: 20px;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+        }
+
+        .ico-preview-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .ico-preview-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .ico-preview-box {
+            background: repeating-conic-gradient(#2a2a3e 0% 25%, #1a1a2e 0% 50%) 50% / 10px 10px;
+            border-radius: 8px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ico-size-label {
+            font-size: 0.8rem;
+            color: #71717a;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #71717a;
+        }
+
+        footer a {
+            color: #f093fb;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* 功能特点区块 */
+        .features-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(240, 147, 251, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+
+        .feature-title {
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .feature-desc {
+            color: #a1a1aa;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* FAQ 区块 */
+        .faq-section {
+            margin: 40px 0;
+        }
+
+        .faq-title {
+            color: #e6edf3;
+            font-size: 1.3rem;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 18px 24px;
+            color: #fff;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: #a1a1aa;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer p {
+            padding: 0 24px 18px;
+            color: #a1a1aa;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .steps {
+                gap: 10px;
+            }
+
+            .step {
+                padding: 10px 14px;
+                font-size: 0.85rem;
+            }
+
+            .main-content {
+                padding: 24px;
+            }
+
+            .upload-area {
+                padding: 40px 20px;
+            }
+
+            .size-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .crop-info {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .crop-buttons {
+                justify-content: center;
+            }
+
+            .features-section {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .feature-card {
+                padding: 16px;
+            }
+
+            .feature-icon {
+                font-size: 2rem;
+            }
+
+            .faq-question {
+                padding: 14px 18px;
+                font-size: 0.95rem;
+            }
+
+            .faq-answer-content {
+                padding: 0 18px 14px;
+            }
+        }
+        </style>
+    <link rel="stylesheet" href="common/common.css">
+</head>
+<body>
+<div class="container">
+<header>
+            
+<h1 data-i18n="title">🎨 ICO Icon Maker</h1>
+            <p class="subtitle" data-i18n="subtitle">Convert PNG, JPG, GIF images to ICO icon files</p>
+        </header>
+
+        <div class="trust-bar">
+            <span class="trust-item" data-i18n="trust_users">🌍 Used by 50,000+ users</span>
+            <span class="trust-item" data-i18n="trust_rating">⭐ 4.9/5 rating</span>
+            <span class="trust-item" data-i18n="trust_privacy">🔒 100% Private</span>
+            <span class="trust-item" data-i18n="trust_free">🚫 No Ads, No Signup</span>
+        </div>
+
+        <!-- 功能特点区块 -->
+        <div class="features-section">
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <div class="feature-title" data-i18n="feature1Title">100% Free & Private</div>
+                <div class="feature-desc" data-i18n="feature1Desc">No ads, no signup, no watermark. Everything runs locally in your browser. Your data never leaves your device.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔄</div>
+                <div class="feature-title" data-i18n="feature2Title">Format Conversion</div>
+                <div class="feature-desc" data-i18n="feature2Desc">Support PNG, JPG, GIF, WebP formats to ICO conversion</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👁️</div>
+                <div class="feature-title" data-i18n="feature3Title">Real-time Preview</div>
+                <div class="feature-desc" data-i18n="feature3Desc">Instantly preview icon effects in various sizes after upload</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📦</div>
+                <div class="feature-title" data-i18n="feature4Title">Batch Packaging</div>
+                <div class="feature-desc" data-i18n="feature4Desc">Pack multiple sizes into a single ICO file</div>
+            </div>
+        </div>
+
+        <div class="steps">
+            <div class="step active" id="step1">
+                <span class="step-number">1</span>
+                <span class="step-text" data-i18n="step1">Select Image</span>
+            </div>
+            <div class="step" id="step2">
+                <span class="step-number">2</span>
+                <span class="step-text" data-i18n="step2">Crop & Adjust</span>
+            </div>
+            <div class="step" id="step3">
+                <span class="step-number">3</span>
+                <span class="step-text" data-i18n="step3">Select Sizes</span>
+            </div>
+            <div class="step" id="step4">
+                <span class="step-number">4</span>
+                <span class="step-text" data-i18n="step4">Generate & Download</span>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <!-- 上传区域 -->
+            <div class="upload-area" id="uploadArea" onclick="document.getElementById('fileInput').click()">
+                <div class="upload-icon">📁</div>
+                <div class="upload-title" data-i18n="uploadTitle">Click or drag image here</div>
+                <div class="upload-hint" data-i18n="uploadHint">Supports PNG, JPG, GIF formats</div>
+                <button class="upload-btn" onclick="event.stopPropagation(); document.getElementById('fileInput').click()">
+                    <span>📷</span>
+                    <span data-i18n="selectImage">Select Image</span>
+                </button>
+                <input type="file" id="fileInput" accept="image/png,image/jpeg,image/gif" onchange="handleFileSelect(event)">
+            </div>
+
+            <!-- 裁剪区域 -->
+            <div class="crop-section" id="cropSection">
+                <div class="section-title">
+                    <span>✂️</span>
+                    <span data-i18n="cropTitle">Crop Image (Drag to adjust square area)</span>
+                </div>
+                <div style="text-align: center;">
+                    <div class="crop-container" id="cropContainer">
+                        <img id="cropImage" class="crop-image" src="" alt="Crop">
+                        <div class="crop-box" id="cropBox">
+                            <div class="crop-grid"></div>
+                            <div class="crop-handle nw" data-handle="nw"></div>
+                            <div class="crop-handle ne" data-handle="ne"></div>
+                            <div class="crop-handle sw" data-handle="sw"></div>
+                            <div class="crop-handle se" data-handle="se"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="crop-info">
+                    <div class="crop-size-info" id="cropSizeInfo" data-i18n="cropArea">Crop area: 100 × 100 px</div>
+                    <div class="crop-buttons">
+                        <button class="crop-btn secondary" onclick="resetCrop()">
+                            <span>↺</span>
+                            <span data-i18n="reset">Reset</span>
+                        </button>
+                        <button class="crop-btn secondary" onclick="skipCrop()">
+                            <span>⏭️</span>
+                            <span data-i18n="skipCrop">Skip Crop</span>
+                        </button>
+                        <button class="crop-btn primary" onclick="applyCrop()">
+                            <span>✓</span>
+                            <span data-i18n="confirmCrop">Confirm Crop</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 预览区域 -->
+            <div class="preview-section" id="previewSection">
+                <div class="section-title">
+                    <span>👁️</span>
+                    <span data-i18n="previewTitle">Final Image Preview</span>
+                </div>
+                <div class="preview-box">
+                    <img id="previewImage" src="" alt="Preview">
+                </div>
+                <div class="image-info" id="imageInfo"></div>
+            </div>
+
+            <!-- 尺寸选择 -->
+            <div class="size-section">
+                <div class="section-title">
+                    <span>📐</span>
+                    <span data-i18n="sizeTitle">Select ICO Icon Sizes</span>
+                </div>
+                <div class="size-grid" id="sizeGrid">
+                    <label class="size-option">
+                        <input type="checkbox" name="size" value="16" checked>
+                        <div class="size-label">
+                            <div class="size-icon">🔹</div>
+                            <div class="size-text">16×16</div>
+                        </div>
+                    </label>
+                    <label class="size-option">
+                        <input type="checkbox" name="size" value="32" checked>
+                        <div class="size-label">
+                            <div class="size-icon">🔸</div>
+                            <div class="size-text">32×32</div>
+                        </div>
+                    </label>
+                    <label class="size-option">
+                        <input type="checkbox" name="size" value="48" checked>
+                        <div class="size-label">
+                            <div class="size-icon">🔶</div>
+                            <div class="size-text">48×48</div>
+                        </div>
+                    </label>
+                    <label class="size-option">
+                        <input type="checkbox" name="size" value="64">
+                        <div class="size-label">
+                            <div class="size-icon">🟠</div>
+                            <div class="size-text">64×64</div>
+                        </div>
+                    </label>
+                    <label class="size-option">
+                        <input type="checkbox" name="size" value="128">
+                        <div class="size-label">
+                            <div class="size-icon">🟡</div>
+                            <div class="size-text">128×128</div>
+                        </div>
+                    </label>
+                    <label class="size-option">
+                        <input type="checkbox" name="size" value="256">
+                        <div class="size-label">
+                            <div class="size-icon">🟢</div>
+                            <div class="size-text">256×256</div>
+                        </div>
+                    </label>
+                    <label class="size-option">
+                        <input type="checkbox" name="size" value="512">
+                        <div class="size-label">
+                            <div class="size-icon">🔵</div>
+                            <div class="size-text">512×512</div>
+                        </div>
+                    </label>
+                </div>
+                <div class="multi-size-tip" data-i18n="sizeTip">
+                    💡 Tip: You can select multiple sizes, and the generated ICO file will contain all selected sizes.
+                </div>
+            </div>
+
+            <!-- 生成按钮 -->
+            <div class="generate-section">
+                <button class="generate-btn" id="generateBtn" onclick="generateICO()" disabled>
+                    <span>✨</span>
+                    <span data-i18n="generateBtn">Generate ICO Icon</span>
+                </button>
+            </div>
+
+            <!-- 结果区域 -->
+            <div class="result-section" id="resultSection">
+                <div class="result-icon">🎉</div>
+                <div class="result-title" data-i18n="resultTitle">ICO Icon Generated Successfully!</div>
+                <div class="result-info" id="resultInfo"></div>
+                <div class="ico-preview-grid" id="icoPreviewGrid"></div>
+                <a class="download-btn" id="downloadBtn" download="favicon.ico">
+                    <span>💾</span>
+                    <span data-i18n="downloadBtn">Download ICO File</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <section class="faq-section">
+            <h2 class="faq-title"><span data-i18n="faqTitle">FAQ</span></h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question" data-i18n="faq1Q">What is ICO format used for?</div>
+                    <div class="faq-answer"><p data-i18n="faq1A">ICO is the Windows icon format, used for desktop shortcuts, website favicons, etc. It can contain multiple icon sizes, and the system will automatically choose the appropriate size to display.</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" data-i18n="faq2Q">What image size is recommended?</div>
+                    <div class="faq-answer"><p data-i18n="faq2A">We recommend using 256x256 or larger square images. The tool will automatically scale to generate various required sizes.</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" data-i18n="faq3Q">Does it support transparent backgrounds?</div>
+                    <div class="faq-answer"><p data-i18n="faq3A">Yes, upload a PNG image with transparency to preserve the transparent areas. The generated ICO file will maintain the original image's alpha channel.</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" data-i18n="faq4Q">What sizes are included in the generated ICO?</div>
+                    <div class="faq-answer"><p data-i18n="faq4A">It includes common sizes like 16x16, 32x32, 48x48, 64x64, 128x128, 256x256, etc. You can freely select which sizes to include.</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" data-i18n="faq5Q">Can it be used for website favicon?</div>
+                    <div class="faq-answer"><p data-i18n="faq5A">Yes, the generated ICO file can be used directly as a website icon. Name the file favicon.ico and place it in the website root directory.</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" data-i18n="faq_free_q">Is this tool really free? Is it safe?</div>
+                    <div class="faq-answer"><p data-i18n="faq_free_a">Yes, 100% free with no ads, no registration, no watermark, and no usage limits. All processing happens locally in your browser — your data is never uploaded to any server.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 相关工具 -->
+        <section class="related-tools">
+            <h3 data-i18n="relatedToolsTitle">Related Tools</h3>
+            <div class="related-grid">
+                <a href="image-converter.html" class="related-card">
+                    <div class="related-icon">🔄</div>
+                    <h4 data-i18n="relatedTool1">Image Converter</h4>
+                </a>
+                <a href="image-compressor.html" class="related-card">
+                    <div class="related-icon">📦</div>
+                    <h4 data-i18n="relatedTool2">Image Compressor</h4>
+                </a>
+                <a href="paint-board.html" class="related-card">
+                    <div class="related-icon">🎨</div>
+                    <h4 data-i18n="relatedTool3">Paint Board</h4>
+                </a>
+                <a href="bg-remover.html" class="related-card">
+                    <div class="related-icon">✂️</div>
+                    <h4 data-i18n="relatedTool4">Background Remover</h4>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // ==================== i18n 多语言支持 ====================
+        const i18n = {
+            'en': {
+                tool_name: 'ICO Maker',
+                relatedToolsTitle: 'Related Tools',
+                relatedTool1: 'Image Converter',
+                relatedTool2: 'Image Compressor',
+                relatedTool3: 'Paint Board',
+                relatedTool4: 'Background Remover',
+                title: '🎨 ICO Icon Maker',
+                subtitle: 'Convert PNG, JPG, GIF images to ICO icon files',
+                feature1Title: '100% Free & Private',
+                feature1Desc: 'No ads, no signup, no watermark. Everything runs locally in your browser. Your data never leaves your device.',
+                feature2Title: 'Format Conversion',
+                feature2Desc: 'Support PNG, JPG, GIF, WebP formats to ICO conversion',
+                feature3Title: 'Real-time Preview',
+                feature3Desc: 'Instantly preview icon effects in various sizes after upload',
+                feature4Title: 'Batch Packaging',
+                feature4Desc: 'Pack multiple sizes into a single ICO file',
+                step1: 'Select Image',
+                step2: 'Crop & Adjust',
+                step3: 'Select Sizes',
+                step4: 'Generate & Download',
+                uploadTitle: 'Click or drag image here',
+                uploadHint: 'Supports PNG, JPG, GIF formats',
+                selectImage: 'Select Image',
+                cropTitle: 'Crop Image (Drag to adjust square area)',
+                cropArea: 'Crop area: {width} × {height} px',
+                reset: 'Reset',
+                skipCrop: 'Skip Crop',
+                confirmCrop: 'Confirm Crop',
+                previewTitle: 'Final Image Preview',
+                sizeTitle: 'Select ICO Icon Sizes',
+                sizeTip: '💡 Tip: You can select multiple sizes, and the generated ICO file will contain all selected sizes.',
+                generateBtn: 'Generate ICO Icon',
+                resultTitle: 'ICO Icon Generated Successfully!',
+                downloadBtn: 'Download ICO File',
+                footerPrivacy: 'Pure frontend processing, images are not uploaded to the server',
+                footerBack: '← Back to Web Toolbox',
+                imageSelected: '✓ Image selected',
+                reselect: 'Reselect',
+                generating: 'Generating...',
+                sizeInfo: 'Size: {width} × {height} px (Square)',
+                resultInfo: 'Contains {count} sizes ({sizes}) | File size: {fileSize} KB',
+                alertSelectImage: 'Please select and crop an image first!',
+                alertSelectSize: 'Please select at least one size!',
+                alertInvalidFormat: 'Please select PNG, JPG or GIF format image!',
+                alertGenerateFailed: 'Failed to generate ICO, please try again!',
+                faqTitle: '❓ FAQ',
+                faq1Q: 'What is ICO format used for?',
+                faq1A: 'ICO is the Windows icon format, used for desktop shortcuts, website favicons, etc. It can contain multiple icon sizes, and the system will automatically choose the appropriate size to display.',
+                faq2Q: 'What image size is recommended?',
+                faq2A: 'We recommend using 256x256 or larger square images. The tool will automatically scale to generate various required sizes. Using high-resolution source images ensures quality after scaling.',
+                faq3Q: 'Does it support transparent backgrounds?',
+                faq3A: 'Yes, upload a PNG image with transparency to preserve the transparent areas. The generated ICO file will maintain the original image\'s alpha channel.',
+                faq4Q: 'What sizes are included in the generated ICO?',
+                faq4A: 'It includes common sizes like 16x16, 32x32, 48x48, 64x64, 128x128, 256x256, etc. You can freely select which sizes to include.',
+                faq5Q: 'Can it be used for website favicon?',
+                faq5A: 'Yes, the generated ICO file can be used directly as a website icon. Name the file favicon.ico and place it in the website root directory for browsers to automatically recognize it.',
+                relatedTools: '🔗 Related Tools',
+                imageCompressor: 'Image Compressor',
+                imageCompressorDesc: 'Compress image file size online',
+                imageConverter: 'Image Format Converter',
+                imageConverterDesc: 'Convert between PNG/JPG/WebP',
+                imageEditor: 'Image Editor',
+                imageEditorDesc: 'Crop, rotate, filters',
+                idPhotoTool: 'ID Photo Maker',
+                idPhotoToolDesc: 'Change ID photo background color',
+                faq_free_q: 'Is this tool really free with no ads?',
+                faq_free_a: 'Yes, 100% free with no ads, no registration, no watermark, and no usage limits. All processing happens locally in your browser — your data is never uploaded to any server.',
+                trust_users: '🌍 Used by 50,000+ users',
+                trust_rating: '⭐ 4.9/5 rating',
+                trust_privacy: '🔒 100% Private',
+                trust_free: '🚫 No Ads, No Signup'
+            },
+            'zh-CN': {
+                tool_name: 'ICO 图标制作',
+                relatedToolsTitle: '相关工具',
+                relatedTool1: '图片格式转换',
+                relatedTool2: '图片压缩',
+                relatedTool3: '在线画板',
+                relatedTool4: '背景去除',
+                title: '🎨 ICO 图标制作',
+                subtitle: '将 PNG、JPG、GIF 图片转换为 ICO 图标文件',
+                feature1Title: '100% 免费且安全',
+                feature1Desc: '无广告、无需注册、无水印。所有处理都在浏览器本地完成，数据不会上传到任何服务器。',
+                feature2Title: '格式转换',
+                feature2Desc: '支持 PNG、JPG、GIF、WebP 等格式转换为 ICO',
+                feature3Title: '实时预览',
+                feature3Desc: '上传后即时预览各尺寸的图标效果',
+                feature4Title: '批量打包',
+                feature4Desc: '多个尺寸打包成一个 ICO 文件',
+                step1: '选择图片',
+                step2: '裁剪调整',
+                step3: '选择尺寸',
+                step4: '生成下载',
+                uploadTitle: '点击或拖拽图片到这里',
+                uploadHint: '支持 PNG、JPG、GIF 格式',
+                selectImage: '选择图片',
+                cropTitle: '裁剪图片（拖动调整正方形区域）',
+                cropArea: '裁剪区域: {width} × {height} px',
+                reset: '重置',
+                skipCrop: '跳过裁剪',
+                confirmCrop: '确认裁剪',
+                previewTitle: '最终图片预览',
+                sizeTitle: '选择 ICO 图标尺寸',
+                sizeTip: '💡 提示：可以同时选择多个尺寸，生成的 ICO 文件将包含所有选中的尺寸。',
+                generateBtn: '生成 ICO 图标',
+                resultTitle: 'ICO 图标生成成功！',
+                downloadBtn: '下载 ICO 文件',
+                footerPrivacy: '纯前端处理，图片不会上传到服务器',
+                footerBack: '← 返回 Web Toolbox',
+                imageSelected: '✓ 图片已选择',
+                reselect: '重新选择',
+                generating: '生成中...',
+                sizeInfo: '尺寸: {width} × {height} px（正方形）',
+                resultInfo: '包含 {count} 个尺寸 ({sizes}) | 文件大小: {fileSize} KB',
+                alertSelectImage: '请先选择并裁剪图片！',
+                alertSelectSize: '请至少选择一个尺寸！',
+                alertInvalidFormat: '请选择 PNG、JPG 或 GIF 格式的图片！',
+                alertGenerateFailed: '生成 ICO 失败，请重试！',
+                faqTitle: '❓ 常见问题',
+                faq1Q: 'ICO 格式有什么用？',
+                faq1A: 'ICO 是 Windows 图标格式，用于桌面快捷方式、网站 favicon 等。它可以包含多个尺寸的图标，系统会根据需要自动选择合适的尺寸显示。',
+                faq2Q: '推荐使用什么尺寸的图片？',
+                faq2A: '建议使用 256x256 或更大的正方形图片，工具会自动缩放生成各种所需尺寸。使用高分辨率原图可以保证缩放后的图标质量。',
+                faq3Q: '支持透明背景吗？',
+                faq3A: '支持，上传 PNG 格式的透明图片即可保留透明度。生成的 ICO 文件会保持原图的透明通道。',
+                faq4Q: '生成的 ICO 包含哪些尺寸？',
+                faq4A: '包含 16x16、32x32、48x48、64x64、128x128、256x256 等常用尺寸，您可以根据需要自由选择要包含的尺寸。',
+                faq5Q: '可以用于网站 favicon 吗？',
+                faq5A: '可以，生成的 ICO 文件可直接用作网站图标。将文件命名为 favicon.ico 并放置在网站根目录即可被浏览器自动识别。',
+                relatedTools: '🔗 相关工具推荐',
+                imageCompressor: '图片压缩',
+                imageCompressorDesc: '在线压缩图片大小',
+                imageConverter: '图片格式转换',
+                imageConverterDesc: 'PNG/JPG/WebP 互转',
+                imageEditor: '图片编辑器',
+                imageEditorDesc: '裁剪、旋转、滤镜',
+                idPhotoTool: '证件照制作',
+                idPhotoToolDesc: '证件照换底色',
+                faq_free_q: '这个工具真的完全免费无广告吗？',
+                faq_free_a: '是的，100% 免费，无广告、无需注册、无水印、无使用限制。所有处理都在浏览器本地完成。',
+                trust_users: '🌍 超过 50,000 用户使用',
+                trust_rating: '⭐ 4.9/5 好评',
+                trust_privacy: '🔒 100% 隐私安全',
+                trust_free: '🚫 无广告、无需注册'
+            },
+            'fr': {
+                tool_name: 'Créateur ICO',
+                relatedToolsTitle: 'Outils connexes',
+                relatedTool1: 'Convertisseur d\'images',
+                relatedTool2: 'Compresseur d\'images',
+                relatedTool3: 'Tableau de peinture',
+                relatedTool4: 'Suppression d\'arrière-plan',
+                title: '🎨 Créateur d\'icônes ICO',
+                subtitle: 'Convertir des images PNG, JPG, GIF en fichiers icônes ICO',
+                feature1Title: '100% Gratuit et Privé',
+                feature1Desc: 'Sans publicité, sans inscription, sans filigrane. Tout est traité localement dans votre navigateur.',
+                feature2Title: 'Conversion de format',
+                feature2Desc: 'Prend en charge la conversion des formats PNG, JPG, GIF, WebP vers ICO',
+                feature3Title: 'Aperçu en temps réel',
+                feature3Desc: 'Aperçu instantané des effets d\'icônes dans différentes tailles après téléchargement',
+                feature4Title: 'Empaquetage par lots',
+                feature4Desc: 'Regrouper plusieurs tailles dans un seul fichier ICO',
+                step1: 'Sélectionner l\'image',
+                step2: 'Recadrer et ajuster',
+                step3: 'Sélectionner les tailles',
+                step4: 'Générer et télécharger',
+                uploadTitle: 'Cliquez ou déposez l\'image ici',
+                uploadHint: 'Prend en charge les formats PNG, JPG, GIF',
+                selectImage: 'Sélectionner l\'image',
+                cropTitle: 'Recadrer l\'image (Glisser pour ajuster la zone carrée)',
+                cropArea: 'Zone de recadrage: {width} × {height} px',
+                reset: 'Réinitialiser',
+                skipCrop: 'Ignorer le recadrage',
+                confirmCrop: 'Confirmer le recadrage',
+                previewTitle: 'Aperçu de l\'image finale',
+                sizeTitle: 'Sélectionner les tailles d\'icônes ICO',
+                sizeTip: '💡 Astuce: Vous pouvez sélectionner plusieurs tailles, et le fichier ICO généré contiendra toutes les tailles sélectionnées.',
+                generateBtn: 'Générer l\'icône ICO',
+                resultTitle: 'Icône ICO générée avec succès !',
+                downloadBtn: 'Télécharger le fichier ICO',
+                footerPrivacy: 'Traitement purement frontend, les images ne sont pas téléchargées sur le serveur',
+                footerBack: '← Retour à Web Toolbox',
+                imageSelected: '✓ Image sélectionnée',
+                reselect: 'Resélectionner',
+                generating: 'Génération en cours...',
+                sizeInfo: 'Taille: {width} × {height} px (Carré)',
+                resultInfo: 'Contient {count} tailles ({sizes}) | Taille du fichier: {fileSize} Ko',
+                alertSelectImage: 'Veuillez d\'abord sélectionner et recadrer une image !',
+                alertSelectSize: 'Veuillez sélectionner au moins une taille !',
+                alertInvalidFormat: 'Veuillez sélectionner une image au format PNG, JPG ou GIF !',
+                alertGenerateFailed: 'Échec de la génération ICO, veuillez réessayer !',
+                faqTitle: '❓ FAQ',
+                faq1Q: 'À quoi sert le format ICO ?',
+                faq1A: 'ICO est le format d\'icône Windows, utilisé pour les raccourcis de bureau, les favicons de sites web, etc. Il peut contenir plusieurs tailles d\'icônes, et le système choisira automatiquement la taille appropriée à afficher.',
+                faq2Q: 'Quelle taille d\'image est recommandée ?',
+                faq2A: 'Nous recommandons d\'utiliser des images carrées de 256x256 ou plus. L\'outil redimensionnera automatiquement pour générer les différentes tailles requises. L\'utilisation d\'images sources haute résolution garantit la qualité après mise à l\'échelle.',
+                faq3Q: 'Prend-il en charge les arrière-plans transparents ?',
+                faq3A: 'Oui, téléchargez une image PNG avec transparence pour conserver les zones transparentes. Le fichier ICO généré maintiendra le canal alpha de l\'image originale.',
+                faq4Q: 'Quelles tailles sont incluses dans l\'ICO généré ?',
+                faq4A: 'Il comprend des tailles courantes comme 16x16, 32x32, 48x48, 64x64, 128x128, 256x256, etc. Vous pouvez librement sélectionner les tailles à inclure.',
+                faq5Q: 'Peut-il être utilisé comme favicon de site web ?',
+                faq5A: 'Oui, le fichier ICO généré peut être utilisé directement comme icône de site web. Nommez le fichier favicon.ico et placez-le dans le répertoire racine du site web pour que les navigateurs le reconnaissent automatiquement.',
+                relatedTools: '🔗 Outils connexes',
+                imageCompressor: 'Compresseur d\'images',
+                imageCompressorDesc: 'Compresser la taille des images en ligne',
+                imageConverter: 'Convertisseur de format d\'image',
+                imageConverterDesc: 'Convertir entre PNG/JPG/WebP',
+                imageEditor: 'Éditeur d\'images',
+                imageEditorDesc: 'Recadrer, pivoter, filtres',
+                idPhotoTool: 'Créateur de photo d\'identité',
+                idPhotoToolDesc: 'Changer la couleur de fond de la photo d\'identité',
+                faq_free_q: 'Cet outil est-il vraiment gratuit sans publicité ?',
+                faq_free_a: 'Oui, 100% gratuit sans publicité, sans inscription, sans filigrane et sans limite d\'utilisation.',
+                trust_users: '🌍 Utilisé par 50 000+ utilisateurs',
+                trust_rating: '⭐ Note 4.9/5',
+                trust_privacy: '🔒 100% Privé',
+                trust_free: '🚫 Sans pub, sans inscription'
+            },
+            'es': {
+                tool_name: 'Creador de ICO',
+                relatedToolsTitle: 'Herramientas relacionadas',
+                relatedTool1: 'Convertidor de imágenes',
+                relatedTool2: 'Compresor de imágenes',
+                relatedTool3: 'Tablero de pintura',
+                relatedTool4: 'Eliminador de fondo',
+                title: '🎨 Creador de iconos ICO',
+                subtitle: 'Convertir imágenes PNG, JPG, GIF a archivos de iconos ICO',
+                feature1Title: '100% Gratis y Privado',
+                feature1Desc: 'Sin anuncios, sin registro, sin marca de agua. Todo se procesa localmente en tu navegador.',
+                feature2Title: 'Conversión de formato',
+                feature2Desc: 'Soporta conversión de formatos PNG, JPG, GIF, WebP a ICO',
+                feature3Title: 'Vista previa en tiempo real',
+                feature3Desc: 'Vista previa instantánea de efectos de iconos en varios tamaños después de subir',
+                feature4Title: 'Empaquetado por lotes',
+                feature4Desc: 'Empaqueta múltiples tamaños en un solo archivo ICO',
+                step1: 'Seleccionar imagen',
+                step2: 'Recortar y ajustar',
+                step3: 'Seleccionar tamaños',
+                step4: 'Generar y descargar',
+                uploadTitle: 'Haz clic o arrastra la imagen aquí',
+                uploadHint: 'Soporta formatos PNG, JPG, GIF',
+                selectImage: 'Seleccionar imagen',
+                cropTitle: 'Recortar imagen (Arrastra para ajustar el área cuadrada)',
+                cropArea: 'Área de recorte: {width} × {height} px',
+                reset: 'Restablecer',
+                skipCrop: 'Omitir recorte',
+                confirmCrop: 'Confirmar recorte',
+                previewTitle: 'Vista previa de la imagen final',
+                sizeTitle: 'Seleccionar tamaños de iconos ICO',
+                sizeTip: '💡 Consejo: Puedes seleccionar múltiples tamaños, y el archivo ICO generado contendrá todos los tamaños seleccionados.',
+                generateBtn: 'Generar icono ICO',
+                resultTitle: '¡Icono ICO generado con éxito!',
+                downloadBtn: 'Descargar archivo ICO',
+                footerPrivacy: 'Procesamiento puro de frontend, las imágenes no se suben al servidor',
+                footerBack: '← Volver a Web Toolbox',
+                imageSelected: '✓ Imagen seleccionada',
+                reselect: 'Reseleccionar',
+                generating: 'Generando...',
+                sizeInfo: 'Tamaño: {width} × {height} px (Cuadrado)',
+                resultInfo: 'Contiene {count} tamaños ({sizes}) | Tamaño del archivo: {fileSize} KB',
+                alertSelectImage: '¡Por favor, primero selecciona y recorta una imagen!',
+                alertSelectSize: '¡Por favor, selecciona al menos un tamaño!',
+                alertInvalidFormat: '¡Por favor, selecciona una imagen en formato PNG, JPG o GIF!',
+                alertGenerateFailed: '¡Error al generar ICO, por favor intenta de nuevo!',
+                faqTitle: '❓ Preguntas frecuentes',
+                faq1Q: '¿Para qué se usa el formato ICO?',
+                faq1A: 'ICO es el formato de icono de Windows, utilizado para accesos directos de escritorio, favicons de sitios web, etc. Puede contener múltiples tamaños de iconos, y el sistema elegirá automáticamente el tamaño apropiado para mostrar.',
+                faq2Q: '¿Qué tamaño de imagen se recomienda?',
+                faq2A: 'Recomendamos usar imágenes cuadradas de 256x256 o más grandes. La herramienta escalará automáticamente para generar los diversos tamaños requeridos. Usar imágenes fuente de alta resolución asegura la calidad después del escalado.',
+                faq3Q: '¿Soporta fondos transparentes?',
+                faq3A: 'Sí, sube una imagen PNG con transparencia para preservar las áreas transparentes. El archivo ICO generado mantendrá el canal alfa de la imagen original.',
+                faq4Q: '¿Qué tamaños incluye el ICO generado?',
+                faq4A: 'Incluye tamaños comunes como 16x16, 32x32, 48x48, 64x64, 128x128, 256x256, etc. Puedes seleccionar libremente qué tamaños incluir.',
+                faq5Q: '¿Se puede usar como favicon del sitio web?',
+                faq5A: 'Sí, el archivo ICO generado se puede usar directamente como icono del sitio web. Nombra el archivo favicon.ico y colócalo en el directorio raíz del sitio web para que los navegadores lo reconozcan automáticamente.',
+                relatedTools: '🔗 Herramientas relacionadas',
+                imageCompressor: 'Compresor de imágenes',
+                imageCompressorDesc: 'Comprimir tamaño de imagen en línea',
+                imageConverter: 'Convertidor de formato de imagen',
+                imageConverterDesc: 'Convertir entre PNG/JPG/WebP',
+                imageEditor: 'Editor de imágenes',
+                imageEditorDesc: 'Recortar, rotar, filtros',
+                idPhotoTool: 'Creador de foto de ID',
+                idPhotoToolDesc: 'Cambiar color de fondo de foto de ID',
+                faq_free_q: '¿Esta herramienta es realmente gratuita sin anuncios?',
+                faq_free_a: 'Sí, 100% gratuita sin anuncios, sin registro, sin marca de agua y sin límites de uso.',
+                trust_users: '🌍 Usado por más de 50,000 usuarios',
+                trust_rating: '⭐ Calificación 4.9/5',
+                trust_privacy: '🔒 100% Privado',
+                trust_free: '🚫 Sin anuncios, sin registro'
+            }
+        };
+
+        // 获取当前语言
+        function getLang() {
+            return (typeof WebToolbox !== 'undefined') ? WebToolbox.getCurrentLang() : (localStorage.getItem('toolbox_lang') || 'en');
+        }
+
+function t(key, params = {}) {
+            let text = i18n[getLang()]?.[key] || i18n['en'][key] || key;
+            Object.keys(params).forEach(param => {
+                text = text.replace(`{${param}}`, params[param]);
+            });
+            return text;
+        }
+
+        // ==================== 原有功能代码 ====================
+        let originalImage = null;
+        let croppedImage = null;
+        let fileName = 'favicon';
+
+        // 裁剪相关变量
+        let cropBox, cropImage, cropContainer;
+        let isDragging = false;
+        let isResizing = false;
+        let currentHandle = null;
+        let startX, startY, startLeft, startTop, startWidth, startHeight;
+        let imageScale = 1;
+
+        // 拖拽上传
+        const uploadArea = document.getElementById('uploadArea');
+
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFile(files[0]);
+            }
+        });
+
+        function handleFileSelect(event) {
+            const file = event.target.files[0];
+            if (file) {
+                handleFile(file);
+            }
+        }
+
+        function handleFile(file) {
+            if (!file.type.match(/^image\/(png|jpeg|gif)$/)) {
+                alert(t('alertInvalidFormat'));
+                return;
+            }
+
+            fileName = file.name.replace(/\.[^/.]+$/, '') || 'favicon';
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const img = new Image();
+                img.onload = () => {
+                    originalImage = img;
+                    croppedImage = null;
+                    showCropArea(img, file);
+                    updateSteps(2);
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function showCropArea(img, file) {
+            // 更新上传区域
+            uploadArea.classList.add('has-image');
+            uploadArea.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap; justify-content: center;">
+                    <img src="${img.src}" style="max-height: 60px; border-radius: 8px;">
+                    <div style="text-align: left;">
+                        <div style="color: #22c55e; font-weight: 500; margin-bottom: 4px;">${t('imageSelected')}</div>
+                        <div style="color: #71717a; font-size: 0.9rem;">${file.name} (${img.width}×${img.height})</div>
+                    </div>
+                    <button class="upload-btn" onclick="event.stopPropagation(); document.getElementById('fileInput').click()">
+                        <span>🔄</span>
+                        <span>${t('reselect')}</span>
+                    </button>
+                </div>
+                <input type="file" id="fileInput" accept="image/png,image/jpeg,image/gif" onchange="handleFileSelect(event)" style="display:none;">
+            `;
+
+            // 显示裁剪区域
+            cropImage = document.getElementById('cropImage');
+            cropBox = document.getElementById('cropBox');
+            cropContainer = document.getElementById('cropContainer');
+
+            cropImage.src = img.src;
+            cropImage.onload = () => {
+                initCropBox();
+            };
+
+            document.getElementById('cropSection').classList.add('show');
+            document.getElementById('previewSection').classList.remove('show');
+            document.getElementById('generateBtn').disabled = true;
+        }
+
+        function initCropBox() {
+            const rect = cropImage.getBoundingClientRect();
+            const containerRect = cropContainer.getBoundingClientRect();
+
+            // 计算缩放比例
+            imageScale = originalImage.width / cropImage.offsetWidth;
+
+            // 初始化正方形裁剪框（居中，大小为较小边的80%）
+            const minSide = Math.min(cropImage.offsetWidth, cropImage.offsetHeight);
+            const boxSize = Math.floor(minSide * 0.8);
+
+            const left = (cropImage.offsetWidth - boxSize) / 2;
+            const top = (cropImage.offsetHeight - boxSize) / 2;
+
+            cropBox.style.left = left + 'px';
+            cropBox.style.top = top + 'px';
+            cropBox.style.width = boxSize + 'px';
+            cropBox.style.height = boxSize + 'px';
+
+            updateCropInfo();
+            setupCropEvents();
+        }
+
+        function setupCropEvents() {
+            // 移动裁剪框
+            cropBox.addEventListener('mousedown', (e) => {
+                if (e.target.classList.contains('crop-handle')) return;
+                isDragging = true;
+                startX = e.clientX;
+                startY = e.clientY;
+                startLeft = cropBox.offsetLeft;
+                startTop = cropBox.offsetTop;
+                e.preventDefault();
+            });
+
+            // 调整大小手柄
+            document.querySelectorAll('.crop-handle').forEach(handle => {
+                handle.addEventListener('mousedown', (e) => {
+                    isResizing = true;
+                    currentHandle = e.target.dataset.handle;
+                    startX = e.clientX;
+                    startY = e.clientY;
+                    startLeft = cropBox.offsetLeft;
+                    startTop = cropBox.offsetTop;
+                    startWidth = cropBox.offsetWidth;
+                    startHeight = cropBox.offsetHeight;
+                    e.preventDefault();
+                    e.stopPropagation();
+                });
+            });
+
+            document.addEventListener('mousemove', handleMouseMove);
+            document.addEventListener('mouseup', () => {
+                isDragging = false;
+                isResizing = false;
+                currentHandle = null;
+            });
+
+            // 触摸事件支持
+            cropBox.addEventListener('touchstart', (e) => {
+                if (e.target.classList.contains('crop-handle')) return;
+                isDragging = true;
+                startX = e.touches[0].clientX;
+                startY = e.touches[0].clientY;
+                startLeft = cropBox.offsetLeft;
+                startTop = cropBox.offsetTop;
+                e.preventDefault();
+            });
+
+            document.querySelectorAll('.crop-handle').forEach(handle => {
+                handle.addEventListener('touchstart', (e) => {
+                    isResizing = true;
+                    currentHandle = e.target.dataset.handle;
+                    startX = e.touches[0].clientX;
+                    startY = e.touches[0].clientY;
+                    startLeft = cropBox.offsetLeft;
+                    startTop = cropBox.offsetTop;
+                    startWidth = cropBox.offsetWidth;
+                    startHeight = cropBox.offsetHeight;
+                    e.preventDefault();
+                    e.stopPropagation();
+                });
+            });
+
+            document.addEventListener('touchmove', (e) => {
+                if (e.touches.length > 0) {
+                    handleMouseMove({ clientX: e.touches[0].clientX, clientY: e.touches[0].clientY });
+                }
+            });
+
+            document.addEventListener('touchend', () => {
+                isDragging = false;
+                isResizing = false;
+                currentHandle = null;
+            });
+        }
+
+        function handleMouseMove(e) {
+            if (!isDragging && !isResizing) return;
+
+            const dx = e.clientX - startX;
+            const dy = e.clientY - startY;
+            const imgWidth = cropImage.offsetWidth;
+            const imgHeight = cropImage.offsetHeight;
+
+            if (isDragging) {
+                let newLeft = startLeft + dx;
+                let newTop = startTop + dy;
+
+                // 边界限制
+                newLeft = Math.max(0, Math.min(newLeft, imgWidth - cropBox.offsetWidth));
+                newTop = Math.max(0, Math.min(newTop, imgHeight - cropBox.offsetHeight));
+
+                cropBox.style.left = newLeft + 'px';
+                cropBox.style.top = newTop + 'px';
+            }
+
+            if (isResizing) {
+                let newWidth, newHeight, newLeft, newTop;
+                const delta = Math.max(Math.abs(dx), Math.abs(dy));
+                const sign = (dx + dy) > 0 ? 1 : -1;
+
+                switch (currentHandle) {
+                    case 'se':
+                        newWidth = Math.max(50, startWidth + delta * sign);
+                        newHeight = newWidth;
+                        newLeft = startLeft;
+                        newTop = startTop;
+                        break;
+                    case 'sw':
+                        newWidth = Math.max(50, startWidth - delta * sign);
+                        newHeight = newWidth;
+                        newLeft = startLeft + startWidth - newWidth;
+                        newTop = startTop;
+                        break;
+                    case 'ne':
+                        newWidth = Math.max(50, startWidth + delta * sign);
+                        newHeight = newWidth;
+                        newLeft = startLeft;
+                        newTop = startTop + startHeight - newHeight;
+                        break;
+                    case 'nw':
+                        newWidth = Math.max(50, startWidth - delta * sign);
+                        newHeight = newWidth;
+                        newLeft = startLeft + startWidth - newWidth;
+                        newTop = startTop + startHeight - newHeight;
+                        break;
+                }
+
+                // 边界限制
+                if (newLeft < 0) {
+                    newWidth += newLeft;
+                    newLeft = 0;
+                }
+                if (newTop < 0) {
+                    newHeight += newTop;
+                    newTop = 0;
+                }
+                if (newLeft + newWidth > imgWidth) {
+                    newWidth = imgWidth - newLeft;
+                }
+                if (newTop + newHeight > imgHeight) {
+                    newHeight = imgHeight - newTop;
+                }
+
+                // 保持正方形
+                const minSize = Math.min(newWidth, newHeight);
+                newWidth = newHeight = minSize;
+
+                cropBox.style.left = newLeft + 'px';
+                cropBox.style.top = newTop + 'px';
+                cropBox.style.width = newWidth + 'px';
+                cropBox.style.height = newHeight + 'px';
+            }
+
+            updateCropInfo();
+        }
+
+        function updateCropInfo() {
+            const realWidth = Math.round(cropBox.offsetWidth * imageScale);
+            const realHeight = Math.round(cropBox.offsetHeight * imageScale);
+            document.getElementById('cropSizeInfo').textContent = t('cropArea', { width: realWidth, height: realHeight });
+        }
+
+        function resetCrop() {
+            initCropBox();
+        }
+
+        function skipCrop() {
+            // 使用原图，自动裁剪为正方形（居中）
+            const canvas = document.createElement('canvas');
+            const size = Math.min(originalImage.width, originalImage.height);
+            canvas.width = size;
+            canvas.height = size;
+            const ctx = canvas.getContext('2d');
+
+            const sx = (originalImage.width - size) / 2;
+            const sy = (originalImage.height - size) / 2;
+            ctx.drawImage(originalImage, sx, sy, size, size, 0, 0, size, size);
+
+            const croppedDataUrl = canvas.toDataURL('image/png');
+            const img = new Image();
+            img.onload = () => {
+                croppedImage = img;
+                showFinalPreview(img);
+            };
+            img.src = croppedDataUrl;
+        }
+
+        function applyCrop() {
+            // 获取裁剪区域
+            const left = cropBox.offsetLeft * imageScale;
+            const top = cropBox.offsetTop * imageScale;
+            const width = cropBox.offsetWidth * imageScale;
+            const height = cropBox.offsetHeight * imageScale;
+
+            // 创建裁剪后的图片
+            const canvas = document.createElement('canvas');
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(originalImage, left, top, width, height, 0, 0, width, height);
+
+            const croppedDataUrl = canvas.toDataURL('image/png');
+            const img = new Image();
+            img.onload = () => {
+                croppedImage = img;
+                showFinalPreview(img);
+            };
+            img.src = croppedDataUrl;
+        }
+
+        function showFinalPreview(img) {
+            document.getElementById('previewImage').src = img.src;
+            document.getElementById('imageInfo').textContent = t('sizeInfo', { width: img.width, height: img.height });
+
+            document.getElementById('cropSection').classList.remove('show');
+            document.getElementById('previewSection').classList.add('show');
+            document.getElementById('generateBtn').disabled = false;
+
+            updateSteps(3);
+        }
+
+        function updateSteps(currentStep) {
+            for (let i = 1; i <= 4; i++) {
+                const step = document.getElementById(`step${i}`);
+                step.classList.remove('active', 'completed');
+                if (i < currentStep) {
+                    step.classList.add('completed');
+                } else if (i === currentStep) {
+                    step.classList.add('active');
+                }
+            }
+        }
+
+        function getSelectedSizes() {
+            const checkboxes = document.querySelectorAll('input[name="size"]:checked');
+            return Array.from(checkboxes).map(cb => parseInt(cb.value)).sort((a, b) => a - b);
+        }
+
+        async function generateICO() {
+            const imageToUse = croppedImage || originalImage;
+            if (!imageToUse) {
+                alert(t('alertSelectImage'));
+                return;
+            }
+
+            const sizes = getSelectedSizes();
+            if (sizes.length === 0) {
+                alert(t('alertSelectSize'));
+                return;
+            }
+
+            const btn = document.getElementById('generateBtn');
+            btn.disabled = true;
+            btn.innerHTML = `<span>⏳</span><span>${t('generating')}</span>`;
+
+            try {
+                const images = [];
+                const previewGrid = document.getElementById('icoPreviewGrid');
+                previewGrid.innerHTML = '';
+
+                for (const size of sizes) {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = size;
+                    canvas.height = size;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(imageToUse, 0, 0, size, size);
+
+                    const dataUrl = canvas.toDataURL('image/png');
+                    const pngData = await dataURLToUint8Array(dataUrl);
+                    images.push({ size, data: pngData });
+
+                    const previewItem = document.createElement('div');
+                    previewItem.className = 'ico-preview-item';
+                    const displaySize = Math.min(size, 80);
+                    previewItem.innerHTML = `
+                        <div class="ico-preview-box" style="width: ${displaySize + 20}px; height: ${displaySize + 20}px;">
+                            <img src="${dataUrl}" style="width: ${displaySize}px; height: ${displaySize}px;">
+                        </div>
+                        <div class="ico-size-label">${size}×${size}</div>
+                    `;
+                    previewGrid.appendChild(previewItem);
+                }
+
+                const icoData = createICO(images);
+                const blob = new Blob([icoData], { type: 'image/x-icon' });
+                const url = URL.createObjectURL(blob);
+
+                const downloadBtn = document.getElementById('downloadBtn');
+                downloadBtn.href = url;
+                downloadBtn.download = `${fileName}.ico`;
+
+                const totalSize = (blob.size / 1024).toFixed(1);
+                document.getElementById('resultInfo').innerHTML = t('resultInfo', {
+                    count: sizes.length,
+                    sizes: sizes.join(', '),
+                    fileSize: totalSize
+                });
+
+                document.getElementById('resultSection').classList.add('show');
+                updateSteps(4);
+
+                document.getElementById('resultSection').scrollIntoView({ behavior: 'smooth' });
+
+            } catch (error) {
+                console.error('Generate failed:', error);
+                alert(t('alertGenerateFailed'));
+            }
+
+            btn.disabled = false;
+            btn.innerHTML = `<span>✨</span><span>${t('generateBtn')}</span>`;
+        }
+
+        async function dataURLToUint8Array(dataUrl) {
+            const response = await fetch(dataUrl);
+            const blob = await response.blob();
+            const arrayBuffer = await blob.arrayBuffer();
+            return new Uint8Array(arrayBuffer);
+        }
+
+        function createICO(images) {
+            const headerSize = 6;
+            const entrySize = 16;
+            const numImages = images.length;
+            const dirSize = headerSize + (entrySize * numImages);
+
+            let totalSize = dirSize;
+            for (const img of images) {
+                totalSize += img.data.length;
+            }
+
+            const buffer = new ArrayBuffer(totalSize);
+            const view = new DataView(buffer);
+            const uint8 = new Uint8Array(buffer);
+
+            view.setUint16(0, 0, true);
+            view.setUint16(2, 1, true);
+            view.setUint16(4, numImages, true);
+
+            let offset = dirSize;
+            for (let i = 0; i < numImages; i++) {
+                const img = images[i];
+                const entryOffset = headerSize + (i * entrySize);
+
+                view.setUint8(entryOffset + 0, img.size >= 256 ? 0 : img.size);
+                view.setUint8(entryOffset + 1, img.size >= 256 ? 0 : img.size);
+                view.setUint8(entryOffset + 2, 0);
+                view.setUint8(entryOffset + 3, 0);
+                view.setUint16(entryOffset + 4, 1, true);
+                view.setUint16(entryOffset + 6, 32, true);
+                view.setUint32(entryOffset + 8, img.data.length, true);
+                view.setUint32(entryOffset + 12, offset, true);
+
+                uint8.set(img.data, offset);
+                offset += img.data.length;
+            }
+
+            return buffer;
+        }
+
+        document.getElementById('sizeGrid').addEventListener('change', () => {
+            if (croppedImage) {
+                updateSteps(3);
+            }
+        });
+
+
+        // 暴露翻译对象供 common.js 使用
+        window._translations = i18n;
+    </script>
+    <script src="common/common.js" data-tool-id="ico-maker" data-tool-name="ICO Maker" data-category="image"></script>
+    <script>WebToolbox.init(window._translations);</script>
+</body>
+</html>
