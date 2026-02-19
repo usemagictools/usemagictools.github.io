@@ -421,12 +421,20 @@
 
             // 注入 favicon（如果页面没有显式声明）
             if (!document.querySelector('link[rel="icon"]')) {
-                var prefix = config.pageType === 'category' ? '../' : '';
-                var link = document.createElement('link');
-                link.rel = 'icon';
-                link.type = 'image/x-icon';
-                link.href = prefix + 'favicon.ico';
-                document.head.appendChild(link);
+                var prefix = '/';
+                // PNG favicon（Chrome/Edge 优先使用）
+                var png32 = document.createElement('link');
+                png32.rel = 'icon';
+                png32.type = 'image/png';
+                png32.setAttribute('sizes', '32x32');
+                png32.href = prefix + 'favicon-32x32.png';
+                document.head.appendChild(png32);
+                // ICO fallback
+                var ico = document.createElement('link');
+                ico.rel = 'icon';
+                ico.setAttribute('sizes', '48x48');
+                ico.href = prefix + 'favicon.ico';
+                document.head.appendChild(ico);
             }
 
             // 注入 header & footer（带当前语言）
