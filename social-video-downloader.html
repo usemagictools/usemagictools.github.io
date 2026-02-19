@@ -1239,6 +1239,7 @@
                             return {
                                 success: true,
                                 platform: platform,
+                                author: 'Cobalt',
                                 title: data.filename || `${platform} 视频`,
                                 downloads: [{
                                     type: 'video',
@@ -1252,6 +1253,7 @@
                             return {
                                 success: true,
                                 platform: platform,
+                                author: 'Cobalt',
                                 title: `${platform} 视频`,
                                 downloads: data.picker.map((item, idx) => ({
                                     type: item.type || 'video',
