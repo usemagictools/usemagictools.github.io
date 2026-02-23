@@ -12,8 +12,19 @@
     <meta name="description" content="Free online Whois domain lookup tool. Query domain registration info, registrar, owner, registration/expiration dates, DNS servers, and domain status. Based on RDAP protocol, runs entirely in browser. ✅ No ads ✅ No signup ✅ No limits. Runs entirely in your browser.">
     <meta name="keywords" content="Whois lookup,domain query,domain registration,domain owner,domain expiration,DNS query,domain status,RDAP query,free tool, no ads, no signup, no login, free unlimited, browser-based, no installation">
     <meta name="author" content="UseMagicTools">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="bingbot" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta name="rating" content="general">
+    <meta name="distribution" content="global">
+    <meta name="language" content="en">
     <link rel="canonical" href="https://www.usemagictools.com/whois-query.html">
+    <link rel="alternate" hreflang="en" href="https://www.usemagictools.com/whois-query.html">
+    <link rel="alternate" hreflang="zh-CN" href="https://www.usemagictools.com/whois-query.html">
+    <link rel="alternate" hreflang="fr" href="https://www.usemagictools.com/whois-query.html">
+    <link rel="alternate" hreflang="es" href="https://www.usemagictools.com/whois-query.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.usemagictools.com/whois-query.html">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -21,11 +32,15 @@
     <meta property="og:title" content="Whois Lookup - Free Online Domain Query | No Ads, No Signup | Whois 查询">
     <meta property="og:description" content="Free online Whois domain lookup. Query registrar, owner, expiration date, DNS servers and more.">
     <meta property="og:image" content="https://www.usemagictools.com/screenshots/whois-query-v1.webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="Web Toolbox">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@usemagictools">
+    <meta name="twitter:creator" content="@usemagictools">
     <meta name="twitter:title" content="Whois Lookup - Free Online Domain Query | No Ads, No Signup | Whois 查询">
     <meta name="twitter:description" content="Free online Whois domain lookup. Query registrar, owner, expiration date and more.">
     <meta name="twitter:image" content="https://www.usemagictools.com/screenshots/whois-query-v1.webp">
@@ -51,61 +66,65 @@
 
     <!-- FAQ JSON-LD -->
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "What is WHOIS?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "WHOIS is a protocol for querying domain registration information, allowing you to view domain owner, registrar, and other details."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Why can't I find information for some domains?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "The domain may have privacy protection enabled, or uses an unsupported domain extension."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Is WHOIS information accurate?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Information comes from domain registrars and is usually accurate, but some registrants may provide false information."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Can I query IP WHOIS?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "This tool only supports domain queries. Please use the IP Lookup tool for IP queries."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Are there query limits?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Free to use, but frequent queries may trigger API rate limits."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Is this tool really free? Is it safe?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes, this tool is 100% free with no ads, no signup, no usage limits, and no watermarks. All processing happens in your browser — your data never leaves your device. It's completely safe and private."
-                }
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What is WHOIS?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "WHOIS is an internet protocol used to query databases that store domain name registration information. It allows you to view details about a domain's owner, registrar, registration date, expiration date, name servers, and contact information. WHOIS data is maintained by domain registrars and registry operators. This free lookup tool requires no signup, no ads, and provides instant results."
             }
-        ]
-    }
-    </script>
+        },
+        {
+            "@type": "Question",
+            "name": "Why can't I find information for some domains?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Several reasons may cause empty WHOIS results: the domain owner may have enabled WHOIS privacy protection (which hides personal details), the domain extension (.tld) may not be supported by the lookup service, or the domain may not be registered yet. Some country-code TLDs have restricted WHOIS access. This free tool works with most common domain extensions and requires no signup."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is WHOIS information accurate?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "WHOIS information is sourced directly from domain registrars and is generally accurate and up-to-date. However, some domain registrants may provide incomplete or inaccurate contact details. Additionally, WHOIS privacy services can mask personal information by displaying proxy contact data instead. For the most authoritative information, check with the domain's specific registrar. This free tool requires no signup."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can I query IP WHOIS?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "This tool is designed specifically for domain name WHOIS queries and does not support IP address lookups. For IP geolocation and ownership information (including ISP, ASN, and network details), please use our dedicated IP Lookup tool available on this site. Both tools are completely free, browser-based, and require no signup or account creation."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Are there query limits?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "This free WHOIS tool has no artificial usage limits on our end. However, the underlying WHOIS servers operated by domain registries may impose rate limits on frequent queries to prevent abuse. If you encounter temporary blocks, wait a few minutes before trying again. Normal usage patterns are unaffected. No signup required, no ads, and queries run instantly in your browser."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is this tool really free? Is it safe?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, this tool is 100% free with no ads, no signup, no usage limits, and no watermarks. All processing happens in your browser — your data never leaves your device. It's completely safe and private."
+            }
+        }
+    ]
+}
+</script>
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.usemagictools.com/"}, {"@type": "ListItem", "position": 2, "name": "Whois Lookup", "item": "https://www.usemagictools.com/whois-query.html"}]}</script>
+    <!-- JSON-LD: HowTo -->
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to Use Whois Lookup", "totalTime": "PT1M", "step": [{"@type": "HowToStep", "position": 1, "name": "Enter Domain Name", "text": "Type a domain name (e.g., example.com) in the search field."}, {"@type": "HowToStep", "position": 2, "name": "View Whois Data", "text": "See registration details including registrar, creation date, expiry date, nameservers, and status."}, {"@type": "HowToStep", "position": 3, "name": "Analyze Results", "text": "Review domain availability, ownership history, and technical details for your domain research."}]}</script>
 
     <style>
         * {

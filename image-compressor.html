@@ -12,8 +12,19 @@
     <meta name="description" content="Free online image compression tool. Batch compress JPG, PNG, WebP images. Adjustable quality settings, optional resizing, maintains clarity while significantly reducing file size. Pure frontend, data secure. ✅ No ads ✅ No signup ✅ No watermark. Runs entirely in your browser.">
     <meta name="keywords" content="image compressor,online compress,JPG compress,PNG compress,WebP convert,batch compress,image optimization,reduce image size,free tool, no ads, no signup, no watermark, no login, free unlimited, browser-based, no installation, local processing">
     <meta name="author" content="UseMagicTools">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="bingbot" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta name="rating" content="general">
+    <meta name="distribution" content="global">
+    <meta name="language" content="en">
     <link rel="canonical" href="https://www.usemagictools.com/image-compressor.html">
+    <link rel="alternate" hreflang="en" href="https://www.usemagictools.com/image-compressor.html">
+    <link rel="alternate" hreflang="zh-CN" href="https://www.usemagictools.com/image-compressor.html">
+    <link rel="alternate" hreflang="fr" href="https://www.usemagictools.com/image-compressor.html">
+    <link rel="alternate" hreflang="es" href="https://www.usemagictools.com/image-compressor.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.usemagictools.com/image-compressor.html">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -21,11 +32,15 @@
     <meta property="og:title" content="Image Compressor - Free Online | No Ads, No Upload, No Limit | 图片压缩">
     <meta property="og:description" content="Free online image compression. Batch process JPG/PNG/WebP, maintain clarity while reducing size.">
     <meta property="og:image" content="https://www.usemagictools.com/screenshots/image-compressor-v1.webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="Web Toolbox">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@usemagictools">
+    <meta name="twitter:creator" content="@usemagictools">
     <meta name="twitter:title" content="Image Compressor - Free Online | No Ads, No Upload, No Limit | 图片压缩">
     <meta name="twitter:description" content="Free online image compression. Batch process JPG/PNG/WebP.">
     <meta name="twitter:image" content="https://www.usemagictools.com/screenshots/image-compressor-v1.webp">
@@ -45,68 +60,72 @@
         "featureList": ["No ads", "No signup required", "No watermark", "100% browser-based", "Unlimited usage", "Local processing"],
         "author": {"@type": "Person", "name": "UseMagicTools"},
         "publisher": {"@type": "Organization", "name": "Web Toolbox", "url": "https://www.usemagictools.com/"},
-        "screenshot": "https://www.usemagictools.com/screenshots/image-compressor-v1.webp"
-        "alternateName": ["图片压缩器", "Image Optimizer", "Photo Compressor"],
+        "screenshot": "https://www.usemagictools.com/screenshots/image-compressor-v1.webp",
+        "inLanguage": ["en", "zh-CN", "fr", "es"]
     }
     </script>
 
     <!-- FAQ JSON-LD -->
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "What image formats are supported?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Supports JPG, PNG, WebP, GIF and other common image formats."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Will compression reduce image quality?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "There will be slight loss, but you can control it by adjusting compression quality. Above 80% is barely noticeable to the human eye."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "How many images can be compressed at once?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Depends on browser memory, recommended not to exceed 50 images at a time."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Will images be uploaded to a server?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "No, all compression is done locally in your browser, ensuring data security."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Can PNG images be compressed losslessly?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "PNG uses lossless compression algorithm, can reduce size through optimization without losing quality."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Is this tool really free with no ads?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes, 100% free with no ads, no registration, no watermark, and no usage limits. All processing happens locally in your browser — your data is never uploaded to any server."
-                }
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What image formats are supported?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "This free image compressor supports all major web formats including JPG/JPEG, PNG, WebP, and GIF. JPG and WebP files benefit from lossy compression with adjustable quality, while PNG files use optimization algorithms to reduce size without quality loss. All compression runs locally in your browser with no signup, no ads, and no file upload to external servers."
             }
-        ]
-    }
-    </script>
+        },
+        {
+            "@type": "Question",
+            "name": "Will compression reduce image quality?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "There will be slight quality reduction with lossy compression (JPG/WebP), but you can control it precisely by adjusting the quality slider. Settings above 80% produce results that are virtually indistinguishable to the human eye while significantly reducing file size. PNG compression is lossless, preserving perfect quality. This free tool runs in your browser with no signup required."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How many images can be compressed at once?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "This free batch compressor can process multiple images simultaneously. The practical limit depends on your device's available browser memory — we recommend batches of around 50 images for optimal performance. Each file is compressed independently using client-side JavaScript, so no images are uploaded to any server. No signup, no ads, and no usage limits apply."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Will images be uploaded to a server?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No, absolutely not. All image compression is performed 100% locally in your browser using client-side JavaScript algorithms. Your images are never uploaded to any external server, cloud service, or third-party platform. This ensures complete privacy and data security, especially important for sensitive or personal photos. The tool is free with no signup required."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can PNG images be compressed losslessly?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. PNG uses a lossless compression algorithm, and this tool optimizes PNG files by reducing unnecessary metadata, optimizing color palettes, and applying better deflate compression — all without any quality degradation. The visual output remains pixel-perfect identical to the original. This free browser-based tool requires no signup and processes everything locally for privacy."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is this tool really free with no ads?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, 100% free with no ads, no registration, no watermark, and no usage limits. All processing happens locally in your browser — your data is never uploaded to any server."
+            }
+        }
+    ]
+}
+</script>
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.usemagictools.com/"}, {"@type": "ListItem", "position": 2, "name": "Image Compressor", "item": "https://www.usemagictools.com/image-compressor.html"}]}</script>
+    <!-- JSON-LD: HowTo -->
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to Use Image Compressor", "totalTime": "PT1M", "step": [{"@type": "HowToStep", "position": 1, "name": "Upload Images", "text": "Drag and drop or click to select JPG, PNG, or WebP images. Batch upload is supported."}, {"@type": "HowToStep", "position": 2, "name": "Adjust Compression Settings", "text": "Set the quality level and optional resize dimensions to balance file size and image clarity."}, {"@type": "HowToStep", "position": 3, "name": "Download Compressed Images", "text": "Preview the results and download individual images or all files as a ZIP archive."}]}</script>
 
     <style>
         * {

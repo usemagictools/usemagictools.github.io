@@ -105,43 +105,61 @@
     }
     </script>
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "How does PDF compression work here?",
-                "acceptedAnswer": { "@type": "Answer", "text": "The tool renders pages to canvas and rebuilds PDF with optimized image quality settings." }
-            },
-            {
-                "@type": "Question",
-                "name": "Will text quality change after compression?",
-                "acceptedAnswer": { "@type": "Answer", "text": "Compression is strongest for scanned/image-heavy PDFs. Text PDFs may lose some vector sharpness." }
-            },
-            {
-                "@type": "Question",
-                "name": "Can I control compression quality?",
-                "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can adjust JPEG quality, render scale, and output dimensions." }
-            },
-            {
-                "@type": "Question",
-                "name": "Is my PDF uploaded to a server?",
-                "acceptedAnswer": { "@type": "Answer", "text": "No. Compression is done locally in your browser for privacy." }
-            },
-            {
-                "@type": "Question",
-                "name": "Is this PDF compressor free?",
-                "acceptedAnswer": { "@type": "Answer", "text": "Yes, the tool is free with no account required." }
-            },
-            {
-                "@type": "Question",
-                "name": "Is this tool really free? Are my files safe?",
-                "acceptedAnswer": { "@type": "Answer", "text": "Yes, 100% free with no ads, no registration, and no usage limits. Unlike other PDF tools, your files are never uploaded to any server — all processing happens locally in your browser for maximum privacy." }
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "How does PDF compression work here?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "This tool renders each PDF page to an HTML5 canvas element, then rebuilds the document with optimized image quality settings using JPEG compression. This approach effectively reduces file size for scanned documents and image-heavy PDFs. You can adjust quality levels to balance between file size and visual clarity. Completely free, browser-based, and requires no signup or server upload."
             }
-        ]
-    }
-    </script>
+        },
+        {
+            "@type": "Question",
+            "name": "Will text quality change after compression?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Compression works best for scanned and image-heavy PDFs, where it achieves significant size reduction. For text-based PDFs with vector content, there may be some loss of sharpness since the tool rasterizes pages before recompressing. For best results with text documents, use higher quality settings. This free tool runs in your browser with no signup and no ads."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can I control compression quality?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. You can fine-tune the compression by adjusting JPEG quality (0-100%), render scale factor, and output dimensions. Higher quality settings preserve more detail but produce larger files, while lower settings maximize compression. We recommend starting at 70-80% quality for a good balance. This free tool runs entirely in your browser with no signup or server upload."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is my PDF uploaded to a server?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. All PDF compression processing happens 100% locally in your browser using client-side JavaScript libraries (pdf.js and jsPDF). Your PDF files are never uploaded to any external server, cloud service, or third-party platform. This ensures complete privacy and data security for sensitive documents. The tool is free with no signup, no ads, and no usage limits."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is this PDF compressor free?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, this PDF compressor is 100% free with no account required, no ads, no watermarks, and no usage limits. Every compression feature is available to all users without restrictions or premium tiers. The tool runs entirely in your browser, so no server resources are consumed and your documents remain completely private. No hidden fees or charges of any kind."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is this tool really free? Are my files safe?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, 100% free with no ads, no registration, and no usage limits. Unlike other PDF tools, your files are never uploaded to any server — all processing happens locally in your browser for maximum privacy."
+            }
+        }
+    ]
+}
+</script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>

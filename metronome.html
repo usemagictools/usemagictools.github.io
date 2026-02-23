@@ -12,7 +12,7 @@
     <meta name="description" content="Free online metronome tool with 40-220 BPM speed adjustment, multiple time signatures (2/4, 3/4, 4/4, 6/8), electronic and piano sounds. Perfect for instrument practice, singing training, and dance rehearsal. ✅ No ads ✅ No signup ✅ No install. Runs entirely in your browser.">
     <meta name="keywords" content="metronome,online metronome,BPM,music beat,rhythm practice,instrument practice,piano practice,guitar practice,drum practice,free metronome, no ads, no signup, no login, free unlimited, browser-based, no installation">
     <meta name="author" content="UseMagicTools">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="googlebot" content="index, follow">
     <meta name="bingbot" content="index, follow">
     <meta name="revisit-after" content="7 days">
@@ -34,11 +34,15 @@
     <meta property="og:title" content="Online Metronome - Free | No Ads, No Install | 在线节拍器">
     <meta property="og:description" content="Free online metronome with multiple time signatures and sound options to help you keep perfect rhythm.">
     <meta property="og:image" content="https://www.usemagictools.com/screenshots/metronome-v1.webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="Web Toolbox">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@usemagictools">
+    <meta name="twitter:creator" content="@usemagictools">
     <meta name="twitter:title" content="Online Metronome - Free | No Ads, No Install | 在线节拍器">
     <meta name="twitter:description" content="Free online metronome with multiple time signatures and sound options.">
     <meta name="twitter:image" content="https://www.usemagictools.com/screenshots/metronome-v1.webp">
@@ -64,61 +68,61 @@
 
     <!-- FAQPage JSON-LD -->
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "What does BPM mean?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "BPM (Beats Per Minute) indicates the number of beats per minute. Higher values mean faster tempo. For example, 60 BPM means one beat per second, 120 BPM means two beats per second."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "What are common BPM ranges for different music?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Slow songs are around 60-80 BPM, pop songs around 100-130 BPM, fast songs can reach 140-180 BPM. In classical music, Largo is about 40-60 BPM, Andante about 76-108 BPM, Allegro about 120-168 BPM."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "How accurate is this metronome?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "This online metronome uses the Web Audio API for millisecond-level precision, meeting the needs of professional music practice."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Can it run in the background?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes, the metronome continues running when you switch to other tabs, the sound won't interrupt, making it convenient to practice while reading sheet music."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Does it support custom time signatures?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "It supports common time signatures like 2/4, 3/4, 4/4, 6/8, and you can click on the beat dots to customize the accent pattern for each beat."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Is this tool really free with no ads?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes, 100% free with no ads, no registration, no watermark, and no usage limits. All processing happens locally in your browser — your data is never uploaded to any server."
-                }
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What does BPM mean?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "BPM (Beats Per Minute) indicates the number of beats per minute. Higher values mean faster tempo. For example, 60 BPM means one beat per second, 120 BPM means two beats per second."
             }
-        ]
-    }
-    </script>
+        },
+        {
+            "@type": "Question",
+            "name": "What are common BPM ranges for different music?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Slow songs are around 60-80 BPM, pop songs around 100-130 BPM, fast songs can reach 140-180 BPM. In classical music, Largo is about 40-60 BPM, Andante about 76-108 BPM, Allegro about 120-168 BPM."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How accurate is this metronome?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "This free online metronome uses the Web Audio API for timing, which provides millisecond-level precision independent of JavaScript's main thread. Unlike setTimeout-based timers, the Web Audio API scheduler maintains rock-solid timing accuracy even during browser activity. This makes it reliable enough for professional music practice, recording sessions, and live performance preparation. No signup or ads."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can it run in the background?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, the metronome continues producing accurate clicks when you switch to other browser tabs or applications. The Web Audio API operates independently of the visible page, ensuring uninterrupted rhythm. This is perfect for musicians who need to read digital sheet music or follow along with tutorial videos while practicing. Free to use with no signup required."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Does it support custom time signatures?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. This free metronome supports common time signatures including 2/4, 3/4, 4/4, and 6/8, plus custom configurations. You can click on individual beat dots to customize the accent pattern, creating emphasized downbeats and subdivisions. This flexibility accommodates various musical styles from classical to jazz and contemporary. No signup, no ads, and completely browser-based."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is this tool really free with no ads?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, 100% free with no ads, no registration, no watermark, and no usage limits. All processing happens locally in your browser — your data is never uploaded to any server."
+            }
+        }
+    ]
+}
+</script>
 
     <!-- BreadcrumbList JSON-LD -->
     <script type="application/ld+json">

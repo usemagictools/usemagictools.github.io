@@ -12,8 +12,19 @@
     <meta name="description" content="Free online IP address lookup tool. Query IP addresses or domain names for geolocation, ISP, IP range and more. Also displays your public IP, network type, OS, and browser info. ✅ No ads ✅ No signup ✅ No limits. Runs entirely in your browser.">
     <meta name="keywords" content="IP lookup,IP geolocation,IP address query,domain lookup,IP location,my IP,IP range,ISP lookup,free tool, no ads, no signup, no login, free unlimited, browser-based, no installation">
     <meta name="author" content="UseMagicTools">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="bingbot" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta name="rating" content="general">
+    <meta name="distribution" content="global">
+    <meta name="language" content="en">
     <link rel="canonical" href="https://www.usemagictools.com/ip-lookup.html">
+    <link rel="alternate" hreflang="en" href="https://www.usemagictools.com/ip-lookup.html">
+    <link rel="alternate" hreflang="zh-CN" href="https://www.usemagictools.com/ip-lookup.html">
+    <link rel="alternate" hreflang="fr" href="https://www.usemagictools.com/ip-lookup.html">
+    <link rel="alternate" hreflang="es" href="https://www.usemagictools.com/ip-lookup.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.usemagictools.com/ip-lookup.html">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -21,11 +32,15 @@
     <meta property="og:title" content="IP Lookup - Free Online IP Geolocation | No Ads, No Signup | IP 查询">
     <meta property="og:description" content="Free online IP geolocation lookup. Query IP and domain for location, ISP, and client info.">
     <meta property="og:image" content="https://www.usemagictools.com/screenshots/ip-lookup-v1.webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="Web Toolbox">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@usemagictools">
+    <meta name="twitter:creator" content="@usemagictools">
     <meta name="twitter:title" content="IP Lookup - Free Online IP Geolocation | No Ads, No Signup | IP 查询">
     <meta name="twitter:description" content="Free online IP geolocation lookup. Query IP and domain.">
     <meta name="twitter:image" content="https://www.usemagictools.com/screenshots/ip-lookup-v1.webp">
@@ -51,61 +66,65 @@
 
     <!-- FAQPage JSON-LD -->
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "Is IP address location accurate?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Usually accurate to city level, precision depends on IP database update frequency."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Can I query private IP addresses?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "No, private IPs (like 192.168.x.x) cannot be geolocated."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "What IP information is included?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Includes country, city, ISP, ASN, timezone, coordinates and more."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "How to view my public IP?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Your public IP is automatically displayed when you open the page."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Does IP lookup record my information?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "No, query results are only displayed in the browser and are not stored."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Is this tool really free? Is it safe?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes, this tool is 100% free with no ads, no signup, no usage limits, and no watermarks. All processing happens in your browser — your data never leaves your device. It's completely safe and private."
-                }
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Is IP address location accurate?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "IP geolocation is generally accurate to the city level, with precision varying based on the IP database provider's update frequency and data quality. ISP-level information and country data are typically very reliable (95%+ accuracy). City-level accuracy ranges from 70-90% depending on the region. This free lookup tool requires no signup, no ads, and runs directly in your browser."
             }
-        ]
-    }
-    </script>
+        },
+        {
+            "@type": "Question",
+            "name": "Can I query private IP addresses?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No, private IP addresses such as 192.168.x.x, 10.x.x.x, and 172.16-31.x.x cannot be geolocated because they are reserved for internal network use and do not appear on the public internet. These addresses are defined by RFC 1918 for local area networks. To find your public IP address, simply open this free tool — it displays your public IP automatically."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What IP information is included?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "This free IP lookup tool provides comprehensive details including country, region, city, postal code, ISP (Internet Service Provider), ASN (Autonomous System Number), timezone, latitude/longitude coordinates, and organization name. The data comes from professional geolocation databases. No signup or ads — all queries run instantly in your browser with complete privacy."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How to view my public IP?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Your public IP address is automatically detected and displayed when you open this tool — no action required. The tool queries a lightweight API to identify your current public-facing IP address as assigned by your ISP. This works regardless of whether you are behind a router, VPN, or NAT gateway. Completely free with no signup, no ads, and instant results."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Does IP lookup record my information?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Query results are displayed only in your browser session and are not stored, logged, or tracked by this tool. When you close the browser tab, all lookup data is cleared from memory. Your IP address and search queries are not recorded on any server. This free tool respects your privacy completely and requires no signup or account creation."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is this tool really free? Is it safe?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, this tool is 100% free with no ads, no signup, no usage limits, and no watermarks. All processing happens in your browser — your data never leaves your device. It's completely safe and private."
+            }
+        }
+    ]
+}
+</script>
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.usemagictools.com/"}, {"@type": "ListItem", "position": 2, "name": "IP Lookup", "item": "https://www.usemagictools.com/ip-lookup.html"}]}</script>
+    <!-- JSON-LD: HowTo -->
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to Use IP Lookup", "totalTime": "PT1M", "step": [{"@type": "HowToStep", "position": 1, "name": "Enter IP Address", "text": "Type an IPv4 or IPv6 address in the search field, or view your own IP information automatically."}, {"@type": "HowToStep", "position": 2, "name": "View Location Data", "text": "See the geographic location, ISP, organization, and other details associated with the IP address."}, {"@type": "HowToStep", "position": 3, "name": "Explore Map View", "text": "View the approximate location on an interactive map with coordinates and timezone information."}]}</script>
 
     <style>
         * {

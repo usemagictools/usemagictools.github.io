@@ -149,53 +149,61 @@
 
     <!-- FAQ JSON-LD -->
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "Which platforms are supported?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Supports X (Twitter), TikTok, Instagram, Facebook, YouTube and other major social platforms"
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Why can't some videos be downloaded?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "May be private videos, deleted or platform restricted. This tool only supports public videos"
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Do downloaded videos have watermarks?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "The tool will try to get watermark-free version, but some platforms may still have watermarks"
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Do videos go through third-party servers?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Parsing requires server-side processing, but videos are downloaded directly from the original platform"
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Is downloading videos legal?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "For personal learning use only, please respect original author's copyright, do not use for commercial purposes"
-                }
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Which platforms are supported?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "This video downloader supports major social media platforms including X (Twitter), TikTok, Instagram Reels, Facebook Videos, YouTube, and other popular video-sharing sites. Platform support is regularly updated to maintain compatibility. Simply paste the video URL and the tool will parse available download options. Note that only publicly accessible videos can be downloaded through this tool."
             }
-        ]
-    }
-    </script>
+        },
+        {
+            "@type": "Question",
+            "name": "Why can't some videos be downloaded?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Several factors can prevent video downloads: the video may be set to private or restricted by the creator, the content may have been deleted or removed for policy violations, or the platform may have updated its API in ways that temporarily affect compatibility. This tool only supports publicly accessible videos. Check that the URL is correct and the video is still publicly available."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Do downloaded videos have watermarks?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The tool attempts to retrieve the highest quality, watermark-free version of each video when available. However, some platforms (especially TikTok) embed watermarks directly into their video streams at the source level, which cannot be removed by any download tool. The download quality and watermark status depend on what the original platform provides in its video delivery."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Do videos go through third-party servers?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "URL parsing requires brief server-side processing to extract video metadata and download links from social platforms. However, the actual video files are downloaded directly from the original platform's content delivery network (CDN) to your device. Your video content does not pass through or get stored on any intermediary server during the download process."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is downloading videos legal?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Downloading videos should be limited to personal and educational use only. Please respect the original creator's copyright and intellectual property rights. Do not redistribute, re-upload, or use downloaded content for commercial purposes without explicit permission from the content owner. Always check the platform's terms of service regarding content downloading before proceeding."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is this video downloader tool really free with no ads?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, this social video downloader is completely free to use with no ads, no signup, no login, and no usage limits. The URL parsing interface runs in your browser, and video files download directly from the original platform. There are no hidden fees, premium tiers, or watermarks added to your downloads. Every feature is available to all users without restrictions."
+            }
+        }
+    ]
+}
+</script>
 
     <style>
         * {

@@ -94,18 +94,53 @@
     }
     </script>
     <script type="application/ld+json">
-    {
-      "@context":"https://schema.org",
-      "@type":"FAQPage",
-      "mainEntity":[
-        {"@type":"Question","name":"Is this cron format compatible with Linux crontab?","acceptedAnswer":{"@type":"Answer","text":"Yes. This cron expression generator outputs standard 5-field Linux crontab syntax including minute, hour, day, month, and weekday, so you can use it directly for most server cron jobs."}},
-        {"@type":"Question","name":"What are the basic cron writing rules?","acceptedAnswer":{"@type":"Answer","text":"Cron uses 5 fields: minute, hour, day of month, month, and day of week. Use star for any value, comma for lists, dash for ranges, and slash for step intervals."}},
-        {"@type":"Question","name":"Can I use step values like */5?","acceptedAnswer":{"@type":"Answer","text":"Yes. Expressions like */5, 1-10/2, and 1,15,30 are standard Linux crontab patterns for interval and fixed-point scheduling."}},
-        {"@type":"Question","name":"Does it validate cron syntax and explain meaning?","acceptedAnswer":{"@type":"Answer","text":"Yes. The tool validates cron syntax and generates a human-readable description to help beginners understand cron schedule rules and avoid misconfiguration."}},
-        {"@type":"Question","name":"Is this tool really free with no ads?","acceptedAnswer":{"@type":"Answer","text":"Yes, 100% free with no ads, no registration, no watermark, and no usage limits. All processing happens locally in your browser — your data is never uploaded to any server."}}
-      ]
-    }
-    </script>
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Is this cron format compatible with Linux crontab?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. This free cron expression generator outputs standard 5-field Linux crontab syntax covering minute, hour, day of month, month, and day of week. The generated expressions work directly in Linux/Unix crontab, AWS CloudWatch, GitHub Actions, and most scheduling systems. No signup or ads — build and test your cron schedules instantly in your browser."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What are the basic cron writing rules?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Cron uses 5 fields: minute, hour, day of month, month, and day of week. Use star for any value, comma for lists, dash for ranges, and slash for step intervals."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can I use step values like */5?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Step values like */5 (every 5 units), range steps like 1-10/2 (every 2nd value from 1 to 10), and comma-separated lists like 1,15,30 are all standard crontab patterns fully supported by this tool. These expressions enable flexible interval and fixed-point scheduling. This free browser-based generator requires no signup or installation."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Does it validate cron syntax and explain meaning?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. The tool validates your cron expression syntax in real-time and generates a clear, human-readable description explaining when the schedule will trigger. This helps beginners understand cron rules and prevents misconfigured schedules on production servers. The validator is completely free, runs in your browser with no signup, and supports all standard crontab patterns."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is this tool really free with no ads?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, 100% free with no ads, no registration, no watermark, and no usage limits. All processing happens locally in your browser — your data is never uploaded to any server."
+            }
+        }
+    ]
+}
+</script>
 
     <style>
         :root { --bg:#020617; --panel:#0b1220; --card:#0f172a; --muted:#94a3b8; --text:#e2e8f0; --border:rgba(148,163,184,.2); --primary:#3b82f6; --primary2:#2563eb; --radius:12px; }

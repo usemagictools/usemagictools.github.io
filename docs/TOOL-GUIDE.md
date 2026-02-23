@@ -32,7 +32,7 @@
 ### 页面区块
 - [ ] 16. Trust Bar（4 项文案键）→ R7
 - [ ] 17. features-section（4 卡，首卡 "100% Free & Private"）→ R5 R9
-- [ ] 18. faq-section（≥5 问答，末条 faq_free_q/a，禁止手写 onclick）→ R8
+- [ ] 18. faq-section（≥5 问答，每条≥30词/推荐40-60词，末条 faq_free_q/a，禁止手写 onclick）→ R8
 - [ ] 19. related-tools（3-5 内链，样式由 common.css 控制）→ R0 R5
 
 ### 集成
@@ -215,11 +215,17 @@
 ### R8) FAQ 深度与热词
 
 - HTML 结构：`.faq-item` > `.faq-question`（按钮）+ 答案容器，手风琴交互由 common.js 自动绑定
-- 每条 FAQ 答案必须有解释深度（建议 3-8 句），不能是空泛一句话
+- **数量**：每个工具页 ≥5 条 FAQ（JSON-LD 与页面内 HTML 同步）
+- **字数**：每条答案 **≥30 词**（推荐 40-60 词，即 3-5 句英文）；<30 词视为不合格
+- **内容结构**（每条答案应包含）：
+  1. 直接回答问题（1 句）
+  2. 技术原理/科普解释（1-2 句）
+  3. SEO 热词自然嵌入：free, no ads, no signup, browser-based, privacy, no watermark
 - 至少 1 条 FAQ 必须是基础科普（What is X / X 是什么，有什么用）
 - FAQ 与 JSON-LD FAQPage 必须语义一致
 - FAQ 文案必须自然包含 Google 热词，禁止机械堆砌
 - FAQ 最后一条必须是免费隐私问答，键名固定：`faq_free_q` / `faq_free_a`
+- **常见错误**：7-15 词的一句话回答（如 "Yes, it is free with no signup"）不合格，必须扩写
 
 ### R9) 免费隐私卖点卡
 
@@ -325,9 +331,23 @@ features 第一张卡必须是"100% Free & Private"卖点（含无广告、无�
 ```
 
 ### FAQ 深度示例 → R8
+
+**不合格示例**（15 词，太短）：
 ```text
-Q: What is JSON and what is it used for?
-A: JSON (JavaScript Object Notation) is a lightweight data format used by modern APIs and web apps. In CSV to JSON workflows, JSON is often used as API-ready structured payload.
+Q: What image formats are supported?
+A: Supports JPG, PNG, WebP, GIF and other common image formats.
+```
+
+**达标示例**（57 词，含科普+热词）：
+```text
+Q: What image formats are supported?
+A: This free image compressor supports all major web formats including JPG/JPEG, PNG, WebP, and GIF. JPG and WebP files benefit from lossy compression with adjustable quality, while PNG files use optimization algorithms to reduce size without quality loss. All compression runs locally in your browser with no signup, no ads, and no file upload to external servers.
+```
+
+**达标的 free FAQ 末条示例**（55 词）：
+```text
+Q: Is this tool really free with no ads?
+A: Yes, this tool is 100% free with no ads, no signup, no watermarks, and no usage limits. Every feature is available to all users without restrictions or premium tiers. The tool runs entirely in your browser using client-side JavaScript, so no server resources are consumed and your data remains completely private on your device.
 ```
 
 ---

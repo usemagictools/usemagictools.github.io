@@ -105,43 +105,61 @@
     }
     </script>
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "Can I split PDF by page ranges?",
-                "acceptedAnswer": { "@type": "Answer", "text": "Yes. Enter ranges such as 1-3,5,9-12 to extract multiple parts." }
-            },
-            {
-                "@type": "Question",
-                "name": "Can I split every page into separate PDF files?",
-                "acceptedAnswer": { "@type": "Answer", "text": "Yes. Use the Each Page mode to export one PDF per page." }
-            },
-            {
-                "@type": "Question",
-                "name": "Do I need to upload my PDF?",
-                "acceptedAnswer": { "@type": "Answer", "text": "No. File processing runs in your browser, and your PDF stays local." }
-            },
-            {
-                "@type": "Question",
-                "name": "What format will the output use?",
-                "acceptedAnswer": { "@type": "Answer", "text": "Output files are standard PDF. Multiple files are packed into ZIP." }
-            },
-            {
-                "@type": "Question",
-                "name": "Is this PDF splitter free?",
-                "acceptedAnswer": { "@type": "Answer", "text": "Yes, it is completely free with no sign-up." }
-            },
-            {
-                "@type": "Question",
-                "name": "Is this tool really free? Are my files safe?",
-                "acceptedAnswer": { "@type": "Answer", "text": "Yes, 100% free with no ads, no registration, and no usage limits. Unlike other PDF tools, your files are never uploaded to any server — all processing happens locally in your browser for maximum privacy." }
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Can I split PDF by page ranges?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Enter custom page ranges such as 1-3, 5, 9-12 to extract specific pages or multiple sections from your PDF document. Each range creates a separate output file. This is useful for extracting chapters, specific forms, or particular sections from large documents. The tool is free, runs in your browser, and requires no signup or server upload."
             }
-        ]
-    }
-    </script>
+        },
+        {
+            "@type": "Question",
+            "name": "Can I split every page into separate PDF files?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Use the \"Each Page\" mode to automatically export every single page as an individual PDF file. All files are packaged into a convenient ZIP download. This is ideal for archiving individual pages, creating per-page handouts, or reorganizing document structure. The tool is completely free, browser-based, and requires no signup or account creation."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Do I need to upload my PDF?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. All PDF splitting and page extraction runs entirely in your browser using client-side JavaScript libraries. Your PDF files are never uploaded to any external server or cloud service. The documents remain 100% on your local device throughout the entire process. This ensures complete privacy and security. Free to use with no signup, ads, or watermarks."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What format will the output use?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Output files are standard PDF format that works with any PDF reader application. When splitting produces multiple files, they are automatically packaged into a single ZIP archive for convenient download. Each split file preserves the original page quality, fonts, and formatting. This free browser-based tool requires no signup and processes everything locally on your device."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is this PDF splitter free?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, this PDF splitter is 100% free with no signup, no ads, no watermarks, and no usage limits. Every splitting feature — including page range extraction and per-page splitting — is available to all users without restrictions. The tool runs entirely in your browser, so your documents stay private. There are no hidden fees, premium tiers, or quality limitations."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Is this tool really free? Are my files safe?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, 100% free with no ads, no registration, and no usage limits. Unlike other PDF tools, your files are never uploaded to any server — all processing happens locally in your browser for maximum privacy."
+            }
+        }
+    ]
+}
+</script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
