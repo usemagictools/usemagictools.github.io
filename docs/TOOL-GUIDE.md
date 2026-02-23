@@ -36,7 +36,7 @@
 - [ ] 19. related-tools（3-5 内链，样式由 common.css 控制）→ R0 R5
 
 ### 集成
-- [ ] 20. 截图：`cwebp -q 80 screenshot.png -o screenshots/xxx.webp` → R12
+- [ ] 20. 截图：`cwebp -q 80 screenshot.png -o screenshots/xxx-v1.webp` → R12
 - [ ] 21. index.html 添加工具卡片 + JSON-LD hasPart → R11
 - [ ] 22. sitemap.xml + ROADMAP.md + 分类页 → R11
 
@@ -239,12 +239,12 @@ features 第一张卡必须是"100% Free & Private"卖点（含无广告、无�
 3. 对应分类页 `category/xxx-tools.html`（添加工具卡片到该分类）
 4. `sitemap.xml`
 5. `docs/ROADMAP.md`
-6. `screenshots/{tool}.webp`
+6. `screenshots/{tool}-v1.webp`
 
 ### R12) 截图规范
 
 - 截图必须为 `webp`，文件名与工具文件名一致
-- 转换命令：`cwebp -q 80 screenshot.png -o screenshots/xxx.webp`
+- 转换命令：`cwebp -q 80 screenshot.png -o screenshots/xxx-v1.webp`
 
 ### R13) 浅色主题 CSS
 
@@ -371,7 +371,7 @@ A: JSON (JavaScript Object Notation) is a lightweight data format used by modern
     <meta property="og:url" content="https://www.usemagictools.com/{文件名}.html">
     <meta property="og:title" content="{工具英文名} - Free Online {类型} | No Ads, No Signup">
     <meta property="og:description" content="{英文描述}">
-    <meta property="og:image" content="https://www.usemagictools.com/screenshots/{文件名}.webp">
+    <meta property="og:image" content="https://www.usemagictools.com/screenshots/{文件名}-v1.webp">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_US">
@@ -384,7 +384,7 @@ A: JSON (JavaScript Object Notation) is a lightweight data format used by modern
     <meta name="twitter:creator" content="@usemagictools">
     <meta name="twitter:title" content="{工具英文名} - Free Online {类型} | No Ads, No Signup">
     <meta name="twitter:description" content="{英文描述}">
-    <meta name="twitter:image" content="https://www.usemagictools.com/screenshots/{文件名}.webp">
+    <meta name="twitter:image" content="https://www.usemagictools.com/screenshots/{文件名}-v1.webp">
 
     <!-- ========== B. JSON-LD 结构化数据（4 种全部包含） ========== -->
 
@@ -404,7 +404,7 @@ A: JSON (JavaScript Object Notation) is a lightweight data format used by modern
         "author": { "@type": "Person", "name": "UseMagicTools" },
         "publisher": { "@type": "Organization", "name": "Web Toolbox", "url": "https://www.usemagictools.com/" },
         "featureList": ["{功能1}", "{功能2}", "{功能3}", "{功能4}", "No ads", "No signup required", "No watermark", "100% browser-based", "Unlimited usage"],
-        "screenshot": "https://www.usemagictools.com/screenshots/{文件名}.webp"
+        "screenshot": "https://www.usemagictools.com/screenshots/{文件名}-v1.webp"
     }
     </script>
 
@@ -721,7 +721,7 @@ A: JSON (JavaScript Object Notation) is a lightweight data format used by modern
 **单文件工具：**
 ```html
 <div class="tool-card" data-tool="{tool-key}">
-    <img src="screenshots/{文件名}.webp" alt="{工具中文名}截图" class="tool-screenshot">
+    <img src="screenshots/{文件名}-v1.webp" alt="{工具中文名}截图" class="tool-screenshot">
     <div class="tool-content">
         <div class="tool-icon">{emoji}</div>
         <h2 class="tool-title" data-i18n="tool_{key}_title">{工具中文名}</h2>
@@ -740,7 +740,7 @@ A: JSON (JavaScript Object Notation) is a lightweight data format used by modern
 **多文件工具（目录形式）：**
 ```html
 <div class="tool-card" data-tool="{tool-key}">
-    <img src="screenshots/{目录名}.webp" alt="{工具中文名}截图" class="tool-screenshot">
+    <img src="screenshots/{目录名}-v1.webp" alt="{工具中文名}截图" class="tool-screenshot">
     <div class="tool-content">
         <div class="tool-icon">{emoji}</div>
         <h2 class="tool-title" data-i18n="tool_{key}_title">{工具中文名}</h2>
