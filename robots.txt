@@ -1,13 +1,15 @@
 # Robots.txt for www.usemagictools.com
 # Magic Toolbox - 60+ Free Online Browser Tools
-# 更新日期: 2026-02
+# 更新日期: 2026-02-23
 
 # ============================================
 # 默认规则 - 允许所有爬虫
 # ============================================
 User-agent: *
 Allow: /
-Crawl-delay: 1
+Disallow: /common/
+Disallow: /docs/
+Disallow: /.DS_Store
 
 # ============================================
 # 主流搜索引擎
@@ -119,15 +121,6 @@ Allow: /
 
 User-agent: iaskspider
 Allow: /
-
-# ============================================
-# 禁止抓取的路径
-# ============================================
-User-agent: *
-Disallow: /common/
-Disallow: /screenshots/
-Disallow: /docs/
-Disallow: /.DS_Store
 
 # ============================================
 # Sitemaps
