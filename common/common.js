@@ -134,12 +134,8 @@
         };
     }
 
-    // 检测浏览器语言
+    // 默认语言始终为英语，用户可手动切换
     function detectLanguage() {
-        var browserLang = navigator.language || navigator.userLanguage || 'en';
-        if (browserLang.startsWith('zh')) return 'zh-CN';
-        if (browserLang.startsWith('fr')) return 'fr';
-        if (browserLang.startsWith('es')) return 'es';
         return 'en';
     }
 
