@@ -37,7 +37,11 @@
             nav_text: 'Text',
             nav_media: 'Media',
             nav_utility: 'Utility',
-            copyright: '© 2024-2026 <a href="https://www.usemagictools.com" target="_blank" rel="noopener">UseMagicTools</a>. All rights reserved.'
+            copyright: '© 2024-2026 <a href="https://www.usemagictools.com" target="_blank" rel="noopener">UseMagicTools</a>. All rights reserved.',
+            footer_privacy: 'Privacy Policy',
+            footer_terms: 'Terms',
+            footer_about: 'About',
+            footer_contact: 'Contact'
         },
         'zh-CN': {
             home: '首页',
@@ -55,7 +59,11 @@
             nav_text: '文本',
             nav_media: '媒体',
             nav_utility: '实用',
-            copyright: '© 2024-2026 <a href="https://www.usemagictools.com" target="_blank" rel="noopener">UseMagicTools</a>. 保留所有权利。'
+            copyright: '© 2024-2026 <a href="https://www.usemagictools.com" target="_blank" rel="noopener">UseMagicTools</a>. 保留所有权利。',
+            footer_privacy: '隐私政策',
+            footer_terms: '服务条款',
+            footer_about: '关于',
+            footer_contact: '联系我们'
         },
         fr: {
             home: 'Accueil',
@@ -73,7 +81,11 @@
             nav_text: 'Texte',
             nav_media: 'Média',
             nav_utility: 'Utilitaire',
-            copyright: '© 2024-2026 <a href="https://www.usemagictools.com" target="_blank" rel="noopener">UseMagicTools</a>. Tous droits réservés.'
+            copyright: '© 2024-2026 <a href="https://www.usemagictools.com" target="_blank" rel="noopener">UseMagicTools</a>. Tous droits réservés.',
+            footer_privacy: 'Confidentialité',
+            footer_terms: 'Conditions',
+            footer_about: 'À Propos',
+            footer_contact: 'Contact'
         },
         es: {
             home: 'Inicio',
@@ -91,7 +103,11 @@
             nav_text: 'Texto',
             nav_media: 'Medios',
             nav_utility: 'Utilidad',
-            copyright: '© 2024-2026 <a href="https://www.usemagictools.com" target="_blank" rel="noopener">UseMagicTools</a>. Todos los derechos reservados.'
+            copyright: '© 2024-2026 <a href="https://www.usemagictools.com" target="_blank" rel="noopener">UseMagicTools</a>. Todos los derechos reservados.',
+            footer_privacy: 'Privacidad',
+            footer_terms: 'Términos',
+            footer_about: 'Acerca de',
+            footer_contact: 'Contacto'
         }
     };
 
@@ -223,17 +239,33 @@
         return '<nav class="category-nav">\n        ' + items + '\n    </nav>';
     }
 
+    // 生成 footer 法律链接行
+    function buildFooterLinks(lang) {
+        return '<div class="footer-links" data-common-i18n-group="footer-links">' +
+            '<a href="/privacy.html" data-common-i18n="footer_privacy">' + ct(lang, 'footer_privacy') + '</a>' +
+            '<span class="footer-links-sep">|</span>' +
+            '<a href="/terms.html" data-common-i18n="footer_terms">' + ct(lang, 'footer_terms') + '</a>' +
+            '<span class="footer-links-sep">|</span>' +
+            '<a href="/about.html" data-common-i18n="footer_about">' + ct(lang, 'footer_about') + '</a>' +
+            '<span class="footer-links-sep">|</span>' +
+            '<a href="/contact.html" data-common-i18n="footer_contact">' + ct(lang, 'footer_contact') + '</a>' +
+            '</div>';
+    }
+
     // 生成 footer HTML
     function buildFooter(config, lang) {
+        var linksHtml = buildFooterLinks(lang);
         if (config.pageType === 'category') {
-            // 分类页：仅版权行，无类目导航
+            // 分类页：仅法律链接 + 版权行，无类目导航
             return '<footer class="site-footer">' +
+                linksHtml +
                 '<p data-common-i18n="copyright">' + ct(lang, 'copyright') + '</p>' +
                 '</footer>';
         }
-        // 工具页：类目导航 + 版权
+        // 工具页：类目导航 + 法律链接 + 版权
         return buildCategoryNav(config.category, lang) +
             '\n    <footer class="site-footer">' +
+            linksHtml +
             '<p data-common-i18n="copyright">' + ct(lang, 'copyright') + '</p>' +
             '</footer>';
     }

@@ -284,6 +284,35 @@
     text-decoration: underline;
 }
 
+/* --- Footer 法律链接 --- */
+.footer-links {
+    text-align: center;
+    margin-bottom: 12px;
+    font-size: 0.85rem;
+}
+.footer-links a {
+    color: #9ca3af;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.footer-links a:hover {
+    color: #a78bfa;
+    text-decoration: underline;
+}
+.footer-links-sep {
+    color: #52525b;
+    margin: 0 10px;
+}
+[data-theme="light"] .footer-links a {
+    color: #6b7280;
+}
+[data-theme="light"] .footer-links a:hover {
+    color: #7c3aed;
+}
+[data-theme="light"] .footer-links-sep {
+    color: #d4d4d8;
+}
+
 /* --- 相关工具 --- */
 .related-tools {
     margin: 40px 0;

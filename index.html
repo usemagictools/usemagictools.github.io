@@ -309,6 +309,24 @@
             color: #a78bfa;
         }
 
+        .footer-links {
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+        }
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover {
+            color: #a78bfa;
+            text-decoration: underline;
+        }
+        .footer-links-sep {
+            color: #52525b;
+            margin: 0 10px;
+        }
+
         /* 搜索框样式 */
         .search-container {
             max-width: 500px;
@@ -799,6 +817,9 @@
         }
         [data-theme="light"] footer a { color: #71717a; }
         [data-theme="light"] footer a:hover { color: #7c3aed; }
+        [data-theme="light"] .footer-links a { color: #6b7280; }
+        [data-theme="light"] .footer-links a:hover { color: #7c3aed; }
+        [data-theme="light"] .footer-links-sep { color: #d4d4d8; }
         [data-theme="light"] .search-clear {
             background: #f4f4f5;
             color: #71717a;
@@ -2050,6 +2071,15 @@
 </div>
 
         <footer>
+            <div class="footer-links">
+                <a href="/privacy.html" data-i18n="footerPrivacy">Privacy Policy</a>
+                <span class="footer-links-sep">|</span>
+                <a href="/terms.html" data-i18n="footerTerms">Terms</a>
+                <span class="footer-links-sep">|</span>
+                <a href="/about.html" data-i18n="footerAbout">About</a>
+                <span class="footer-links-sep">|</span>
+                <a href="/contact.html" data-i18n="footerContact">Contact</a>
+            </div>
             <p data-i18n="footerCopyright">© 2024-2026 <a href="https://www.usemagictools.com" target="_blank">UseMagicTools</a>. All rights reserved.</p>
         </footer>
     </div>
@@ -2281,6 +2311,10 @@
                     viewCatPage: '查看该分类全部工具 →',
                     openTool: '打开工具 →',
                     viewProject: '查看项目 →',
+                    footerPrivacy: '隐私政策',
+                    footerTerms: '服务条款',
+                    footerAbout: '关于',
+                    footerContact: '联系我们',
                     footerCopyright: '© 2024-2026 <a href="https://www.usemagictools.com" target="_blank">UseMagicTools</a>. All rights reserved.',
                     totalTools: '共 {count} 个工具',
                     foundTools: '找到 {visible} / {total} 个工具',
@@ -2693,6 +2727,10 @@
                     viewCatPage: 'View all tools in this category →',
                     openTool: 'Open Tool →',
                     viewProject: 'View Project →',
+                    footerPrivacy: 'Privacy Policy',
+                    footerTerms: 'Terms',
+                    footerAbout: 'About',
+                    footerContact: 'Contact',
                     footerCopyright: '© 2024-2026 <a href="https://www.usemagictools.com" target="_blank">UseMagicTools</a>. All rights reserved.',
                     totalTools: '{count} tools in total',
                     foundTools: 'Found {visible} / {total} tools',
@@ -3104,6 +3142,10 @@
                     viewCatPage: 'Voir tous les outils de cette catégorie →',
                     openTool: 'Ouvrir l\'outil →',
                     viewProject: 'Voir le projet →',
+                    footerPrivacy: 'Confidentialité',
+                    footerTerms: 'Conditions',
+                    footerAbout: 'À Propos',
+                    footerContact: 'Contact',
                     footerCopyright: '© 2024-2026 <a href="https://www.usemagictools.com" target="_blank">usemagictools.com</a> Tous droits réservés.',
                     totalTools: '{count} outils au total',
                     foundTools: 'Trouvé {visible} / {total} outils',
@@ -3515,6 +3557,10 @@
                     viewCatPage: 'Ver todas las herramientas de esta categoría →',
                     openTool: 'Abrir herramienta →',
                     viewProject: 'Ver proyecto →',
+                    footerPrivacy: 'Privacidad',
+                    footerTerms: 'Términos',
+                    footerAbout: 'Acerca de',
+                    footerContact: 'Contacto',
                     footerCopyright: '© 2024-2026 <a href="https://www.usemagictools.com" target="_blank">usemagictools.com</a> Todos los derechos reservados.',
                     totalTools: '{count} herramientas en total',
                     foundTools: 'Encontrado {visible} / {total} herramientas',
