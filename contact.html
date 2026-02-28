@@ -58,8 +58,13 @@
         .info-card-icon { font-size: 1.5rem; margin-bottom: 8px; }
         .info-card-title { color: #c4b5fd; font-weight: 600; margin-bottom: 4px; }
         .info-card-desc { color: #9ca3af; font-size: 0.9rem; }
-        .back-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 40px; padding: 12px 24px; background: linear-gradient(135deg, #8b5cf6, #7c3aed); color: #fff; text-decoration: none; border-radius: 10px; font-weight: 600; transition: all 0.3s; box-shadow: 0 4px 20px rgba(139,92,246,0.3); }
-        .back-link:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(139,92,246,0.5); color: #fff; }
+        footer { text-align: center; margin-top: 60px; padding: 24px 0; border-top: 1px solid rgba(255, 255, 255, 0.08); color: #52525b; font-size: 0.8rem; }
+        footer a { color: #71717a; text-decoration: none; }
+        footer a:hover { color: #a78bfa; }
+        .footer-links { margin-bottom: 12px; font-size: 0.85rem; }
+        .footer-links a { color: #9ca3af; text-decoration: none; transition: color 0.2s; }
+        .footer-links a:hover { color: #a78bfa; text-decoration: underline; }
+        .footer-links-sep { color: #52525b; margin: 0 10px; }
         body[data-theme="light"] { background: linear-gradient(135deg, #f5f3ff, #ede9fe, #ddd6fe); color: #1f2937; }
         body[data-theme="light"] .page-title { background: linear-gradient(135deg, #7c3aed, #6d28d9, #5b21b6); -webkit-background-clip: text; background-clip: text; }
         body[data-theme="light"] h2 { color: #6d28d9; }
@@ -76,6 +81,12 @@
         body[data-theme="light"] .info-card-title { color: #6d28d9; }
         body[data-theme="light"] .info-card-desc { color: #6b7280; }
         body[data-theme="light"] .particle { background: rgba(124, 58, 237, 0.15); }
+        body[data-theme="light"] footer { border-top-color: #e4e4e7; color: #a1a1aa; }
+        body[data-theme="light"] footer a { color: #71717a; }
+        body[data-theme="light"] footer a:hover { color: #7c3aed; }
+        body[data-theme="light"] .footer-links a { color: #6b7280; }
+        body[data-theme="light"] .footer-links a:hover { color: #7c3aed; }
+        body[data-theme="light"] .footer-links-sep { color: #d4d4d8; }
         @media (max-width: 600px) { .content { padding: 16px 16px 40px; } .page-title { font-size: 1.5rem; } .info-cards { grid-template-columns: 1fr; } }
     </style>
 </head>
@@ -129,7 +140,18 @@
         <h2 data-i18n="h_response">Response Time</h2>
         <p data-i18n="p_response">We typically respond to emails within 1-2 business days. For bug reports, please include as much detail as possible: the tool name, your browser, and steps to reproduce the issue.</p>
 
-        <a href="/" class="back-link" data-i18n="back">← Back to Home</a>
+        <footer>
+            <div class="footer-links">
+                <a href="/privacy.html" data-i18n="footerPrivacy">Privacy Policy</a>
+                <span class="footer-links-sep">|</span>
+                <a href="/terms.html" data-i18n="footerTerms">Terms</a>
+                <span class="footer-links-sep">|</span>
+                <a href="/about.html" data-i18n="footerAbout">About</a>
+                <span class="footer-links-sep">|</span>
+                <a href="/contact.html" data-i18n="footerContact">Contact</a>
+            </div>
+            <p data-i18n="footerCopyright">© 2024-2026 <a href="https://www.usemagictools.com" target="_blank">UseMagicTools</a>. All rights reserved.</p>
+        </footer>
     </div>
     <script>
     (function() {
@@ -154,7 +176,8 @@
                 c_collab: 'Collaboration', c_collab_desc: 'Interested in partnering or contributing? We\u2019d love to chat.',
                 h_response: 'Response Time',
                 p_response: 'We typically respond to emails within 1-2 business days. For bug reports, please include as much detail as possible: the tool name, your browser, and steps to reproduce the issue.',
-                back: '\u2190 Back to Home'
+                footerPrivacy: 'Privacy Policy', footerTerms: 'Terms', footerAbout: 'About', footerContact: 'Contact',
+                footerCopyright: '© 2024-2026 <a href="https://www.usemagictools.com" target="_blank">UseMagicTools</a>. All rights reserved.'
             },
             'zh-CN': {
                 title: '\u8054\u7cfb\u6211\u4eec',
@@ -166,7 +189,8 @@
                 c_collab: '\u5408\u4f5c', c_collab_desc: '\u6709\u5174\u8da3\u5408\u4f5c\u6216\u8d21\u732e\uff1f\u6211\u4eec\u5f88\u4e50\u610f\u4ea4\u6d41\u3002',
                 h_response: '\u54cd\u5e94\u65f6\u95f4',
                 p_response: '\u6211\u4eec\u901a\u5e38\u57281-2\u4e2a\u5de5\u4f5c\u65e5\u5185\u56de\u590d\u90ae\u4ef6\u3002\u62a5\u544a Bug \u65f6\uff0c\u8bf7\u5c3d\u53ef\u80fd\u63d0\u4f9b\u8be6\u7ec6\u4fe1\u606f\uff1a\u5de5\u5177\u540d\u79f0\u3001\u60a8\u7684\u6d4f\u89c8\u5668\u4ee5\u53ca\u590d\u73b0\u6b65\u9aa4\u3002',
-                back: '\u2190 \u8fd4\u56de\u9996\u9875'
+                footerPrivacy: '\u9690\u79c1\u653f\u7b56', footerTerms: '\u670d\u52a1\u6761\u6b3e', footerAbout: '\u5173\u4e8e', footerContact: '\u8054\u7cfb\u6211\u4eec',
+                footerCopyright: '© 2024-2026 <a href="https://www.usemagictools.com" target="_blank">UseMagicTools</a>. \u4fdd\u7559\u6240\u6709\u6743\u5229\u3002'
             },
             fr: {
                 title: 'Nous Contacter',
@@ -178,7 +202,8 @@
                 c_collab: 'Collaboration', c_collab_desc: 'Int\u00e9ress\u00e9 par un partenariat ou une contribution ? Nous serions ravis d\u2019en discuter.',
                 h_response: 'D\u00e9lai de R\u00e9ponse',
                 p_response: 'Nous r\u00e9pondons g\u00e9n\u00e9ralement aux emails sous 1-2 jours ouvrables. Pour les rapports de bugs, veuillez inclure autant de d\u00e9tails que possible.',
-                back: '\u2190 Retour \u00e0 l\u2019accueil'
+                footerPrivacy: 'Confidentialit\u00e9', footerTerms: 'Conditions', footerAbout: '\u00c0 Propos', footerContact: 'Contact',
+                footerCopyright: '© 2024-2026 <a href="https://www.usemagictools.com" target="_blank">UseMagicTools</a>. Tous droits r\u00e9serv\u00e9s.'
             },
             es: {
                 title: 'Cont\u00e1ctenos',
@@ -190,7 +215,8 @@
                 c_collab: 'Colaboraci\u00f3n', c_collab_desc: '\u00bfInteresado en asociarse o contribuir? Nos encantar\u00eda conversar.',
                 h_response: 'Tiempo de Respuesta',
                 p_response: 'Generalmente respondemos los correos en 1-2 d\u00edas h\u00e1biles. Para reportes de bugs, incluya la mayor cantidad de detalles posible.',
-                back: '\u2190 Volver al inicio'
+                footerPrivacy: 'Privacidad', footerTerms: 'T\u00e9rminos', footerAbout: 'Acerca de', footerContact: 'Contacto',
+                footerCopyright: '© 2024-2026 <a href="https://www.usemagictools.com" target="_blank">UseMagicTools</a>. Todos los derechos reservados.'
             }
         };
 

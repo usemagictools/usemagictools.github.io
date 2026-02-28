@@ -52,8 +52,13 @@
         }
         .stat-num { font-size: 2rem; font-weight: 800; color: #a78bfa; }
         .stat-label { font-size: 0.85rem; color: #9ca3af; margin-top: 4px; }
-        .back-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 40px; padding: 12px 24px; background: linear-gradient(135deg, #8b5cf6, #7c3aed); color: #fff; text-decoration: none; border-radius: 10px; font-weight: 600; transition: all 0.3s; box-shadow: 0 4px 20px rgba(139,92,246,0.3); }
-        .back-link:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(139,92,246,0.5); color: #fff; }
+        footer { text-align: center; margin-top: 60px; padding: 24px 0; border-top: 1px solid rgba(255, 255, 255, 0.08); color: #52525b; font-size: 0.8rem; }
+        footer a { color: #71717a; text-decoration: none; }
+        footer a:hover { color: #a78bfa; }
+        .footer-links { margin-bottom: 12px; font-size: 0.85rem; }
+        .footer-links a { color: #9ca3af; text-decoration: none; transition: color 0.2s; }
+        .footer-links a:hover { color: #a78bfa; text-decoration: underline; }
+        .footer-links-sep { color: #52525b; margin: 0 10px; }
         body[data-theme="light"] { background: linear-gradient(135deg, #f5f3ff, #ede9fe, #ddd6fe); color: #1f2937; }
         body[data-theme="light"] .page-title { background: linear-gradient(135deg, #7c3aed, #6d28d9, #5b21b6); -webkit-background-clip: text; background-clip: text; }
         body[data-theme="light"] h2 { color: #6d28d9; }
@@ -70,6 +75,12 @@
         body[data-theme="light"] .stat-num { color: #7c3aed; }
         body[data-theme="light"] .stat-label { color: #6b7280; }
         body[data-theme="light"] .particle { background: rgba(124, 58, 237, 0.15); }
+        body[data-theme="light"] footer { border-top-color: #e4e4e7; color: #a1a1aa; }
+        body[data-theme="light"] footer a { color: #71717a; }
+        body[data-theme="light"] footer a:hover { color: #7c3aed; }
+        body[data-theme="light"] .footer-links a { color: #6b7280; }
+        body[data-theme="light"] .footer-links a:hover { color: #7c3aed; }
+        body[data-theme="light"] .footer-links-sep { color: #d4d4d8; }
         @media (max-width: 600px) { .content { padding: 16px 16px 40px; } .page-title { font-size: 1.5rem; } .stats { grid-template-columns: repeat(2, 1fr); } }
     </style>
 </head>
@@ -143,7 +154,18 @@
         <h2 data-i18n="h_contact">Contact</h2>
         <p data-i18n="p_contact">Have feedback, suggestions, or found a bug? We'd love to hear from you. Reach us at <a href="mailto:usemagictools@gmail.com">usemagictools@gmail.com</a> or visit our <a href="/contact.html">contact page</a>.</p>
 
-        <a href="/" class="back-link" data-i18n="back">← Back to Home</a>
+        <footer>
+            <div class="footer-links">
+                <a href="/privacy.html" data-i18n="footerPrivacy">Privacy Policy</a>
+                <span class="footer-links-sep">|</span>
+                <a href="/terms.html" data-i18n="footerTerms">Terms</a>
+                <span class="footer-links-sep">|</span>
+                <a href="/about.html" data-i18n="footerAbout">About</a>
+                <span class="footer-links-sep">|</span>
+                <a href="/contact.html" data-i18n="footerContact">Contact</a>
+            </div>
+            <p data-i18n="footerCopyright">© 2024-2026 <a href="https://www.usemagictools.com" target="_blank">UseMagicTools</a>. All rights reserved.</p>
+        </footer>
     </div>
     <script>
     (function() {
@@ -180,7 +202,8 @@
                 p_tech: 'Magic Toolbox is built with pure HTML, CSS, and JavaScript \u2014 no frameworks, no backend servers. We leverage WebAssembly for heavy processing tasks (like PDF manipulation and image compression), ensuring desktop-class performance in your browser. The site is hosted on GitHub Pages for maximum reliability and speed.',
                 h_contact: 'Contact',
                 p_contact: 'Have feedback, suggestions, or found a bug? We\u2019d love to hear from you. Reach us at <a href="mailto:usemagictools@gmail.com">usemagictools@gmail.com</a> or visit our <a href="/contact.html">contact page</a>.',
-                back: '\u2190 Back to Home'
+                footerPrivacy: 'Privacy Policy', footerTerms: 'Terms', footerAbout: 'About', footerContact: 'Contact',
+                footerCopyright: '© 2024-2026 <a href="https://www.usemagictools.com" target="_blank">UseMagicTools</a>. All rights reserved.'
             },
             'zh-CN': {
                 title: '\u5173\u4e8e\u9b54\u6cd5\u5de5\u5177\u7bb1',
@@ -204,7 +227,8 @@
                 p_tech: '\u9b54\u6cd5\u5de5\u5177\u7bb1\u4f7f\u7528\u7eaf HTML\u3001CSS \u548c JavaScript \u6784\u5efa\u2014\u2014\u65e0\u6846\u67b6\u3001\u65e0\u540e\u7aef\u670d\u52a1\u5668\u3002\u6211\u4eec\u5229\u7528 WebAssembly \u5904\u7406\u91cd\u578b\u4efb\u52a1\uff08\u5982 PDF \u64cd\u4f5c\u548c\u56fe\u7247\u538b\u7f29\uff09\uff0c\u786e\u4fdd\u6d4f\u89c8\u5668\u4e2d\u7684\u684c\u9762\u7ea7\u6027\u80fd\u3002\u7f51\u7ad9\u6258\u7ba1\u5728 GitHub Pages \u4e0a\u3002',
                 h_contact: '\u8054\u7cfb\u6211\u4eec',
                 p_contact: '\u6709\u53cd\u9988\u3001\u5efa\u8bae\u6216\u53d1\u73b0\u4e86 bug\uff1f\u6211\u4eec\u5f88\u4e50\u610f\u542c\u53d6\u60a8\u7684\u610f\u89c1\u3002\u8bf7\u901a\u8fc7 <a href="mailto:usemagictools@gmail.com">usemagictools@gmail.com</a> \u8054\u7cfb\u6211\u4eec\uff0c\u6216\u8bbf\u95ee\u6211\u4eec\u7684<a href="/contact.html">\u8054\u7cfb\u9875\u9762</a>\u3002',
-                back: '\u2190 \u8fd4\u56de\u9996\u9875'
+                footerPrivacy: '\u9690\u79c1\u653f\u7b56', footerTerms: '\u670d\u52a1\u6761\u6b3e', footerAbout: '\u5173\u4e8e', footerContact: '\u8054\u7cfb\u6211\u4eec',
+                footerCopyright: '© 2024-2026 <a href="https://www.usemagictools.com" target="_blank">UseMagicTools</a>. \u4fdd\u7559\u6240\u6709\u6743\u5229\u3002'
             },
             fr: {
                 title: '\u00c0 Propos de Magic Toolbox',
@@ -228,7 +252,8 @@
                 p_tech: 'Magic Toolbox est construit avec du HTML, CSS et JavaScript pur \u2014 sans framework, sans serveur backend. Nous utilisons WebAssembly pour les t\u00e2ches lourdes. Le site est h\u00e9berg\u00e9 sur GitHub Pages.',
                 h_contact: 'Contact',
                 p_contact: 'Des commentaires ou suggestions ? Contactez-nous \u00e0 <a href="mailto:usemagictools@gmail.com">usemagictools@gmail.com</a> ou visitez notre <a href="/contact.html">page de contact</a>.',
-                back: '\u2190 Retour \u00e0 l\u2019accueil'
+                footerPrivacy: 'Confidentialit\u00e9', footerTerms: 'Conditions', footerAbout: '\u00c0 Propos', footerContact: 'Contact',
+                footerCopyright: '© 2024-2026 <a href="https://www.usemagictools.com" target="_blank">UseMagicTools</a>. Tous droits r\u00e9serv\u00e9s.'
             },
             es: {
                 title: 'Acerca de Magic Toolbox',
@@ -252,7 +277,8 @@
                 p_tech: 'Magic Toolbox est\u00e1 construido con HTML, CSS y JavaScript puro \u2014 sin frameworks, sin servidores backend. Usamos WebAssembly para tareas pesadas. El sitio est\u00e1 alojado en GitHub Pages.',
                 h_contact: 'Contacto',
                 p_contact: '\u00bfTiene comentarios o sugerencias? Cont\u00e1ctenos en <a href="mailto:usemagictools@gmail.com">usemagictools@gmail.com</a> o visite nuestra <a href="/contact.html">p\u00e1gina de contacto</a>.',
-                back: '\u2190 Volver al inicio'
+                footerPrivacy: 'Privacidad', footerTerms: 'T\u00e9rminos', footerAbout: 'Acerca de', footerContact: 'Contacto',
+                footerCopyright: '© 2024-2026 <a href="https://www.usemagictools.com" target="_blank">UseMagicTools</a>. Todos los derechos reservados.'
             }
         };
 

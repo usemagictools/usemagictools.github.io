@@ -75,14 +75,16 @@
         li { margin-bottom: 6px; }
         a { color: #a78bfa; }
         a:hover { color: #c4b5fd; }
-        .back-link {
-            display: inline-flex; align-items: center; gap: 6px;
-            margin-top: 40px; padding: 12px 24px;
-            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
-            color: #fff; text-decoration: none; border-radius: 10px; font-weight: 600;
-            transition: all 0.3s; box-shadow: 0 4px 20px rgba(139,92,246,0.3);
+        footer {
+            text-align: center; margin-top: 60px; padding: 24px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.08); color: #52525b; font-size: 0.8rem;
         }
-        .back-link:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(139,92,246,0.5); color: #fff; }
+        footer a { color: #71717a; text-decoration: none; }
+        footer a:hover { color: #a78bfa; }
+        .footer-links { margin-bottom: 12px; font-size: 0.85rem; }
+        .footer-links a { color: #9ca3af; text-decoration: none; transition: color 0.2s; }
+        .footer-links a:hover { color: #a78bfa; text-decoration: underline; }
+        .footer-links-sep { color: #52525b; margin: 0 10px; }
         /* 浅色主题 */
         body[data-theme="light"] { background: linear-gradient(135deg, #f5f3ff, #ede9fe, #ddd6fe); color: #1f2937; }
         body[data-theme="light"] .page-title {
@@ -101,6 +103,12 @@
         body[data-theme="light"] .theme-btn { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.12); color: #374151; }
         body[data-theme="light"] .theme-btn:hover { background: rgba(124,58,237,0.1); }
         body[data-theme="light"] .particle { background: rgba(124, 58, 237, 0.15); }
+        body[data-theme="light"] footer { border-top-color: #e4e4e7; color: #a1a1aa; }
+        body[data-theme="light"] footer a { color: #71717a; }
+        body[data-theme="light"] footer a:hover { color: #7c3aed; }
+        body[data-theme="light"] .footer-links a { color: #6b7280; }
+        body[data-theme="light"] .footer-links a:hover { color: #7c3aed; }
+        body[data-theme="light"] .footer-links-sep { color: #d4d4d8; }
         @media (max-width: 600px) {
             .content { padding: 16px 16px 40px; }
             .page-title { font-size: 1.5rem; }
@@ -174,7 +182,18 @@
         <h2 data-i18n="h_contact">Contact Us</h2>
         <p data-i18n="p_contact">If you have any questions about this Privacy Policy, please contact us at <a href="mailto:usemagictools@gmail.com">usemagictools@gmail.com</a>.</p>
 
-        <a href="/" class="back-link" data-i18n="back">← Back to Home</a>
+        <footer>
+            <div class="footer-links">
+                <a href="/privacy.html" data-i18n="footerPrivacy">Privacy Policy</a>
+                <span class="footer-links-sep">|</span>
+                <a href="/terms.html" data-i18n="footerTerms">Terms</a>
+                <span class="footer-links-sep">|</span>
+                <a href="/about.html" data-i18n="footerAbout">About</a>
+                <span class="footer-links-sep">|</span>
+                <a href="/contact.html" data-i18n="footerContact">Contact</a>
+            </div>
+            <p data-i18n="footerCopyright">© 2024-2026 <a href="https://www.usemagictools.com" target="_blank">UseMagicTools</a>. All rights reserved.</p>
+        </footer>
     </div>
     <script>
     (function() {
@@ -228,7 +247,8 @@
                 p_changes: 'We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated \u201cLast updated\u201d date. We encourage you to review this policy periodically.',
                 h_contact: 'Contact Us',
                 p_contact: 'If you have any questions about this Privacy Policy, please contact us at <a href="mailto:usemagictools@gmail.com">usemagictools@gmail.com</a>.',
-                back: '\u2190 Back to Home'
+                footerPrivacy: 'Privacy Policy', footerTerms: 'Terms', footerAbout: 'About', footerContact: 'Contact',
+                footerCopyright: '© 2024-2026 <a href="https://www.usemagictools.com" target="_blank">UseMagicTools</a>. All rights reserved.'
             },
             'zh-CN': {
                 title: '\u9690\u79c1\u653f\u7b56',
@@ -264,7 +284,8 @@
                 p_changes: '\u6211\u4eec\u53ef\u80fd\u4f1a\u4e0d\u65f6\u66f4\u65b0\u672c\u9690\u79c1\u653f\u7b56\u3002\u4efb\u4f55\u66f4\u6539\u90fd\u5c06\u53d1\u5e03\u5728\u6b64\u9875\u9762\u4e0a\uff0c\u5e76\u66f4\u65b0\u201c\u6700\u540e\u66f4\u65b0\u201d\u65e5\u671f\u3002\u5efa\u8bae\u60a8\u5b9a\u671f\u67e5\u770b\u672c\u653f\u7b56\u3002',
                 h_contact: '\u8054\u7cfb\u6211\u4eec',
                 p_contact: '\u5982\u679c\u60a8\u5bf9\u672c\u9690\u79c1\u653f\u7b56\u6709\u4efb\u4f55\u7591\u95ee\uff0c\u8bf7\u901a\u8fc7 <a href="mailto:usemagictools@gmail.com">usemagictools@gmail.com</a> \u8054\u7cfb\u6211\u4eec\u3002',
-                back: '\u2190 \u8fd4\u56de\u9996\u9875'
+                footerPrivacy: '\u9690\u79c1\u653f\u7b56', footerTerms: '\u670d\u52a1\u6761\u6b3e', footerAbout: '\u5173\u4e8e', footerContact: '\u8054\u7cfb\u6211\u4eec',
+                footerCopyright: '© 2024-2026 <a href="https://www.usemagictools.com" target="_blank">UseMagicTools</a>. \u4fdd\u7559\u6240\u6709\u6743\u5229\u3002'
             },
             fr: {
                 title: 'Politique de Confidentialit\u00e9',
@@ -300,7 +321,8 @@
                 p_changes: 'Nous pouvons mettre \u00e0 jour cette politique de confidentialit\u00e9 de temps en temps. Tout changement sera publi\u00e9 sur cette page avec une date de mise \u00e0 jour.',
                 h_contact: 'Nous Contacter',
                 p_contact: 'Si vous avez des questions concernant cette politique de confidentialit\u00e9, contactez-nous \u00e0 <a href="mailto:usemagictools@gmail.com">usemagictools@gmail.com</a>.',
-                back: '\u2190 Retour \u00e0 l\u2019accueil'
+                footerPrivacy: 'Confidentialit\u00e9', footerTerms: 'Conditions', footerAbout: '\u00c0 Propos', footerContact: 'Contact',
+                footerCopyright: '© 2024-2026 <a href="https://www.usemagictools.com" target="_blank">UseMagicTools</a>. Tous droits r\u00e9serv\u00e9s.'
             },
             es: {
                 title: 'Pol\u00edtica de Privacidad',
@@ -336,7 +358,8 @@
                 p_changes: 'Podemos actualizar esta pol\u00edtica de privacidad ocasionalmente. Cualquier cambio se publicar\u00e1 en esta p\u00e1gina con una fecha actualizada.',
                 h_contact: 'Cont\u00e1ctenos',
                 p_contact: 'Si tiene preguntas sobre esta pol\u00edtica de privacidad, cont\u00e1ctenos en <a href="mailto:usemagictools@gmail.com">usemagictools@gmail.com</a>.',
-                back: '\u2190 Volver al inicio'
+                footerPrivacy: 'Privacidad', footerTerms: 'T\u00e9rminos', footerAbout: 'Acerca de', footerContact: 'Contacto',
+                footerCopyright: '© 2024-2026 <a href="https://www.usemagictools.com" target="_blank">UseMagicTools</a>. Todos los derechos reservados.'
             }
         };
 

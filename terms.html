@@ -40,8 +40,13 @@
         li { margin-bottom: 6px; }
         a { color: #a78bfa; }
         a:hover { color: #c4b5fd; }
-        .back-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 40px; padding: 12px 24px; background: linear-gradient(135deg, #8b5cf6, #7c3aed); color: #fff; text-decoration: none; border-radius: 10px; font-weight: 600; transition: all 0.3s; box-shadow: 0 4px 20px rgba(139,92,246,0.3); }
-        .back-link:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(139,92,246,0.5); color: #fff; }
+        footer { text-align: center; margin-top: 60px; padding: 24px 0; border-top: 1px solid rgba(255, 255, 255, 0.08); color: #52525b; font-size: 0.8rem; }
+        footer a { color: #71717a; text-decoration: none; }
+        footer a:hover { color: #a78bfa; }
+        .footer-links { margin-bottom: 12px; font-size: 0.85rem; }
+        .footer-links a { color: #9ca3af; text-decoration: none; transition: color 0.2s; }
+        .footer-links a:hover { color: #a78bfa; text-decoration: underline; }
+        .footer-links-sep { color: #52525b; margin: 0 10px; }
         body[data-theme="light"] { background: linear-gradient(135deg, #f5f3ff, #ede9fe, #ddd6fe); color: #1f2937; }
         body[data-theme="light"] .page-title { background: linear-gradient(135deg, #7c3aed, #6d28d9, #5b21b6); -webkit-background-clip: text; background-clip: text; }
         body[data-theme="light"] .last-updated { color: #6b7280; }
@@ -55,6 +60,12 @@
         body[data-theme="light"] .theme-btn { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.12); color: #374151; }
         body[data-theme="light"] .theme-btn:hover { background: rgba(124,58,237,0.1); }
         body[data-theme="light"] .particle { background: rgba(124, 58, 237, 0.15); }
+        body[data-theme="light"] footer { border-top-color: #e4e4e7; color: #a1a1aa; }
+        body[data-theme="light"] footer a { color: #71717a; }
+        body[data-theme="light"] footer a:hover { color: #7c3aed; }
+        body[data-theme="light"] .footer-links a { color: #6b7280; }
+        body[data-theme="light"] .footer-links a:hover { color: #7c3aed; }
+        body[data-theme="light"] .footer-links-sep { color: #d4d4d8; }
         @media (max-width: 600px) { .content { padding: 16px 16px 40px; } .page-title { font-size: 1.5rem; } }
     </style>
 </head>
@@ -115,7 +126,18 @@
         <h2 data-i18n="h_contact">Contact Us</h2>
         <p data-i18n="p_contact">If you have any questions about these Terms of Service, please contact us at <a href="mailto:usemagictools@gmail.com">usemagictools@gmail.com</a>.</p>
 
-        <a href="/" class="back-link" data-i18n="back">← Back to Home</a>
+        <footer>
+            <div class="footer-links">
+                <a href="/privacy.html" data-i18n="footerPrivacy">Privacy Policy</a>
+                <span class="footer-links-sep">|</span>
+                <a href="/terms.html" data-i18n="footerTerms">Terms</a>
+                <span class="footer-links-sep">|</span>
+                <a href="/about.html" data-i18n="footerAbout">About</a>
+                <span class="footer-links-sep">|</span>
+                <a href="/contact.html" data-i18n="footerContact">Contact</a>
+            </div>
+            <p data-i18n="footerCopyright">© 2024-2026 <a href="https://www.usemagictools.com" target="_blank">UseMagicTools</a>. All rights reserved.</p>
+        </footer>
     </div>
     <script>
     (function() {
@@ -156,7 +178,8 @@
                 p_law: 'These Terms of Service shall be governed by and construed in accordance with applicable laws, without regard to conflict of law principles.',
                 h_contact: 'Contact Us',
                 p_contact: 'If you have any questions about these Terms of Service, please contact us at <a href="mailto:usemagictools@gmail.com">usemagictools@gmail.com</a>.',
-                back: '\u2190 Back to Home'
+                footerPrivacy: 'Privacy Policy', footerTerms: 'Terms', footerAbout: 'About', footerContact: 'Contact',
+                footerCopyright: '© 2024-2026 <a href="https://www.usemagictools.com" target="_blank">UseMagicTools</a>. All rights reserved.'
             },
             'zh-CN': {
                 title: '\u670d\u52a1\u6761\u6b3e', updated: '\u6700\u540e\u66f4\u65b0\uff1a2026\u5e742\u670828\u65e5',
@@ -184,7 +207,8 @@
                 p_law: '\u672c\u670d\u52a1\u6761\u6b3e\u5e94\u53d7\u9002\u7528\u6cd5\u5f8b\u7ba1\u8f96\u5e76\u6309\u5176\u89e3\u91ca\uff0c\u4e0d\u8003\u8651\u6cd5\u5f8b\u51b2\u7a81\u539f\u5219\u3002',
                 h_contact: '\u8054\u7cfb\u6211\u4eec',
                 p_contact: '\u5982\u679c\u60a8\u5bf9\u672c\u670d\u52a1\u6761\u6b3e\u6709\u4efb\u4f55\u7591\u95ee\uff0c\u8bf7\u901a\u8fc7 <a href="mailto:usemagictools@gmail.com">usemagictools@gmail.com</a> \u8054\u7cfb\u6211\u4eec\u3002',
-                back: '\u2190 \u8fd4\u56de\u9996\u9875'
+                footerPrivacy: '\u9690\u79c1\u653f\u7b56', footerTerms: '\u670d\u52a1\u6761\u6b3e', footerAbout: '\u5173\u4e8e', footerContact: '\u8054\u7cfb\u6211\u4eec',
+                footerCopyright: '© 2024-2026 <a href="https://www.usemagictools.com" target="_blank">UseMagicTools</a>. \u4fdd\u7559\u6240\u6709\u6743\u5229\u3002'
             },
             fr: {
                 title: 'Conditions d\u2019Utilisation', updated: 'Derni\u00e8re mise \u00e0 jour : 28 f\u00e9vrier 2026',
@@ -212,7 +236,8 @@
                 p_law: 'Ces conditions d\u2019utilisation sont r\u00e9gies par le droit applicable, sans \u00e9gard aux principes de conflit de lois.',
                 h_contact: 'Nous Contacter',
                 p_contact: 'Pour toute question concernant ces conditions, contactez-nous \u00e0 <a href="mailto:usemagictools@gmail.com">usemagictools@gmail.com</a>.',
-                back: '\u2190 Retour \u00e0 l\u2019accueil'
+                footerPrivacy: 'Confidentialit\u00e9', footerTerms: 'Conditions', footerAbout: '\u00c0 Propos', footerContact: 'Contact',
+                footerCopyright: '© 2024-2026 <a href="https://www.usemagictools.com" target="_blank">UseMagicTools</a>. Tous droits r\u00e9serv\u00e9s.'
             },
             es: {
                 title: 'T\u00e9rminos de Servicio', updated: '\u00daltima actualizaci\u00f3n: 28 de febrero de 2026',
@@ -240,7 +265,8 @@
                 p_law: 'Estos T\u00e9rminos de Servicio se regir\u00e1n por la ley aplicable, sin tener en cuenta los principios de conflicto de leyes.',
                 h_contact: 'Cont\u00e1ctenos',
                 p_contact: 'Si tiene preguntas sobre estos T\u00e9rminos de Servicio, cont\u00e1ctenos en <a href="mailto:usemagictools@gmail.com">usemagictools@gmail.com</a>.',
-                back: '\u2190 Volver al inicio'
+                footerPrivacy: 'Privacidad', footerTerms: 'T\u00e9rminos', footerAbout: 'Acerca de', footerContact: 'Contacto',
+                footerCopyright: '© 2024-2026 <a href="https://www.usemagictools.com" target="_blank">UseMagicTools</a>. Todos los derechos reservados.'
             }
         };
 
