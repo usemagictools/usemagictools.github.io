@@ -2106,8 +2106,7 @@
             document.getElementById('countMedia').textContent = catCounts.media;
             document.getElementById('countUtility').textContent = catCounts.utility;
 
-            // 显示工具总数
-            resultCount.textContent = `共 ${totalCount} 个工具`;
+            // 显示工具总数（通过 getToolCountText 延迟到翻译系统加载后）
 
             // 综合过滤函数（搜索 + 分类）
             function filterTools(query, fromTag) {
@@ -2139,10 +2138,12 @@
 
                 // 更新结果计数
                 const base = activeCategory === 'all' ? totalCount : catCounts[activeCategory];
-                if (query === '') {
-                    resultCount.textContent = `共 ${visibleCount} 个工具`;
+                if (typeof getToolCountText === 'function') {
+                    resultCount.textContent = getToolCountText(query, visibleCount, base);
+                } else if (query === '') {
+                    resultCount.textContent = `${visibleCount} tools`;
                 } else {
-                    resultCount.textContent = `找到 ${visibleCount} / ${base} 个工具`;
+                    resultCount.textContent = `Found ${visibleCount} / ${base} tools`;
                 }
 
                 // 清除按钮
@@ -3971,7 +3972,17 @@
                 });
             }
 
-            // 更新工具计数显示 — 仅搜索时显示
+            // 获取工具计数文本（供 filterTools 调用）
+            function getToolCountText(query, visibleCount, totalCount) {
+                const t = translations[currentLang] || translations['en'];
+                if (query === '') {
+                    return t.totalTools.replace('{count}', visibleCount);
+                } else {
+                    return t.foundTools.replace('{visible}', visibleCount).replace('{total}', totalCount);
+                }
+            }
+
+            // 更新工具计数显示
             function updateToolCount(lang) {
                 const t = translations[lang] || translations['en'];
                 const resultCount = document.getElementById('resultCount');
@@ -3982,7 +3993,7 @@
                 if (searchInput && searchInput.value.trim()) {
                     resultCount.textContent = t.foundTools.replace('{visible}', visibleCount).replace('{total}', totalCount);
                 } else {
-                    resultCount.textContent = '';
+                    resultCount.textContent = t.totalTools.replace('{count}', visibleCount);
                 }
             }
 
