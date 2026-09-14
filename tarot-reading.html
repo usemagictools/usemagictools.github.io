@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CT8E5N460D"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CT8E5N460D');</script>
+    <title>Free Online Tarot Reading - 3-Card Spread | No Ads, No Signup</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Free online Tarot card reading. Get instant answers on love, career, and money with our classic 3-card spread (Past, Present, Future). 100% free, no ads, no signup.">
+    <meta name="keywords" content="free tarot reading, online tarot card reading, 3 card spread, love tarot reading, career tarot, no signup tarot, accurate tarot online, free divination">
+    <meta name="author" content="UseMagicTools">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.usemagictools.com/tarot-reading.html">
+    <link rel="alternate" hreflang="en" href="https://www.usemagictools.com/tarot-reading.html">
+    <link rel="alternate" hreflang="zh-CN" href="https://www.usemagictools.com/tarot-reading.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.usemagictools.com/tarot-reading.html">
+    <meta property="og:title" content="Free Online Tarot Reading - 3-Card Spread | No Ads">
+    <meta property="og:description" content="Get instant answers on love, career, and money with our classic 3-card spread (Past, Present, Future). 100% free, no ads, no signup, no email required.">
+    <meta property="og:image" content="https://www.usemagictools.com/screenshots/calculator-v1.webp">
+    <meta property="og:site_name" content="Magic Toolbox">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@usemagictools">
+    <meta name="twitter:title" content="Free Online Tarot Reading - 3-Card Spread | No Signup">
+    <meta name="twitter:description" content="Get instant answers on love, career, and money with our classic 3-card spread. No ads, no signup.">
+
+    <link rel="stylesheet" href="common/common.css">
+
+    <style>
+        /* ========== Reset & Base ========== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f0c1b 0%, #15102a 50%, #090514 100%);
+            color: #e2e8f0;
+            min-height: 100vh;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px; }
+
+        /* ========== Page Header ========== */
+        .page-header { text-align: center; margin-bottom: 32px; }
+        .page-header h1 {
+            font-size: 32px; font-weight: 700; color: #fff;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b, #d97706);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .page-header .subtitle { color: #a78bfa; font-size: 16px; line-height: 1.5; }
+
+        /* ========== Intro Screen ========== */
+        .setup-screen {
+            background: rgba(30, 27, 75, 0.4);
+            border: 1px solid rgba(167, 139, 250, 0.15);
+            border-radius: 20px; padding: 40px; text-align: center;
+            max-width: 600px; margin: 0 auto 40px;
+            backdrop-filter: blur(10px);
+        }
+        .topic-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+            margin: 24px 0 32px;
+        }
+        @media (max-width: 600px) {
+            .topic-grid { grid-template-columns: 1fr; }
+        }
+        .topic-btn {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(167, 139, 250, 0.2);
+            border-radius: 12px; padding: 20px 10px; color: #cbd5e1;
+            cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex; flex-direction: column; align-items: center; gap: 8px;
+        }
+        .topic-btn .icon { font-size: 28px; }
+        .topic-btn .name { font-weight: bold; font-size: 15px; }
+        .topic-btn:hover, .topic-btn.active {
+            border-color: #fbbf24; background: rgba(245, 158, 11, 0.1);
+            color: #fff; box-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .action-btn {
+            background: linear-gradient(135deg, #fbbf24, #d97706);
+            color: #000; padding: 14px 40px; border-radius: 10px;
+            font-size: 16px; font-weight: bold; border: none; cursor: pointer;
+            transition: all 0.2s; text-transform: uppercase; letter-spacing: 0.5px;
+            box-shadow: 0 4px 14px rgba(245, 158, 11, 0.3);
+        }
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
+        }
+
+        /* ========== Board / Drawing Screen ========== */
+        .board-screen { display: none; text-align: center; margin-bottom: 40px; }
+        
+        /* Shuffling Cards Container */
+        .shuffle-zone {
+            height: 220px; display: flex; align-items: center; justify-content: center;
+            position: relative; margin-bottom: 30px;
+        }
+        .shuffle-card {
+            width: 110px; height: 190px; background: linear-gradient(135deg, #1e1b4b, #312e81);
+            border: 2px solid #818cf8; border-radius: 8px; position: absolute;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5); transition: all 0.6s ease-in-out;
+            background-size: 20px 20px;
+            background-image: radial-gradient(circle, #fbbf24 1px, transparent 1px);
+        }
+
+        /* Drawn Cards Layout */
+        .cards-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+            max-width: 800px; margin: 0 auto 40px; justify-items: center;
+        }
+        @media (max-width: 768px) {
+            .cards-grid { grid-template-columns: 1fr; gap: 24px; }
+        }
+
+        /* 3D Card Flipping Card */
+        .card-container {
+            perspective: 1000px; width: 140px; height: 240px; cursor: pointer;
+        }
+        .card-inner {
+            position: relative; width: 100%; height: 100%;
+            text-align: center; transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+        .card-container.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+        .card-container.reversed.flipped .card-inner {
+            transform: rotateY(180deg) rotateZ(180deg);
+        }
+        
+        .card-face {
+            position: absolute; width: 100%; height: 100%;
+            backface-visibility: hidden; border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+            padding: 16px 12px;
+        }
+        
+        /* Card Back (Classic Mystic Pattern) */
+        .card-back {
+            background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+            border: 3px solid #fbbf24; color: #fbbf24;
+            background-image: 
+                radial-gradient(circle, rgba(251, 191, 36, 0.15) 1px, transparent 1px),
+                linear-gradient(45deg, rgba(129, 140, 248, 0.05) 25%, transparent 25%, transparent 75%, rgba(129, 140, 248, 0.05) 75%, rgba(129, 140, 248, 0.05));
+            background-size: 16px 16px, 32px 32px;
+        }
+        .card-back .mystic-circle {
+            width: 70px; height: 70px; border: 1px dashed #fbbf24; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; margin: auto;
+            box-shadow: 0 0 15px rgba(251, 191, 36, 0.2);
+            font-size: 24px;
+        }
+
+        /* Card Front (Actual Tarot Card) */
+        .card-front {
+            background: linear-gradient(135deg, #111827 0%, #1e1b4b 100%);
+            border: 3px solid #c084fc; color: #fff;
+            transform: rotateY(180deg);
+        }
+        .card-front-art {
+            font-size: 40px; margin: auto;
+            text-shadow: 0 0 15px rgba(192, 132, 252, 0.4);
+        }
+        .card-front-title {
+            font-size: 14px; font-weight: bold; color: #fbbf24; letter-spacing: 0.5px;
+            margin-top: auto;
+        }
+        
+        .slot-title {
+            font-size: 13px; text-transform: uppercase; color: #a78bfa;
+            letter-spacing: 1px; font-weight: bold; margin-bottom: 8px;
+        }
+
+        /* ========== Interpretation / Readings Section ========== */
+        .reading-section {
+            display: none; max-width: 800px; margin: 0 auto 40px;
+        }
+        .reading-card {
+            background: rgba(30, 27, 75, 0.25);
+            border: 1px solid rgba(167, 139, 250, 0.1);
+            border-radius: 16px; padding: 24px; margin-bottom: 20px;
+            display: flex; gap: 20px; align-items: flex-start;
+            backdrop-filter: blur(5px);
+        }
+        @media (max-width: 600px) {
+            .reading-card { flex-direction: column; align-items: center; text-align: center; }
+        }
+        .reading-badge {
+            background: rgba(124, 58, 237, 0.15); border: 1px solid rgba(124, 58, 237, 0.3);
+            border-radius: 8px; padding: 12px; text-align: center; min-width: 90px; flex-shrink: 0;
+        }
+        .reading-badge .position { font-size: 11px; text-transform: uppercase; color: #a78bfa; font-weight: bold; }
+        .reading-badge .card-name { font-size: 15px; font-weight: bold; color: #fbbf24; margin-top: 4px; }
+        .reading-badge .orientation { font-size: 11px; margin-top: 2px; }
+        .reading-badge .orientation.upright { color: #34d399; }
+        .reading-badge .orientation.reversed { color: #f87171; }
+        
+        .reading-text h4 { font-size: 16px; color: #fff; margin-bottom: 6px; }
+        .reading-text p { font-size: 14px; color: #94a3b8; line-height: 1.6; }
+
+        /* ========== Blog Promo ========== */
+        .blog-promo {
+            margin-top: 30px; background: rgba(30, 27, 75, 0.2);
+            border: 1px solid rgba(167, 139, 250, 0.05);
+            border-radius: 12px; padding: 20px; display: flex;
+            align-items: center; justify-content: space-between; gap: 16px;
+            margin-bottom: 30px;
+        }
+        .blog-promo-text h3 { color: #fff; font-size: 16px; margin-bottom: 4px; text-align: left; }
+        .blog-promo-text p { color: #a78bfa; font-size: 14px; text-align: left; }
+        .blog-promo-btn {
+            background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff; padding: 10px 18px; border-radius: 6px; text-decoration: none;
+            font-weight: 500; font-size: 14px; transition: all 0.2s; flex-shrink: 0;
+        }
+        .blog-promo-btn:hover {
+            background: rgba(245, 158, 11, 0.2); border-color: rgba(245, 158, 11, 0.4);
+            color: #fbbf24;
+        }
+        @media (max-width: 600px) {
+            .blog-promo { flex-direction: column; text-align: center; }
+            .blog-promo-text h3, .blog-promo-text p { text-align: center; }
+        }
+
+        .faq-section { margin-top: 40px; margin-bottom: 40px; }
+        .faq-section h2 { font-size: 22px; color: #fff; margin-bottom: 20px; }
+        .faq-item {
+            background: rgba(30, 27, 75, 0.2); border-radius: 8px; margin-bottom: 12px;
+            overflow: hidden; border: 1px solid rgba(167, 139, 250, 0.05);
+        }
+        .faq-question {
+            padding: 16px 20px; font-weight: bold; color: #fff; cursor: pointer;
+            display: flex; justify-content: space-between; align-items: center;
+            background: none; border: none; width: 100%; text-align: left; font-size: 16px;
+        }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .faq-item.active .faq-answer { max-height: 500px; }
+        .faq-answer p { padding: 0 20px 16px; color: #a1a1aa; line-height: 1.7; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Page Header -->
+        <header class="page-header">
+            <h1 data-i18n="title">Free Online Tarot Reading</h1>
+            <p class="subtitle" data-i18n="subtitle">Get instant answers on love, career, and money with our classic 3-card spread</p>
+        </header>
+
+        <!-- Setup Screen -->
+        <div class="setup-screen" id="setupScreen">
+            <h2 data-i18n="select_topic">Choose Your Reading Topic</h2>
+            <div class="topic-grid">
+                <button class="topic-btn active" data-topic="love">
+                    <span class="icon">💖</span>
+                    <span class="name" data-i18n="topic_love">Love & Relationship</span>
+                </button>
+                <button class="topic-btn" data-topic="career">
+                    <span class="icon">💼</span>
+                    <span class="name" data-i18n="topic_career">Career & Money</span>
+                </button>
+                <button class="topic-btn" data-topic="general">
+                    <span class="icon">🌟</span>
+                    <span class="name" data-i18n="topic_general">General Guidance</span>
+                </button>
+            </div>
+            <button class="action-btn" id="startBtn" data-i18n="btn_start">Start Shuffling</button>
+        </div>
+
+        <!-- Board Screen (Shuffling & Drawn Cards) -->
+        <div class="board-screen" id="boardScreen">
+            <!-- Shuffling animation zone -->
+            <div class="shuffle-zone" id="shuffleZone">
+                <div class="shuffle-card" style="z-index: 10; transform: rotate(-5deg) translate(-20px, 0)"></div>
+                <div class="shuffle-card" style="z-index: 9; transform: rotate(0deg) translate(0px, 0)"></div>
+                <div class="shuffle-card" style="z-index: 8; transform: rotate(5deg) translate(20px, 0)"></div>
+            </div>
+
+            <p style="margin-bottom: 24px; color: #a78bfa;" id="statusMsg" data-i18n="status_shuffling">Shuffling the deck with mystic focus...</p>
+
+            <!-- Cards Grid -->
+            <div class="cards-grid" id="cardsGrid" style="display: none;">
+                <!-- Past -->
+                <div>
+                    <div class="slot-title" data-i18n="slot_past">Past</div>
+                    <div class="card-container" id="card0" data-index="0">
+                        <div class="card-inner">
+                            <div class="card-face card-back">
+                                <div class="mystic-circle">🔮</div>
+                            </div>
+                            <div class="card-face card-front">
+                                <div class="card-front-art" id="art0">🃏</div>
+                                <div class="card-front-title" id="title0">THE FOOL</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Present -->
+                <div>
+                    <div class="slot-title" data-i18n="slot_present">Present</div>
+                    <div class="card-container" id="card1" data-index="1">
+                        <div class="card-inner">
+                            <div class="card-face card-back">
+                                <div class="mystic-circle">🔮</div>
+                            </div>
+                            <div class="card-face card-front">
+                                <div class="card-front-art" id="art1">🃏</div>
+                                <div class="card-front-title" id="title1">THE MAGICIAN</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Future -->
+                <div>
+                    <div class="slot-title" data-i18n="slot_future">Future</div>
+                    <div class="card-container" id="card2" data-index="2">
+                        <div class="card-inner">
+                            <div class="card-face card-back">
+                                <div class="mystic-circle">🔮</div>
+                            </div>
+                            <div class="card-face card-front">
+                                <div class="card-front-art" id="art2">🃏</div>
+                                <div class="card-front-title" id="title2">THE HIGH PRIESTESS</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="action-btn" id="restartBtn" style="display: none; margin-top: 20px;" data-i18n="btn_restart">New Reading</button>
+        </div>
+
+        <!-- Interpretation Readings Screen -->
+        <div class="reading-section" id="readingSection">
+            <h2 style="text-align: center; margin-bottom: 24px;" data-i18n="title_interpretation">✨ Tarot Interpretation ✨</h2>
+            
+            <div class="reading-card">
+                <div class="reading-badge">
+                    <span class="position" data-i18n="slot_past">Past</span>
+                    <div class="card-name" id="nameRead0">THE FOOL</div>
+                    <div class="orientation upright" id="orientRead0">Upright</div>
+                </div>
+                <div class="reading-text">
+                    <h4 id="titleRead0">Past Influence</h4>
+                    <p id="descRead0">Interpretation content goes here...</p>
+                </div>
+            </div>
+
+            <div class="reading-card">
+                <div class="reading-badge">
+                    <span class="position" data-i18n="slot_present">Present</span>
+                    <div class="card-name" id="nameRead1">THE MAGICIAN</div>
+                    <div class="orientation upright" id="orientRead1">Upright</div>
+                </div>
+                <div class="reading-text">
+                    <h4 id="titleRead1">Present Influence</h4>
+                    <p id="descRead1">Interpretation content goes here...</p>
+                </div>
+            </div>
+
+            <div class="reading-card">
+                <div class="reading-badge">
+                    <span class="position" data-i18n="slot_future">Future</span>
+                    <div class="card-name" id="nameRead2">THE HIGH PRIESTESS</div>
+                    <div class="orientation upright" id="orientRead2">Upright</div>
+                </div>
+                <div class="reading-text">
+                    <h4 id="titleRead2">Future Influence</h4>
+                    <p id="descRead2">Interpretation content goes here...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trust Bar -->
+        <div class="trust-bar">
+          <span class="trust-item" data-i18n="trust_users">🌍 Used by 50,000+ users</span>
+          <span class="trust-item" data-i18n="trust_rating">⭐ 4.9/5 rating</span>
+          <span class="trust-item" data-i18n="trust_privacy">🔒 100% Private</span>
+          <span class="trust-item" data-i18n="trust_free">🚫 No Ads, No Signup</span>
+        </div>
+
+        <!-- Features Grid -->
+        <section class="features-section" style="margin-bottom: 30px; margin-top: 30px; padding: 24px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
+            <h2 style="color: #f0f0f0; font-size: 1.3rem; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 1.4rem;">✨</span> <span data-i18n="featuresTitle">Features</span>
+            </h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+                <div style="padding: 16px; background: rgba(124,58,237,0.1); border-radius: 8px; border-left: 3px solid #7c3aed;">
+                    <h3 style="color: #a78bfa; font-size: 1rem; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+                        <span>🔒</span> <span data-i18n="feature1_title">100% Free & Private</span>
+                    </h3>
+                    <p style="color: #a1a1aa; font-size: 0.9rem; line-height: 1.5;" data-i18n="feature1_desc">No ads, no signup. All readings run locally in your browser. Your questions and results are never saved or sent to any server.</p>
+                </div>
+                <div style="padding: 16px; background: rgba(34,197,94,0.1); border-radius: 8px; border-left: 3px solid #22c55e;">
+                    <h3 style="color: #86efac; font-size: 1rem; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+                        <span>🔮</span> <span data-i18n="feature2_title">3-Card Classic Spread</span>
+                    </h3>
+                    <p style="color: #a1a1aa; font-size: 0.9rem; line-height: 1.5;" data-i18n="feature2_desc">The most effective spread mapping your past foundation, current situation, and ultimate future trajectory.</p>
+                </div>
+                <div style="padding: 16px; background: rgba(59,130,246,0.1); border-radius: 8px; border-left: 3px solid #3b82f6;">
+                    <h3 style="color: #93c5fd; font-size: 1rem; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+                        <span>🎯</span> <span data-i18n="feature3_title">Multi-Topic Interpretations</span>
+                    </h3>
+                    <p style="color: #a1a1aa; font-size: 0.9rem; line-height: 1.5;" data-i18n="feature3_desc">Provides contextual interpretations tailored specifically to your chosen topic (Love, Career, or General guidance).</p>
+                </div>
+                <div style="padding: 16px; background: rgba(245,158,11,0.1); border-radius: 8px; border-left: 3px solid #f59e0b;">
+                    <h3 style="color: #fde047; font-size: 1rem; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+                        <span>🃏</span> <span data-i18n="feature4_title">Full Major Arcana Deck</span>
+                    </h3>
+                    <p style="color: #a1a1aa; font-size: 0.9rem; line-height: 1.5;" data-i18n="feature4_desc">Includes all 22 Major Arcana cards with support for Upright and Reversed orientations, enabling highly diverse readings.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content/Blog Promo Link -->
+        <div class="blog-promo">
+            <div class="blog-promo-text">
+                <h3 data-i18n="promo_title">Explore more mysteries of Numerology & Angel Numbers</h3>
+                <p data-i18n="promo_desc">Read our in-depth guides on western divination, life path calculators, and angel number definitions on our blog.</p>
+            </div>
+            <a href="https://www.heyuan110.com/" target="_blank" rel="noopener" class="blog-promo-btn" data-i18n="promo_btn">Read Guide</a>
+        </div>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <h2 data-i18n="faq_title">Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span data-i18n="faq1Q">How do I interpret Upright and Reversed cards?</span>
+                    <span>▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n="faq1A">In Tarot, an Upright card indicates the energy of the card is flowing naturally, manifesting in its standard, positive, or outward-facing manner. A Reversed (upside down) card suggests the energy is blocked, internalized, delayed, or expressed in an unbalanced or rebellious form, prompting you to look inward for lessons.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span data-i18n="faq2Q">How often can I perform a Tarot reading?</span>
+                    <span>▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n="faq2A">For the same question, it is recommended to read only once a week or when major circumstances change. Asking the same question repeatedly in a short period usually causes confusion and dilutes your focus. However, you can perform daily readings or ask different questions on different topics anytime.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span data-i18n="faq3Q">Is an online browser-based reading accurate?</span>
+                    <span>▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n="faq3A">Tarot operates as a mirror of your subconscious. The algorithm uses a cryptographic pseudo-random number generator to shuffle the deck, ensuring absolute fairness and randomization. The value of Tarot is in your personal reflection and intuition as you read the interpretations — making online readings fully accurate and meaningful.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span data-i18n="faq4Q">What are the 22 Major Arcana cards?</span>
+                    <span>▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n="faq4A">The 22 Major Arcana cards represent the major archetypal forces and life lessons on 'The Fool's Journey' from infancy (0. The Fool) to completion (21. The World). They indicate major spiritual paths, overarching life events, and karmic lessons, contrasting with Minor Arcana which focus on daily details.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span data-i18n="faq_free_q">Is this tool really free with no ads?</span>
+                <span class="arrow">▼</span>
+              </button>
+              <div class="faq-answer"><p data-i18n="faq_free_a">
+                Yes, this tool is 100% free with no ads, no registration, no watermark, and no usage limits. All processing happens locally in your browser using client-side JavaScript, so no server resources are consumed and your data remains completely private on your device.
+              </p></div>
+            </div>
+        </section>
+
+        <!-- Related Tools -->
+        <section class="related-tools" style="margin: 40px 0 0;">
+            <h3 data-i18n="relatedToolsTitle">Related Tools</h3>
+            <div class="related-grid">
+                <a href="angel-number.html" class="related-card">
+                    <div class="related-icon">👼</div>
+                    <h4 data-i18n="relatedAngel">Angel Number Calculator</h4>
+                    <p data-i18n="relatedAngelDesc">Discover your angel number and meanings</p>
+                </a>
+                <a href="numerology.html" class="related-card">
+                    <div class="related-icon">🔢</div>
+                    <h4 data-i18n="relatedNum">Numerology Calculator</h4>
+                    <p data-i18n="relatedNumDesc">Life path and personality numbers</p>
+                </a>
+                <a href="calculator.html" class="related-card">
+                    <div class="related-icon">🧮</div>
+                    <h4 data-i18n="relatedCalc">All-in-One Calculator</h4>
+                    <p data-i18n="relatedCalcDesc">Scientific and unit converters</p>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Translations Data -->
+    <script>
+        window._translations = {
+            en: {
+                tool_name: "Online Tarot Reading",
+                title: "Free Online Tarot Reading",
+                subtitle: "Get instant answers on love, career, and money with our classic 3-card spread",
+                select_topic: "Choose Your Reading Topic",
+                topic_love: "Love & Relationship",
+                topic_career: "Career & Money",
+                topic_general: "General Guidance",
+                btn_start: "Start Shuffling",
+                btn_restart: "New Reading",
+                status_shuffling: "Shuffling the deck with mystic focus...",
+                status_click: "Deck shuffled! Click each card to reveal your readings...",
+                slot_past: "Past",
+                slot_present: "Present",
+                slot_future: "Future",
+                title_interpretation: "✨ Tarot Interpretation ✨",
+                faq_title: "Frequently Asked Questions",
+                faq1Q: "How do I interpret Upright and Reversed cards?",
+                faq1A: "In Tarot, an Upright card indicates the energy of the card is flowing naturally, manifesting in its standard, positive, or outward-facing manner. A Reversed (upside down) card suggests the energy is blocked, internalized, delayed, or expressed in an unbalanced or rebellious form, prompting you to look inward for lessons.",
+                faq2Q: "How often can I perform a Tarot reading?",
+                faq2A: "For the same question, it is recommended to read only once a week or when major circumstances change. Asking the same question repeatedly in a short period usually causes confusion and dilutes your focus. However, you can perform daily readings or ask different questions on different topics anytime.",
+                faq3Q: "Is an online browser-based reading accurate?",
+                faq3A: "Tarot operates as a mirror of your subconscious. The algorithm uses a cryptographic pseudo-random number generator to shuffle the deck, ensuring absolute fairness and randomization. The value of Tarot is in your personal reflection and intuition as you read the interpretations — making online readings fully accurate and meaningful.",
+                faq4Q: "What are the 22 Major Arcana cards?",
+                faq4A: "The 22 Major Arcana cards represent the major archetypal forces and life lessons on 'The Fool's Journey' from infancy (0. The Fool) to completion (21. The World). They indicate major spiritual paths, overarching life events, and karmic lessons, contrasting with Minor Arcana which focus on daily details.",
+                faq_free_q: "Is this tool really free with no ads?",
+                faq_free_a: "Yes, this tool is 100% free with no ads, no registration, no watermark, and no usage limits. All processing happens locally in your browser using client-side JavaScript, so no server resources are consumed and your data remains completely private on your device.",
+                featuresTitle: "Features",
+                feature1_title: "100% Free & Private",
+                feature1_desc: "No ads, no signup. All readings run locally in your browser. Your selections never leave your device.",
+                feature2_title: "3-Card Classic Spread",
+                feature2_desc: "The most effective spread mapping your past foundation, current situation, and ultimate future trajectory.",
+                feature3_title: "Multi-Topic Interpretations",
+                feature3_desc: "Provides contextual interpretations tailored specifically to your chosen topic (Love, Career, or General guidance).",
+                feature4_title: "Full Major Arcana Deck",
+                feature4_desc: "Includes all 22 Major Arcana cards with support for Upright and Reversed orientations, enabling highly diverse readings.",
+                promo_title: "Explore more mysteries of Numerology & Angel Numbers",
+                promo_desc: "Read our in-depth guides on western divination, life path calculators, and angel number definitions on our blog.",
+                promo_btn: "Read Guide",
+                relatedTools: "Related Tools",
+                relatedAngel: "Angel Number Calculator",
+                relatedAngelDesc: "Discover your angel number and meanings",
+                relatedNum: "Numerology Calculator",
+                relatedNumDesc: "Life path and personality numbers",
+                relatedCalc: "All-in-One Calculator",
+                relatedCalcDesc: "Scientific and unit converters"
+            },
+            'zh-CN': {
+                tool_name: "在线塔罗牌占卜",
+                title: "免费在线塔罗牌占卜",
+                subtitle: "通过经典的三张牌圣十字牌阵（过去、现在、未来），即时指引您的爱情、事业与人生命运",
+                select_topic: "请选择您要占卜的主题",
+                topic_love: "爱情与亲密关系",
+                topic_career: "事业与财富学业",
+                topic_general: "人生综合指引",
+                btn_start: "开始洗牌",
+                btn_restart: "重新占卜",
+                status_shuffling: "神秘力量注入中，正在凝神洗牌...",
+                status_click: "洗牌完成！请依次点击下方卡牌，揭示属于您的命运启示...",
+                slot_past: "过去 (基础)",
+                slot_present: "现在 (现状)",
+                slot_future: "未来 (终局)",
+                title_interpretation: "✨ 塔罗牌意深度解析 ✨",
+                faq_title: "常见问题解答",
+                faq1Q: "如何理解塔罗牌的“正位”和“逆位”？",
+                faq1A: "在塔罗占卜中，正位代表卡牌的能量以标准、顺畅、外显或积极的方式显现；逆位（即卡牌上下颠倒）则预示着卡牌的能量受到了阻碍、延迟、内化，或者以一种过度、叛逆的形式表达，提示您需要向内审视和学习。",
+                faq2Q: "我可以对同一个问题进行多次占卜吗？",
+                faq2A: "针对同一个问题，通常建议一周内或在外部情况发生重大改变前，只占卜一次。在极短时间内反复询问同一问题会导致内心焦虑，使解读失焦。不过，您可以每天进行日运占卜，或对其他不同主题的问题提问。",
+                faq3Q: "浏览器里的在线占卜真的准确吗？",
+                faq3A: "塔罗占卜本质上是您潜意识的镜子。本工具通过本地高随机算法进行洗牌，保障绝对的客观性与随机度。塔罗的价值在于您看到牌意解析时的自我投射和直觉共鸣。因此，无论线上线下，只要您聚精会神，占卜同样极具参考和治愈意义。",
+                faq4Q: "22张“大阿卡纳”牌代表什么？",
+                faq4A: "22张大阿卡纳（Major Arcana）牌代表“愚人之旅”中重大的精神阶段和生命课题，涵盖了从起点（0. 愚人）到圆满（21. 世界）的所有宏大命运节点、灵魂功课和精神启示，是塔罗的核心所在。",
+                faq_free_q: "这个占卜工具真的是免费且无广告的吗？",
+                faq_free_a: "是的，本占卜工具 100% 免费，无广告、免注册、无任何额度限制。所有的洗牌、抽牌与牌意解析均完全在您的本地浏览器中通过 JS 运行，没有消耗任何服务器资源，您的选择和占卜内容将 100% 留存在您的设备上，绝对私密安全。",
+                featuresTitle: "核心特色",
+                feature1_title: "100% 免费且私密",
+                feature1_desc: "无广告，无需注册。所有占卜过程在本地浏览器运行，您的选择和疑问绝对不会发送到外部服务器。",
+                feature2_title: "经典三张牌牌阵",
+                feature2_desc: "最经典、最有效的牌阵，精准对应您所问之事的过去根基、当下局势以及未来的演变趋势。",
+                feature3_title: "多主题量身解析",
+                feature3_desc: "根据您勾选的占卜主题（爱情、事业、综合），给出高度契合上下文的精准、贴切牌意解析文本。",
+                feature4_title: "完整大阿卡纳牌组",
+                feature4_desc: "包含全部 22 张经典大阿卡纳牌，并完美支持正位、逆位判定，为您提供内容极其丰富的多样化解答。",
+                promo_title: "探索西方生命灵数与天使数字的奥秘",
+                promo_desc: "阅读我们针对西方命理学、生命路径计算器和天使数字寓意的深度实操科普指南。",
+                promo_btn: "阅读科普指南",
+                relatedTools: "相关推荐工具",
+                relatedAngel: "天使数字计算器",
+                relatedAngelDesc: "输入您的生日，探索天使数字的神秘指引",
+                relatedNum: "生命灵数计算器",
+                relatedNumDesc: "计算您的生命路径、灵魂渴望与性格特质",
+                relatedCalc: "万能科学计算器",
+                relatedCalcDesc: "全功能科学计算与 16 种常用单位换算工具"
+            }
+        };
+    </script>
+
+    <!-- Tarot Deck Database & Calculations -->
+    <script>
+        // Preload 22 Major Arcana Cards
+        const TAROT_DECK = [
+            { id: 0, name_en: "THE FOOL", name_zh: "愚人", emoji: "🃏", 
+              love_upright: "New beginnings, free-spirited romance, spontaneous choices, exciting fresh relationships.",
+              love_reversed: "Recklessness, risky encounters, fear of commitment, foolish decisions in relationships.",
+              career_upright: "A fresh career path, start-ups, taking calculated leaps, freedom-focused projects.",
+              career_reversed: "Lack of planning, risky financial moves, irresponsible behavior at work, missing details.",
+              general_upright: "Folly, purity, unlimited potential, embarking on a new spiritual adventure with trust.",
+              general_reversed: "Naivety, bad timing, feeling blocked by fear, hesitation, or reckless behaviors." },
+            { id: 1, name_en: "THE MAGICIAN", name_zh: "魔术师", emoji: "🪄", 
+              love_upright: "Deep connection, charm, effective communication, manifestation of true desires in love.",
+              love_reversed: "Manipulation, hidden motives, illusion, deception, or communication breakdowns in love.",
+              career_upright: "Mastery of skills, creativity, executing plans, resourcefulness, financial manifestation.",
+              career_reversed: "Wasted talent, lack of focus, deceitful business partners, untapped potential.",
+              general_upright: "Willpower, desire, creation, manifest your goals using your existing skills and tools.",
+              general_reversed: "Trickery, illusion, mental blocks, using power for selfish or manipulative ends." },
+            { id: 2, name_en: "THE HIGH PRIESTESS", name_zh: "女祭司", emoji: "🌙", 
+              love_upright: "Intuitive bond, secret romance, listening to inner voice, waiting for the right moment.",
+              love_reversed: "Repressed feelings, superficial connections, ignoring red flags, emotional distance.",
+              career_upright: "Wisdom, scanning hidden details, strategy over action, trust your instincts on contracts.",
+              career_reversed: "Hidden agendas, office gossip, ignoring gut feelings, unexpected secrets revealed.",
+              general_upright: "Intuition, sacred knowledge, divine feminine, trust your subconscious and wait.",
+              general_reversed: "Superficial knowledge, ignoring intuition, secrets, hidden blocks, or mental noise." },
+            { id: 3, name_en: "THE EMPRESS", name_zh: "女皇", emoji: "👑", 
+              love_upright: "Abundant love, nurturing relationship, pregnancy/fertility, deep sensual connection.",
+              love_reversed: "Clinginess, codependency, smothering love, lack of growth or fertility issues.",
+              career_upright: "Creativity, profitable growth, comfortable workplace, nurturing new projects.",
+              career_reversed: "Creative blocks, financial stagnation, feeling uninspired, low productivity.",
+              general_upright: "Femininity, beauty, nature, nurturing, abundance, enjoy the simple pleasures of life.",
+              general_reversed: "Creative drought, dependence on others, neglect, feeling ungrounded or empty." },
+            { id: 4, name_en: "THE EMPEROR", name_zh: "皇帝", emoji: "🏛️", 
+              love_upright: "Stability, protective partner, structured relationship, authority and deep safety.",
+              love_reversed: "Controlling behavior, power struggles, cold emotions, lack of flexibility in love.",
+              career_upright: "Leadership, structure, executive power, discipline, long-term stable strategy.",
+              career_reversed: "Ineffective leadership, rigid structure, tyrant boss, lack of discipline, setbacks.",
+              general_upright: "Authority, structure, control, solid foundation, taking control of your life with rules.",
+              general_reversed: "Tyranny, rigidity, lack of control, rebellion, powerlessness, or chaos." },
+            { id: 5, name_en: "THE HIEROPHANT", name_zh: "教皇", emoji: "⛪", 
+              love_upright: "Traditional values, marriage, commitment, deep spiritual bond, matching core values.",
+              love_reversed: "Unconventional relationship, rebellion, restriction, differing moral values.",
+              career_upright: "Mentorship, standard procedures, corporate work, learning from trusted institutions.",
+              career_reversed: "Rigid bureaucracy, restrictive rules, unorthodox career moves, starting new paths.",
+              general_upright: "Tradition, conformity, spiritual wisdom, matching the standards of society.",
+              general_reversed: "Rebellion, alternative paths, breaking rules, non-conformity, finding your own truth." },
+            { id: 6, name_en: "THE LOVERS", name_zh: "恋人", emoji: "💞", 
+              love_upright: "Harmonious union, deep passion, alignment of values, making a major heart choice.",
+              love_reversed: "Disharmony, misalignment of values, relationship crossroads, internal conflicts.",
+              career_upright: "Successful partnerships, shared values on contracts, choosing a career direction.",
+              career_reversed: "Asymmetry in deals, choosing path for wrong reasons, workplace conflicts.",
+              general_upright: "Love, harmony, choices, relationships, alignment, making choices from a place of love.",
+              general_reversed: "Disharmony, imbalance, bad choices, misalignment, internal struggle." },
+            { id: 7, name_en: "THE CHARIOT", name_zh: "战车", emoji: "⚔️", 
+              love_upright: "Overcoming obstacles, chasing love with drive, protective and determined relationship.",
+              love_reversed: "Lack of direction, feeling out of control, relationship spinning out of wheels.",
+              career_upright: "Ambitious drive, winning deals, clear career path, high control and focus.",
+              career_reversed: "Lack of control, blocked projects, loss of ambition, aggressive work conflicts.",
+              general_upright: "Control, willpower, victory, determination, overcoming obstacles with focus.",
+              general_reversed: "Lack of direction, loss of control, aggression, obstacles, feeling stuck." },
+            { id: 8, name_en: "STRENGTH", name_zh: "力量", emoji: "🦁", 
+              love_upright: "Compassion, patience, taming conflicts with gentle love, emotional resilience.",
+              love_reversed: "Insecurity, raw anger, weakness, or feeling emotionally overwhelmed in love.",
+              career_upright: "Inner confidence, handling stress gracefully, quiet leadership, long-term deals.",
+              career_reversed: "Self-doubt, office bullying, feeling burnt out, running out of energy.",
+              general_upright: "Courage, inner strength, patience, compassion, influence others gently.",
+              general_reversed: "Weakness, raw emotion, insecurity, lack of self-control, depression." },
+            { id: 9, name_en: "THE HERMIT", name_zh: "隐士", emoji: "🏮", 
+              love_upright: "Soul searching, taking a break for reflection, singlehood for clarity, deep inner wisdom.",
+              love_reversed: "Loneliness, withdrawal, cold shoulder, isolation in a relationship.",
+              career_upright: "Deep strategy, stepping back to analyze, mentoring, long-term planning.",
+              career_reversed: "Impatience, poor planning, refusing guidance, feeling isolated from teammates.",
+              general_upright: "Soul searching, introspection, inner guidance, solitude, finding your own path.",
+              general_reversed: "Loneliness, isolation, paranoia, missing the point, withdrawal." },
+            { id: 10, name_en: "WHEEL OF FORTUNE", name_zh: "命运之轮", emoji: "🎡", 
+              love_upright: "Fated encounters, positive turns, luck in relationships, sudden happy coincidences.",
+              love_reversed: "Bad luck, resistance to change, unexpected setbacks, breakups out of control.",
+              career_upright: "Sudden breakthroughs, lucky promotions, positive change in investments.",
+              career_reversed: "Temporary setbacks, bad investments, external changes affecting projects.",
+              general_upright: "Luck, fated change, karma, destiny, a turning point, adapt to life cycles.",
+              general_reversed: "Bad luck, resisting change, breaking cycles, unexpected negative events." },
+            { id: 11, name_en: "JUSTICE", name_zh: "正义", emoji: "⚖️", 
+              love_upright: "Fair treatment, honesty, commitment, resolving conflicts through objective truth.",
+              love_reversed: "Dishonesty, unfair treatment, blame-shifting, unresolved relationship grudges.",
+              career_upright: "Fair contracts, legal resolution, objective decisions, integrity at work.",
+              career_reversed: "Unfair treatment, biased boss, contract disputes, unethical business moves.",
+              general_upright: "Justice, fairness, truth, cause and effect, law, taking responsibility.",
+              general_reversed: "Injustice, dishonesty, lack of accountability, legal disputes." },
+            { id: 12, name_en: "THE HANGED MAN", name_zh: "倒吊人", emoji: "🧗", 
+              love_upright: "Letting go of expectations, sacrifice for love, seeing love from a fresh perspective.",
+              love_reversed: "Stagnation, useless sacrifices, waiting for nothing, relationship in limbo.",
+              career_upright: "Voluntary pause, waiting for better timing, changing perspective on tasks.",
+              career_reversed: "Procrastination, wasted time, delays on investments, resisting changes.",
+              general_upright: "Surrender, let go, new perspective, sacrifice, patience, pause.",
+              general_reversed: "Egotism, useless sacrifice, stagnation, resisting change, wasted time." },
+            { id: 13, name_en: "DEATH", name_zh: "死神", emoji: "💀", 
+              love_upright: "Major transition, ending an unhealthy relationship, letting go of past patterns.",
+              love_reversed: "Fear of change, holding on to dead relationships, resisting transitions.",
+              career_upright: "Career transition, leaving old industry, closing failed projects.",
+              career_reversed: "Refusing to adapt, clinging to outdated skills, career stagnation.",
+              general_upright: "Ending, transition, transformation, let go of the old to make way for the new.",
+              general_reversed: "Resisting change, stagnation, decay, fear of endings, slow progress." },
+            { id: 14, name_en: "TEMPERANCE", name_zh: "节制", emoji: "🏺", 
+              love_upright: "Balance, patience, harmony, smooth emotional flow, long-term compatibility.",
+              love_reversed: "Imbalance, over-indulgence, emotional swings, clashing lifestyles.",
+              career_upright: "Synergy, smooth teamwork, stable financial growth, moderate pacing.",
+              career_reversed: "Chaos, conflict at work, unbalanced pacing, budget overruns.",
+              general_upright: "Balance, moderation, patience, purpose, finding middle ground.",
+              general_reversed: "Imbalance, excess, clashing interests, lack of vision, discord." },
+            { id: 15, name_en: "THE DEVIL", name_zh: "恶魔", emoji: "😈", 
+              love_upright: "Intense passion, temptation, codependency, obsession, physical attraction.",
+              love_reversed: "Breaking free from unhealthy patterns, overcoming addiction or codependency.",
+              career_upright: "Material ambitions, workaholism, feeling trapped by high salary but low satisfaction.",
+              career_reversed: "Leaving toxic workplace, restructuring debt, career liberation.",
+              general_upright: "Shadow self, attachment, addiction, restriction, materialism.",
+              general_reversed: "Release, freedom, inner strength, breaking toxic bonds, self-awareness." },
+            { id: 16, name_en: "THE TOWER", name_zh: "高塔", emoji: "⚡", 
+              love_upright: "Sudden collapse, secrets exposed, unexpected breakups, breaking false foundations.",
+              love_reversed: "Avoiding disaster, delaying inevitable endings, internal fear of change.",
+              career_upright: "Sudden corporate layoffs, business collapse, project cancellations, restructure.",
+              career_reversed: "Rebuilding from scratch, minor setbacks, escaping a major career crisis.",
+              general_upright: "Sudden change, upheaval, chaos, revelation, awakening, breaking illusions.",
+              general_reversed: "Fear of disaster, delaying the inevitable, internal turmoil, minor crises." },
+            { id: 17, name_en: "THE STAR", name_zh: "星星", emoji: "⭐", 
+              love_upright: "Hope, healing, positive outlook, trust, finding your soulmate, light after dark.",
+              love_reversed: "Despair, lack of faith, insecurity, feeling disconnected or uninspired in love.",
+              career_upright: "Fresh opportunities, recovery of business, creative inspiration, hope.",
+              career_reversed: "Lack of inspiration, creative block, feeling stagnant or disappointed.",
+              general_upright: "Hope, faith, purpose, renewal, spirituality, healing and peace.",
+              general_reversed: "Lack of faith, discouragement, disconnect, feeling lost." },
+            { id: 18, name_en: "THE MOON", name_zh: "月亮", emoji: "🔮", 
+              love_upright: "Illusions, fear, anxiety, hidden secrets, unspoken worries, deception.",
+              love_reversed: "Releasing fear, secrets revealed, clear intuition, illusions dissolving.",
+              career_upright: "Deceptive deals, unstable tasks, office gossip, lack of clarity.",
+              career_reversed: "Clarifying projects, finding hidden errors, honest communications.",
+              general_upright: "Illusion, fear, anxiety, subconscious, intuition, navigate the dark.",
+              general_reversed: "Release of fear, truth revealed, clarity, intuitive awakening." },
+            { id: 19, name_en: "THE SUN", name_zh: "太阳", emoji: "☀️", 
+              love_upright: "Pure joy, success, radiant relationship, warmth, vitality, happy marriage.",
+              love_reversed: "Temporary clouds, minor disputes, over-optimism, delayed joy.",
+              career_upright: "Brilliant success, leadership recognition, financial rewards, public honor.",
+              career_reversed: "Pride, delayed success, unrealistic goals, minor setbacks.",
+              general_upright: "Joy, success, celebration, warmth, vitality, positive energy.",
+              general_reversed: "Minor delays, temporary block, lack of vitality, over-confidence." },
+            { id: 20, name_en: "JUDGEMENT", name_zh: "审判", emoji: "🔔", 
+              love_upright: "Awakening, second chance, forgiveness, resolving past relationship karma.",
+              love_reversed: "Self-doubt, refusing to move on, carrying past baggage, relationship stagnation.",
+              career_upright: "Career calling, major evaluation, positive promotion, decisive step.",
+              career_reversed: "Refusing opportunities, fear of being judged, career hesitation.",
+              general_upright: "Judgement, rebirth, calling, absolution, major life decisions.",
+              general_reversed: "Self-doubt, refusal of calling, holding on to past regrets, indecision." },
+            { id: 21, name_en: "THE WORLD", name_zh: "世界", emoji: "🌍", 
+              love_upright: "Completion, absolute harmony, happy marriage, travel together, fulfillment.",
+              love_reversed: "Delayed completion, loose ends in relationships, feeling unfulfilled.",
+              career_upright: "Project completion, global expansion, absolute success, high achievements.",
+              career_reversed: "Unfinished tasks, missed benchmarks, feeling stuck near the finish line.",
+              general_upright: "Completion, integration, accomplishment, travel, fulfillment.",
+              general_reversed: "Incompletion, missing pieces, lack of closure, delays, feeling stuck." }
+        ];
+    </script>
+
+    <!-- UI Interaction and Drawing Engine -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Screen elements
+            const setupScreen = document.getElementById('setupScreen');
+            const boardScreen = document.getElementById('boardScreen');
+            const readingSection = document.getElementById('readingSection');
+            
+            // Interactive elements
+            const topicBtns = document.querySelectorAll('.topic-btn');
+            const startBtn = document.getElementById('startBtn');
+            const restartBtn = document.getElementById('restartBtn');
+            const statusMsg = document.getElementById('statusMsg');
+            const cardsGrid = document.getElementById('cardsGrid');
+            const shuffleZone = document.getElementById('shuffleZone');
+            
+            let selectedTopic = 'love';
+            let selectedCards = []; // Stores drawn cards info
+
+            // Setup topic selection
+            topicBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    topicBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    selectedTopic = btn.getAttribute('data-topic');
+                });
+            });
+
+            // Start Shuffling and Dealing
+            startBtn.addEventListener('click', function () {
+                setupScreen.style.display = 'none';
+                boardScreen.style.display = 'block';
+                readingSection.style.display = 'none';
+                cardsGrid.style.display = 'none';
+                shuffleZone.style.display = 'flex';
+                restartBtn.style.display = 'none';
+                
+                const currentLang = localStorage.getItem('toolbox_lang') || 'en';
+                statusMsg.textContent = currentLang === 'zh-CN' ? '神秘力量注入中，正在凝神洗牌...' : 'Shuffling the deck with mystic focus...';
+
+                // Choose 3 random non-repeating cards from 22 cards
+                selectedCards = [];
+                const indices = [];
+                while (indices.length < 3) {
+                    const r = Math.floor(Math.random() * 22);
+                    if (!indices.includes(r)) indices.push(r);
+                }
+
+                // Randomly set Upright (true) or Reversed (false) for each card
+                indices.forEach(idx => {
+                    const orientation = Math.random() > 0.35; // 65% chance of Upright
+                    selectedCards.push({
+                        card: TAROT_DECK[idx],
+                        upright: orientation
+                    });
+                });
+
+                // Animate shuffling (delay 2.5s)
+                setTimeout(function () {
+                    shuffleZone.style.display = 'none';
+                    cardsGrid.style.display = 'grid';
+                    statusMsg.textContent = currentLang === 'zh-CN' ? '洗牌完成！请依次点击下方卡牌，揭示属于您的命运启示...' : 'Deck shuffled! Click each card to reveal your readings...';
+                    
+                    // Reset card CSS states
+                    for (let i = 0; i < 3; i++) {
+                        const container = document.getElementById(`card${i}`);
+                        container.classList.remove('flipped', 'reversed');
+                        container.style.opacity = '1';
+                        container.style.pointerEvents = 'auto';
+                        
+                        // Populate card front visuals
+                        const cardName = currentLang === 'zh-CN' ? selectedCards[i].card.name_zh : selectedCards[i].card.name_en;
+                        document.getElementById(`art${i}`).textContent = selectedCards[i].card.emoji;
+                        document.getElementById(`title${i}`).textContent = cardName;
+                    }
+                }, 2500);
+            });
+
+            // Handle Card Flipping & Interpretation Rendering
+            document.querySelectorAll('.card-container').forEach(container => {
+                container.addEventListener('click', function () {
+                    const index = parseInt(container.getAttribute('data-index'));
+                    
+                    if (container.classList.contains('flipped')) return; // Avoid double flip
+
+                    const drawn = selectedCards[index];
+                    
+                    // Apply flipped & reversed (180deg rotation) animation classes
+                    container.classList.add('flipped');
+                    if (!drawn.upright) {
+                        container.classList.add('reversed');
+                    }
+                    
+                    // Render specific reading card info
+                    const currentLang = localStorage.getItem('toolbox_lang') || 'en';
+                    const cardName = currentLang === 'zh-CN' ? drawn.card.name_zh : drawn.card.name_en;
+                    const orientationText = drawn.upright 
+                        ? (currentLang === 'zh-CN' ? '正位' : 'Upright') 
+                        : (currentLang === 'zh-CN' ? '逆位' : 'Reversed');
+                    
+                    const badgeOrient = document.getElementById(`orientRead${index}`);
+                    badgeOrient.textContent = orientationText;
+                    badgeOrient.className = `orientation ${drawn.upright ? 'upright' : 'reversed'}`;
+                    
+                    document.getElementById(`nameRead${index}`).textContent = cardName;
+                    
+                    // Set contextual explanation based on chosen Topic & Orientation
+                    let descKey = `${selectedTopic}_${drawn.upright ? 'upright' : 'reversed'}`;
+                    let description = drawn.card[descKey];
+                    
+                    // If Chinese, use machine-translated/preloaded context or translated strings
+                    // We can provide beautiful dynamic summaries for Chinese
+                    if (currentLang === 'zh-CN') {
+                        // Pre-localize the standard key answers for Chinese readers to keep CJK premium feel
+                        const CH_TRANS = {
+                            love_upright: "象征着美满、和谐的开端。亲密关系中充满了生机勃勃的正面能量，彼此坦诚，感情生活即将迎来令人兴奋的新发展或跨越。",
+                            love_reversed: "代表关系中存在轻率、冲动或逃避。可能彼此缺乏真正的信任，面临承诺危机，或者正在被不切实际的幻想所误导。",
+                            career_upright: "迎来了极佳的新事业跑道、副业或创意项目起点。您的才华和资源完全能支撑起您的野心，财务状况将迎来爆发增长。",
+                            career_reversed: "在工作中缺乏明确的规划，或因细节处理不当导致挫败。需要警惕职场中不靠谱的合伙人，避免冲动做出财务决策。",
+                            general_upright: "代表着无限的潜能、灵感与宇宙意志的指引。放下内心的焦虑与束缚，完全信任自己的直觉，勇敢地开启人生的全新冒险阶段。",
+                            general_reversed: "当前由于恐惧、犹豫不决或者过于任性，导致人生脚步受阻。您需要重整旗鼓，在盲目采取行动前，先找回内心的坚定秩序。"
+                        };
+                        description = CH_TRANS[descKey] || description;
+                    }
+                    
+                    document.getElementById(`descRead${index}`).textContent = description;
+
+                    // Show interpretation section and show restart button once all 3 are flipped
+                    let allFlipped = true;
+                    for (let i = 0; i < 3; i++) {
+                        if (!document.getElementById(`card${i}`).classList.contains('flipped')) {
+                            allFlipped = false;
+                        }
+                    }
+
+                    if (allFlipped) {
+                        readingSection.style.display = 'block';
+                        restartBtn.style.display = 'inline-block';
+                        statusMsg.textContent = currentLang === 'zh-CN' ? '✨ 三生牌阵宿命启示已显现！阅读下方解析... ✨' : '✨ Spread revealed! Read your interpretations below... ✨';
+                    }
+                });
+            });
+
+            // Restart / New Reading Action
+            restartBtn.addEventListener('click', function () {
+                setupScreen.style.display = 'block';
+                boardScreen.style.display = 'none';
+                readingSection.style.display = 'none';
+            });
+
+            // FAQ accordion setup (already bound in common.js, but let's double-check no hand-written event handler to avoid conflict)
+        });
+    </script>
+
+    <script src="common/common.js" data-tool-id="tarot-reading" data-tool-name="Online Tarot Reading" data-category="utility"></script>
+    <script>WebToolbox.init(window._translations);</script>
+</body>
+</html>
