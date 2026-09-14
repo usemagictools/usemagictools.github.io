@@ -637,14 +637,6 @@
                 { limit: 999.0, name: "Mac Studio M2 Ultra (192GB RAM)", desc: { en: "The ultimate Local AI setup. Runs full FP16 70B models or multiple parallel LLM instances with zero latency.", zh: "本地 AI 的终极毕业配置。可无损运行 70B 参数的 FP16 原始大模型，或者多路并发运行多个 Agent。", fr: "La configuration d'IA locale ultime. Exécute des modèles 70B complets en FP16.", es: "La configuración definitiva de IA local. Ejecuta modelos 70B completos en FP16." }, url: "https://www.amazon.com/dp/B0C75NBMN8?tag=heyuan110-20" }
             ];
 
-            // Setup FAQ toggles
-            document.querySelectorAll('.faq-question').forEach(item => {
-                item.addEventListener('click', () => {
-                    const parent = item.parentElement;
-                    parent.classList.toggle('active');
-                });
-            });
-
             // Handle Model Select changes
             modelSelect.addEventListener('change', function () {
                 if (modelSelect.value === 'custom') {
