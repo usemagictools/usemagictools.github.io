@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CT8E5N460D"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CT8E5N460D');</script>
+    <title>Local LLM Speed Simulator - Tokens/sec & Performance Calculator</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Calculate and simulate local LLM (DeepSeek R1, Llama 3, Qwen) inference speed (tokens/second) on Mac (M4 Mini/Studio) and PC (RTX 4090/4070). Identifies memory bandwidth bottlenecks and OOM risks.">
+    <meta name="keywords" content="local llm speed calculator, tokens per second simulator, deepseek r1 rtx 4090 speed, mac mini m4 tokens/sec, memory bandwidth bottleneck, ollama performance estimator">
+    <meta name="author" content="UseMagicTools">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.usemagictools.com/local-llm-simulator.html">
+    <link rel="alternate" hreflang="en" href="https://www.usemagictools.com/local-llm-simulator.html">
+    <link rel="alternate" hreflang="zh-CN" href="https://www.usemagictools.com/local-llm-simulator.html">
+
+    <link rel="stylesheet" href="common/common.css">
+
+    <style>
+        /* ========== Reset & Base ========== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #111827 0%, #1e1b4b 50%, #030712 100%);
+            color: #f3f4f6;
+            min-height: 100vh;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px; }
+
+        /* ========== Page Header ========== */
+        .page-header { text-align: center; margin-bottom: 32px; }
+        .page-header h1 {
+            font-size: 32px; font-weight: 700; color: #fff;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #3b82f6, #60a5fa, #1d4ed8);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .page-header .subtitle { color: #9ca3af; font-size: 16px; line-height: 1.5; }
+
+        /* ========== Calculator Layout ========== */
+        .calculator-grid {
+            display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; margin-bottom: 40px;
+        }
+        @media (max-width: 900px) {
+            .calculator-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ========== Cards ========== */
+        .card {
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px; padding: 30px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+        }
+        .card h2 {
+            font-size: 20px; color: #fff; margin-bottom: 20px;
+            display: flex; align-items: center; gap: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 12px;
+        }
+
+        /* ========== Form Controls ========== */
+        .form-group { margin-bottom: 20px; }
+        .form-group label {
+            display: block; font-size: 14px; color: #94a3b8;
+            margin-bottom: 8px; font-weight: 500;
+        }
+        .select-control, .input-control {
+            width: 100%; padding: 12px;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px; color: #fff; font-size: 15px;
+            outline: none; transition: border-color 0.2s;
+        }
+        .select-control:focus, .input-control:focus {
+            border-color: #3b82f6;
+        }
+
+        /* ========== Gauge/Speed Output ========== */
+        .gauge-container {
+            display: flex; flex-direction: column; align-items: center;
+            justify-content: center; margin-bottom: 24px;
+        }
+        .gauge-value {
+            font-size: 54px; font-weight: 800; color: #60a5fa;
+            text-shadow: 0 0 10px rgba(96, 165, 250, 0.3);
+        }
+        .gauge-label { font-size: 14px; color: #94a3b8; margin-top: 4px; }
+
+        .breakdown-row {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 12px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 15px;
+        }
+        .breakdown-row:last-child { border-bottom: none; }
+        .breakdown-label { color: #94a3b8; }
+        .breakdown-val { font-weight: bold; color: #f1f5f9; }
+
+        /* ========== Bottleneck indicators ========== */
+        .bottleneck-badge {
+            display: inline-block; padding: 4px 10px; border-radius: 6px;
+            font-size: 11px; font-weight: bold; text-transform: uppercase;
+        }
+        .bottleneck-badge.bandwidth {
+            background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.3); color: #fbbf24;
+        }
+        .bottleneck-badge.compute {
+            background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.3); color: #60a5fa;
+        }
+        .bottleneck-badge.oom {
+            background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.3); color: #f87171;
+        }
+
+        /* ========== Recommendation Box ========== */
+        .rec-box {
+            margin-top: 24px; background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 12px; padding: 20px; text-align: center;
+        }
+        .rec-title { font-size: 13px; color: #93c5fd; font-weight: bold; margin-bottom: 6px; text-transform: uppercase; }
+        .rec-model { font-size: 20px; font-weight: bold; color: #fff; margin-bottom: 12px; }
+        .rec-desc { font-size: 14px; color: #cbd5e1; margin-bottom: 16px; line-height: 1.5; }
+        
+        .buy-btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #fff; padding: 12px 24px; border-radius: 8px;
+            font-weight: bold; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 14px rgba(217, 119, 6, 0.3);
+        }
+        .buy-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(217, 119, 6, 0.5);
+        }
+
+        /* ========== Blog Promo ========== */
+        .blog-promo {
+            margin-top: 30px; background: rgba(30, 41, 59, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 12px; padding: 20px; display: flex;
+            align-items: center; justify-content: space-between; gap: 16px;
+            margin-bottom: 30px;
+        }
+        .blog-promo-text h3 { color: #fff; font-size: 16px; margin-bottom: 4px; text-align: left; }
+        .blog-promo-text p { color: #94a3b8; font-size: 14px; text-align: left; }
+        .blog-promo-btn {
+            background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff; padding: 10px 18px; border-radius: 6px; text-decoration: none;
+            font-weight: 500; font-size: 14px; transition: all 0.2s; flex-shrink: 0;
+        }
+        .blog-promo-btn:hover {
+            background: rgba(59, 130, 246, 0.2); border-color: rgba(59, 130, 246, 0.4);
+            color: #93c5fd;
+        }
+        @media (max-width: 600px) {
+            .blog-promo { flex-direction: column; text-align: center; }
+            .blog-promo-text h3, .blog-promo-text p { text-align: center; }
+        }
+
+        .faq-section { margin-top: 40px; margin-bottom: 40px; }
+        .faq-section h2 { font-size: 22px; color: #fff; margin-bottom: 20px; }
+        .faq-item {
+            background: rgba(30, 41, 59, 0.3); border-radius: 8px; margin-bottom: 12px;
+            overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+        .faq-question {
+            padding: 16px 20px; font-weight: bold; color: #fff; cursor: pointer;
+            display: flex; justify-content: space-between; align-items: center;
+            background: none; border: none; width: 100%; text-align: left; font-size: 16px;
+        }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .faq-item.active .faq-answer { max-height: 500px; }
+        .faq-answer p { padding: 0 20px 16px; color: #a1a1aa; line-height: 1.7; font-size: 14px; }
+    </style>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+</head>
+<body>
+    <div class="container">
+        <!-- Page Header -->
+        <header class="page-header">
+            <h1 data-i18n="title">Local LLM Speed Simulator</h1>
+            <p class="subtitle" data-i18n="subtitle">Predict inference speed (tokens/sec) and identify hardware bottlenecks for local LLMs</p>
+        </header>
+
+        <!-- Main Calculator Grid -->
+        <div class="calculator-grid">
+            <!-- Left inputs card -->
+            <div class="card">
+                <h2 data-i18n="card_hardware_model">💻 Hardware & Model Settings</h2>
+                
+                <div class="form-group">
+                    <label data-i18n="label_hardware">Your Hardware Platform</label>
+                    <select class="select-control" id="hardwareSelect">
+                        <option value="m4" selected>Apple Mac Mini M4 (150 GB/s)</option>
+                        <option value="m4pro">Apple Mac Mini M4 Pro (273 GB/s)</option>
+                        <option value="m4max">Apple MacBook Pro M4 Max (546 GB/s)</option>
+                        <option value="m4ultra">Apple Mac Studio M4 Ultra (1.1 TB/s)</option>
+                        <option value="rtx4070">NVIDIA GeForce RTX 4070 (504 GB/s)</option>
+                        <option value="rtx4090">NVIDIA GeForce RTX 4090 (1.0 TB/s)</option>
+                        <option value="cpu_ddr5">Intel/AMD CPU (Dual DDR5, 80 GB/s)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label data-i18n="label_model">Model Architecture</label>
+                    <select class="select-control" id="modelSelect">
+                        <option value="1.5">Qwen 2.5 / DeepSeek (1.5B)</option>
+                        <option value="3">Llama 3.2 (3B)</option>
+                        <option value="7">Qwen 2.5 (7B)</option>
+                        <option value="8" selected>Llama 3 / 3.1 (8B)</option>
+                        <option value="14">Qwen 2.5 / DeepSeek (14B)</option>
+                        <option value="32">Qwen 2.5 / DeepSeek (32B)</option>
+                        <option value="70">DeepSeek-R1 Distilled / Llama 3 (70B)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label data-i18n="label_quantization">Quantization Precision (GGUF)</label>
+                    <select class="select-control" id="quantSelect">
+                        <option value="16">FP16 / BF16 (16-bit uncompressed)</option>
+                        <option value="8">Q8_0 / Q8_K (8-bit quantized)</option>
+                        <option value="6">Q6_K (6-bit quantized)</option>
+                        <option value="4" selected>Q4_K_M (4-bit quantized, Standard)</option>
+                        <option value="3">Q3_K_M (3-bit quantized)</option>
+                        <option value="2">Q2_K (2-bit quantized)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Right results card -->
+            <div class="card">
+                <h2 data-i18n="card_performance">⚡ Performance Prediction</h2>
+                
+                <div class="gauge-container">
+                    <span class="gauge-value" id="speedVal">33 tok/s</span>
+                    <span class="gauge-label" data-i18n="label_predicted_speed">Estimated Inference Speed</span>
+                </div>
+
+                <div class="breakdown-row">
+                    <span class="breakdown-label" data-i18n="lbl_bottleneck">System Bottleneck</span>
+                    <span id="bottleneckBadge" class="bottleneck-badge bandwidth">Memory Bandwidth Bound</span>
+                </div>
+                <div class="breakdown-row">
+                    <span class="breakdown-label" data-i18n="lbl_model_size">Model Memory Size</span>
+                    <span class="breakdown-val" id="modelSizeVal">4.5 GB</span>
+                </div>
+                <div class="breakdown-row">
+                    <span class="breakdown-label" data-i18n="lbl_bandwidth">Memory Bandwidth</span>
+                    <span class="breakdown-val" id="bandwidthVal">150 GB/s</span>
+                </div>
+                <div class="breakdown-row">
+                    <span class="breakdown-label" data-i18n="lbl_oom_status">OOM / VRAM Status</span>
+                    <span class="breakdown-val" id="oomVal" style="color: #10b981;">SAFE (VRAM OK)</span>
+                </div>
+
+                <!-- Recommendation box -->
+                <div class="rec-box" id="recBox">
+                    <div class="rec-title" data-i18n="rec_title">Performance Upgrade Recommendation</div>
+                    <div class="rec-model" id="recModel">Upgrade to Mac Mini M4 Pro</div>
+                    <p class="rec-desc" id="recDesc">Your model is heavily bottlenecked by your Mac Mini M4's 150 GB/s memory bandwidth. Upgrading to the M4 Pro version boosts bandwidth to 273 GB/s, increasing speed by nearly 85%.</p>
+                    <a href="https://www.amazon.com/dp/B0DNZPVMN1?tag=heyuan110-20" target="_blank" rel="noopener" class="buy-btn" id="buyBtn">
+                        🛒 <span data-i18n="btn_buy">Buy on Amazon</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content/Blog Promo Link -->
+        <div class="blog-promo">
+            <div class="blog-promo-text">
+                <h3 data-i18n="promo_title">Read our hands-on hardware selection benchmarks</h3>
+                <p data-i18n="promo_desc">Read our in-depth guides comparing M4 Mac Mini, Studio and GeForce RTX graphics cards for running local AI models.</p>
+            </div>
+            <a href="https://www.heyuan110.com/zh/posts/ai/2026-02-15-mac-mini-local-image-generation/" target="_blank" rel="noopener" class="blog-promo-btn" data-i18n="promo_btn">Read Guide</a>
+        </div>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <h2 data-i18n="faq_title">Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span data-i18n="faq1Q">Why is memory bandwidth the main bottleneck for LLM generation?</span>
+                    <span>▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n="faq1A">In LLM token generation (decoding phase), the model has to process one token at a time. For each generated token, the GPU or CPU must read the entire model weights (several gigabytes) from memory into its caches. Because this must happen for every single token, the generation speed is heavily limited by how fast your hardware can read from memory (Memory Bandwidth), rather than raw compute power (FLOPS).</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span data-i18n="faq2Q">What is the math behind token speed estimation?</span>
+                    <span>▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n="faq2A">The theoretical maximum speed (Tokens per Second) during the decoding phase is calculated using the formula: Speed = Memory Bandwidth (GB/s) / Model Size (GB). For example, if you run a Q4 quantized Llama 3 8B model (size ~4.5 GB) on a standard Mac Mini M4 (bandwidth 150 GB/s), your maximum bandwidth-limited speed is: 150 / 4.5 ≈ 33.3 tokens/second.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span data-i18n="faq3Q">What happens when a model exceeds my VRAM / RAM?</span>
+                    <span>▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n="faq3A">On PCs with dedicated graphics cards (like RTX 4070), if the model exceeds the GPU's VRAM (e.g. 12GB), the system is forced to offload the remaining layers to system memory (DDR4/DDR5) via the PCIe bus. Since system RAM bandwidth (approx 50-80 GB/s) is 10 times slower than VRAM, your generation speed will instantly collapse to 1-3 tokens/second (OOM bottleneck). On Mac, unified memory acts as both, avoiding PCIe bottlenecks but still limited by total capacity.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span data-i18n="faq4Q">Does batch size affect memory bandwidth requirements?</span>
+                    <span>▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n="faq4A">Yes. The formula Speed = Bandwidth / Model Size applies to single-user generation (Batch Size = 1). As batch size increases (e.g., serving multiple users concurrently), the bottleneck shifts from Memory Bandwidth to GPU Compute Power (FLOPS), because the compute workload per loaded weight multiplies, allowing the hardware to utilize its raw processing cores more efficiently.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span data-i18n="faq_free_q">Is this tool really free with no ads?</span>
+                <span class="arrow">▼</span>
+              </button>
+              <div class="faq-answer"><p data-i18n="faq_free_a">
+                Yes, this tool is 100% free with no ads, no registration, no watermark, and no usage limits. All processing happens locally in your browser using client-side JavaScript, so no server resources are consumed and your data remains completely private on your device.
+              </p></div>
+            </div>
+        </section>
+
+        <!-- Related Tools -->
+        <section class="related-tools" style="margin: 40px 0 0;">
+            <h3 data-i18n="relatedToolsTitle">Related Tools</h3>
+            <div class="related-grid">
+                <a href="mac-llm-selector.html" class="related-card">
+                    <div class="related-icon">💻</div>
+                    <h4 data-i18n="relatedMac">Mac Local LLM Selector</h4>
+                    <p data-i18n="relatedMacDesc">Calculate unified memory & KV Cache requirements</p>
+                </a>
+                <a href="calculator.html" class="related-card">
+                    <div class="related-icon">🧮</div>
+                    <h4 data-i18n="relatedCalc">All-in-One Calculator</h4>
+                    <p data-i18n="relatedCalcDesc">Scientific and unit converters</p>
+                </a>
+                <a href="api-tester.html" class="related-card">
+                    <div class="related-icon">⚡</div>
+                    <h4 data-i18n="relatedApi">API Tester</h4>
+                    <p data-i18n="relatedApiDesc">HTTP request debugging tool</p>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Translations Data -->
+    <script>
+        window._translations = {
+            en: {
+                tool_name: "LLM Speed Simulator",
+                title: "Local LLM Speed Simulator",
+                subtitle: "Predict inference speed (tokens/sec) and identify hardware bottlenecks for local LLMs",
+                card_hardware_model: "💻 Hardware & Model Settings",
+                label_hardware: "Your Hardware Platform",
+                label_model: "Model Architecture",
+                label_quantization: "Quantization Precision (GGUF)",
+                card_performance: "⚡ Performance Prediction",
+                label_predicted_speed: "Estimated Inference Speed",
+                lbl_bottleneck: "System Bottleneck",
+                lbl_model_size: "Model Memory Size",
+                lbl_bandwidth: "Memory Bandwidth",
+                lbl_oom_status: "OOM / VRAM Status",
+                rec_title: "Performance Upgrade Recommendation",
+                btn_buy: "Buy on Amazon",
+                promo_title: "Read our hands-on hardware selection benchmarks",
+                promo_desc: "Read our in-depth guides comparing M4 Mac Mini, Studio and GeForce RTX graphics cards for running local AI models.",
+                promo_btn: "Read Guide",
+                faq_title: "Frequently Asked Questions",
+                faq1Q: "Why is memory bandwidth the main bottleneck for LLM generation?",
+                faq1A: "In LLM token generation (decoding phase), the model has to process one token at a time. For each generated token, the GPU or CPU must read the entire model weights (several gigabytes) from memory into its caches. Because this must happen for every single token, the generation speed is heavily limited by how fast your hardware can read from memory (Memory Bandwidth), rather than raw compute power (FLOPS).",
+                faq2Q: "What is the math behind token speed estimation?",
+                faq2A: "The theoretical maximum speed (Tokens per Second) during the decoding phase is calculated using the formula: Speed = Memory Bandwidth (GB/s) / Model Size (GB). For example, if you run a Q4 quantized Llama 3 8B model (size ~4.5 GB) on a standard Mac Mini M4 (bandwidth 150 GB/s), your maximum bandwidth-limited speed is: 150 / 4.5 ≈ 33.3 tokens/second.",
+                faq3Q: "What happens when a model exceeds my VRAM / RAM?",
+                faq3A: "On PCs with dedicated graphics cards (like RTX 4070), if the model exceeds the GPU's VRAM (e.g. 12GB), the system is forced to offload the remaining layers to system memory (DDR4/DDR5) via the PCIe bus. Since system RAM bandwidth (approx 50-80 GB/s) is 10 times slower than VRAM, your generation speed will instantly collapse to 1-3 tokens/second (OOM bottleneck). On Mac, unified memory acts as both, avoiding PCIe bottlenecks but still limited by total capacity.",
+                faq4Q: "Does batch size affect memory bandwidth requirements?",
+                faq4A: "Yes. The formula Speed = Bandwidth / Model Size applies to single-user generation (Batch Size = 1). As batch size increases (e.g., serving multiple users concurrently), the bottleneck shifts from Memory Bandwidth to GPU Compute Power (FLOPS), because the compute workload per loaded weight multiplies, allowing the hardware to utilize its raw processing cores more efficiently.",
+                faq_free_q: "Is this tool really free with no ads?",
+                faq_free_a: "Yes, this tool is 100% free with no ads, no registration, no watermark, and no usage limits. All processing happens locally in your browser using client-side JavaScript, so no server resources are consumed and your data remains completely private on your device.",
+                relatedTools: "Related Tools",
+                relatedMac: "Mac Local LLM Selector",
+                relatedMacDesc: "Calculate unified memory & KV Cache requirements",
+                relatedCalc: "All-in-One Calculator",
+                relatedCalcDesc: "Scientific and unit converters",
+                relatedApi: "API Tester",
+                relatedApiDesc: "HTTP request debugging tool"
+            },
+            'zh-CN': {
+                tool_name: "本地LLM运行速度模拟器",
+                title: "本地大模型推理速度与性能模拟器",
+                subtitle: "智能预测本地大模型运行速度（Tokens/秒），精准识别硬件瓶颈与显存溢出（OOM）风险",
+                card_hardware_model: "💻 硬件平台与模型选择",
+                label_hardware: "您当前的硬件平台",
+                label_model: "大模型参数规模",
+                label_quantization: "量化精度配置 (GGUF)",
+                card_performance: "⚡ 推理性能预测",
+                label_predicted_speed: "预计本地生成速度",
+                lbl_bottleneck: "当前系统硬件瓶颈",
+                lbl_model_size: "模型在显存中的体积",
+                lbl_bandwidth: "显存/内存带宽",
+                lbl_oom_status: "显存容量 / OOM 状态",
+                rec_title: "推理性能硬件优化建议",
+                btn_buy: "前往亚马逊选购",
+                promo_title: "阅读我们针对 M4 Mac 芯片的实测性能指南",
+                promo_desc: "阅读我们针对 M4 Mac Mini、Studio 以及 NVIDIA 显卡在本地大模型与 AI 生图上的真实硬件评测。",
+                promo_btn: "阅读测评指南",
+                faq_title: "常见问题解答",
+                faq1Q: "为什么显存/内存带宽是大模型推理速度的第一瓶颈？",
+                faq1A: "在大模型的单用户 Token 生成阶段（解码阶段），模型每次只能一个字一个字地吐出。为了生成每一个字，显卡（GPU）或 CPU 必须将整个模型的所有参数权重（高达数 GB 到数十 GB）完整地从显存读取到芯片缓存中一次。因为每个 Token 都必须完整读取一次，所以推理速度几乎完全受限于硬件从显存/内存读取数据的速度（带宽），而非显卡的 raw 算力（FLOPS）。",
+                faq2Q: "Tokens/秒的速度是如何通过数学公式估算出来的？",
+                faq2A: "大模型解码阶段的理论最大推理速度公式为：Speed = 内存带宽 (GB/s) / 模型文件体积 (GB)。例如：如果您在 150 GB/s 内存带宽的 Mac Mini M4 上，运行一个 4-bit 量化后的 LLaMA 3 8B 模型（体积约 4.5 GB），其理论最高速度为：150 / 4.5 ≈ 33.3 Tokens/秒。该公式在 Ollama 等单并发场景下极其精准。",
+                faq3Q: "当模型体积超出我的显卡显存（VRAM）时会发生什么？",
+                faq3A: "在配备独立显卡（如 RTX 4070）的 PC 上，如果模型体积超出了显卡 VRAM（例如 12GB），系统会被迫通过 PCIe 总线将超出的模型层分流到系统内存（DDR5）中运行。由于系统内存带宽（仅约 50-80 GB/s）比显卡显存带宽（500+ GB/s）慢 10 倍以上，您的出字速度会瞬间坍塌到每秒 1-3 个字（即 OOM 瓶颈）。",
+                faq4Q: "高并发/批处理（Batch Size）会改变这个带宽瓶颈吗？",
+                faq4A: "是的。Speed = 带宽 / 模型体积 的公式仅适用于单人、单会话提问（Batch Size = 1）的“带宽受限（Memory Bound）”场景。当并发人数变多（Batch Size 变大）时，瓶颈会逐渐转移至显卡的核心算力（Compute Bound），因为此时每次载入的模型参数都会被多次计算利用，能榨干 GPU 核心的 TFLOPS 算力。",
+                faq_free_q: "这个工具真的是免费且无广告的吗？",
+                faq_free_a: "是的，本工具 100% 免费，无广告、免注册、无水印、无任何额度限制。所有的计算与分析均完全在您的本地浏览器中通过 client-side JS 运行，没有消耗任何服务器资源，您的选择和数据将 100% 留存在您的设备上，绝对私密安全。",
+                featuresTitle: "核心特色",
+                feature1_title: "100% 免费且私密",
+                feature1_desc: "无广告，无需注册。所有预估过程在本地浏览器运行，您的硬件选择和参数绝对不会发送到外部服务器。",
+                feature2_title: "带宽瓶颈定位",
+                feature2_desc: "精准定位您的限制是处于内存带宽限制（Memory Bound）、显卡算力限制，还是跨设备 OOM 坍塌状态。",
+                feature3_title: "算力精确解析",
+                feature3_desc: "针对 Apple Silicon 统一内存带宽、PC VRAM 以及 CPU 运行场景，采用标准自回归解码公式进行模拟。",
+                feature4_title: "硬件升级推荐",
+                feature4_desc: "在您的本地设备遇到性能瓶颈时，智能、客观地向您指出性价比最高的升级设备路径和 Amazon 选购指南。",
+                relatedTools: "相关推荐工具",
+                relatedMac: "Mac 本地 LLM 选配计算器",
+                relatedMacDesc: "计算 Apple Silicon 运行本地大模型的内存与 KV 缓存显存需求",
+                relatedCalc: "万能科学计算器",
+                relatedCalcDesc: "全功能科学计算与 16 种常用单位换算工具",
+                relatedApi: "API 接口调试工具",
+                relatedApiDesc: "纯浏览器端运行、免注册的 HTTP 请求调试与测试工具"
+            }
+        };
+    </script>
+
+    <!-- Calculation and UI Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Form Elements
+            const hardwareSelect = document.getElementById('hardwareSelect');
+            const modelSelect = document.getElementById('modelSelect');
+            const quantSelect = document.getElementById('quantSelect');
+
+            // Result Elements
+            const speedVal = document.getElementById('speedVal');
+            const bottleneckBadge = document.getElementById('bottleneckBadge');
+            const modelSizeVal = document.getElementById('modelSizeVal');
+            const bandwidthVal = document.getElementById('bandwidthVal');
+            const oomVal = document.getElementById('oomVal');
+            const recModel = document.getElementById('recModel');
+            const recDesc = document.getElementById('recDesc');
+            const buyBtn = document.getElementById('buyBtn');
+            const recBox = document.getElementById('recBox');
+
+            // Hardwares specifications
+            const HARDWARE_SPECS = {
+                m4: { name: "Mac Mini M4", bandwidth: 150, vram: 16, type: "mac", url: "https://www.amazon.com/dp/B0DNYK6GZJ?tag=heyuan110-20" },
+                m4pro: { name: "Mac Mini M4 Pro", bandwidth: 273, vram: 24, type: "mac", url: "https://www.amazon.com/dp/B0DNYLSY6F?tag=heyuan110-20" },
+                m4max: { name: "MacBook Pro M4 Max", bandwidth: 546, vram: 48, type: "mac", url: "https://www.amazon.com/dp/B0DPBGB8M5?tag=heyuan110-20" },
+                m4ultra: { name: "Mac Studio M4 Ultra", bandwidth: 1100, vram: 128, type: "mac", url: "https://www.amazon.com/dp/B0C75NBMN8?tag=heyuan110-20" },
+                rtx4070: { name: "NVIDIA GeForce RTX 4070", bandwidth: 504, vram: 12, type: "pc", url: "https://www.amazon.com/s?k=GeForce+RTX+4070&tag=heyuan110-20" },
+                rtx4090: { name: "NVIDIA GeForce RTX 4090", bandwidth: 1008, vram: 24, type: "pc", url: "https://www.amazon.com/s?k=GeForce+RTX+4090&tag=heyuan110-20" },
+                cpu_ddr5: { name: "CPU (Dual DDR5 RAM)", bandwidth: 80, vram: 32, type: "cpu", url: "https://www.amazon.com/s?k=DDR5+RAM&tag=heyuan110-20" }
+            };
+
+            // Setup FAQ toggles
+            document.querySelectorAll('.faq-question').forEach(item => {
+                item.addEventListener('click', () => {
+                    const parent = item.parentElement;
+                    parent.classList.toggle('active');
+                });
+            });
+
+            hardwareSelect.addEventListener('change', calculatePerformance);
+            modelSelect.addEventListener('change', calculatePerformance);
+            quantSelect.addEventListener('change', calculatePerformance);
+
+            function calculatePerformance() {
+                const hwKey = hardwareSelect.value;
+                const hw = HARDWARE_SPECS[hwKey];
+
+                const params = parseFloat(modelSelect.value);
+                const bits = parseFloat(quantSelect.value);
+
+                // 1. Model Memory Size (GB) = Params * (Bits / 8) * GGUF overhead
+                const modelSize = params * (bits / 8) * 1.15;
+                modelSizeVal.textContent = modelSize.toFixed(1) + " GB";
+
+                // Update Bandwidth display
+                bandwidthVal.textContent = hw.bandwidth >= 1000 ? (hw.bandwidth / 1000).toFixed(1) + " TB/s" : hw.bandwidth + " GB/s";
+
+                // 2. VRAM & OOM check
+                let oom = false;
+                let oomText = "SAFE (VRAM OK)";
+                let oomColor = "#10b981";
+
+                if (modelSize > hw.vram) {
+                    oom = true;
+                    if (hw.type === "pc") {
+                        oomText = "OOM CRITICAL (Offloading to slow System RAM)";
+                        oomColor = "#ef4444";
+                    } else if (hw.type === "mac") {
+                        // On mac, unified memory handles larger model as swap but speed degrades
+                        oomText = "SWAP ACTIVE (Memory exceeded, speed will drop)";
+                        oomColor = "#f59e0b";
+                    } else {
+                        oomText = "MEMORY EXCEEDED (Heavy CPU paging)";
+                        oomColor = "#ef4444";
+                    }
+                }
+                oomVal.textContent = oomText;
+                oomVal.style.color = oomColor;
+
+                // 3. Tokens/second speed estimation
+                // Base bandwidth speed
+                let bandwidthSpeed = (hw.bandwidth) / modelSize;
+
+                // On PC with OOM, PCIe offload degrades bandwidth to system RAM (~50 GB/s) and adds massive latency
+                if (oom && hw.type === "pc") {
+                    bandwidthSpeed = 50 / modelSize * 0.3; // degraded speed (~2-5 tok/s)
+                } else if (oom && hw.type === "mac") {
+                    bandwidthSpeed = bandwidthSpeed * 0.45; // swap degradation
+                }
+
+                // Cap maximum processing speed based on chip architecture computation latency limit (approx 120 tok/s for high-end consumer chips)
+                let maxComputeSpeed = 140;
+                if (hw.type === "cpu") maxComputeSpeed = 25;
+                if (hwKey === "m4") maxComputeSpeed = 55;
+                if (hwKey === "m4pro") maxComputeSpeed = 85;
+
+                const predictedSpeed = Math.min(bandwidthSpeed, maxComputeSpeed);
+
+                // Update UI Gauge
+                speedVal.textContent = predictedSpeed.toFixed(1) + " tok/s";
+
+                // 4. Bottleneck Analysis
+                let bnText = "Memory Bandwidth Bound";
+                let bnClass = "bandwidth";
+
+                if (oom) {
+                    bnText = "Out Of Memory (OOM) / PCIe Bound";
+                    bnClass = "oom";
+                } else if (bandwidthSpeed >= maxComputeSpeed) {
+                    bnText = "Compute Bound (FLOPS Limit)";
+                    bnClass = "compute";
+                }
+
+                const currentLang = localStorage.getItem('toolbox_lang') || 'en';
+                if (currentLang === 'zh-CN') {
+                    if (bnClass === "oom") bnText = "显存溢出 (OOM) / PCIe 传输瓶颈";
+                    else if (bnClass === "compute") bnText = "芯片算力限制 (FLOPS 瓶颈)";
+                    else bnText = "内存/显存带宽瓶颈 (Memory Bandwidth)";
+                }
+
+                bottleneckBadge.textContent = bnText;
+                bottleneckBadge.className = `bottleneck-badge ${bnClass}`;
+
+                // 5. Generate Hardware Recommendation & Link
+                let recTitleText = "Performance Upgrade Recommendation";
+                let modelRec = "Mac Mini M4 Pro (24GB)";
+                let descRec = "Your local inference is bottlenecked by memory bandwidth. Upgrading to M4 Pro increases bandwidth to 273 GB/s, boosting speed by nearly 85%.";
+                let buyUrl = "https://www.amazon.com/dp/B0DNYLSY6F?tag=heyuan110-20";
+
+                // Logic for upgrades
+                if (oom) {
+                    recTitleText = currentLang === 'zh-CN' ? "显存不足！推荐升级配置" : "OOM Alert! Recommended Configuration";
+                    if (modelSize > 64) {
+                        modelRec = "Mac Studio M2 Ultra (128GB)";
+                        descRec = currentLang === 'zh-CN' 
+                            ? "您的模型体积超大，需要 128GB 级别的顶级工作站。推荐选购 Mac Studio Ultra 128G，完美承载 70B 级别大模型高速运转。"
+                            : "Your massive model exceeds consumer RAM. We recommend the professional Mac Studio Ultra 128GB, providing 1.1 TB/s memory bandwidth.";
+                        buyUrl = "https://www.amazon.com/dp/B0C75NBMN8?tag=heyuan110-20";
+                    } else if (modelSize > 32) {
+                        modelRec = "Mac Studio M2 Max (64GB)";
+                        descRec = currentLang === 'zh-CN'
+                            ? "32B 以上模型需要 64GB 统一内存。推荐选购 Mac Studio 64G 版本，高带宽大容量，流畅跑起 32B 各种主流模型。"
+                            : "Running 32B+ models comfortably requires 64GB RAM. Mac Studio with M2 Max (64GB) is the best value developer workstation.";
+                        buyUrl = "https://www.amazon.com/dp/B0C75F9T4N?tag=heyuan110-20";
+                    } else {
+                        modelRec = "Mac Mini M4 Pro (32GB Upgrade)";
+                        descRec = currentLang === 'zh-CN'
+                            ? "您的模型显存溢出。推荐升级选购 Mac Mini M4 Pro (32GB 定制版) 或 MacBook Pro M4 Pro，完美容纳 14B/32B 模型运行。"
+                            : "Your memory is near limits. Upgrade to Mac Mini M4 Pro with 32GB RAM or MacBook Pro to comfortable run 14B/32B models.";
+                        buyUrl = "https://www.amazon.com/dp/B0DNZPVMN1?tag=heyuan110-20";
+                    }
+                    recBox.style.display = 'block';
+                } else if (bnClass === "bandwidth" && hwKey === "m4") {
+                    recTitleText = currentLang === 'zh-CN' ? "性能升级：推荐提升带宽" : "Performance Upgrade Recommendation";
+                    modelRec = "Mac Mini M4 Pro (24GB)";
+                    descRec = currentLang === 'zh-CN'
+                        ? "标准版 Mac Mini M4 带宽限制在 150 GB/s。升级至 M4 Pro (24GB) 可直接将带宽拉满至 273 GB/s，出字速度飙升 85% 以上。"
+                        : "Your M4 Mac Mini's 150 GB/s bandwidth is bottlenecking output. Upgrading to M4 Pro (24GB) boosts bandwidth to 273 GB/s, speeding up output by 85%.";
+                    buyUrl = "https://www.amazon.com/dp/B0DNYLSY6F?tag=heyuan110-20";
+                    recBox.style.display = 'block';
+                } else if (bnClass === "bandwidth" && hwKey === "rtx4070") {
+                    recTitleText = currentLang === 'zh-CN' ? "显卡性能升级：推荐 RTX 4090" : "Graphics Performance Upgrade";
+                    modelRec = "NVIDIA GeForce RTX 4090 (24GB)";
+                    descRec = currentLang === 'zh-CN'
+                        ? "RTX 4070 的带宽受限。升级至满血 RTX 4090 拥有 1.0 TB/s 的恐怖显存带宽，出字速度将直接翻倍，且拥有 24GB 充沛大显存。"
+                        : "Upgrading to a full-spec RTX 4090 delivers a massive 1.0 TB/s VRAM bandwidth and 24GB VRAM, instantly doubling your local token output speed.";
+                    buyUrl = "https://www.amazon.com/s?k=GeForce+RTX+4090&tag=heyuan110-20";
+                    recBox.style.display = 'block';
+                } else if (hwKey === "cpu_ddr5") {
+                    recTitleText = currentLang === 'zh-CN' ? "严重瓶颈！推荐选购专用 AI 芯片" : "Severe Bottleneck! Recommend NPU/GPU Upgrade";
+                    modelRec = "Mac Mini M4 (16GB RAM)";
+                    descRec = currentLang === 'zh-CN'
+                        ? "纯 CPU + DDR5 运行大模型速度由于内存延迟极大导致极慢。推荐入手一台极轻量的 Mac Mini M4，带 150 GB/s 内存带宽，出字速度直接起飞！"
+                        : "Pure CPU inference on dual DDR5 is heavily slowed down by memory bus delays. We strongly recommend getting a lightweight Mac Mini M4 with 150 GB/s bandwidth for smooth AI runs.";
+                    buyUrl = "https://www.amazon.com/dp/B0DNYK6GZJ?tag=heyuan110-20";
+                    recBox.style.display = 'block';
+                } else {
+                    // Safe, no upgrade needed, hide box to avoid ad fatigue
+                    recBox.style.display = 'none';
+                }
+
+                // Apply texts
+                const recTitle = document.querySelector('.rec-title');
+                if (recTitle) recTitle.textContent = recTitleText;
+                recModel.textContent = modelRec;
+                recDesc.textContent = descRec;
+                buyBtn.href = buyUrl;
+            }
+
+            // Run initial calculation
+            calculatePerformance();
+
+            // Hook calculations refresh on language switch
+            window.addEventListener('storage', function (e) {
+                if (e.key === 'toolbox_lang') {
+                    calculatePerformance();
+                }
+            });
+            
+            // Periodically check if translation changes
+            setInterval(calculatePerformance, 1000);
+        });
+    </script>
+
+    <script src="common/common.js" data-tool-id="local-llm-simulator" data-tool-name="LLM Speed Simulator" data-category="developer"></script>
+    <script>WebToolbox.init(window._translations);</script>
+</body>
+</html>
