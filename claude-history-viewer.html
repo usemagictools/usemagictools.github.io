@@ -765,6 +765,30 @@
             .features-grid { grid-template-columns: 1fr; }
             .page-title { font-size: 1.5rem; }
         }
+
+        /* ========== Blog Promo ========== */
+        .blog-promo {
+            margin-top: 30px; background: rgba(30, 41, 59, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 12px; padding: 20px; display: flex;
+            align-items: center; justify-content: space-between; gap: 16px;
+            margin-bottom: 30px;
+        }
+        .blog-promo-text h3 { color: #fff; font-size: 16px; margin-bottom: 4px; text-align: left; }
+        .blog-promo-text p { color: #94a3b8; font-size: 14px; text-align: left; }
+        .blog-promo-btn {
+            background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff; padding: 10px 18px; border-radius: 6px; text-decoration: none;
+            font-weight: 500; font-size: 14px; transition: all 0.2s; flex-shrink: 0;
+        }
+        .blog-promo-btn:hover {
+            background: rgba(124, 58, 237, 0.2); border-color: rgba(124, 58, 237, 0.4);
+            color: #e4e4e7;
+        }
+        @media (max-width: 600px) {
+            .blog-promo { flex-direction: column; text-align: center; }
+            .blog-promo-text h3, .blog-promo-text p { text-align: center; }
+        }
     </style>
     <link rel="stylesheet" href="common/common.css">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -931,6 +955,15 @@
         </div>
     </section>
 
+    <!-- Blog Promo -->
+    <div class="blog-promo">
+        <div class="blog-promo-text">
+            <h3 data-i18n="promo_title">Want to master Claude Code like a pro?</h3>
+            <p data-i18n="promo_desc">Read our ultimate setup, command mastery and best practices guide on Bruce on AI Engineering.</p>
+        </div>
+        <a href="https://www.heyuan110.com/zh/posts/ai/2026-01-14-claude-code-guide/" target="_blank" rel="noopener" class="blog-promo-btn" data-i18n="promo_btn">Read Guide</a>
+    </div>
+
     <!-- Related tools -->
     <section class="related-tools">
         <h3 data-i18n="relatedToolsTitle">Related Tools</h3>
@@ -970,6 +1003,9 @@
         // ========== Translation dictionary ==========
         const translations = {
             'en': {
+                promo_title: "Want to master Claude Code like a pro?",
+                promo_desc: "Read our ultimate setup, command mastery and best practices guide on Bruce on AI Engineering.",
+                promo_btn: "Read Guide",
                 tool_name: 'Claude Code History Viewer',
                 title: 'Claude Code History Viewer',
                 subtitle: 'Browse, search, and export your Claude Code conversation history',
@@ -1046,6 +1082,9 @@
                 trust_free: '🚫 No Ads, No Signup'
             },
             'zh-CN': {
+                promo_title: "想要像专家一样驾驭 Claude Code？",
+                promo_desc: "阅读我们针对 Claude Code 安装配置、高级命令和开发最佳实践的深度实操指南。",
+                promo_btn: "阅读实战指南",
                 tool_name: 'Claude Code 历史记录查看器',
                 title: 'Claude Code 历史记录查看器',
                 subtitle: '浏览、搜索和导出你的 Claude Code 对话历史',

@@ -705,6 +705,30 @@
                 max-height: 200px;
             }
         }
+
+        /* ========== Blog Promo ========== */
+        .blog-promo {
+            margin-top: 30px; background: rgba(30, 41, 59, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 12px; padding: 20px; display: flex;
+            align-items: center; justify-content: space-between; gap: 16px;
+            margin-bottom: 30px;
+        }
+        .blog-promo-text h3 { color: #fff; font-size: 16px; margin-bottom: 4px; text-align: left; }
+        .blog-promo-text p { color: #94a3b8; font-size: 14px; text-align: left; }
+        .blog-promo-btn {
+            background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff; padding: 10px 18px; border-radius: 6px; text-decoration: none;
+            font-weight: 500; font-size: 14px; transition: all 0.2s; flex-shrink: 0;
+        }
+        .blog-promo-btn:hover {
+            background: rgba(124, 58, 237, 0.2); border-color: rgba(124, 58, 237, 0.4);
+            color: #e4e4e7;
+        }
+        @media (max-width: 600px) {
+            .blog-promo { flex-direction: column; text-align: center; }
+            .blog-promo-text h3, .blog-promo-text p { text-align: center; }
+        }
         </style>
     <link rel="stylesheet" href="common/common.css">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -894,6 +918,15 @@
         </div>
     </section>
 
+    <!-- Blog Promo -->
+    <div class="blog-promo">
+        <div class="blog-promo-text">
+            <h3 data-i18n="promo_title">Need to master database queries and optimize performance?</h3>
+            <p data-i18n="promo_desc">Read our complete SQL complete guide & EXPLAIN slow queries analysis on Bruce on AI Engineering.</p>
+        </div>
+        <a href="https://www.heyuan110.com/zh/posts/ai/2026-01-23-mysql-sql-complete-guide/" target="_blank" rel="noopener" class="blog-promo-btn" data-i18n="promo_btn">Read Guide</a>
+    </div>
+
     <!-- Related Tools -->
     <section class="related-tools">
         <h3 data-i18n="relatedToolsTitle">Related Tools</h3>
@@ -932,6 +965,9 @@
         // ==================== 国际化 (i18n) ====================
         const translations = {
             'en': {
+                promo_title: "Need to master database queries and optimize performance?",
+                promo_desc: "Read our complete SQL complete guide & EXPLAIN slow queries analysis on Bruce on AI Engineering.",
+                promo_btn: "Read Guide",
                 tool_name: 'SQLite Viewer',
                 backToToolbox: '← Back to Toolbox',
                 pageTitle: '🗄️ SQLite Database Viewer',
@@ -1025,6 +1061,9 @@
                 trust_free: '🚫 No Ads, No Signup'
             },
             'zh-CN': {
+                promo_title: "想要精通数据库查询与慢 SQL 调优？",
+                promo_desc: "阅读我们针对 MySQL SQL 语法设计、高阶查询和 EXPLAIN 慢查询性能调优的完整实战指南。",
+                promo_btn: "阅读实测攻略",
                 tool_name: 'SQLite 查看器',
                 backToToolbox: '← 返回工具箱',
                 pageTitle: '🗄️ SQLite 数据库查看器',
