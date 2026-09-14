@@ -472,22 +472,14 @@
 
             // Hardwares specifications
             const HARDWARE_SPECS = {
-                m4: { name: "Mac Mini M4", bandwidth: 150, vram: 16, type: "mac", url: "https://www.amazon.com/dp/B0DNYK6GZJ?tag=heyuan110-20" },
-                m4pro: { name: "Mac Mini M4 Pro", bandwidth: 273, vram: 24, type: "mac", url: "https://www.amazon.com/dp/B0DNYLSY6F?tag=heyuan110-20" },
-                m4max: { name: "MacBook Pro M4 Max", bandwidth: 546, vram: 48, type: "mac", url: "https://www.amazon.com/dp/B0DPBGB8M5?tag=heyuan110-20" },
-                m4ultra: { name: "Mac Studio M4 Ultra", bandwidth: 1100, vram: 128, type: "mac", url: "https://www.amazon.com/dp/B0C75NBMN8?tag=heyuan110-20" },
+                m4: { name: "Mac Mini M4", bandwidth: 150, vram: 16, type: "mac", url: "https://www.amazon.com/s?k=Mac+Mini+M4&tag=heyuan110-20" },
+                m4pro: { name: "Mac Mini M4 Pro", bandwidth: 273, vram: 24, type: "mac", url: "https://www.amazon.com/s?k=Mac+Mini+M4+Pro&tag=heyuan110-20" },
+                m4max: { name: "MacBook Pro M4 Max", bandwidth: 546, vram: 48, type: "mac", url: "https://www.amazon.com/s?k=MacBook+Pro+M4+Max&tag=heyuan110-20" },
+                m4ultra: { name: "Mac Studio M4 Ultra", bandwidth: 1100, vram: 128, type: "mac", url: "https://www.amazon.com/s?k=Mac+Studio+M4+Ultra&tag=heyuan110-20" },
                 rtx4070: { name: "NVIDIA GeForce RTX 4070", bandwidth: 504, vram: 12, type: "pc", url: "https://www.amazon.com/s?k=GeForce+RTX+4070&tag=heyuan110-20" },
                 rtx4090: { name: "NVIDIA GeForce RTX 4090", bandwidth: 1008, vram: 24, type: "pc", url: "https://www.amazon.com/s?k=GeForce+RTX+4090&tag=heyuan110-20" },
                 cpu_ddr5: { name: "CPU (Dual DDR5 RAM)", bandwidth: 80, vram: 32, type: "cpu", url: "https://www.amazon.com/s?k=DDR5+RAM&tag=heyuan110-20" }
             };
-
-            // Setup FAQ toggles
-            document.querySelectorAll('.faq-question').forEach(item => {
-                item.addEventListener('click', () => {
-                    const parent = item.parentElement;
-                    parent.classList.toggle('active');
-                });
-            });
 
             hardwareSelect.addEventListener('change', calculatePerformance);
             modelSelect.addEventListener('change', calculatePerformance);
@@ -587,19 +579,19 @@
                         descRec = currentLang === 'zh-CN' 
                             ? "您的模型体积超大，需要 128GB 级别的顶级工作站。推荐选购 Mac Studio Ultra 128G，完美承载 70B 级别大模型高速运转。"
                             : "Your massive model exceeds consumer RAM. We recommend the professional Mac Studio Ultra 128GB, providing 1.1 TB/s memory bandwidth.";
-                        buyUrl = "https://www.amazon.com/dp/B0C75NBMN8?tag=heyuan110-20";
+                        buyUrl = "https://www.amazon.com/s?k=Mac+Studio+M2+Ultra&tag=heyuan110-20";
                     } else if (modelSize > 32) {
                         modelRec = "Mac Studio M2 Max (64GB)";
                         descRec = currentLang === 'zh-CN'
                             ? "32B 以上模型需要 64GB 统一内存。推荐选购 Mac Studio 64G 版本，高带宽大容量，流畅跑起 32B 各种主流模型。"
                             : "Running 32B+ models comfortably requires 64GB RAM. Mac Studio with M2 Max (64GB) is the best value developer workstation.";
-                        buyUrl = "https://www.amazon.com/dp/B0C75F9T4N?tag=heyuan110-20";
+                        buyUrl = "https://www.amazon.com/s?k=Mac+Studio+M2+Max&tag=heyuan110-20";
                     } else {
                         modelRec = "Mac Mini M4 Pro (32GB Upgrade)";
                         descRec = currentLang === 'zh-CN'
                             ? "您的模型显存溢出。推荐升级选购 Mac Mini M4 Pro (32GB 定制版) 或 MacBook Pro M4 Pro，完美容纳 14B/32B 模型运行。"
                             : "Your memory is near limits. Upgrade to Mac Mini M4 Pro with 32GB RAM or MacBook Pro to comfortable run 14B/32B models.";
-                        buyUrl = "https://www.amazon.com/dp/B0DNZPVMN1?tag=heyuan110-20";
+                        buyUrl = "https://www.amazon.com/s?k=Mac+Mini+M4+Pro+32GB&tag=heyuan110-20";
                     }
                     recBox.style.display = 'block';
                 } else if (bnClass === "bandwidth" && hwKey === "m4") {
@@ -608,7 +600,7 @@
                     descRec = currentLang === 'zh-CN'
                         ? "标准版 Mac Mini M4 带宽限制在 150 GB/s。升级至 M4 Pro (24GB) 可直接将带宽拉满至 273 GB/s，出字速度飙升 85% 以上。"
                         : "Your M4 Mac Mini's 150 GB/s bandwidth is bottlenecking output. Upgrading to M4 Pro (24GB) boosts bandwidth to 273 GB/s, speeding up output by 85%.";
-                    buyUrl = "https://www.amazon.com/dp/B0DNYLSY6F?tag=heyuan110-20";
+                    buyUrl = "https://www.amazon.com/s?k=Mac+Mini+M4+Pro&tag=heyuan110-20";
                     recBox.style.display = 'block';
                 } else if (bnClass === "bandwidth" && hwKey === "rtx4070") {
                     recTitleText = currentLang === 'zh-CN' ? "显卡性能升级：推荐 RTX 4090" : "Graphics Performance Upgrade";
