@@ -97,6 +97,7 @@
         ],
         "screenshot": "https://www.usemagictools.com/screenshots/developer-tools-v1.webp",
         "hasPart": [
+            {"@type": "WebApplication", "name": "Mac Local LLM Selector", "url": "https://www.usemagictools.com/mac-llm-selector.html"},
             {"@type": "WebApplication", "name": "JSON Viewer", "url": "https://www.usemagictools.com/json-viewer.html"},
             {"@type": "WebApplication", "name": "SQLite Viewer", "url": "https://www.usemagictools.com/sqlite-viewer.html"},
             {"@type": "WebApplication", "name": "Crypto & Encoding Toolkit", "url": "https://www.usemagictools.com/crypto-tools.html"},
@@ -459,6 +460,16 @@
 
     <!-- ==================== 工具卡片网格 ==================== -->
     <div class="tools-grid" id="toolsGrid">
+        <!-- 0. Mac Local LLM Selector -->
+        <a href="../mac-llm-selector.html" class="tool-card" style="animation-delay:0.01s">
+            <div class="tool-card-header">
+                <div class="tool-card-icon">&#x1F4BB;</div>
+                <div class="tool-card-title" data-i18n="tool_macllm_title">Mac Local LLM Selector</div>
+            </div>
+            <div class="tool-card-desc" data-i18n="tool_macllm_desc">Calculate RAM & VRAM requirements for local models on Apple Silicon.</div>
+            <span class="tool-card-arrow" data-i18n="tool_open">Open Tool &#8594;</span>
+        </a>
+
         <!-- 1. JSON Viewer -->
         <a href="../json-viewer.html" class="tool-card" style="animation-delay:0.05s">
             <div class="tool-card-header">
@@ -752,6 +763,7 @@
                 hero_title: "Free Online Developer Tools",
                 hero_subtitle: "A comprehensive collection of browser-based developer utilities. No ads, no signup, no installation. Just open and use.",
                 hero_badge: "16 Tools",
+                tool_macllm_title: "Mac Local LLM Selector", tool_macllm_desc: "Calculate RAM & VRAM requirements for local models on Apple Silicon.",
                 tool1_title: "JSON Viewer", tool1_desc: "Format, validate, and explore JSON data with syntax highlighting and collapsible tree view.",
                 tool2_title: "SQLite Viewer", tool2_desc: "Open and browse SQLite database files directly in the browser. Query tables, view schema and export data.",
                 tool3_title: "Crypto & Encoding Toolkit", tool3_desc: "Hash (MD5, SHA), encrypt/decrypt (AES, DES), and encode/decode data with multiple algorithms.",
@@ -803,7 +815,8 @@
                 tool_name: '\u5F00\u53D1\u8005\u5DE5\u5177',
                 hero_title: "\u514D\u8D39\u5728\u7EBF\u5F00\u53D1\u8005\u5DE5\u5177",
                 hero_subtitle: "\u4E00\u5957\u5168\u9762\u7684\u6D4F\u89C8\u5668\u7AEF\u5F00\u53D1\u5DE5\u5177\u96C6\u3002\u65E0\u5E7F\u544A\u3001\u65E0\u9700\u6CE8\u518C\u3001\u65E0\u9700\u5B89\u88C5\u3002\u6253\u5F00\u5373\u7528\u3002",
-                hero_badge: "16 \u4E2A\u5DE5\u5177",
+                hero_badge: "17 个工具",
+                tool_macllm_title: "Mac本地大模型配置计算器", tool_macllm_desc: "精确计算在 Mac 上本地运行大模型所需的内存与显存大小。",
                 tool1_title: "JSON \u67E5\u770B\u5668", tool1_desc: "\u683C\u5F0F\u5316\u3001\u9A8C\u8BC1\u548C\u63A2\u7D22 JSON \u6570\u636E\uFF0C\u652F\u6301\u8BED\u6CD5\u9AD8\u4EAE\u548C\u53EF\u6298\u53E0\u6811\u89C6\u56FE\u3002",
                 tool2_title: "SQLite \u67E5\u770B\u5668", tool2_desc: "\u76F4\u63A5\u5728\u6D4F\u89C8\u5668\u4E2D\u6253\u5F00\u548C\u6D4F\u89C8 SQLite \u6570\u636E\u5E93\u6587\u4EF6\u3002\u67E5\u8BE2\u8868\u3001\u67E5\u770B\u6A21\u5F0F\u5E76\u5BFC\u51FA\u6570\u636E\u3002",
                 tool3_title: "\u52A0\u89E3\u5BC6\u5DE5\u5177\u7BB1", tool3_desc: "\u54C8\u5E0C\uFF08MD5\u3001SHA\uFF09\u3001\u52A0\u5BC6/\u89E3\u5BC6\uFF08AES\u3001DES\uFF09\u3001\u591A\u79CD\u7F16\u89E3\u7801\u7B97\u6CD5\u3002",
