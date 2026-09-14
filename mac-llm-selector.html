@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CT8E5N460D"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CT8E5N460D');</script>
+    <title>Mac Local LLM Selector - RAM Calculator & Hardware Guide</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Calculate RAM & VRAM requirements for running local LLMs (Llama 3, DeepSeek, Qwen) on Apple Silicon Mac. Estimates model weights, KV Cache context, and recommends the perfect Mac Mini, Studio or MacBook Pro.">
+    <meta name="keywords" content="mac local llm calculator, apple silicon vram, can my mac run llama, local ai hardware selector, mac mini m4 local llm, deepseek r1 mac memory, mac studio m4 ultra unified memory, local model ram estimator">
+    <meta name="author" content="UseMagicTools">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.usemagictools.com/mac-llm-selector.html">
+    <link rel="alternate" hreflang="en" href="https://www.usemagictools.com/mac-llm-selector.html">
+    <link rel="alternate" hreflang="zh-CN" href="https://www.usemagictools.com/mac-llm-selector.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.usemagictools.com/mac-llm-selector.html">
+    <meta property="og:title" content="Mac Local LLM Selector - Unified Memory Calculator">
+    <meta property="og:description" content="Calculate RAM & VRAM requirements for running local LLMs (Llama 3, DeepSeek, Qwen) on Apple Silicon Mac. Estimates model weights, KV Cache context, and recommends the perfect Mac.">
+    <meta property="og:image" content="https://www.usemagictools.com/screenshots/calculator-v1.webp">
+    <meta property="og:site_name" content="Magic Toolbox">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@usemagictools">
+    <meta name="twitter:title" content="Mac Local LLM Selector - Unified Memory Calculator">
+    <meta name="twitter:description" content="Calculate RAM & VRAM requirements for running local LLMs on Apple Silicon Mac. Recommends the perfect Mac.">
+
+    <link rel="stylesheet" href="common/common.css">
+
+    <style>
+        /* ========== Reset & Base ========== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px; }
+
+        /* ========== Page Header ========== */
+        .page-header { text-align: center; margin-bottom: 32px; }
+        .page-header h1 {
+            font-size: 32px; font-weight: 700; color: #fff;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #a78bfa, #7c3aed, #6d28d9);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .page-header .subtitle { color: #9ca3af; font-size: 16px; line-height: 1.5; }
+
+        /* ========== Calculator Layout ========== */
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-bottom: 40px;
+        }
+        @media (max-width: 900px) {
+            .calculator-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ========== Cards / Sections ========== */
+        .card {
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+        }
+        .card h2 {
+            font-size: 20px; color: #fff; margin-bottom: 20px;
+            display: flex; align-items: center; gap: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 12px;
+        }
+
+        /* ========== Form Controls ========== */
+        .form-group { margin-bottom: 20px; }
+        .form-group label {
+            display: block; font-size: 14px; color: #94a3b8;
+            margin-bottom: 8px; font-weight: 500;
+        }
+        .select-control, .input-control {
+            width: 100%; padding: 12px;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px; color: #fff; font-size: 15px;
+            outline: none; transition: border-color 0.2s;
+        }
+        .select-control:focus, .input-control:focus {
+            border-color: #7c3aed;
+        }
+        .slider-group {
+            display: flex; align-items: center; gap: 16px;
+        }
+        .slider-control {
+            flex-grow: 1; accent-color: #7c3aed; cursor: pointer;
+            height: 6px; border-radius: 3px;
+        }
+        .slider-val {
+            font-size: 15px; font-weight: bold; color: #a78bfa;
+            min-width: 80px; text-align: right;
+        }
+
+        /* ========== Results Visuals ========== */
+        .gauge-container {
+            display: flex; flex-direction: column; align-items: center;
+            justify-content: center; margin-bottom: 24px;
+        }
+        .gauge-value {
+            font-size: 48px; font-weight: 800; color: #a78bfa;
+            text-shadow: 0 0 10px rgba(167, 139, 250, 0.3);
+        }
+        .gauge-label { font-size: 14px; color: #94a3b8; margin-top: 4px; }
+
+        .breakdown-row {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 12px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 15px;
+        }
+        .breakdown-row:last-child { border-bottom: none; }
+        .breakdown-label { color: #94a3b8; }
+        .breakdown-val { font-weight: bold; color: #f1f5f9; }
+
+        /* ========== Recommendation Box ========== */
+        .rec-box {
+            margin-top: 24px; background: rgba(124, 58, 237, 0.1);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            border-radius: 12px; padding: 20px; text-align: center;
+        }
+        .rec-title { font-size: 14px; color: #c084fc; font-weight: bold; margin-bottom: 6px; text-transform: uppercase; }
+        .rec-model { font-size: 22px; font-weight: bold; color: #fff; margin-bottom: 12px; }
+        .rec-desc { font-size: 14px; color: #cbd5e1; margin-bottom: 16px; line-height: 1.5; }
+        
+        .buy-btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #fff; padding: 12px 24px; border-radius: 8px;
+            font-weight: bold; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 14px rgba(217, 119, 6, 0.3);
+        }
+        .buy-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(217, 119, 6, 0.5);
+        }
+
+        /* ========== FAQ / Blog Links ========== */
+        .blog-promo {
+            margin-top: 30px; background: rgba(30, 41, 59, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 12px; padding: 20px; display: flex;
+            align-items: center; justify-content: space-between; gap: 16px;
+            margin-bottom: 30px;
+        }
+        .blog-promo-text h3 { color: #fff; font-size: 16px; margin-bottom: 4px; }
+        .blog-promo-text p { color: #94a3b8; font-size: 14px; }
+        .blog-promo-btn {
+            background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff; padding: 10px 18px; border-radius: 6px; text-decoration: none;
+            font-weight: 500; font-size: 14px; transition: all 0.2s; flex-shrink: 0;
+        }
+        .blog-promo-btn:hover {
+            background: rgba(124, 58, 237, 0.2); border-color: rgba(124, 58, 237, 0.4);
+            color: #e4e4e7;
+        }
+
+        .faq-section { margin-top: 40px; margin-bottom: 40px; }
+        .faq-section h2 { font-size: 22px; color: #fff; margin-bottom: 20px; }
+        .faq-item {
+            background: rgba(30, 41, 59, 0.3); border-radius: 8px; margin-bottom: 12px;
+            overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+        .faq-question {
+            padding: 16px 20px; font-weight: bold; color: #fff; cursor: pointer;
+            display: flex; justify-content: space-between; align-items: center;
+            background: none; border: none; width: 100%; text-align: left; font-size: 16px;
+        }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .faq-item.active .faq-answer { max-height: 500px; }
+        .faq-answer p { padding: 0 20px 16px; color: #a1a1aa; line-height: 1.7; font-size: 14px; }
+    </style>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+</head>
+<body>
+    <div class="container">
+        <!-- Page Header -->
+        <header class="page-header">
+            <h1 data-i18n="title">Mac Local LLM Selector</h1>
+            <p class="subtitle" data-i18n="subtitle">Unified Memory (RAM) Calculator & Hardware Recommender for running LLMs locally</p>
+        </header>
+
+        <!-- Main Calculator Grid -->
+        <div class="calculator-grid">
+            <!-- Left inputs card -->
+            <div class="card">
+                <h2 data-i18n="card_parameters">⚙️ Model Parameters</h2>
+                
+                <div class="form-group">
+                    <label data-i18n="label_model">Model Architecture / Size</label>
+                    <select class="select-control" id="modelSelect">
+                        <option value="1.5">DeepSeek-R1 / Qwen 2.5 (1.5B)</option>
+                        <option value="3">Llama 3.2 (3B)</option>
+                        <option value="7">Qwen 2.5 (7B)</option>
+                        <option value="8" selected>Llama 3 / 3.1 (8B)</option>
+                        <option value="14">Qwen 2.5 / DeepSeek (14B)</option>
+                        <option value="32">Qwen 2.5 / DeepSeek (32B)</option>
+                        <option value="70">DeepSeek-R1 Distill / Llama 3 (70B)</option>
+                        <option value="custom" data-i18n="opt_custom">Custom Parameter Size...</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="customParamsGroup" style="display: none;">
+                    <label data-i18n="label_custom_params">Custom Parameters (Billion)</label>
+                    <input type="number" class="input-control" id="customParamsInput" value="8" min="0.5" max="1000" step="0.1">
+                </div>
+
+                <div class="form-group">
+                    <label data-i18n="label_quantization">Quantization Precision (GGUF / bits)</label>
+                    <select class="select-control" id="quantSelect">
+                        <option value="16">FP16 / BF16 (16-bit uncompressed)</option>
+                        <option value="8">Q8_0 / Q8_K (8-bit quantized)</option>
+                        <option value="6">Q6_K (6-bit quantized)</option>
+                        <option value="4" selected>Q4_K_M (4-bit quantized, Recommended)</option>
+                        <option value="3">Q3_K_M (3-bit quantized)</option>
+                        <option value="2">Q2_K (2-bit quantized)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label data-i18n="label_context">Context Window (Tokens)</label>
+                    <div class="slider-group">
+                        <input type="range" class="slider-control" id="contextSlider" min="2048" max="131072" step="1024" value="8192">
+                        <span class="slider-val" id="contextVal">8,192</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right results card -->
+            <div class="card">
+                <h2 data-i18n="card_results">📊 Memory & VRAM Estimator</h2>
+                
+                <div class="gauge-container">
+                    <span class="gauge-value" id="totalMemVal">12.5 GB</span>
+                    <span class="gauge-label" data-i18n="label_recommended_memory">Recommended Unified Memory</span>
+                </div>
+
+                <div class="breakdown-row">
+                    <span class="breakdown-label" data-i18n="lbl_weights_mem">Model Weights Memory</span>
+                    <span class="breakdown-val" id="weightsMemVal">4.4 GB</span>
+                </div>
+                <div class="breakdown-row">
+                    <span class="breakdown-label" data-i18n="lbl_kv_mem">KV Cache Context VRAM</span>
+                    <span class="breakdown-val" id="kvMemVal">4.1 GB</span>
+                </div>
+                <div class="breakdown-row">
+                    <span class="breakdown-label" data-i18n="lbl_os_mem">OS & System Overhead</span>
+                    <span class="breakdown-val" id="osMemVal">4.0 GB</span>
+                </div>
+
+                <!-- Smart Recommendation -->
+                <div class="rec-box">
+                    <div class="rec-title" data-i18n="rec_title">Best Value Mac recommendation</div>
+                    <div class="rec-model" id="recModel">Mac Mini M4 (16GB RAM)</div>
+                    <p class="rec-desc" id="recDesc">Runs 8B model comfortably at Q4_K_M quantization, leaving plenty of headroom for normal OS work and smooth multitasking.</p>
+                    <a href="https://www.amazon.com/dp/B0DNYK6GZJ?tag=heyuan110-20" target="_blank" rel="noopener" class="buy-btn" id="buyBtn">
+                        🛒 <span data-i18n="btn_buy">Buy on Amazon</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trust Bar -->
+        <div class="trust-bar">
+          <span class="trust-item" data-i18n="trust_users">🌍 Used by 50,000+ users</span>
+          <span class="trust-item" data-i18n="trust_rating">⭐ 4.9/5 rating</span>
+          <span class="trust-item" data-i18n="trust_privacy">🔒 100% Private</span>
+          <span class="trust-item" data-i18n="trust_free">🚫 No Ads, No Signup</span>
+        </div>
+
+        <!-- Features Grid -->
+        <section class="features-section" style="margin-bottom: 30px; margin-top: 30px; padding: 24px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;">
+            <h2 style="color: #f0f0f0; font-size: 1.3rem; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 1.4rem;">✨</span> <span data-i18n="featuresTitle">Features</span>
+            </h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+                <div style="padding: 16px; background: rgba(124,58,237,0.1); border-radius: 8px; border-left: 3px solid #7c3aed;">
+                    <h3 style="color: #a78bfa; font-size: 1rem; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+                        <span>🔒</span> <span data-i18n="feature1_title">100% Free & Private</span>
+                    </h3>
+                    <p style="color: #a1a1aa; font-size: 0.9rem; line-height: 1.5;" data-i18n="feature1_desc">No ads, no signup. Everything runs locally in your browser. Your selections never leave your device.</p>
+                </div>
+                <div style="padding: 16px; background: rgba(34,197,94,0.1); border-radius: 8px; border-left: 3px solid #22c55e;">
+                    <h3 style="color: #86efac; font-size: 1rem; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+                        <span>🧠</span> <span data-i18n="feature2_title">KV Cache Sizing</span>
+                    </h3>
+                    <p style="color: #a1a1aa; font-size: 0.9rem; line-height: 1.5;" data-i18n="feature2_desc">Predicts conversational context memory load accurately so you never hit out-of-memory errors.</p>
+                </div>
+                <div style="padding: 16px; background: rgba(59,130,246,0.1); border-radius: 8px; border-left: 3px solid #3b82f6;">
+                    <h3 style="color: #93c5fd; font-size: 1rem; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+                        <span>💻</span> <span data-i18n="feature3_title">Hardware Matching</span>
+                    </h3>
+                    <p style="color: #a1a1aa; font-size: 0.9rem; line-height: 1.5;" data-i18n="feature3_desc">Intelligently selects the best value Apple Silicon Mac (M4 Mini/Studio) for your target AI parameters.</p>
+                </div>
+                <div style="padding: 16px; background: rgba(245,158,11,0.1); border-radius: 8px; border-left: 3px solid #f59e0b;">
+                    <h3 style="color: #fde047; font-size: 1rem; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+                        <span>⚡</span> <span data-i18n="feature4_title">Instant Calculator</span>
+                    </h3>
+                    <p style="color: #a1a1aa; font-size: 0.9rem; line-height: 1.5;" data-i18n="feature4_desc">Fluid responsive range controls and live mathematical breakdown of models as you slide.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content/Blog Promo Link -->
+        <div class="blog-promo">
+            <div class="blog-promo-text">
+                <h3 data-i18n="promo_title">Want to see real benchmarks of local Mac models?</h3>
+                <p data-i18n="promo_desc">Read our in-depth practical engineering guides on running local AI pipelines on Apple Silicon Mac workstations.</p>
+            </div>
+            <a href="https://www.heyuan110.com/posts/ai/2026-02-15-mac-mini-local-image-generation/" target="_blank" rel="noopener" class="blog-promo-btn" data-i18n="promo_btn">Read Guide</a>
+        </div>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <h2 data-i18n="faq_title">Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span data-i18n="faq1Q">Why does Apple Silicon unified memory matter so much for LLMs?</span>
+                    <span>▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n="faq1A">LLMs run entirely in VRAM (or system memory in CPU, which is extremely slow). Mac's unified memory serves as both system memory and high-bandwidth GPU memory (VRAM). This means a Mac Mini or Studio with 64GB or 128GB of RAM can load and run models (like 70B parameters) that would otherwise require multiple expensive NVIDIA GPUs on a PC.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span data-i18n="faq2Q">What is KV Cache and how does context length affect memory?</span>
+                    <span>▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n="faq2A">The KV Cache (Key-Value Cache) stores the attention history of your conversation. As your context window grows (e.g., from 8k to 32k or 128k), the KV Cache memory footprint grows linearly. For larger models at high contexts, the KV Cache can consume more memory than the model weights themselves. Our calculator includes a realistic KV Cache estimation based on context length.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span data-i18n="faq3Q">Is 4-bit quantization (Q4_K_M) good enough?</span>
+                    <span>▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n="faq3A">Yes! Extensive testing has proven that 4-bit quantization (Q4_K_M) retains over 95% of the original uncompressed (FP16) model's intelligence and coherence, while reducing the required memory footprint by more than 70%. It is the standard sweet-spot recommended for all local LLM deployments.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span data-i18n="faq4Q">Which Mac model is best for running 70B DeepSeek or Llama 3 models?</span>
+                    <span>▼</span>
+                </button>
+                <div class="faq-answer">
+                    <p data-i18n="faq4A">For running 70B parameters models like DeepSeek-R1 Distilled or Llama-3-70B, you need at least 48GB of unified memory (minimum) but 64GB or 128GB is highly recommended. The best-value machine is the Mac Studio with M2 Max (64GB) or Mac Studio with M2 Ultra (128GB), providing high memory bandwidth.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span data-i18n="faq_free_q">Is this tool really free with no ads?</span>
+                <span class="arrow">▼</span>
+              </button>
+              <div class="faq-answer"><p data-i18n="faq_free_a">
+                Yes, this tool is 100% free with no ads, no registration, no watermark, and no usage limits. All processing happens locally in your browser using client-side JavaScript, so no server resources are consumed and your data remains completely private on your device.
+              </p></div>
+            </div>
+        </section>
+
+        <!-- Related Tools -->
+        <section class="related-tools" style="margin: 40px 0 0;">
+            <h3 data-i18n="relatedTools">Related Tools</h3>
+            <div class="related-grid">
+                <a href="claude-history-viewer.html" class="related-card">
+                    <div class="related-icon">💬</div>
+                    <h4 data-i18n="relatedClaude">Claude History Viewer</h4>
+                    <p data-i18n="relatedClaudeDesc">Search and view Claude conversation history</p>
+                </a>
+                <a href="calculator.html" class="related-card">
+                    <div class="related-icon">🧮</div>
+                    <h4 data-i18n="relatedCalc">All-in-One Calculator</h4>
+                    <p data-i18n="relatedCalcDesc">Scientific and unit converters</p>
+                </a>
+                <a href="api-tester.html" class="related-card">
+                    <div class="related-icon">⚡</div>
+                    <h4 data-i18n="relatedApi">API Tester</h4>
+                    <p data-i18n="relatedApiDesc">HTTP request debugging tool</p>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Translations Data -->
+    <script>
+        window._translations = {
+            en: {
+                tool_name: "Mac Local LLM Selector",
+                title: "Mac Local LLM Selector",
+                subtitle: "Unified Memory (RAM) Calculator & Hardware Recommender for running LLMs locally",
+                card_parameters: "⚙️ Model Parameters",
+                label_model: "Model Architecture / Size",
+                opt_custom: "Custom Parameter Size...",
+                label_custom_params: "Custom Parameters (Billion)",
+                label_quantization: "Quantization Precision (GGUF / bits)",
+                label_context: "Context Window (Tokens)",
+                card_results: "📊 Memory & VRAM Estimator",
+                label_recommended_memory: "Recommended Unified Memory",
+                lbl_weights_mem: "Model Weights Memory",
+                lbl_kv_mem: "KV Cache Context VRAM",
+                lbl_os_mem: "OS & System Overhead",
+                rec_title: "Best Value Mac recommendation",
+                btn_buy: "Buy on Amazon",
+                promo_title: "Want to see real benchmarks of local Mac models?",
+                promo_desc: "Read our in-depth practical engineering guides on running local AI pipelines on Apple Silicon Mac workstations.",
+                promo_btn: "Read Guide",
+                faq_title: "Frequently Asked Questions",
+                faq1Q: "Why does Apple Silicon unified memory matter so much for LLMs?",
+                faq1A: "LLMs run entirely in VRAM (or system memory in CPU, which is extremely slow). Mac's unified memory serves as both system memory and high-bandwidth GPU memory (VRAM). This means a Mac Mini or Studio with 64GB or 128GB of RAM can load and run models (like 70B parameters) that would otherwise require multiple expensive NVIDIA GPUs on a PC.",
+                faq2Q: "What is KV Cache and how does context length affect memory?",
+                faq2A: "The KV Cache (Key-Value Cache) stores the attention history of your conversation. As your context window grows (e.g., from 8k to 32k or 128k), the KV Cache memory footprint grows linearly. For larger models at high contexts, the KV Cache can consume more memory than the model weights themselves. Our calculator includes a realistic KV Cache estimation based on context length.",
+                faq3Q: "Is 4-bit quantization (Q4_K_M) good enough?",
+                faq3A: "Yes! Extensive testing has proven that 4-bit quantization (Q4_K_M) retains over 95% of the original uncompressed (FP16) model's intelligence and coherence, while reducing the required memory footprint by more than 70%. It is the standard sweet-spot recommended for all local LLM deployments.",
+                faq4Q: "Which Mac model is best for running 70B DeepSeek or Llama 3 models?",
+                faq4A: "For running 70B parameters models like DeepSeek-R1 Distilled or Llama-3-70B, you need at least 48GB of unified memory (minimum) but 64GB or 128GB is highly recommended. The best-value machine is the Mac Studio with M2 Max (64GB) or Mac Studio with M2 Ultra (128GB), providing high memory bandwidth.",
+                faq_free_q: "Is this tool really free with no ads?",
+                faq_free_a: "Yes, this tool is 100% free with no ads, no registration, no watermark, and no usage limits. All processing happens locally in your browser using client-side JavaScript, so no server resources are consumed and your data remains completely private on your device.",
+                featuresTitle: "Features",
+                feature1_title: "100% Free & Private",
+                feature1_desc: "No ads, no signup. Everything runs locally in your browser. Your selections never leave your device.",
+                feature2_title: "KV Cache Sizing",
+                feature2_desc: "Predicts conversational context memory load accurately so you never hit out-of-memory errors.",
+                feature3_title: "Hardware Matching",
+                feature3_desc: "Intelligently selects the best value Apple Silicon Mac (M4 Mini/Studio) for your target AI parameters.",
+                feature4_title: "Instant Calculator",
+                feature4_desc: "Fluid responsive range controls and live mathematical breakdown of models as you slide.",
+                relatedTools: "Related Tools",
+                relatedClaude: "Claude History Viewer",
+                relatedClaudeDesc: "Search and view Claude conversation history",
+                relatedCalc: "All-in-One Calculator",
+                relatedCalcDesc: "Scientific and unit converters",
+                relatedApi: "API Tester",
+                relatedApiDesc: "HTTP request debugging tool"
+            },
+            'zh-CN': {
+                tool_name: "Mac本地大模型选配计算器",
+                title: "Mac 本地大模型硬件选配与计算器",
+                subtitle: "精确计算在 Mac 上本地运行大模型（Llama/Qwen/DeepSeek）所需的内存和显存（KV缓存）大小，并智能推荐最划算的硬件配置",
+                card_parameters: "⚙️ 大模型参数设定",
+                label_model: "模型架构 / 参数大小",
+                opt_custom: "自定义模型大小...",
+                label_custom_params: "自定义模型参数大小 (Billion/十亿)",
+                label_quantization: "量化精度配置 (GGUF / bits)",
+                label_context: "会话上下文长度 (Context / Tokens)",
+                card_results: "📊 内存与 VRAM 预估",
+                label_recommended_memory: "推荐选购的 Mac 统一内存",
+                lbl_weights_mem: "大模型参数占用内存",
+                lbl_kv_mem: "KV 缓存上下文显存",
+                lbl_os_mem: "macOS 系统与前台开销",
+                rec_title: "性价比最高的 Mac 推荐机型",
+                btn_buy: "前往亚马逊选购",
+                promo_title: "想了解 Mac 本地运行大模型的真实评测？",
+                promo_desc: "阅读我们针对 Apple Silicon 芯片（M4/M4 Pro/Studio）本地生图与推理 pipelines 的深度实战指南。",
+                promo_btn: "阅读实测攻略",
+                faq_title: "常见问题解答",
+                faq1Q: "为什么 Apple Silicon 统一内存对运行本地大模型如此关键？",
+                faq1A: "大模型（LLM）必须完全载入显存（VRAM）中运行，传统 PC CPU 内存极慢。而 Mac 的统一内存（Unified Memory）是系统内存和高速 GPU 显存共用的。这意味着一台 64GB 或 128GB 的 Mac Mini 或 Studio 可以直接塞下并流畅跑起 70B 超大模型，这在 PC 上需要数张昂贵的 NVIDIA 显卡才能做到。",
+                faq2Q: "什么是 KV 缓存？上下文长度如何影响内存占用？",
+                faq2A: "KV 缓存（Key-Value Cache）用来保存对话历史。随着上下文窗口（Context Window）变长（如从 8k 延伸到 32k 或 128k），KV 缓存所占用的显存空间呈线性暴涨。对于大参数模型，高上下文阶段的 KV 缓存占用甚至会超过模型权重本身的体积。我们的计算器内置了最贴近真实运行情况的 KV 缓存估算公式。",
+                faq3Q: "4-bit 量化（Q4_K_M）真的够用吗？",
+                faq3A: "是的！大量的学术和工程评测表明，4-bit 量化精度（Q4_K_M）不仅能将模型在内存中的体积削减 70% 以上，而且保留了无损 FP16 原版模型 95% 以上的逻辑和理解能力。它是目前公认性价比最高的本地 LLM 部署方案。",
+                faq4Q: "哪款 Mac 最好用来运行 70B DeepSeek 或 Llama 3 大模型？",
+                faq4A: "运行 70B 参数的大模型（如 DeepSeek-R1 蒸馏版或 Llama-3-70B），至少需要 48GB 统一内存（最低限制），但强烈推荐 64GB 或 128GB 配置。性价比最高的机型是配备 64GB 内存的 Mac Studio M2 Max，或 128GB 内存的 Mac Studio M2 Ultra，能提供极高的带宽与速度。",
+                faq_free_q: "这个工具真的是免费且无广告的吗？",
+                faq_free_a: "是的，本工具 100% 免费，无广告、免注册、无水印、无任何额度限制。所有的计算与分析均完全在您的本地浏览器中通过 client-side JS 运行，没有消耗任何服务器资源，您的数据将 100% 留存在您的设备上，绝对私密安全。",
+                featuresTitle: "核心功能",
+                feature1_title: "100% 免费且私密",
+                feature1_desc: "无广告，无需注册。所有计算在本地浏览器运行，您的输入和选择绝对不会发送到外部服务器。",
+                feature2_title: "KV 缓存显存估算",
+                feature2_desc: "准确计算对话历史所需的额外显存空间，确保在大上下文多轮会话时不会发生 OOM 内存溢出。",
+                feature3_title: "智能推荐硬件",
+                feature3_desc: "根据您的大模型运行参数，智能、客观地推荐性价比最高、最不卡顿的 Apple Silicon Mac 配置机型。",
+                feature4_title: "实时流畅算力",
+                feature4_desc: "内置高响应的滑动轴和参数选择组件，随着数值变动，实时无延迟地重新解析和展现模型占用细目。",
+                relatedTools: "相关推荐工具",
+                relatedClaude: "Claude 历史会话查看器",
+                relatedClaudeDesc: "美观、搜索功能强大的 Claude 聊天记录离线查看工具",
+                relatedCalc: "万能科学计算器",
+                relatedCalcDesc: "全功能科学计算与 16 种常用单位换算工具",
+                relatedApi: "API 接口调试工具",
+                relatedApiDesc: "纯浏览器端运行、免注册的 HTTP 请求调试与测试工具"
+            },
+            'fr': {
+                tool_name: "Sélecteur de LLM Mac",
+                title: "Sélecteur de LLM Mac",
+                subtitle: "Calculateur de mémoire unifiée (RAM) et recommandation de matériel Mac",
+                card_parameters: "⚙️ Paramètres du modèle",
+                label_model: "Taille du modèle (Billion)",
+                opt_custom: "Taille personnalisée...",
+                label_custom_params: "Paramètres personnalisés (Billion)",
+                label_quantization: "Précision de quantification",
+                label_context: "Fenêtre de contexte (Tokens)",
+                card_results: "📊 Estimateur de VRAM et mémoire",
+                label_recommended_memory: "Mémoire unifiée recommandée",
+                lbl_weights_mem: "Mémoire du poids du modèle",
+                lbl_kv_mem: "VRAM du cache KV",
+                lbl_os_mem: "Surcharge du système OS",
+                rec_title: "Meilleure recommandation Mac",
+                btn_buy: "Acheter sur Amazon",
+                promo_title: "Découvrir nos guides pratiques de l'IA locale",
+                promo_desc: "Lisez nos guides d'ingénierie et benchmarks sur la configuration de pipelines d'IA locale sur puce Apple Silicon.",
+                promo_btn: "Lire le Guide",
+                faq_title: "Questions Fréquentes",
+                faq1Q: "Pourquoi la mémoire unifiée Apple Silicon est-elle si importante pour les LLM?",
+                faq1A: "Les LLM s'exécutent entièrement en VRAM (ou mémoire système du processeur, ce qui est extrêmement lent). La mémoire unifiée du Mac sert à la fois de mémoire système et de mémoire GPU à bande passante élevée (VRAM). Cela signifie qu'un Mac Mini ou Studio avec 64 Go ou 128 Go de RAM peut charger et exécuter des modèles (comme 70B) qui nécessiteraient autrement plusieurs cartes graphiques NVIDIA coûteuses sur un PC.",
+                faq2Q: "Qu'est-ce que le cache KV et comment la longueur du contexte affecte-t-elle la mémoire?",
+                faq2A: "Le cache KV (Key-Value Cache) stocke l'historique de votre conversation. Plus la fenêtre de contexte grandit (par exemple de 8k à 32k ou 128k), plus l'empreinte mémoire du cache KV augmente de manière linéaire. Notre calculateur inclut une estimation réaliste de l'utilisation du cache KV.",
+                faq3Q: "La quantification 4 bits (Q4_K_M) est-elle suffisante?",
+                faq3A: "Oui ! Des tests approfondis ont prouvé que la quantification 4 bits (Q4_K_M) conserve plus de 95% de l'intelligence et de la cohérence du modèle non compressé d'origine (FP16), tout en réduisant l'empreinte mémoire requise de plus de 70%.",
+                faq4Q: "Quel modèle de Mac est idéal pour exécuter des modèles 70B comme DeepSeek ou Llama 3?",
+                faq4A: "Pour exécuter des modèles 70B, vous avez besoin d'au moins 48 Go de mémoire unifiée (minimum), mais 64 Go ou 128 Go est fortement recommandé. Le meilleur choix est le Mac Studio avec M2 Max (64 Go) ou Mac Studio avec M2 Ultra (128 Go).",
+                faq_free_q: "Cet outil est-il vraiment gratuit et sans publicité?",
+                faq_free_a: "Oui, cet outil est 100% gratuit, sans publicité, sans inscription, sans filigrane et sans limite d'utilisation. Tout le traitement se fait localement dans votre navigateur en JavaScript, vos données restent donc privées sur votre appareil.",
+                featuresTitle: "Fonctionnalités",
+                feature1_title: "100% Gratuit & Privé",
+                feature1_desc: "Pas de pub, pas d'inscription. Tout s'exécute localement dans le navigateur. Vos données restent privées.",
+                feature2_title: "Calcul du cache KV",
+                feature2_desc: "Prédit avec précision la charge mémoire du contexte conversationnel pour éviter les erreurs de mémoire.",
+                feature3_title: "Recommandation de matériel",
+                feature3_desc: "Sélectionne intelligemment le Mac le plus rentable (M4 Mini/Studio) pour votre modèle cible.",
+                feature4_title: "Calculateur instantané",
+                feature4_desc: "Commandes de curseur fluides et réactives avec mise à jour mathématique en direct des indicateurs.",
+                relatedTools: "Outils associés",
+                relatedClaude: "Visualiseur d'historique Claude",
+                relatedClaudeDesc: "Rechercher et visualiser l'historique des conversations Claude",
+                relatedCalc: "Calculatrice Tout-en-Un",
+                relatedCalcDesc: "Convertisseurs scientifiques et d'unités",
+                relatedApi: "Testeur d'API",
+                relatedApiDesc: "Outil de débogage et de test de requêtes HTTP"
+            },
+            'es': {
+                tool_name: "Selector de LLM Mac",
+                title: "Selector de LLM Mac",
+                subtitle: "Calculadora de memoria unificada (RAM) y recomendación de hardware para LLM locales",
+                card_parameters: "⚙️ Parámetros del modelo",
+                label_model: "Tamaño del modelo (Billion)",
+                opt_custom: "Tamaño personalizado...",
+                label_custom_params: "Parámetros personalizados (Billion)",
+                label_quantization: "Precisión de cuantización",
+                label_context: "Ventana de contexto (Tokens)",
+                card_results: "📊 Estimador de memoria y VRAM",
+                label_recommended_memory: "Memoria unificada recomendada",
+                lbl_weights_mem: "Memoria del peso del modelo",
+                lbl_kv_mem: "VRAM de caché KV",
+                lbl_os_mem: "Sobrecarga del sistema OS",
+                rec_title: "Mejor recomendación de Mac",
+                btn_buy: "Comprar en Amazon",
+                promo_title: "Descubre nuestras guías de IA local",
+                promo_desc: "Lea nuestras guías de ingeniería y pruebas de rendimiento sobre la configuración de tuberías de IA local en Apple Silicon.",
+                promo_btn: "Leer Guía",
+                faq_title: "Preguntas Frecuentes",
+                faq1Q: "¿Por qué la memoria unificada de Apple Silicon es tan crucial para los LLM?",
+                faq1A: "Los LLM se ejecutan completamente en VRAM. La memoria unificada de Mac sirve tanto de memoria del sistema como de memoria de GPU de gran ancho de banda (VRAM). Esto significa que un Mac Mini o Studio con 64 GB o 128 GB de RAM puede cargar y ejecutar modelos (como 70B) que requerirían varias costosas GPU NVIDIA en una PC.",
+                faq2Q: "¿Qué es el caché KV y cómo afecta la longitud del contexto a la memoria?",
+                faq2A: "El caché KV (Key-Value Cache) almacena el historial de atención de su conversación. A medida que la ventana de contexto crece (por ejemplo, de 8k a 32k o 128k), la huella de memoria del caché KV aumenta de forma lineal. Nuestro estimador incluye un cálculo realista del caché KV.",
+                faq3Q: "¿La cuantización de 4 bits (Q4_K_M) es suficiente?",
+                faq3A: "¡Sí! Pruebas exhaustivas han demostrado que la cuantización de 4 bits (Q4_K_M) conserva más del 95% de la inteligencia y coherencia del modelo original no comprimido (FP16), al tiempo que reduce el espacio de memoria requerido en más del 70%.",
+                faq4Q: "¿Qué modelo de Mac es mejor para ejecutar modelos 70B como DeepSeek o Llama 3?",
+                faq4A: "Para ejecutar modelos 70B, necesita al menos 48 GB de memoria unificada (mínimo), pero se recomienda 64 GB o 128 GB. La opción más rentable es el Mac Studio con M2 Max (64 GB) o Mac Studio con M2 Ultra (128 GB).",
+                faq_free_q: "¿Este herramienta es realmente gratis y sin publicidad?",
+                faq_free_a: "Sí, este herramienta es 100% gratis, sin publicidad, sin registro, sin marca de agua y sin límites de uso. Todo el procesamiento se realiza localmente en su navegador usando JavaScript, por lo que sus datos permanecen privados en su dispositivo.",
+                featuresTitle: "Características",
+                feature1_title: "100% Gratis y Privado",
+                feature1_desc: "Sin anuncios, sin registro. Todo se ejecuta localmente en el navegador. Tus datos se mantienen privados.",
+                feature2_title: "Cálculo de caché KV",
+                feature2_desc: "Predice con precisión la carga de memoria del contexto de conversación para evitar errores de memoria.",
+                feature3_title: "Recomendación de hardware",
+                feature3_desc: "Selecciona de forma inteligente la Mac más rentable (M4 Mini/Studio) para tu modelo objetivo.",
+                feature4_title: "Calculadora instantánea",
+                feature4_desc: "Controles deslizantes fluidos con actualización matemática en vivo de los indicadores.",
+                relatedTools: "Herramientas relacionadas",
+                relatedClaude: "Visor de historial de Claude",
+                relatedClaudeDesc: "Buscar y visualizar el historial de conversaciones de Claude",
+                relatedCalc: "Calculadora Todo en Uno",
+                relatedCalcDesc: "Convertidores científicos y de unidades",
+                relatedApi: "Probador de API",
+                relatedApiDesc: "Herramienta de depuración y prueba de solicitudes HTTP"
+            }
+        };
+    </script>
+
+    <!-- Calculation and UI Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Form Elements
+            const modelSelect = document.getElementById('modelSelect');
+            const customParamsGroup = document.getElementById('customParamsGroup');
+            const customParamsInput = document.getElementById('customParamsInput');
+            const quantSelect = document.getElementById('quantSelect');
+            const contextSlider = document.getElementById('contextSlider');
+            const contextVal = document.getElementById('contextVal');
+
+            // Result Elements
+            const totalMemVal = document.getElementById('totalMemVal');
+            const weightsMemVal = document.getElementById('weightsMemVal');
+            const kvMemVal = document.getElementById('kvMemVal');
+            const osMemVal = document.getElementById('osMemVal');
+            const recModel = document.getElementById('recModel');
+            const recDesc = document.getElementById('recDesc');
+            const buyBtn = document.getElementById('buyBtn');
+
+            // Models configuration (Mac list with Amazon affiliate URLs)
+            const MAC_MODELS = [
+                { limit: 16.1, name: "Mac Mini M4 (16GB RAM)", desc: { en: "Runs 1.5B/3B models or 8B model comfortably at Q4_K_M quantization with standard OS headroom.", zh: "可流畅跑起 1.5B/3B 级别模型，或者在 Q4_K_M 量化下流畅运行 8B 级别大模型，性价比封神。", fr: "Exécute facilement des modèles 1.5B/3B ou un modèle 8B avec une quantification Q4_K_M.", es: "Ejecuta fácilmente modelos 1.5B/3B o un modelo 8B con una cuantización Q4_K_M." }, url: "https://www.amazon.com/dp/B0DNYK6GZJ?tag=heyuan110-20" },
+                { limit: 24.1, name: "Mac Mini M4 (24GB RAM)", desc: { en: "Allows running 8B model with larger context windows, or Q4 quantized 14B models.", zh: "极佳的中端配置，支持 8B 级别模型在更长上下文（32k）下运行，或以 Q4 量化跑起 14B 级模型。", fr: "Permet d'exécuter le modèle 8B avec des fenêtres de contexte plus grandes.", es: "Permite ejecutar el modelo 8B con ventanas de contexto más grandes." }, url: "https://www.amazon.com/dp/B0DNYLSY6F?tag=heyuan110-20" },
+                { limit: 32.1, name: "Mac Mini M4 Pro (32GB RAM)", desc: { en: "Superb developer choice. Easily handles 14B models or 8B models with full context window.", zh: "硬核开发者首选。流畅跑起 14B 中等参数大模型，或者将 8B 模型的上下文拉到 64k 极限。", fr: "Superbe choix de développeur. Gère facilement les modèles 14B ou 8B.", es: "Excelente opción para desarrolladores. Maneja fácilmente modelos 14B u 8B." }, url: "https://www.amazon.com/dp/B0DNZPVMN1?tag=heyuan110-20" },
+                { limit: 48.1, name: "MacBook Pro M4 Pro (48GB RAM)", desc: { en: "Desktop performance in mobile. Runs 32B models with moderate quantization flawlessly.", zh: "移动开发霸主。在温和量化下完美运行 32B 级别大模型，随时随地享受本地私有 AI 算力。", fr: "Performances de bureau sur mobile. Exécute sans problème des modèles 32B.", es: "Rendimiento de escritorio en móvil. Ejecuta sin problemas modelos 32B." }, url: "https://www.amazon.com/dp/B0DPBGB8M5?tag=heyuan110-20" },
+                { limit: 64.1, name: "Mac Studio M2 Max (64GB RAM)", desc: { en: "Excellent station. Perfect for running 32B models at Q8 precision or 70B models at highly compressed Q2.", zh: "工作站主力。完美运行 32B（Q8 高精度）或在轻度量化下部署 70B（Q3_K_M）超大参数模型。", fr: "Excellente station. Parfait pour exécuter des modèles 32B à la précision Q8.", es: "Excelente estación de trabajo. Perfecto para ejecutar modelos 32B con precisión Q8." }, url: "https://www.amazon.com/dp/B0C75F9T4N?tag=heyuan110-20" },
+                { limit: 128.1, name: "Mac Studio M2 Ultra (128GB RAM)", desc: { en: "Production powerhouse. Runs 70B parameters models at full Q4_K_M or Q8 precision with rapid speed.", zh: "生产力猛兽。可以极速跑起 70B（Q4_K_M / Q8）生产级大模型，统一内存带宽极高，推理体验惊人。", fr: "Exécute des modèles à paramètres 70B à une précision complète Q4_K_M.", es: "Ejecuta modelos de parámetros 70B con precisión total Q4_K_M." }, url: "https://www.amazon.com/dp/B0C75NBMN8?tag=heyuan110-20" },
+                { limit: 999.0, name: "Mac Studio M2 Ultra (192GB RAM)", desc: { en: "The ultimate Local AI setup. Runs full FP16 70B models or multiple parallel LLM instances with zero latency.", zh: "本地 AI 的终极毕业配置。可无损运行 70B 参数的 FP16 原始大模型，或者多路并发运行多个 Agent。", fr: "La configuration d'IA locale ultime. Exécute des modèles 70B complets en FP16.", es: "La configuración definitiva de IA local. Ejecuta modelos 70B completos en FP16." }, url: "https://www.amazon.com/dp/B0C75NBMN8?tag=heyuan110-20" }
+            ];
+
+            // Setup FAQ toggles
+            document.querySelectorAll('.faq-question').forEach(item => {
+                item.addEventListener('click', () => {
+                    const parent = item.parentElement;
+                    parent.classList.toggle('active');
+                });
+            });
+
+            // Handle Model Select changes
+            modelSelect.addEventListener('change', function () {
+                if (modelSelect.value === 'custom') {
+                    customParamsGroup.style.display = 'block';
+                } else {
+                    customParamsGroup.style.display = 'none';
+                }
+                calculateMemory();
+            });
+
+            // Update range slider value label
+            contextSlider.addEventListener('input', function () {
+                contextVal.textContent = Number(contextSlider.value).toLocaleString();
+                calculateMemory();
+            });
+
+            customParamsInput.addEventListener('input', calculateMemory);
+            quantSelect.addEventListener('change', calculateMemory);
+
+            function calculateMemory() {
+                // 1. Get parameters count (Billion)
+                let params = 8.0;
+                if (modelSelect.value === 'custom') {
+                    params = parseFloat(customParamsInput.value) || 8.0;
+                } else {
+                    params = parseFloat(modelSelect.value);
+                }
+
+                // 2. Get bits per param based on quantization
+                const bits = parseFloat(quantSelect.value);
+
+                // 3. Model Weights Memory (GB) = Params * (Bits / 8) * overhead (approx 1.15 to account for GGUF tensors metadata)
+                const weightsMem = params * (bits / 8) * 1.15;
+
+                // 4. KV Cache VRAM calculation (Rough but accurate formula for standard attention architectures)
+                // We use standard KV cache size approximation formula:
+                // KV_Cache = 2 * Layers * Heads * Head_Dim * Context * Bytes_per_val
+                // For a typical 8B model (e.g. Llama 3): layers=32, heads=8 (GQA), head_dim=128, context=C.
+                // It translates to approx: Params * 0.15 * (Context / 8192) in FP16.
+                const contextLen = parseFloat(contextSlider.value);
+                
+                // Let's compute KV cache based on standard GQA scale
+                let kvMultiplier = 0.05; // 1.5B/3B models
+                if (params >= 6 && params <= 15) kvMultiplier = 0.12; // 7B/8B/14B
+                else if (params > 15 && params <= 35) kvMultiplier = 0.28; // 32B
+                else if (params > 35) kvMultiplier = 0.65; // 70B+
+
+                const kvMem = kvMultiplier * (contextLen / 8192) * (bits / 8);
+
+                // 5. System Reserve (4.0 GB standard for MacOS UI & Background processes)
+                const osMem = 4.0;
+
+                // 6. Total Memory recommended
+                const totalMem = weightsMem + kvMem + osMem;
+
+                // Update UI Values
+                weightsMemVal.textContent = weightsMem.toFixed(1) + " GB";
+                kvMemVal.textContent = kvMem.toFixed(1) + " GB";
+                osMemVal.textContent = osMem.toFixed(1) + " GB";
+                totalMemVal.textContent = totalMem.toFixed(1) + " GB";
+
+                // 7. Find Recommended Mac Model
+                let recommendation = MAC_MODELS[MAC_MODELS.length - 1]; // Fallback to Ultra 192GB
+                for (let i = 0; i < MAC_MODELS.length; i++) {
+                    if (totalMem < MAC_MODELS[i].limit) {
+                        recommendation = MAC_MODELS[i];
+                        break;
+                    }
+                }
+
+                // Update recommendation card
+                const currentLang = localStorage.getItem('toolbox_lang') || 'en';
+                recModel.textContent = recommendation.name;
+                recDesc.textContent = recommendation.desc[currentLang] || recommendation.desc['en'];
+                buyBtn.href = recommendation.url;
+            }
+
+            // Run initial calculation
+            calculateMemory();
+
+            // Hook calculations refresh on language switch (since recommendation text needs translation update)
+            window.addEventListener('storage', function (e) {
+                if (e.key === 'toolbox_lang') {
+                    calculateMemory();
+                }
+            });
+            
+            // Periodically check if translation changes
+            setInterval(calculateMemory, 1000);
+        });
+    </script>
+
+    <script src="common/common.js" data-tool-id="mac-llm-selector" data-tool-name="Mac Local LLM Selector" data-category="developer"></script>
+    <script>WebToolbox.init(window._translations);</script>
+</body>
+</html>

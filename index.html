@@ -111,6 +111,7 @@
             {"@type": "WebApplication", "name": "Audio Cutter", "url": "https://www.usemagictools.com/audio-cutter.html", "description": "Cut MP3, WAV, M4A, FLAC, AAC audio files. Visual waveform display, drag to select clip range, keyboard shortcuts."},
             {"@type": "WebApplication", "name": "Chinese Converter", "url": "https://www.usemagictools.com/chinese-converter.html", "description": "Convert between Simplified Chinese, Traditional Chinese, Hong Kong, Taiwan, and Malaysia/Singapore variants."},
             {"@type": "WebApplication", "name": "Claude Code History Viewer", "url": "https://www.usemagictools.com/claude-history-viewer.html", "description": "View and search Claude Code conversation history. Supports JSONL format import with beautiful interface."},
+            {"@type": "WebApplication", "name": "Mac Local LLM Selector", "url": "https://www.usemagictools.com/mac-llm-selector.html", "description": "Calculate memory and VRAM requirements for local models on Apple Silicon Mac workstations, and recommend the best-value Mac Mini, Studio or MacBook Pro."},
             {"@type": "WebApplication", "name": "Online Image Editor", "url": "https://www.usemagictools.com/image-editor.html", "description": "Image editor with crop, flip, rotate, color adjustment, filters, annotations, and text overlay."},
             {"@type": "WebApplication", "name": "Timestamp Converter", "url": "https://www.usemagictools.com/timestamp-converter.html", "description": "Convert between Unix timestamps and date/time. View multiple time zones with code examples for various languages."},
             {"@type": "WebApplication", "name": "Social Video Downloader", "url": "https://www.usemagictools.com/social-video-downloader.html", "description": "Download videos from TikTok, X, Instagram Reels, Facebook, YouTube. No watermark, HD quality, one-click download."},
@@ -1162,6 +1163,24 @@
                         <li data-i18n="tool_pwgen_f4">批量生成和历史记录</li>
                     </ul>
                     <a href="password-generator.html" class="tool-btn" data-i18n="openTool">打开工具 →</a>
+                </div>
+            </div>
+
+            <!-- Mac 本地 LLM 配置计算器 -->
+            <div class="tool-card" data-tool="mac local llm selector memory ram vram calculator deepseek llama qwen apple silicon" data-category="developer" data-sort="11">
+                <span class="tool-badge hot">HOT</span>
+                <img src="screenshots/calculator-v1.webp" alt="Mac 本地大模型配置计算器" class="tool-screenshot">
+                <div class="tool-content">
+                    <div class="tool-icon">💻</div>
+                    <h2 class="tool-title" data-i18n="tool_macllm_title">Mac本地大模型配置计算器</h2>
+                    <p class="tool-desc" data-i18n="tool_macllm_desc">精确预估本地运行LLM所需的内存与显存</p>
+                    <ul class="tool-features">
+                        <li data-i18n="tool_macllm_f1">大模型参数占用内存计算</li>
+                        <li data-i18n="tool_macllm_f2">动态会话KV缓存估算</li>
+                        <li data-i18n="tool_macllm_f3">智能推荐高性价比Mac机型</li>
+                        <li data-i18n="tool_macllm_f4">集成高转化率亚马逊选购卡片</li>
+                    </ul>
+                    <a href="mac-llm-selector.html" class="tool-btn" data-i18n="openTool">打开工具 →</a>
                 </div>
             </div>
 
@@ -2325,6 +2344,12 @@
                     tool_m3u8_f2: '实时视频预览（自动播放）',
                     tool_m3u8_f3: '下载进度可视化',
                     tool_m3u8_f4: '支持暂停/继续下载',
+                    tool_macllm_title: 'Mac本地大模型配置计算器',
+                    tool_macllm_desc: '精确预估本地运行LLM所需的内存与显存',
+                    tool_macllm_f1: '大模型参数占用内存计算',
+                    tool_macllm_f2: '动态会话KV缓存估算',
+                    tool_macllm_f3: '智能推荐高性价比Mac机型',
+                    tool_macllm_f4: '集成高转化率亚马逊选购卡片',
                     tool_json_title: 'JSON 查看器',
                     tool_json_desc: '美观的 JSON 数据可视化与格式化工具',
                     tool_json_f1: '语法高亮显示',
@@ -2740,6 +2765,12 @@
                     tool_m3u8_f2: 'Real-time video preview (auto-play)',
                     tool_m3u8_f3: 'Visual download progress',
                     tool_m3u8_f4: 'Support pause/resume download',
+                    tool_macllm_title: 'Mac Local LLM Selector',
+                    tool_macllm_desc: 'Calculate RAM & VRAM requirements for local models on Apple Silicon',
+                    tool_macllm_f1: 'Model weights memory estimation',
+                    tool_macllm_f2: 'Dynamic KV cache VRAM sizing',
+                    tool_macllm_f3: 'Cheapest-fit Mac recommendations',
+                    tool_macllm_f4: 'High-converting Amazon affiliate links',
                     tool_json_title: 'JSON Viewer',
                     tool_json_desc: 'Beautiful JSON data visualization and formatting tool',
                     tool_json_f1: 'Syntax highlighting',
@@ -3155,6 +3186,12 @@
                     tool_m3u8_f2: 'Aperçu vidéo en temps réel',
                     tool_m3u8_f3: 'Progression visuelle du téléchargement',
                     tool_m3u8_f4: 'Pause/reprise du téléchargement',
+                    tool_macllm_title: 'Mac Local LLM Selector',
+                    tool_macllm_desc: 'Calculate RAM & VRAM requirements for local models on Apple Silicon',
+                    tool_macllm_f1: 'Model weights memory estimation',
+                    tool_macllm_f2: 'Dynamic KV cache VRAM sizing',
+                    tool_macllm_f3: 'Cheapest-fit Mac recommendations',
+                    tool_macllm_f4: 'High-converting Amazon affiliate links',
                     tool_json_title: 'Visionneur JSON',
                     tool_json_desc: 'Visualisation et formatage élégants des données JSON',
                     tool_json_f1: 'Coloration syntaxique',
